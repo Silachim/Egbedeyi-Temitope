@@ -1,220 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Temitope F. Egbedeyi | Official Website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Temitope F. Egbedeyi | Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --accent-1:#1b4de4;
-      --accent-2:#4f8df5;
-      --muted:#6b7280;
-      --radius:12px;
-      --transition-time:0.6s;
-      --home-bg: linear-gradient(135deg, #4f8df5, #1b4de4);
-      --about-bg: #f9fafb;
-      --research-bg: #eef2ff;
-      --publications-bg: #fff7ed;
-      --blog-bg: #f0fdf4;
-      --contact-bg: #fff0f6;
-    }
-
-    *{ box-sizing:border-box; transition: all var(--transition-time) ease-in-out; }
-    body { margin:0; font-family: Inter, Roboto, Arial, sans-serif; color:#0f172a; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
-
-    header{
-      background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
-      color:white; padding:72px 20px; text-align:center;
-      animation: fadeInDown 1s ease-out;
-    }
-    header h1{ font-size:40px; margin:0 0 10px; }
-    header p{ font-size:18px; max-width:980px; margin:0 auto; line-height:1.6; opacity:0.95; }
-
-    nav{
-      background:#ffffff; display:flex; justify-content:center; gap:28px; padding:14px 16px;
-      box-shadow:0 2px 8px rgba(11,15,30,0.03); position:sticky; top:0; z-index:50;
-    }
-    nav a{ color:var(--accent-1); text-decoration:none; font-weight:600; transition: color 0.3s;}
-    nav a:hover{ color:var(--accent-2); text-decoration:underline }
-
-    main{ max-width:1100px; margin:0 auto; padding:0 18px }
-
-    section{
-      padding:60px 20px; border-radius:var(--radius); margin-bottom:28px;
-      color:#0f172a; position:relative; overflow:hidden;
-    }
-    section h2{ margin-top:0; font-size:32px; animation: fadeInUp 0.8s ease-out;}
-    section h3{ margin-bottom:12px; color:var(--accent-1); }
-
-    .lead{ font-size:16px; line-height:1.6; margin-bottom:16px; animation: fadeInUp 1s ease-out; }
-
-    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
-    .link-list{ padding-left:1rem; margin-bottom:16px; }
-    .link-list li{ margin:8px 0; transition: transform 0.3s; }
-    .link-list li:hover{ transform:translateX(5px); }
-    a.btn{ display:inline-block; padding:10px 18px; background:var(--accent-1); color:white; border-radius:10px; text-decoration:none; margin-top:12px; transition: background 0.3s, transform 0.3s;}
-    a.btn:hover{ background:var(--accent-2); transform:scale(1.05); }
-
-    footer{ text-align:center; padding:28px 10px; color:var(--muted); background:#f5f5f5 }
-
-    img{ border-radius:12px; max-width:100%; transition: transform 0.5s;}
-    img:hover{ transform:scale(1.03); }
-
-    /* Section backgrounds */
-    #home{ background:var(--home-bg); color:white; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
-    #home::after{ display: none; } /* Remove overlay */
-    #home > .grid, #home h2, #home p, #home a{ position: relative; z-index:1; }
-
-    #about{ background:var(--about-bg); }
-    #research{ background:var(--research-bg); }
-    #publications{ background:var(--publications-bg); }
-    #blog{ background:var(--blog-bg); }
-    #contact{ background:var(--contact-bg); }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from { opacity:0; transform: translateY(20px);}
-      to { opacity:1; transform: translateY(0);}
-    }
-    @keyframes fadeInDown {
-      from { opacity:0; transform: translateY(-20px);}
-      to { opacity:1; transform: translateY(0);}
-    }
-
-    @media (max-width:600px){ header h1{ font-size:28px } .grid{ grid-template-columns:1fr } }
+    body { margin:0; font-family: 'Roboto', sans-serif; background: linear-gradient(135deg,#4f8df5,#1b4de4); color:white; }
+    header{ text-align:center; padding:100px 20px; }
+    header h1{ font-family:'Montserrat', sans-serif; font-size:48px; margin-bottom:20px; }
+    header p{ font-size:20px; max-width:800px; margin:0 auto; line-height:1.6; }
+    nav{ display:flex; justify-content:center; gap:28px; background:white; padding:14px; position:sticky; top:0; z-index:50; }
+    nav a{ text-decoration:none; font-weight:600; color:#1b4de4; }
+    nav a:hover{ color:#4f8df5; }
+    main{ max-width:1000px; margin:50px auto; padding:0 20px; text-align:center; }
+    a.btn{ display:inline-block; padding:12px 22px; background:white; color:#1b4de4; border-radius:12px; text-decoration:none; font-weight:600; margin-top:20px; transition:0.3s; }
+    a.btn:hover{ background:#4f8df5; color:white; transform:scale(1.05); }
+    footer{ text-align:center; padding:30px 10px; background:#0f172a; color:white; margin-top:50px; }
   </style>
 </head>
 <body>
 
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="research.html">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="blog.html">Blog & Media</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
   <header>
     <h1>Temitope F. Egbedeyi</h1>
     <p>Explore early childhood mathematics education through innovative research, place-based learning, and community-driven initiatives. Connect classroom theory with real-world impact in Nigeria and the United States.</p>
+    <a class="btn" href="research.html">Explore Research</a>
   </header>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#publications">Publications</a>
-    <a href="#blog">Blog & Media</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <main>
-    <!-- HOME -->
-    <section id="home">
-      <div class="grid">
-        <div>
-          <h2>Welcome</h2>
-          <p class="lead">I study how young children build mathematical understanding — with a focus on fraction division, multiplicative reasoning, and place-based approaches connecting classroom learning to community life in Nigeria and the United States.</p>
-          <a class="btn" href="#research">Explore Research</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="grid">
-        <img src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" alt="Portrait">
-        <div>
-          <h2>About Me</h2>
-          <p class="lead">I am an early childhood mathematics education researcher whose work investigates students’ multiplicative reasoning, fraction division, sociomathematical norms, and eye-tracking analysis of early mathematical cognition. My scholarship bridges Nigeria and the United States with place-based approaches.</p>
-          <p class="lead"><strong>Affiliations:</strong> Kent State University</p>
-          <p class="lead"><strong>Personal:</strong> Married to Omowumi C. Tope‑Egbedeyi.</p>
-
-          <h3>Awards & Recognition</h3>
-          <ul class="link-list">
-            <li>National Science Foundation (NSF) Grant Award, USA</li>
-            <li>Jaffe Foundation Grant, USA</li>
-            <li>Tertiary Education Trust Fund National Research Award (TETFUND NRA), Nigeria</li>
-            <li>Kent State University EHHS Award</li>
-          </ul>
-
-          <h3>Professional Memberships</h3>
-          <ul class="link-list">
-            <li>Research Council on Mathematics Learning (RCML)</li>
-            <li>North American Chapter of PME-NA</li>
-            <li>American Educational Research Association (AERA)</li>
-            <li>Early Childhood Association of Nigeria (ECAN)</li>
-          </ul>
-
-          <a class="btn" href="#contact">Get in Touch</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESEARCH -->
-    <section id="research">
-      <h2>Research</h2>
-      <div class="grid">
-        <div>
-          <h3>Current Projects</h3>
-          <ul class="link-list">
-            <li>Eye‑tracking study of Grade 3 multiplicative reasoning.</li>
-            <li>Preservice teachers' embodied noticing during fraction tasks.</li>
-            <li>Place‑based mathematics curriculum grounded in Nigerian contexts.</li>
-            <li>Sociomathematical norms and classroom algorithm choices.</li>
-          </ul>
-          <a class="btn" href="#publications">See Publications</a>
-        </div>
-        <img src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/research-methods-covid-webinar-header.jpg" alt="Research Diagram">
-      </div>
-    </section>
-
-    <!-- PUBLICATIONS -->
-    <section id="publications">
-      <h2>Publications & Profiles</h2>
-      <div class="grid">
-        <div>
-          <h3>Profiles</h3>
-          <ul class="link-list">
-            <li><a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
-            <li><a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2/research" target="_blank">ResearchGate</a></li>
-            <li><a href="https://orcid.org/" target="_blank">ORCID</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3>Selected Works</h3>
-          <ul class="link-list">
-            <li><a href="https://ejournal.upi.edu/index.php/IJCSNE/article/view/54194" target="_blank">Availability and Challenges of Inclusive Lower Primary Education Schools (2024)</a></li>
-            <li><a href="http://www.jeredajournal.com/index.php/home/article/download/240/182/2246" target="_blank">Teachers’ Awareness and Utilisation of Indigenous Games (2024)</a></li>
-            <li><a href="#" target="_blank">Eye‑tracking multiplicative reasoning (preprint / forthcoming)</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- BLOG -->
-    <section id="blog">
-      <h2>Blog & Media</h2>
-      <div class="post">
-        <h3><a href="https://www.vanguardngr.com/2024/11/nigerian-scholar-redefines-teacher-training-with-global-math-research/" target="_blank">Nigerian scholar redefines teacher training with global math research</a></h3>
-        <p class="meta">15 Nov 2024 — Vanguard</p>
-      </div>
-      <div class="post">
-        <h3><a href="https://guardian.ng/news/nigerian-researcher-egbedeyi-breaks-new-ground-in-childhood-math-learning-with-eye-tracking-tech/" target="_blank">Egbedeyi breaks new ground in childhood math learning with eye‑tracking tech</a></h3>
-        <p class="meta">18 Jun 2025 — The Guardian</p>
-      </div>
-      <div class="post">
-        <h3><a href="https://guardian.ng/news/nigeria/metro/academy-trains-students-champions-digital-research-skills-at-ui-masterclass/" target="_blank">Academy trains students, champions digital research skills at UI masterclass</a></h3>
-        <p class="meta">5 Nov 2025 — The Guardian</p>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p class="lead">For collaborations, speaking invitations, or research inquiries — please reach out.</p>
-      <ul class="link-list">
-        <li><strong>Email:</strong> <a href="mailto:egbedeyitemitope@gmail.com">egbedeyitemitope@gmail.com</a></li>
-        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/temitope-egbedeyi" target="_blank">linkedin.com/in/temitope-egbedeyi</a></li>
-        <li><strong>ResearchGate:</strong> <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2/research" target="_blank">researchgate.net/profile/Temitope-Egbedeyi-2</a></li>
-      </ul>
-    </section>
-  </main>
-
   <footer>
-    <p>&copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement</p>
+    &copy; 2025 Temitope F. Egbedeyi
   </footer>
 
 </body>
