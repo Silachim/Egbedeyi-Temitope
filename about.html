@@ -1,67 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Temitope F. Egbedeyi</title>
+
+  <!-- ✅ SEO META TAGS -->
+  <meta name="description" content="Learn more about Temitope F. Egbedeyi, an early childhood mathematics education researcher and doctoral candidate at Kent State University. Explore awards, professional memberships, and personal background." />
+  <meta name="keywords" content="Temitope Egbedeyi, Mathematics Education Researcher, Doctoral Candidate, Kent State University, University of Ibadan, Awards, Professional Memberships, Early Childhood Mathematics" />
+  <meta name="author" content="Temitope F. Egbedeyi" />
+
+  <!-- ✅ OPEN GRAPH -->
+  <meta property="og:title" content="About | Temitope F. Egbedeyi" />
+  <meta property="og:description" content="Explore the biography, awards, and professional memberships of Temitope F. Egbedeyi, a doctoral candidate and Research Assistant at Kent State University." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://silachim.github.io/Egbedeyi-Temitope/about.html" />
+  <meta property="og:image" content="assets/Image%201.jpg" />
+
+  <!-- ✅ TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About | Temitope F. Egbedeyi" />
+  <meta name="twitter:description" content="Learn about Temitope F. Egbedeyi, his awards, professional memberships, and research background in early childhood mathematics education." />
+  <meta name="twitter:image" content="assets/Image%201.jpg" />
+  <meta name="twitter:site" content="@topmost89" />
+  <meta name="twitter:creator" content="@topmost89" />
+
+  <!-- ✅ STRUCTURED DATA (PERSON SCHEMA) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Person",
+    "name": "Temitope F. Egbedeyi",
+    "url": "https://silachim.github.io/Egbedeyi-Temitope/about.html",
+    "image": "assets/Image%201.jpg",
+    "jobTitle": "Doctoral Candidate & Research Assistant",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Kent State University"
+    },
+    "worksFor": {
+      "@type": "CollegeOrUniversity",
+      "name": "Kent State University",
+      "department": "School of Teaching, Learning & Curriculum Studies"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Ibadan"
+    },
+    "sameAs": [
+      "https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en",
+      "https://orcid.org/0000-0002-7300-2387",
+      "https://www.researchgate.net/profile/Temitope-Egbedeyi-2/research",
+      "https://www.linkedin.com/in/temitope-egbedeyi",
+      "https://x.com/topmost89"
+    ],
+    "description": "Early childhood mathematics education researcher focusing on multiplicative reasoning, fraction division, sociomathematical norms, and place-based mathematics learning. Awards, professional memberships, and personal background."
+  }
+  </script>
+
+  <!-- ✅ FAVICON -->
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+  <!-- ✅ CANONICAL URL -->
+  <link rel="canonical" href="https://silachim.github.io/Egbedeyi-Temitope/about.html" />
+
+  <!-- ✅ STYLES -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
     :root {
-      --accent-1:#1b4de4;
-      --accent-2:#4f8df5;
-      --muted:#6b7280;
-      --radius:12px;
-      --transition:0.6s;
+      --deep-blue: #1B3A57;
+      --gold: #D4AF37;
+      --medium-blue: #2E6BA5;
+      --bg-white: #FFFFFF;
+      --radius: 12px;
+      --transition-time: 0.3s;
+      --shadow: rgba(0,0,0,0.1) 0px 4px 12px;
     }
+    * { box-sizing: border-box; margin:0; padding:0; font-family: 'Open Sans', sans-serif; }
+    body { background: var(--bg-white); color: var(--deep-blue); line-height:1.6; }
 
-    *{ box-sizing:border-box; margin:0; padding:0; font-family: Inter, Roboto, Arial, sans-serif; transition: all var(--transition) ease-in-out; }
-    body{ color:#0f172a; scroll-behavior:smooth; }
-
-    /* NAVIGATION */
-    nav{ position: sticky; top:0; background:#ffffff; display:flex; justify-content:center; gap:28px; padding:14px 16px; box-shadow:0 2px 8px rgba(11,15,30,0.03); z-index:50; }
-    nav a{ color:var(--accent-1); text-decoration:none; font-weight:600; transition: color 0.3s; }
-    nav a:hover{ color:var(--accent-2); text-decoration:underline }
-    nav a.active{ color:var(--accent-2); border-bottom:2px solid var(--accent-2); padding-bottom:2px; }
-
-    header{ text-align:center; padding:72px 20px; }
-    header h1{ font-size:36px; color:var(--accent-1); margin-bottom:12px; }
-    header p{ font-size:18px; max-width:900px; margin:0 auto; line-height:1.6; opacity:0.9; }
-
-    main{ max-width:1100px; margin:0 auto; padding:0 20px; display:flex; flex-direction:column; gap:28px; }
-    section{ padding:60px 20px; border-radius:var(--radius); margin-bottom:28px; position:relative; overflow:hidden; }
-    section h2{ font-size:32px; margin-top:0; }
-    section h3{ color:var(--accent-1); margin-bottom:12px; }
-    .lead{ font-size:16px; line-height:1.6; margin-bottom:16px; }
-    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; align-items:start; }
-    .link-list{ padding-left:1rem; margin-bottom:16px; }
-    .link-list li{ margin:8px 0; transition: transform 0.3s; }
-    .link-list li:hover{ transform:translateX(5px); }
-    a.btn{ display:inline-block; padding:10px 18px; background:var(--accent-1); color:white; border-radius:10px; text-decoration:none; margin-top:12px; transition: background 0.3s, transform 0.3s; }
-    a.btn:hover{ background:var(--accent-2); transform:scale(1.05); }
-    footer{ text-align:center; padding:28px 10px; color:var(--muted); background:#f5f5f5; }
-
-    /* INTERACTIVE BACKGROUND */
-    .bg-animated { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-      background: radial-gradient(circle at 20% 20%, rgba(79, 141, 245, 0.15), transparent 50%),
-                  radial-gradient(circle at 80% 80%, rgba(27, 77, 228, 0.15), transparent 50%);
-      animation: float 16s infinite alternate ease-in-out;
+    nav{
+      background:#ffffff; display:flex; justify-content:center; gap:28px; padding:14px 16px;
+      box-shadow:0 2px 8px rgba(11,15,30,0.03); position:sticky; top:0; z-index:50;
     }
-    @keyframes float { 0%{ transform: translateY(0px);} 100%{ transform: translateY(20px);} }
+    nav a{ color:var(--medium-blue); text-decoration:none; font-weight:600; transition: color 0.3s; }
+    nav a:hover{ color:var(--deep-blue); text-decoration:underline }
+    nav a.active { color: var(--deep-blue); border-bottom: 2px solid var(--medium-blue); padding-bottom:2px; }
 
-    /* FLOATING BUTTONS */
-    .floating-buttons { position: fixed; right: 22px; bottom: 26px; display:flex; flex-direction: column; gap:14px; z-index:20; }
-    .floating-buttons a{ display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; color:white; text-decoration:none; font-size:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
-    .floating-buttons a:hover{ transform:scale(1.1); }
-    .btn-top{ background: var(--accent-1); }
-    .btn-contact{ background: var(--accent-2); }
+    header.hero { display:flex; align-items:center; padding:60px 20px; gap:30px; flex-wrap: wrap; }
+    .portrait { width:180px; height:180px; border-radius:50%; box-shadow: var(--shadow); object-fit:cover; }
+    .intro { max-width:700px; font-size:18px; }
+    .intro p { margin-top:0; }
 
-    @media(max-width:600px){ header h1{ font-size:28px } .grid{ grid-template-columns:1fr } }
+    section { padding:60px 20px; max-width:1100px; margin:0 auto; }
+
+    section h2 { font-family: 'Montserrat', sans-serif; font-size:32px; margin-bottom:24px; border-bottom:2px solid var(--medium-blue); padding-bottom:6px; }
+
+    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
+
+    .card { background:#f9f9f9; padding:20px; border-radius:var(--radius); box-shadow: var(--shadow); text-align:center; transition: transform var(--transition-time); }
+    .card:hover { transform: scale(1.05); }
+    .card i { font-size:28px; color: var(--gold); margin-bottom:10px; display:block; }
+    .card h3 { font-size:20px; margin-bottom:6px; }
+    .card p { font-size:14px; color:#555; }
+
+    .two-column { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+    .personal { background:#f0f4ff; padding:20px; border-radius:var(--radius); text-align:center; font-weight:600; font-size:18px; }
+
+    a.btn { display:inline-block; padding:12px 20px; background:var(--medium-blue); color:white; border-radius:10px; text-decoration:none; margin-top:20px; transition: background 0.3s, transform 0.3s; font-weight:600; }
+    a.btn:hover { background: var(--deep-blue); transform: scale(1.05); }
+
+    footer { text-align:center; padding:28px 10px; color:#6b7280; background:#f5f5f5; margin-top:60px; }
+
+    @media(max-width:600px){ header.hero { flex-direction: column; text-align:center; } .intro { max-width:100%; } }
   </style>
+
+  <!-- ICONS (Font Awesome) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-
-  <div class="bg-animated"></div>
-
-  <!-- Navigation Bar -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html" class="active">About</a>
@@ -71,47 +129,52 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <header>
-    <h1>About Me</h1>
-    <p>I am an early childhood mathematics education researcher bridging Nigeria and the United States with place-based approaches. I investigate multiplicative reasoning, fraction division, sociomathematical norms, and eye-tracking of early math cognition.</p>
+  <!-- HEADER / HERO -->
+  <header class="hero">
+    <img src="assets/Image%201.jpg" alt="Portrait of Temitope F. Egbedeyi" class="portrait">
+    <div class="intro">
+      <p>I am an early childhood mathematics education researcher bridging Nigeria and the United States with place-based approaches. I investigate multiplicative reasoning, fraction division, sociomathematical norms, and eye-tracking of early math cognition.</p>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <div class="grid" style="grid-template-columns:40% 60%; gap:30px; align-items:start;">
-        <img src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" alt="Portrait" style="width:100%; height:auto; border-radius:12px;">
-        <div>
-          <p class="lead"><strong>Affiliations:</strong> Kent State University</p>
-          <p class="lead"><strong>Personal:</strong> Married to Omowumi C. Tope‑Egbedeyi.</p>
+  <!-- AWARDS & RECOGNITION -->
+  <section>
+    <h2>Awards & Recognition</h2>
+    <div class="grid">
+      <div class="card"><i class="fas fa-trophy"></i><h3>NSF Grant</h3><p>National Science Foundation, USA</p></div>
+      <div class="card"><i class="fas fa-certificate"></i><h3>Jaffe Foundation Grant</h3><p>USA</p></div>
+      <div class="card"><i class="fas fa-medal"></i><h3>TETFUND NRA</h3><p>Nigeria</p></div>
+      <div class="card"><i class="fas fa-award"></i><h3>Kent State EHHS Award</h3><p>Kent State University</p></div>
+    </div>
+  </section>
 
-          <h3>Awards & Recognition</h3>
-          <ul class="link-list">
-            <li>National Science Foundation (NSF) Grant Award, USA</li>
-            <li>Jaffe Foundation Grant, USA</li>
-            <li>Tertiary Education Trust Fund National Research Award (TETFUND NRA), Nigeria</li>
-            <li>Kent State University EHHS Award</li>
-          </ul>
+  <!-- PROFESSIONAL MEMBERSHIPS & LEADERSHIP -->
+  <section>
+    <h2>Professional Memberships & Leadership</h2>
+    <div class="two-column">
+      <div class="card"><i class="fas fa-users"></i><h3>RCML</h3></div>
+      <div class="card"><i class="fas fa-users"></i><h3>PME-NA (NA Chapter)</h3></div>
+      <div class="card"><i class="fas fa-users"></i><h3>AERA</h3></div>
+      <div class="card"><i class="fas fa-users"></i><h3>ECAN</h3></div>
+      <div class="card"><i class="fas fa-user-tie"></i><h3>GSS Alternate Senator</h3></div>
+      <div class="card"><i class="fas fa-user-graduate"></i><h3>Former GCSAC Member</h3></div>
+    </div>
+  </section>
 
-          <h3>Professional Memberships & Leadership Roles</h3>
-          <ul class="link-list">
-            <li>Research Council on Mathematics Learning (RCML)</li>
-            <li>North American Chapter of PME-NA</li>
-            <li>American Educational Research Association (AERA)</li>
-            <li>Early Childhood Association of Nigeria (ECAN)</li>
-            <li>GSS Alternate Senator</li>
-            <li>Former Member of Graduate College Student Advisory Council (GCSAC)</li>
-          </ul>
-          </div>
-    </section>
-  </main>
+  <!-- PERSONAL -->
+  <section>
+    <div class="personal">Married to Omowumi C. Tope‑Egbedeyi</div>
+  <div class="personal">Arsenal FC Supporter</div>
 
-  <div class="floating-buttons">
-    <a href="#top" class="btn-top">↑</a>
-    <a href="contact.html" class="btn-contact">✉</a>
-  </div>
+  </section>
+
+  <!-- CALL TO ACTION -->
+  <section style="text-align:center;">
+    <a href="research.html" class="btn">Explore My Research & Publications</a>
+  </section>
 
   <footer>
-    <p>&copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement</p>
+    &copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
   </footer>
 
 </body>
