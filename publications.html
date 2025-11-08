@@ -27,6 +27,9 @@
   <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 
+  <!-- FONT AWESOME -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
   <!-- STYLES -->
   <style>
     :root {
@@ -87,6 +90,81 @@
     footer { text-align:center; padding:28px 10px; color:var(--muted); background:#f5f5f5; }
 
     @media(max-width:600px){ header h1{ font-size:28px } }
+
+    /* Profile Icons Horizontal with Tooltips */
+    .profile-icons.horizontal ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+    }
+    .profile-icons.horizontal li { display:flex; align-items:center; }
+    .profile-icons.horizontal a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.3s ease, color 0.3s ease;
+      position: relative;
+    }
+    .profile-icons.horizontal a:hover { color: #000; }
+
+    .icon-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 20px;
+      color: #fff;
+      background: linear-gradient(135deg, #6b73ff, #000dff);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .icon-circle.gs { background: linear-gradient(135deg, #4285F4, #34A853); }
+    .icon-circle.rg { background: linear-gradient(135deg, #00CCBB, #009988); }
+    .icon-circle.orcid { background: linear-gradient(135deg, #A6CE39, #7CA50C); }
+    .icon-circle:hover { transform: scale(1.25) translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.35); }
+
+    /* Tooltip styles */
+    .profile-icons.horizontal a::after {
+      content: attr(title);
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0,0,0,0.75);
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 10;
+    }
+    .profile-icons.horizontal a::before {
+      content: '';
+      position: absolute;
+      bottom: 115%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 5px;
+      border-style: solid;
+      border-color: rgba(0,0,0,0.75) transparent transparent transparent;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .profile-icons.horizontal a:hover::after,
+    .profile-icons.horizontal a:hover::before {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-4px);
+    }
   </style>
 </head>
 <body>
@@ -100,6 +178,7 @@
     <a href="blog.html">Blog & Media</a>
     <a href="contact.html">Contact</a>
   </nav>
+
   <header>
   <p>Explore Temitope F. Egbedeyi’s academic profiles and publications, all updated to show the latest research output.</p>
   </header>
@@ -108,20 +187,33 @@
     <section id="profiles">
       <h2>Academic Profiles</h2>
       <p class="lead">Connect with Temitope across scholarly networks and view his full academic footprint.</p>
-      <div class="profile-icons">
-        <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank">
-        <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2/research" target="_blank">
-          </a>
-        <a href="https://orcid.org/0000-0002-7300-2387" target="_blank">
-       <li><a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank"><i class="fab fa-google"></i> Google Scholar</a></li>
-        <li><a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2/research" target="_blank"><i class="fab fa-researchgate"></i> ResearchGate</a></li>
-        <li><a href="https://orcid.org/0000-0002-7300-2387" target="_blank"><i class="fab fa-orcid"></i> ORCID</a></li>
-      </ul>
-        </a>
+
+      <div class="profile-icons horizontal">
+        <ul>
+          <li>
+            <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank" title="Google Scholar Profile">
+              <span class="icon-circle gs"><i class="fab fa-google"></i></span>
+              Google Scholar
+            </a>
+          </li>
+          <li>
+            <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2/research" target="_blank" title="ResearchGate Profile">
+              <span class="icon-circle rg"><i class="fab fa-researchgate"></i></span>
+              ResearchGate
+            </a>
+          </li>
+          <li>
+            <a href="https://orcid.org/0000-0002-7300-2387" target="_blank" title="ORCID Profile">
+              <span class="icon-circle orcid"><i class="fab fa-orcid"></i></span>
+              ORCID
+            </a>
+          </li>
+        </ul>
       </div>
+
       <div class="divider"></div>
     </section>
-    
+
     <section id="publications">
       <h2>Selected Publications</h2>
       <p class="lead">A curated selection of Temitope F. Egbedeyi’s publications. All articles are linked to the original sources.</p>
