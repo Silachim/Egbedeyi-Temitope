@@ -36,40 +36,53 @@
     nav a.active { color: var(--accent-2); border-bottom: 2px solid var(--accent-2); padding-bottom:2px; }
 
     /* HEADER */
-    header{ background:linear-gradient(135deg,var(--accent-1),var(--accent-2)); color:white; padding:100px 20px; text-align:center; border-bottom-left-radius:var(--radius); border-bottom-right-radius:var(--radius); position:relative; overflow:hidden; }
+    header{
+      background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+      color:white;
+      padding:20px 0 60px 0;
+      text-align:center;
+      border-bottom-left-radius:var(--radius);
+      border-bottom-right-radius:var(--radius);
+      position:relative;
+      overflow:hidden;
+    }
 
-    /* PORTRAIT DROP WITH GLOW - LARGER */
+    /* PORTRAIT DROP HERO IMAGE */
     .portrait-container {
-      display:flex; 
-      justify-content:center; 
-      margin-bottom:30px; 
-      position: relative;
+      width: 100%;
+      max-height: 650px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1000px;
+      margin-bottom: 30px;
     }
     .portrait-container img {
-      max-width: 450px; /* larger size */
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       border-radius: var(--radius);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 30px rgba(79,141,245,0.35);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.25), 0 0 40px rgba(79,141,245,0.35);
       opacity: 0;
       transform: translateY(-100px);
       animation: dropPortrait 1s forwards;
-      transition: box-shadow 0.3s ease-in-out;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
     .portrait-container img:hover {
-      box-shadow: 0 25px 50px rgba(0,0,0,0.35), 0 0 40px rgba(79,141,245,0.45);
+      transform: translateY(0) scale(1.05) rotateX(2deg) rotateY(2deg);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.35), 0 0 50px rgba(79,141,245,0.45);
     }
     @keyframes dropPortrait {
       0% { opacity:0; transform: translateY(-100px);}
       100% { opacity:1; transform: translateY(0);}
     }
 
-    /* HEADER CONTENT ANIMATION */
+    /* HEADER CONTENT */
     .header-content { display:flex; flex-direction:column; gap:15px; }
     .header-content h1 { font-size:42px; opacity:0; transform: translateY(20px); animation: fadeInDown 1s forwards; animation-delay:1s; }
     .header-content p { font-size:20px; max-width:980px; margin:0 auto; line-height:1.6; opacity:0; transform: translateY(20px); animation: fadeInDown 1s forwards; animation-delay:1.2s; }
     .header-content a.btn { opacity:0; transform: translateY(20px); animation: fadeInDown 1s forwards; animation-delay:1.4s; }
-
     @keyframes fadeInDown { from { opacity:0; transform: translateY(-20px);} to { opacity:1; transform: translateY(0); } }
 
     /* PROFILE ICONS */
@@ -109,6 +122,7 @@
     section{ padding:60px 20px; border-radius:var(--radius); margin-bottom:28px; position:relative; }
     section h2{ margin-top:0; font-size:32px; }
     .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+
     a.btn{ display:inline-block; padding:12px 20px; background:var(--accent-1); color:white; border-radius:10px; text-decoration:none; margin-top:15px; transition: background 0.3s, transform 0.3s; font-weight:600; }
     a.btn:hover{ background:var(--accent-2); transform:scale(1.05); }
 
@@ -121,15 +135,13 @@
 
     footer{ text-align:center; padding:28px 10px; color:var(--muted); background:#f5f5f5 }
 
-    @media (max-width:900px){ .portrait-container img { max-width:350px; } }
-    @media (max-width:600px){ header h1{ font-size:32px } header p{ font-size:16px; } .portrait-container img{ max-width:250px; } }
-    @media (max-width:400px){ .portrait-container img{ max-width:200px; } }
+    @media (max-width:900px){ .portrait-container { max-height:500px; } }
+    @media (max-width:600px){ .portrait-container { max-height:400px; } header h1{ font-size:32px } header p{ font-size:16px; } }
+    @media (max-width:400px){ .portrait-container { max-height:300px; } }
   </style>
 </head>
 
 <body>
-  <div class="bg-animated"></div>
-
   <nav>
     <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
