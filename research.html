@@ -1,4 +1,3 @@
-<!-- Research Page with Modern Navigation - Temitope F. Egbedeyi -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +16,6 @@
     *{ box-sizing:border-box; margin:0; padding:0; font-family: Inter, Roboto, Arial, sans-serif; transition: all var(--transition) ease-in-out; }
     body{ color:#0f172a; scroll-behavior:smooth; }
 
-    /* NAVIGATION */
     nav{ position: sticky; top:0; background:#ffffff; display:flex; justify-content:center; gap:28px; padding:14px 16px; box-shadow:0 2px 8px rgba(11,15,30,0.03); z-index:50; }
     nav a{ color:var(--accent-1); text-decoration:none; font-weight:600; transition: color 0.3s; }
     nav a:hover{ color:var(--accent-2); text-decoration:underline }
@@ -32,7 +30,30 @@
     section h2{ font-size:32px; margin-top:0; }
     section h3{ color:var(--accent-1); margin-bottom:12px; }
     .lead{ font-size:16px; line-height:1.6; margin-bottom:16px; }
-    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+
+    /* Grid layout for research section */
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap:40px;
+      align-items: center;
+    }
+    .research-grid img{
+      width:100%;
+      border-radius: var(--radius);
+      object-fit: cover;
+      animation: floatImg 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatImg {
+      0%{ transform: translateY(0px); }
+      100%{ transform: translateY(15px); }
+    }
+
+    @media(max-width:900px){
+      .research-grid{ grid-template-columns:1fr; }
+    }
+
     .link-list{ padding-left:1rem; margin-bottom:16px; }
     .link-list li{ margin:8px 0; transition: transform 0.3s; }
     .link-list li:hover{ transform:translateX(5px); }
@@ -55,7 +76,7 @@
     .btn-top{ background: var(--accent-1); }
     .btn-contact{ background: var(--accent-2); }
 
-    @media(max-width:600px){ header h1{ font-size:28px } .grid{ grid-template-columns:1fr } }
+    @media(max-width:600px){ header h1{ font-size:28px } }
   </style>
 </head>
 <body>
@@ -78,7 +99,8 @@
 
   <main>
     <section id="research">
-      <div class="grid">
+      <div class="research-grid">
+        <img src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/research-methods-covid-webinar-header.jpg" alt="Research Diagram">
         <div>
           <h3>Current Projects</h3>
           <ul class="link-list">
@@ -89,7 +111,6 @@
           </ul>
           <a class="btn" href="publications.html">See Publications</a>
         </div>
-        <img src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/research-methods-covid-webinar-header.jpg" alt="Research Diagram">
       </div>
     </section>
   </main>
