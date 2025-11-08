@@ -16,15 +16,20 @@
 :root {
   --accent-1:#1b4de4;
   --accent-2:#4f8df5;
-  --accent-3:#FFC72C; /* Kent State Gold */
   --muted:#6b7280;
   --radius:12px;
   --transition:0.3s;
 }
 
-/* RESET */
-* { box-sizing:border-box; margin:0; padding:0; font-family: 'Open Sans', sans-serif; transition: all var(--transition) ease-in-out; }
-body { scroll-behavior: smooth; color:#0f172a; line-height:1.6; background:#fff; }
+/* BODY & BACKGROUND */
+body.homepage {
+  scroll-behavior: smooth;
+  color:#0f172a;
+  line-height:1.6;
+  background: linear-gradient(to bottom right, #e6f0ff, #ffffff); /* subtle blue */
+  font-family: 'Open Sans', sans-serif;
+  margin:0;
+}
 
 /* NAVIGATION */
 header.kent-nav {
@@ -42,17 +47,17 @@ header.kent-nav {
 header.kent-nav .logo {
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:20px;
 }
 
 header.kent-nav .logo img {
-  height:100px;
+  height:300px;  /* large logo */
   width:auto;
 }
 
 header.kent-nav .logo span {
   font-weight:900;
-  font-size:32px;
+  font-size:100px;  /* bold large text */
   color:var(--accent-1);
 }
 
@@ -65,7 +70,7 @@ header.kent-nav .nav-links a {
   text-decoration:none;
   color:var(--accent-1);
   font-weight:600;
-  font-size:16px;
+  font-size:20px;
   transition:0.3s;
 }
 
@@ -76,11 +81,11 @@ header.kent-nav .nav-links a.active {
 
 header.kent-nav .hamburger {
   display:none;
-  font-size:24px;
+  font-size:28px;
   cursor:pointer;
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero-section {
   display:flex;
   flex-direction:column;
@@ -149,6 +154,19 @@ main {
 
 .content-section .text-content a.btn {
   margin-top:12px;
+  display:inline-block;
+  padding:12px 22px;
+  background:var(--accent-1);
+  color:#fff;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.content-section .text-content a.btn:hover {
+  background:var(--accent-2);
+  transform:scale(1.05);
 }
 
 /* PROFILE ICONS */
@@ -175,7 +193,6 @@ main {
 .profile-icons a.gs { background: linear-gradient(135deg, #4285F4, #34A853);}
 .profile-icons a.rg { background: linear-gradient(135deg, #00CCBB, #009988);}
 .profile-icons a.orcid { background: linear-gradient(135deg, #A6CE39, #7CA50C);}
-
 .profile-icons a:hover { transform:scale(1.2); }
 
 /* FLOATING BUTTONS */
@@ -192,19 +209,19 @@ footer { text-align:center; padding:28px 10px; color:var(--muted); background:#f
 @media(max-width:900px){
   .content-section { flex-direction:column; text-align:center; }
   .content-section img.side-image { margin:0 auto; }
-  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:100px; right:24px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:120px; right:24px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
   header.kent-nav .hamburger { display:block; }
 }
+
 </style>
 </head>
 
-<body>
+<body class="homepage">
   <!-- HEADER -->
   <header class="kent-nav">
     <div class="logo">
       <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
-      <span>Temitope F. Egbedeyi</span>
-    </div>
+      </div>
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
@@ -219,7 +236,7 @@ footer { text-align:center; padding:28px 10px; color:var(--muted); background:#f
   <!-- HERO IMAGE -->
   <section class="hero-section">
     <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Home%20page%20picture.jpg?raw=true" alt="Hero Image" class="hero-image">
-    <p style="font-size:20px; max-width:900px; margin:0 auto;">Explore early childhood mathematics education through innovative research, place-based learning, and community-driven initiatives connecting Nigeria and the United States.</p>
+    <p style="font-size:22px; max-width:900px; margin:0 auto;">Explore early childhood mathematics education through innovative research, place-based learning, and community-driven initiatives connecting Nigeria and the United States.</p>
     <a href="research.html" class="btn">Explore Research</a>
   </section>
 
