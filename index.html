@@ -38,7 +38,7 @@
     /* HEADER */
     header{ background:linear-gradient(135deg,var(--accent-1),var(--accent-2)); color:white; padding:100px 20px; text-align:center; border-bottom-left-radius:var(--radius); border-bottom-right-radius:var(--radius); position:relative; overflow:hidden; }
 
-    /* PORTRAIT DROP WITH GLOW */
+    /* PORTRAIT DROP WITH GLOW - LARGER */
     .portrait-container {
       display:flex; 
       justify-content:center; 
@@ -46,12 +46,12 @@
       position: relative;
     }
     .portrait-container img {
-      max-width:300px;
-      width:100%;
-      height:auto;
-      border-radius:var(--radius);
+      max-width: 450px; /* larger size */
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
       box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 30px rgba(79,141,245,0.35);
-      opacity:0;
+      opacity: 0;
       transform: translateY(-100px);
       animation: dropPortrait 1s forwards;
       transition: box-shadow 0.3s ease-in-out;
@@ -121,7 +121,9 @@
 
     footer{ text-align:center; padding:28px 10px; color:var(--muted); background:#f5f5f5 }
 
-    @media (max-width:600px){ header h1{ font-size:32px } header p{ font-size:16px; } .portrait-container img{ max-width:200px; } }
+    @media (max-width:900px){ .portrait-container img { max-width:350px; } }
+    @media (max-width:600px){ header h1{ font-size:32px } header p{ font-size:16px; } .portrait-container img{ max-width:250px; } }
+    @media (max-width:400px){ .portrait-container img{ max-width:200px; } }
   </style>
 </head>
 
