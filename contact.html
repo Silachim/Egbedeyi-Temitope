@@ -1,4 +1,4 @@
-<!-- Contact Page - Temitope F. Egbedeyi | Modern Interactive Version -->
+<!-- Contact Page with Modern Navigation - Temitope F. Egbedeyi -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,6 +24,15 @@
       animation: float 16s infinite alternate ease-in-out;
     }
     @keyframes float { 0% { transform: translateY(0px);} 100% { transform: translateY(20px); } }
+
+    /* NAVIGATION BAR */
+    nav {
+      position: sticky; top: 0; background: white; display: flex; justify-content: center; gap: 28px; padding: 14px 16px;
+      box-shadow: 0 2px 8px rgba(11,15,30,0.03); z-index: 50;
+    }
+    nav a { color: var(--accent-1); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+    nav a:hover { color: var(--accent-2); text-decoration: underline; }
+    nav a.active { color: var(--accent-2); border-bottom: 2px solid var(--accent-2); padding-bottom: 2px; }
 
     header { text-align: center; padding: 80px 20px; }
     header h1 { font-size: 40px; background: linear-gradient(135deg, var(--accent-1), var(--accent-2)); -webkit-background-clip: text; color: transparent; display:inline-block; animation: fadeIn 1.5s ease-out; }
@@ -57,6 +66,16 @@
 <body>
 
   <div class="bg-animated"></div>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="research.html">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="blog.html">Blog & Media</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
 
   <header>
     <h1>Contact</h1>
