@@ -1,49 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Temitope F. Egbedeyi | Home</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --accent-1: #1b4de4;
-      --accent-2: #4f8df5;
-      --radius: 12px;
-      --home-bg: linear-gradient(135deg,#ff7e5f,#feb47b);
-      --transition-time: 0.6s;
-    }
-    *{box-sizing:border-box; transition: all var(--transition-time) ease-in-out;}
-    body{ margin:0; font-family:'Montserrat', sans-serif; color:#0f172a;}
-    header{ display:none; } /* Already using nav */
-    main{ max-width:1200px; margin:0 auto; padding:20px; }
-    section{ padding:60px 20px; border-radius:var(--radius); margin-bottom:28px; color:white; }
-    h1,h2,h3{ margin:0 0 16px; }
-    .lead{ font-size:18px; line-height:1.6; margin-bottom:20px; }
-    a.btn{ display:inline-block; padding:12px 20px; background:white; color:var(--accent-1); border-radius:10px; text-decoration:none; font-weight:700; transition:0.3s; }
-    a.btn:hover{ background:var(--accent-1); color:white; transform:scale(1.05);}
-    .grid{ display:grid; grid-template-columns:1fr; gap:20px; }
-    @media(min-width:768px){ .grid{ grid-template-columns:2fr 3fr; } }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Temitope F. Egbedeyi | Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --radius:12px;
+  --accent-1:#1b4de4;
+  --accent-2:#4f8df5;
+  --text-light:white;
+  --text-muted:rgba(255,255,255,0.85);
+  --transition:0.5s ease-in-out;
+}
 
-    /* Page background */
-    body { background: var(--home-bg); }
-    section { background: rgba(0,0,0,0.3); padding:60px; border-radius:var(--radius); }
+/* Global */
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Inter',sans-serif;color:#0f172a;background:#f5f7fb;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+main{max-width:1200px;margin:0 auto;padding:20px;}
+section{padding:60px 20px;border-radius:var(--radius);margin-bottom:28px;position:relative;overflow:hidden;}
+h1,h2,h3{margin:0 0 16px;}
+.lead{font-size:16px;line-height:1.6;margin-bottom:20px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+a.btn{display:inline-block;padding:12px 20px;background:var(--accent-1);color:white;border-radius:10px;font-weight:700;transition:all var(--transition);}
+a.btn:hover{background:var(--accent-2);transform:scale(1.05);}
+img{border-radius:12px;max-width:100%;transition:transform 0.5s;}
+img:hover{transform:scale(1.03);}
 
-    /* Responsive images */
-    img{ max-width:100%; border-radius:12px; transition:0.5s; }
-    img:hover{ transform:scale(1.03); }
-  </style>
+/* Navigation */
+.navbar{position:sticky;top:0;width:100%;z-index:100;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+.nav-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;}
+.brand{color:white;font-weight:700;font-size:22px;}
+.nav-links{list-style:none;display:flex;gap:20px;}
+.nav-item{color:white;font-weight:600;padding:8px 12px;border-radius:8px;transition:all 0.3s ease;}
+.nav-item:hover,.nav-item.active{background:rgba(255,255,255,0.25);}
+.nav-toggle{display:none;flex-direction:column;justify-content:space-between;width:28px;height:22px;background:none;border:none;cursor:pointer;}
+.hamburger,.hamburger::before,.hamburger::after{content:'';display:block;height:3px;width:100%;background:white;border-radius:3px;transition:all 0.3s ease;}
+.hamburger::before{transform:translateY(-8px);}
+.hamburger::after{transform:translateY(5px);}
+@media(max-width:768px){
+  .nav-toggle{display:flex;}
+  .nav-links{position:absolute;top:60px;right:0;background:rgba(0,0,0,0.9);flex-direction:column;width:200px;transform:translateX(100%);transition:transform 0.3s ease-in-out;padding:20px;border-radius:0 0 0 12px;}
+  .nav-links.show{transform:translateX(0);}
+  .nav-item{padding:12px 0;}
+}
+
+/* Home Section */
+#home{background:linear-gradient(135deg,#1b4de4,#4f8df5);color:white;font-family:'Inter',sans-serif;text-align:center;}
+#home h2,#home p,#home a{position:relative;z-index:1;}
+#home::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.25);z-index:0;}
+
+/* Footer */
+footer{text-align:center;padding:20px;font-weight:500;color:white;}
+</style>
 </head>
 <body>
 
-<!-- Include Navigation -->
-<!-- NAVIGATION -->
+<!-- Navigation -->
 <nav class="navbar">
   <div class="nav-container">
     <a href="index.html" class="brand">Temitope F. Egbedeyi</a>
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      <span class="hamburger"></span>
-    </button>
+    <button class="nav-toggle"><span class="hamburger"></span></button>
     <ul class="nav-links">
       <li><a href="index.html" class="nav-item active">Home</a></li>
       <li><a href="about.html" class="nav-item">About</a></li>
@@ -54,42 +74,26 @@
     </ul>
   </div>
 </nav>
-<style>
-/* Navigation CSS (same as earlier snippet) */
-.navbar{position:sticky;top:0;width:100%;background:linear-gradient(90deg,#1b4de4,#4f8df5);z-index:100;box-shadow:0 4px 12px rgba(0,0,0,0.1);font-family:'Montserrat',sans-serif;}
-.nav-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;}
-.brand{color:white;font-weight:700;font-size:22px;text-decoration:none;}
-.nav-links{list-style:none;display:flex;gap:20px;}
-.nav-item{color:white;text-decoration:none;font-weight:600;padding:8px 12px;border-radius:8px;transition: all 0.3s ease;}
-.nav-item:hover{background:linear-gradient(135deg,#ffd200,#f7971e);color:#0f172a;}
-.nav-item.active{background:rgba(255,255,255,0.25);backdrop-filter:blur(6px);}
-.nav-toggle{display:none;flex-direction:column;justify-content:space-between;width:28px;height:22px;background:none;border:none;cursor:pointer;}
-.hamburger,.hamburger::before,.hamburger::after{content:'';display:block;height:3px;width:100%;background:white;border-radius:3px;transition:all 0.3s ease;}
-.hamburger::before{transform:translateY(-8px);}
-.hamburger::after{transform:translateY(5px);}
-@media(max-width:768px){.nav-toggle{display:flex}.nav-links{position:absolute;top:60px;right:0;background:linear-gradient(90deg,#1b4de4,#4f8df5);flex-direction:column;width:200px;transform:translateX(100%);transition:transform 0.3s ease-in-out;padding:20px;border-radius:0 0 0 12px;}.nav-links.show{transform:translateX(0);}.nav-item{padding:12px 0;}}
-</style>
-<script>
-const toggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
-toggle.addEventListener('click',()=>{navLinks.classList.toggle('show');});
-</script>
 
 <main>
-  <section>
-    <div class="grid">
-      <div>
-        <h2>Welcome</h2>
-        <p class="lead">I study how young children build mathematical understanding — with a focus on fraction division, multiplicative reasoning, and place-based approaches connecting classroom learning to community life in Nigeria and the United States.</p>
-        <a class="btn" href="research.html">Explore Research</a>
-      </div>
+  <section id="home">
+    <h1>Welcome to My Academic Portfolio</h1>
+    <p class="lead">Explore early childhood mathematics education through innovative research, place-based learning, and community-driven initiatives connecting classroom theory with real-world impact in Nigeria and the United States.</p>
+    <a class="btn" href="research.html">Explore Research</a>
+    <div style="margin-top:30px;">
       <img src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%201.jpg" alt="Home Banner">
     </div>
   </section>
 </main>
 
-<footer style="text-align:center;color:white;padding:20px;font-weight:500;">
-  &copy; 2025 Temitope F. Egbedeyi
-</footer>
+<footer>&copy; 2025 Temitope F. Egbedeyi</footer>
+
+<script>
+// Hamburger toggle
+const toggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+toggle.addEventListener('click',()=>{navLinks.classList.toggle('show');});
+</script>
+
 </body>
 </html>
