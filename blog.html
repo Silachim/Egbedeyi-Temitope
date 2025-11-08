@@ -11,37 +11,75 @@
   <meta name="keywords" content="Temitope Egbedeyi, Blog, Media, Research, Mathematics Education, Articles, Gallery" />
   <meta name="author" content="Temitope F. Egbedeyi" />
 
-  <!-- OPEN GRAPH -->
-  <meta property="og:title" content="Blog & Media | Temitope F. Egbedeyi" />
-  <meta property="og:description" content="Explore the latest blogs and media coverage of Temitope F. Egbedeyi’s research." />
-  <meta property="og:type" content="website" />
-
   <!-- FONTS -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 
-  <!-- STYLES -->
   <style>
     :root {
       --accent-1:#1b4de4;
       --accent-2:#4f8df5;
+      --accent-3:#FFC72C;
       --muted:#6b7280;
       --radius:12px;
       --transition:0.3s;
       --shadow: rgba(0,0,0,0.1) 0px 4px 12px;
     }
-    * { box-sizing: border-box; margin:0; padding:0; font-family:'Open Sans',sans-serif; transition: all var(--transition) ease-in-out; }
-    body { color:#0f172a; scroll-behavior:smooth; background:#fff; line-height:1.6; }
 
-    nav {
-      position: sticky; top:0; background:#ffffff; display:flex; justify-content:center; gap:28px; padding:14px 16px; box-shadow:0 2px 8px rgba(11,15,30,0.03); z-index:50;
+    * { box-sizing:border-box; margin:0; padding:0; font-family:'Open Sans',sans-serif; transition: all var(--transition) ease-in-out; }
+    body { background:white; color:#0f172a; scroll-behavior:smooth; line-height:1.6; }
+
+    /* UNIFORM HEADER NAVIGATION */
+    header.kent-nav {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 24px;
+      background:white;
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+      position:sticky;
+      top:0;
+      z-index:100;
     }
-    nav a { color:var(--accent-1); text-decoration:none; font-weight:600; transition: color 0.3s; }
-    nav a:hover { color:var(--accent-2); text-decoration:underline; }
-    nav a.active { color:var(--accent-2); border-bottom:2px solid var(--accent-2); padding-bottom:2px; }
+    header.kent-nav .logo {
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+    header.kent-nav .logo img {
+      height:60px;
+      width:auto;
+    }
+    header.kent-nav .logo span {
+      font-weight:700;
+      font-size:20px;
+      color:var(--accent-1);
+    }
+    header.kent-nav .nav-links {
+      display:flex;
+      gap:24px;
+    }
+    header.kent-nav .nav-links a {
+      text-decoration:none;
+      color:var(--accent-1);
+      font-weight:600;
+      font-size:16px;
+      transition:0.3s;
+    }
+    header.kent-nav .nav-links a:hover,
+    header.kent-nav .nav-links a.active {
+      color:var(--accent-2);
+      border-bottom:2px solid var(--accent-2);
+      padding-bottom:2px;
+    }
+    header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
 
-    header { text-align:center; padding:72px 20px; }
-    header h1 { font-size:36px; color:var(--accent-1); margin-bottom:12px; }
-    header p { font-size:18px; max-width:900px; margin:0 auto; line-height:1.6; opacity:0.9; }
+    /* PAGE HEADER */
+    header.page-header {
+      text-align:center;
+      padding:72px 20px;
+    }
+    header.page-header h1 { font-size:36px; color:var(--accent-1); margin-bottom:12px; }
+    header.page-header p { font-size:18px; max-width:900px; margin:0 auto; line-height:1.6; opacity:0.9; }
 
     main { max-width:1100px; margin:0 auto; padding:0 20px; display:flex; flex-direction:column; gap:48px; }
 
@@ -61,7 +99,7 @@
     .media-gallery img:hover { transform:scale(1.05); }
 
     /* Lightbox */
-    .lightbox { display:none; position:fixed; z-index:100; padding-top:60px; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.9);}
+    .lightbox { display:none; position:fixed; z-index:100; padding-top:60px; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.9); }
     .lightbox-content { margin:auto; display:block; max-width:90%; max-height:80%; border-radius:12px; }
     .close-lightbox { position:absolute; top:30px; right:30px; color:white; font-size:36px; font-weight:bold; cursor:pointer; }
 
@@ -73,33 +111,44 @@
 
     footer { text-align:center; padding:28px 10px; color:var(--muted); background:#f5f5f5; margin-top:60px; }
 
-    @media(max-width:600px){ header h1{ font-size:28px } }
+    @media(max-width:900px){
+      header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:70px; right:16px; background:white; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+      header.kent-nav .hamburger { display:block; }
+    }
+    @media(max-width:600px){ header.page-header h1{ font-size:28px; } }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="research.html">Research</a>
-    <a href="publications.html">Publications</a>
-    <a href="blog.html" class="active">Blog & Media</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <!-- HEADER -->
+  <header class="kent-nav">
+    <div class="logo">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
+      <span>Temitope F. Egbedeyi</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="blog.html" class="active">Blog & Media</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="hamburger" onclick="toggleNav()">☰</div>
+  </header>
 
-  <header>
-  <p>Stay up to date with the latest blogs, news, and media coverage about Temitope F. Egbedeyi’s research.</p>
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <h1>Blog & Media</h1>
+    <p>Stay up to date with the latest blogs, news, and media coverage about Temitope F. Egbedeyi’s research.</p>
   </header>
 
   <main>
-
     <!-- BLOGS -->
     <section id="blogs">
       <h2>Blogs & News</h2>
       <p class="lead">Read featured blogs and news articles related to Temitope’s research initiatives and academic contributions.</p>
-      <div class="grid" id="blog-grid">
-        <!-- Blogs populated dynamically -->
-      </div>
+      <div class="grid" id="blog-grid"></div>
       <div class="divider"></div>
     </section>
 
@@ -107,11 +156,8 @@
     <section id="media">
       <h2>Media Gallery</h2>
       <p class="lead">Browse images and videos highlighting conferences, webinars, and academic events.</p>
-      <div class="grid media-gallery" id="media-grid">
-        <!-- Media images populated dynamically -->
-      </div>
+      <div class="grid media-gallery" id="media-grid"></div>
     </section>
-
   </main>
 
   <!-- Lightbox -->
@@ -130,13 +176,17 @@
   </footer>
 
   <script>
+    function toggleNav(){
+      const nav = document.querySelector('.nav-links');
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    }
+
     // BLOGS
     const blogs = [
       { title:"Nigerian scholar redefines teacher training with global math research", url:"https://www.vanguardngr.com/2024/11/nigerian-scholar-redefines-teacher-training-with-global-math-research/", meta:"15 Nov 2024 — Vanguard" },
       { title:"Egbedeyi breaks new ground in childhood math learning with eye‑tracking tech", url:"https://guardian.ng/news/nigerian-researcher-egbedeyi-breaks-new-ground-in-childhood-math-learning-with-eye-tracking-tech/", meta:"18 Jun 2025 — The Guardian" },
       { title:"Academy trains students, champions digital research skills at UI masterclass", url:"https://guardian.ng/news/nigeria/metro/academy-trains-students-champions-digital-research-skills-at-ui-masterclass/", meta:"5 Nov 2025 — The Guardian" }
     ];
-
     const blogGrid = document.getElementById('blog-grid');
     blogs.forEach(blog => {
       const div = document.createElement('div');
@@ -151,7 +201,6 @@
       { title:"Portrait of Temitope F. Egbedeyi", url:"https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" },
       { title:"Placeholder Future Media", url:"https://via.placeholder.com/600x400?text=Future+Image+1" }
     ];
-
     const mediaGrid = document.getElementById('media-grid');
     mediaItems.forEach(item => {
       const img = document.createElement('img');
@@ -161,24 +210,23 @@
       mediaGrid.appendChild(img);
     });
 
-    // Lightbox
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-
     function openLightbox(src){
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
       lightbox.style.display = "block";
       lightboxImg.src = src;
     }
 
     function closeLightbox(){
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
       lightbox.style.display = "none";
       lightboxImg.src = "";
     }
 
     window.onclick = function(event){
-      if(event.target == lightbox){ closeLightbox(); }
+      if(event.target == document.getElementById('lightbox')){ closeLightbox(); }
     }
   </script>
-
 </body>
 </html>
