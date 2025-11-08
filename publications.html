@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Publications | Temitope F. Egbedeyi</title>
 
-  <!-- ✅ SEO META TAGS -->
-  <meta name="description" content="Explore Temitope F. Egbedeyi's academic profiles and research publications in early childhood mathematics education, updated dynamically from scholarly sources." />
-  <meta name="keywords" content="Temitope Egbedeyi, Mathematics Education Research, Early Childhood Education, Publications, Research Profiles, Google Scholar, ResearchGate" />
-  <meta name="author" content="Temitope F. Egbedeyi" />
+  <!-- SEO META TAGS -->
+  <meta name="description" content="Access Temitope F. Egbedeyi's scholarly profiles and dynamically updated research publications in early childhood mathematics education.">
+  <meta name="keywords" content="Temitope Egbedeyi, Publications, Google Scholar, ResearchGate, ORCID, Early Childhood Mathematics, Multiplicative Reasoning">
+  <meta name="author" content="Temitope F. Egbedeyi">
 
-  <!-- ✅ OPEN GRAPH -->
-  <meta property="og:title" content="Publications | Temitope F. Egbedeyi" />
-  <meta property="og:description" content="Explore Temitope F. Egbedeyi's scholarly profiles and research publications updated dynamically." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://silachim.github.io/Egbedeyi-Temitope/publications.html" />
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Publications | Temitope F. Egbedeyi">
+  <meta property="og:description" content="Access scholarly profiles and dynamically updated research publications in early childhood mathematics education.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://silachim.github.io/Egbedeyi-Temitope/publications.html">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg">
 
-  <!-- ✅ STYLES -->
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Publications | Temitope F. Egbedeyi">
+  <meta name="twitter:description" content="Access scholarly profiles and dynamically updated research publications in early childhood mathematics education.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg">
+
+  <!-- FONTS & ICONS -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- STYLES -->
   <style>
     :root {
       --accent-1:#1b4de4;
@@ -27,8 +37,7 @@
       --transition:0.6s;
       --shadow: rgba(0,0,0,0.1) 0px 4px 12px;
     }
-
-    *{ box-sizing:border-box; margin:0; padding:0; font-family: 'Open Sans', sans-serif; transition: all var(--transition) ease-in-out; }
+    *{ box-sizing:border-box; margin:0; padding:0; font-family: Inter, Roboto, Arial, sans-serif; transition: all var(--transition) ease-in-out; }
     body{ color:#0f172a; scroll-behavior:smooth; background:#fff; }
 
     nav{ position: sticky; top:0; background:#ffffff; display:flex; justify-content:center; gap:28px; padding:14px 16px; box-shadow:0 2px 8px rgba(11,15,30,0.03); z-index:50; }
@@ -36,41 +45,35 @@
     nav a:hover{ color:var(--accent-2); text-decoration:underline }
     nav a.active{ color:var(--accent-2); border-bottom:2px solid var(--accent-2); padding-bottom:2px; }
 
-    header{ text-align:center; padding:60px 20px; }
-    header h1{ font-size:36px; color:var(--accent-1); margin-bottom:20px; }
+    header{ text-align:center; padding:72px 20px; }
+    header h1{ font-size:36px; color:var(--accent-1); margin-bottom:12px; }
     header p{ font-size:18px; max-width:900px; margin:0 auto; line-height:1.6; opacity:0.9; }
 
-    main{ max-width:1100px; margin:0 auto; padding:0 20px; display:flex; flex-direction:column; gap:60px; }
-    section{ padding:20px 0; }
-    section p{ font-size:16px; line-height:1.6; margin-bottom:24px; }
+    main{ max-width:1100px; margin:0 auto; padding:0 20px; display:flex; flex-direction:column; gap:48px; }
 
-    .divider{ border-bottom:2px solid var(--accent-1); margin:40px 0; transition: all 0.3s; }
-    .divider:hover{ border-color:var(--accent-2); }
+    section{ padding:40px 20px; border-radius:var(--radius); position:relative; overflow:hidden; }
+    section h2{ font-family: 'Montserrat', sans-serif; font-size:32px; margin-bottom:24px; border-bottom:2px solid var(--accent-1); padding-bottom:6px; }
+    section p.intro{ font-size:16px; max-width:900px; margin:0 auto 24px auto; text-align:center; line-height:1.6; opacity:0.9; }
 
-    h2{ font-family: 'Montserrat', sans-serif; font-size:32px; margin-bottom:16px; color:var(--accent-1); }
+    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:24px; }
 
-    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; }
-
-    .card{ background:#f9f9f9; padding:25px; border-radius:var(--radius); box-shadow: var(--shadow); transition: transform 0.3s; }
+    .card{ background:#f9f9f9; padding:20px; border-radius:var(--radius); box-shadow:var(--shadow); text-align:center; transition: transform 0.3s; }
     .card:hover{ transform:scale(1.05); }
-    .card h3{ color:var(--accent-1); margin-bottom:10px; font-size:20px; }
-    .card p{ color:#555; font-size:15px; }
+    .card i{ font-size:28px; color:var(--accent-2); margin-bottom:10px; display:block; }
+    .card h3{ font-size:20px; margin-bottom:6px; }
+    .card p{ font-size:14px; color:#555; }
+    .card a{ color:var(--accent-1); text-decoration:none; transition: color 0.3s; }
+    .card a:hover{ color:var(--accent-2); text-decoration:underline; }
 
-    .link-list{ padding-left:1rem; margin-bottom:16px; font-size:18px; }
-    .link-list li{ margin:10px 0; }
-    .link-list li a{ color:var(--accent-1); text-decoration:none; transition:color 0.3s; }
-    .link-list li a:hover{ color:var(--accent-2); text-decoration:underline; }
+    .divider { height:2px; background: linear-gradient(to right, var(--accent-1), var(--accent-2)); margin:40px 0; border:none; }
 
-    footer{ text-align:center; padding:28px 10px; color:var(--muted); background:#f5f5f5; margin-top:60px; }
+    footer{ text-align:center; padding:28px 10px; color:var(--muted); background:#f5f5f5; }
 
-    @media(max-width:600px){ header h1{ font-size:28px } .grid{ grid-template-columns:1fr } }
+    @media(max-width:600px){ .grid{ grid-template-columns:1fr; } }
   </style>
-
-  <!-- ICONS -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -81,49 +84,40 @@
   </nav>
 
   <header>
-    <h1>Publications & Academic Profiles</h1>
-    <p>Explore Temitope F. Egbedeyi's scholarly profiles and research publications in early childhood mathematics education. All publications are updated dynamically from academic sources to ensure the latest research output is displayed.</p>
+    <h1>Publications</h1>
+    <p>Access scholarly profiles and dynamically updated research publications in early childhood mathematics education. Explore Google Scholar, ResearchGate, ORCID profiles, and view all publications.</p>
   </header>
 
   <main>
-    <div class="divider"></div>
-
-    <!-- Profiles -->
+    <!-- PROFILES -->
     <section>
-      <h2>Academic Profiles</h2>
-      <p>Access Temitope's academic profiles to explore citations, collaborations, and research networks. Profiles provide insight into ongoing research and scholarly impact.</p>
-      <ul class="link-list">
-        <li><a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank"><i class="fab fa-google"></i> Google Scholar</a></li>
-        <li><a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2/research" target="_blank"><i class="fab fa-researchgate"></i> ResearchGate</a></li>
-        <li><a href="https://orcid.org/0000-0002-7300-2387" target="_blank"><i class="fab fa-orcid"></i> ORCID</a></li>
-      </ul>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- Publications -->
-    <section>
-      <h2>Research Publications</h2>
-      <p>Browse selected works and dynamically updated publications in early childhood mathematics education. Each entry links to the original source for detailed reading.</p>
-      <div class="grid" id="publications">
-        <div class="card">
-          <h3>Availability and Challenges of Inclusive Lower Primary Education Schools (2024)</h3>
-          <p><a href="https://ejournal.upi.edu/index.php/IJCSNE/article/view/54194" target="_blank">Read Article</a></p>
-        </div>
-        <div class="card">
-          <h3>Teachers’ Awareness and Utilisation of Indigenous Games (2024)</h3>
-          <p><a href="http://www.jeredajournal.com/index.php/home/article/download/240/182/2246" target="_blank">Read Article</a></p>
-        </div>
-        <div class="card">
-          <h3>Eye‑tracking multiplicative reasoning (preprint / forthcoming)</h3>
-          <p><a href="#" target="_blank">Read Article</a></p>
-        </div>
+      <p class="intro">Explore Temitope F. Egbedeyi's academic profiles to access his complete scholarly works and research networks.</p>
+      <div class="grid">
+        <div class="card"><i class="fab fa-google"></i><h3>Google Scholar</h3><p><a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank">View Profile</a></p></div>
+        <div class="card"><i class="fab fa-researchgate"></i><h3>ResearchGate</h3><p><a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2/research" target="_blank">View Profile</a></p></div>
+        <div class="card"><i class="fas fa-id-badge"></i><h3>ORCID</h3><p><a href="https://orcid.org/0000-0002-7300-2387" target="_blank">View Profile</a></p></div>
       </div>
     </section>
+
+    <hr class="divider">
+
+    <!-- PUBLICATIONS -->
+    <section>
+      <p class="intro">All publications listed here are dynamically updated from scholarly sources to ensure the latest research output is displayed.</p>
+      <div class="grid">
+        <div class="card"><h3><a href="https://ejournal.upi.edu/index.php/IJCSNE/article/view/54194" target="_blank">Availability and Challenges of Inclusive Lower Primary Education Schools (2024)</a></h3><p>International Journal of Child Studies & Early Education</p></div>
+        <div class="card"><h3><a href="http://www.jeredajournal.com/index.php/home/article/download/240/182/2246" target="_blank">Teachers’ Awareness and Utilisation of Indigenous Games (2024)</a></h3><p>JEREDA Journal</p></div>
+        <div class="card"><h3><a href="https://www.researchgate.net/publication/375182308_Exploring_Preservice_Teachers'_Embodied_Noticing_of_Students'_Fraction_Division" target="_blank">Exploring Preservice Teachers’ Embodied Noticing of Students’ Fraction Division (2024)</a></h3><p>ResearchGate</p></div>
+        <div class="card"><h3><a href="https://www.vanguardngr.com/2024/11/nigerian-scholar-redefines-teacher-training-with-global-math-research/" target="_blank">Nigerian scholar redefines teacher training with global math research</a></h3><p>Vanguard, 2024</p></div>
+        <div class="card"><h3><a href="https://guardian.ng/news/nigerian-researcher-egbedeyi-breaks-new-ground-in-childhood-math-learning-with-eye-tracking-tech/" target="_blank">Egbedeyi breaks new ground in childhood math learning with eye‑tracking tech</a></h3><p>The Guardian, 2025</p></div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
     &copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
   </footer>
+
 </body>
 </html>
