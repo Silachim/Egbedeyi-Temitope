@@ -26,7 +26,7 @@
 * { box-sizing:border-box; margin:0; padding:0; font-family: 'Open Sans', sans-serif; transition: all var(--transition) ease-in-out; }
 body { scroll-behavior: smooth; color:#0f172a; line-height:1.6; background:#1b4de4; }
 
-/* NAVIGATION */
+/* HEADER / NAVIGATION */
 header.kent-nav {
   display:flex;
   align-items:center;
@@ -42,7 +42,7 @@ header.kent-nav {
 header.kent-nav .logo {
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:15px;
 }
 
 header.kent-nav .logo img {
@@ -53,7 +53,7 @@ header.kent-nav .logo img {
 header.kent-nav .logo span {
   font-weight:900;
   font-size:50px;
-  color:#FFC72C; /* Kent State Gold for visibility */
+  color:#FFC72C; /* Kent State Gold for contrast */
 }
 
 header.kent-nav .nav-links {
@@ -201,7 +201,7 @@ footer { text-align:center; padding:28px 10px; color:white; background:#1b4de4; 
 @media(max-width:900px){
   .content-section { flex-direction:column; text-align:center; }
   .content-section img.side-image { margin:0 auto; }
-  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:120px; right:24px; background:#1b4de4; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:170px; right:24px; background:#1b4de4; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
   header.kent-nav .hamburger { display:block; }
 }
 </style>
@@ -212,8 +212,7 @@ footer { text-align:center; padding:28px 10px; color:white; background:#1b4de4; 
   <header class="kent-nav">
     <div class="logo">
       <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
-      <span>Temitope F. Egbedeyi</span>
-    </div>
+          </div>
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
