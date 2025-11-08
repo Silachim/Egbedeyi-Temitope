@@ -1,66 +1,54 @@
-<!-- Home Page with Modern Navigation - Temitope F. Egbedeyi -->
+<!-- Blog & Media Page with Modern Navigation - Temitope F. Egbedeyi -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Temitope F. Egbedeyi | Official Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & Media | Temitope F. Egbedeyi</title>
   <style>
-    :root{
+    :root {
       --accent-1:#1b4de4;
       --accent-2:#4f8df5;
       --muted:#6b7280;
       --radius:12px;
-      --transition-time:0.6s;
+      --transition:0.6s;
     }
 
-    *{ box-sizing:border-box; transition: all var(--transition-time) ease-in-out; margin:0; padding:0; font-family: Inter, Roboto, Arial, sans-serif; }
-    body { margin:0; color:#0f172a; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; scroll-behavior: smooth; }
+    *{ box-sizing:border-box; margin:0; padding:0; font-family: Inter, Roboto, Arial, sans-serif; transition: all var(--transition) ease-in-out; }
+    body{ color:#0f172a; scroll-behavior:smooth; }
 
-    /* NAVIGATION */
-    nav{
-      background:#ffffff; display:flex; justify-content:center; gap:28px; padding:14px 16px;
-      box-shadow:0 2px 8px rgba(11,15,30,0.03); position:sticky; top:0; z-index:50;
-    }
+    nav{ position: sticky; top:0; background:#ffffff; display:flex; justify-content:center; gap:28px; padding:14px 16px; box-shadow:0 2px 8px rgba(11,15,30,0.03); z-index:50; }
     nav a{ color:var(--accent-1); text-decoration:none; font-weight:600; transition: color 0.3s; }
     nav a:hover{ color:var(--accent-2); text-decoration:underline }
-    nav a.active { color: var(--accent-2); border-bottom: 2px solid var(--accent-2); padding-bottom:2px; }
+    nav a.active{ color:var(--accent-2); border-bottom:2px solid var(--accent-2); padding-bottom:2px; }
 
-    header{ background:linear-gradient(135deg,var(--accent-1),var(--accent-2)); color:white; padding:72px 20px; text-align:center; animation: fadeInDown 1s ease-out; }
-    header h1{ font-size:40px; margin:0 0 10px; }
-    header p{ font-size:18px; max-width:980px; margin:0 auto; line-height:1.6; opacity:0.95; }
+    header{ text-align:center; padding:72px 20px; }
+    header h1{ font-size:36px; color:var(--accent-1); margin-bottom:12px; }
+    header p{ font-size:18px; max-width:900px; margin:0 auto; line-height:1.6; opacity:0.9; }
 
-    main{ max-width:1100px; margin:0 auto; padding:0 18px }
-    section{ padding:60px 20px; border-radius:var(--radius); margin-bottom:28px; color:#0f172a; position:relative; overflow:hidden; }
-    section h2{ margin-top:0; font-size:32px; animation: fadeInUp 0.8s ease-out; }
-    section h3{ margin-bottom:12px; color:var(--accent-1); }
-    .lead{ font-size:16px; line-height:1.6; margin-bottom:16px; animation: fadeInUp 1s ease-out; }
-    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+    main{ max-width:1100px; margin:0 auto; padding:0 20px; display:flex; flex-direction:column; gap:28px; }
+    section{ padding:60px 20px; border-radius:var(--radius); margin-bottom:28px; position:relative; overflow:hidden; }
+    section h2{ font-size:32px; margin-top:0; }
+    section h3{ color:var(--accent-1); margin-bottom:6px; }
+    .meta{ font-size:14px; color:var(--muted); margin-bottom:12px; }
+    .post{ margin-bottom:24px; }
     a.btn{ display:inline-block; padding:10px 18px; background:var(--accent-1); color:white; border-radius:10px; text-decoration:none; margin-top:12px; transition: background 0.3s, transform 0.3s; }
     a.btn:hover{ background:var(--accent-2); transform:scale(1.05); }
-    footer{ text-align:center; padding:28px 10px; color:var(--muted); background:#f5f5f5 }
 
-    /* ANIMATIONS */
-    @keyframes fadeInUp { from { opacity:0; transform: translateY(20px);} to { opacity:1; transform: translateY(0); } }
-    @keyframes fadeInDown { from { opacity:0; transform: translateY(-20px);} to { opacity:1; transform: translateY(0); } }
-
-    /* RESPONSIVE */
-    @media (max-width:600px){ header h1{ font-size:28px } .grid{ grid-template-columns:1fr } }
-
-    /* INTERACTIVE BACKGROUND */
     .bg-animated { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
       background: radial-gradient(circle at 25% 25%, rgba(79, 141, 245, 0.15), transparent 50%),
                   radial-gradient(circle at 75% 75%, rgba(27, 77, 228, 0.15), transparent 50%);
       animation: float 16s infinite alternate ease-in-out;
     }
-    @keyframes float { 0% { transform: translateY(0px);} 100% { transform: translateY(20px); } }
+    @keyframes float { 0%{ transform: translateY(0px);} 100%{ transform: translateY(20px);} }
 
-    /* FLOATING BUTTONS */
-    .floating-buttons { position: fixed; right: 22px; bottom: 26px; display: flex; flex-direction: column; gap: 14px; z-index: 20; }
-    .floating-buttons a { display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; color: white; text-decoration: none; font-size: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: 0.3s; }
-    .floating-buttons a:hover { transform: scale(1.1); }
-    .btn-top { background: var(--accent-1); }
-    .btn-contact { background: var(--accent-2); }
+    .floating-buttons { position: fixed; right: 22px; bottom: 26px; display:flex; flex-direction: column; gap:14px; z-index:20; }
+    .floating-buttons a{ display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; color:white; text-decoration:none; font-size:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
+    .floating-buttons a:hover{ transform:scale(1.1); }
+    .btn-top{ background: var(--accent-1); }
+    .btn-contact{ background: var(--accent-2); }
+
+    @media(max-width:600px){ header h1{ font-size:28px } }
   </style>
 </head>
 <body>
@@ -68,28 +56,32 @@
   <div class="bg-animated"></div>
 
   <nav>
-    <a href="index.html" class="active">Home</a>
+    <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="research.html">Research</a>
     <a href="publications.html">Publications</a>
-    <a href="blog.html">Blog & Media</a>
+    <a href="blog.html" class="active">Blog & Media</a>
     <a href="contact.html">Contact</a>
   </nav>
 
   <header>
-    <h1>Temitope F. Egbedeyi</h1>
-    <p>Explore early childhood mathematics education through innovative research, place-based learning, and community-driven initiatives. Connect classroom theory with real-world impact in Nigeria and the United States.</p>
+    <h1>Blog & Media</h1>
+    <p>Latest news, features, and media coverage related to my research and academic initiatives.</p>
   </header>
 
   <main>
-    <!-- HOME SECTION -->
-    <section id="home">
-      <div class="grid">
-        <div>
-          <h2>Welcome</h2>
-          <p class="lead">I study how young children build mathematical understanding — with a focus on fraction division, multiplicative reasoning, and place-based approaches connecting classroom learning to community life in Nigeria and the United States.</p>
-          <a class="btn" href="research.html">Explore Research</a>
-        </div>
+    <section id="blog">
+      <div class="post">
+        <h3><a href="https://www.vanguardngr.com/2024/11/nigerian-scholar-redefines-teacher-training-with-global-math-research/" target="_blank">Nigerian scholar redefines teacher training with global math research</a></h3>
+        <p class="meta">15 Nov 2024 — Vanguard</p>
+      </div>
+      <div class="post">
+        <h3><a href="https://guardian.ng/news/nigerian-researcher-egbedeyi-breaks-new-ground-in-childhood-math-learning-with-eye-tracking-tech/" target="_blank">Egbedeyi breaks new ground in childhood math learning with eye‑tracking tech</a></h3>
+        <p class="meta">18 Jun 2025 — The Guardian</p>
+      </div>
+      <div class="post">
+        <h3><a href="https://guardian.ng/news/nigeria/metro/academy-trains-students-champions-digital-research-skills-at-ui-masterclass/" target="_blank">Academy trains students, champions digital research skills at UI masterclass</a></h3>
+        <p class="meta">5 Nov 2025 — The Guardian</p>
       </div>
     </section>
   </main>
