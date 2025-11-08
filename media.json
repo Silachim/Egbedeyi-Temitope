@@ -1,34 +1,40 @@
 {
-  "images": [
+  "blog": [
     {
-      "id": 1,
-      "title": "Research Methodology Webinar",
-      "description": "Screenshot from research methods COVID webinar.",
-      "url": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/research-methods-covid-webinar-header.jpg",
-      "date": "2025-06-10"
+      "title": "Nigerian scholar redefines teacher training with global math research",
+      "url": "https://www.vanguardngr.com/2024/11/nigerian-scholar-redefines-teacher-training-with-global-math-research/",
+      "date": "2024-11-15",
+      "source": "Vanguard"
     },
     {
-      "id": 2,
-      "title": "Portrait of Temitope F. Egbedeyi",
-      "description": "Professional portrait for academic profile.",
-      "url": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg",
-      "date": "2025-11-08"
+      "title": "Egbedeyi breaks new ground in childhood math learning with eye-tracking tech",
+      "url": "https://guardian.ng/news/nigerian-researcher-egbedeyi-breaks-new-ground-in-childhood-math-learning-with-eye-tracking-tech/",
+      "date": "2025-06-18",
+      "source": "The Guardian"
     },
     {
-      "id": 3,
-      "title": "Other Academic Event",
-      "description": "Placeholder image for future media upload.",
-      "url": "https://via.placeholder.com/600x400?text=Future+Image+1",
-      "date": ""
+      "title": "Academy trains students, champions digital research skills at UI masterclass",
+      "url": "https://guardian.ng/news/nigeria/metro/academy-trains-students-champions-digital-research-skills-at-ui-masterclass/",
+      "date": "2025-11-05",
+      "source": "The Guardian"
     }
   ],
-  "videos": [
+  "media": [
     {
-      "id": 1,
-      "title": "Upcoming Research Video",
-      "description": "Placeholder for future video content.",
-      "url": "",
-      "date": ""
+      "type": "image",
+      "src": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%201.jpg",
+      "alt": "Research presentation image"
+    },
+    {
+      "type": "image",
+      "src": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg",
+      "alt": "At academic conference"
+    },
+    {
+      "type": "video",
+      "src": "#",
+      "alt": "Placeholder for future video"
     }
   ]
 }
+
