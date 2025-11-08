@@ -42,12 +42,18 @@ header.kent-nav {
 header.kent-nav .logo {
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:12px;
 }
 
 header.kent-nav .logo img {
-  height:60px;
+  height:100px;
   width:auto;
+}
+
+header.kent-nav .logo span {
+  font-weight:900;
+  font-size:32px;
+  color:var(--accent-1);
 }
 
 header.kent-nav .nav-links {
@@ -186,7 +192,7 @@ footer { text-align:center; padding:28px 10px; color:var(--muted); background:#f
 @media(max-width:900px){
   .content-section { flex-direction:column; text-align:center; }
   .content-section img.side-image { margin:0 auto; }
-  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:80px; right:24px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:100px; right:24px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
   header.kent-nav .hamburger { display:block; }
 }
 </style>
@@ -197,7 +203,7 @@ footer { text-align:center; padding:28px 10px; color:var(--muted); background:#f
   <header class="kent-nav">
     <div class="logo">
       <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
-      <span style="font-weight:800; font-size:24px; color:#1b4de4;">Temitope F. Egbedeyi</span>
+      <span>Temitope F. Egbedeyi</span>
     </div>
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
