@@ -1,0 +1,40 @@
+{
+  "blog": [
+    {
+      "title": "Nigerian scholar redefines teacher training with global math research",
+      "url": "https://www.vanguardngr.com/2024/11/nigerian-scholar-redefines-teacher-training-with-global-math-research/",
+      "date": "2024-11-15",
+      "source": "Vanguard"
+    },
+    {
+      "title": "Egbedeyi breaks new ground in childhood math learning with eye-tracking tech",
+      "url": "https://guardian.ng/news/nigerian-researcher-egbedeyi-breaks-new-ground-in-childhood-math-learning-with-eye-tracking-tech/",
+      "date": "2025-06-18",
+      "source": "The Guardian"
+    },
+    {
+      "title": "Academy trains students, champions digital research skills at UI masterclass",
+      "url": "https://guardian.ng/news/nigeria/metro/academy-trains-students-champions-digital-research-skills-at-ui-masterclass/",
+      "date": "2025-11-05",
+      "source": "The Guardian"
+    }
+  ],
+  "media": [
+    {
+      "type": "image",
+      "src": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%201.jpg",
+      "alt": "Research presentation image"
+    },
+    {
+      "type": "image",
+      "src": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg",
+      "alt": "At academic conference"
+    },
+    {
+      "type": "video",
+      "src": "#",
+      "alt": "Placeholder for future video"
+    }
+  ]
+}
+
