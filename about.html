@@ -15,13 +15,13 @@
   <meta property="og:description" content="Explore the biography, awards, and professional memberships of Temitope F. Egbedeyi, a doctoral candidate and Research Assistant at Kent State University." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://silachim.github.io/Egbedeyi-Temitope/about.html" />
-  <meta property="og:image" content="assets/Image%201.jpg" />
+  <meta property="og:image" content="assets/Image%202.jpg" />
 
   <!-- ✅ TWITTER CARD -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="About | Temitope F. Egbedeyi" />
   <meta name="twitter:description" content="Learn about Temitope F. Egbedeyi, his awards, professional memberships, and research background in early childhood mathematics education." />
-  <meta name="twitter:image" content="assets/Image%201.jpg" />
+  <meta name="twitter:image" content="assets/Image%202.jpg" />
   <meta name="twitter:site" content="@topmost89" />
   <meta name="twitter:creator" content="@topmost89" />
 
@@ -32,7 +32,7 @@
     "@type": "Person",
     "name": "Temitope F. Egbedeyi",
     "url": "https://silachim.github.io/Egbedeyi-Temitope/about.html",
-    "image": "assets/Image%201.jpg",
+    "image": "assets/Image%202.jpg",
     "jobTitle": "Doctoral Candidate & Research Assistant",
     "affiliation": {
       "@type": "CollegeOrUniversity",
@@ -87,14 +87,17 @@
     nav a:hover{ color:var(--deep-blue); text-decoration:underline }
     nav a.active { color: var(--deep-blue); border-bottom: 2px solid var(--medium-blue); padding-bottom:2px; }
 
-    header.hero { display:flex; align-items:center; padding:60px 20px; gap:30px; flex-wrap: wrap; }
+    header.hero { display:flex; align-items:flex-start; padding:60px 20px; gap:30px; flex-wrap: wrap; }
+    .hero-left { display:flex; flex-direction:column; align-items:center; }
     .portrait { width:180px; height:180px; border-radius:50%; box-shadow: var(--shadow); object-fit:cover; }
+    .personal { background:#f0f4ff; padding:12px 16px; border-radius:var(--radius); text-align:center; font-weight:600; font-size:16px; margin-top:12px; width:100%; }
+
     .intro { max-width:700px; font-size:18px; }
     .intro p { margin-top:0; }
 
     section { padding:60px 20px; max-width:1100px; margin:0 auto; }
 
-    section h2 { font-family: 'Montserrat', sans-serif; font-size:32px; margin-bottom:24px; border-bottom:2px solid var(--medium-blue); padding-bottom:6px; }
+    section h2 { font-family: 'Montserrat', sans-serif; font-size:32px; margin-bottom:16px; border-bottom:2px solid var(--medium-blue); padding-bottom:6px; }
 
     .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
 
@@ -105,7 +108,6 @@
     .card p { font-size:14px; color:#555; }
 
     .two-column { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
-    .personal { background:#f0f4ff; padding:20px; border-radius:var(--radius); text-align:center; font-weight:600; font-size:18px; }
 
     a.btn { display:inline-block; padding:12px 20px; background:var(--medium-blue); color:white; border-radius:10px; text-decoration:none; margin-top:20px; transition: background 0.3s, transform 0.3s; font-weight:600; }
     a.btn:hover { background: var(--deep-blue); transform: scale(1.05); }
@@ -131,7 +133,13 @@
 
   <!-- HEADER / HERO -->
   <header class="hero">
-    <img src="assets/Image%201.jpg" alt="Portrait of Temitope F. Egbedeyi" class="portrait">
+    <div class="hero-left">
+      <img src="assets/Image%202.jpg" alt="Portrait of Temitope F. Egbedeyi" class="portrait">
+      <div class="personal">
+        <p>Married to Omowumi C. Tope‑Egbedeyi</p>
+        <p>Arsenal FC Supporter</p>
+      </div>
+    </div>
     <div class="intro">
       <p>I am an early childhood mathematics education researcher bridging Nigeria and the United States with place-based approaches. I investigate multiplicative reasoning, fraction division, sociomathematical norms, and eye-tracking of early math cognition.</p>
     </div>
@@ -140,6 +148,7 @@
   <!-- AWARDS & RECOGNITION -->
   <section>
     <h2>Awards & Recognition</h2>
+    <p>Temitope has collaborated with distinguished scholars on numerous award-winning projects, including:</p>
     <div class="grid">
       <div class="card"><i class="fas fa-trophy"></i><h3>NSF Grant</h3><p>National Science Foundation, USA</p></div>
       <div class="card"><i class="fas fa-certificate"></i><h3>Jaffe Foundation Grant</h3><p>USA</p></div>
@@ -159,13 +168,6 @@
       <div class="card"><i class="fas fa-user-tie"></i><h3>GSS Alternate Senator</h3></div>
       <div class="card"><i class="fas fa-user-graduate"></i><h3>Former GCSAC Member</h3></div>
     </div>
-  </section>
-
-  <!-- PERSONAL -->
-  <section>
-    <div class="personal">Married to Omowumi C. Tope‑Egbedeyi</div>
-  <div class="personal">Arsenal FC Supporter</div>
-
   </section>
 
   <!-- CALL TO ACTION -->
