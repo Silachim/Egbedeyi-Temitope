@@ -2,113 +2,81 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Temitope F. Egbedeyi</title>
+
+<!-- Google Fonts for About -->
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
-:root{
-  --radius:12px;
-  --accent-1:#7b5cf7;
-  --accent-2:#f472b6;
-  --text-light:white;
-  --text-muted:rgba(255,255,255,0.85);
-  --transition:0.5s ease-in-out;
-}
-*{box-sizing:border-box;}
-body{margin:0;font-family:'Montserrat',sans-serif;color:#0f172a;background:#f5f7fb;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
-a{text-decoration:none;}
-a:hover{text-decoration:underline;}
-main{max-width:1200px;margin:0 auto;padding:20px;}
-section{padding:60px 20px;border-radius:var(--radius);margin-bottom:28px;position:relative;overflow:hidden;}
-h1,h2,h3{margin:0 0 16px;}
-.lead{font-size:16px;line-height:1.6;margin-bottom:20px;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
-a.btn{display:inline-block;padding:12px 20px;background:var(--accent-1);color:white;border-radius:10px;font-weight:700;transition:all var(--transition);}
-a.btn:hover{background:var(--accent-2);transform:scale(1.05);}
-img{border-radius:12px;max-width:100%;transition:transform 0.5s;}
-img:hover{transform:scale(1.03);}
+body { margin:0; font-family: 'Lora', serif; background:white; color:#0f172a; }
+a { text-decoration:none; }
+header{ text-align:center; padding:60px 20px; }
+h2,h3{ font-family:'Lora', serif; color:#4f8df5; }
+section{ max-width:1100px; margin:40px auto; padding:20px; }
+.btn{ display:inline-block; padding:10px 20px; background:#4f8df5; color:white; border-radius:8px; transition:0.3s; }
+.btn:hover{ background:#1b4de4; transform:scale(1.05); }
 
-/* Navigation */
-.navbar{position:sticky;top:0;width:100%;z-index:100;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));box-shadow:0 4px 12px rgba(0,0,0,0.1);}
-.nav-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;}
-.brand{color:white;font-weight:700;font-size:22px;}
-.nav-links{list-style:none;display:flex;gap:20px;}
-.nav-item{color:white;font-weight:600;padding:8px 12px;border-radius:8px;transition:all 0.3s ease;}
-.nav-item:hover,.nav-item.active{background:rgba(255,255,255,0.25);}
-.nav-toggle{display:none;flex-direction:column;justify-content:space-between;width:28px;height:22px;background:none;border:none;cursor:pointer;}
-.hamburger,.hamburger::before,.hamburger::after{content:'';display:block;height:3px;width:100%;background:white;border-radius:3px;transition:all 0.3s ease;}
-.hamburger::before{transform:translateY(-8px);}
-.hamburger::after{transform:translateY(5px);}
-@media(max-width:768px){
-  .nav-toggle{display:flex;}
-  .nav-links{position:absolute;top:60px;right:0;background:rgba(0,0,0,0.9);flex-direction:column;width:200px;transform:translateX(100%);transition:transform 0.3s ease-in-out;padding:20px;border-radius:0 0 0 12px;}
-  .nav-links.show{transform:translateX(0);}
-  .nav-item{padding:12px 0;}
-}
-
-/* About Section */
-#about{background:linear-gradient(135deg,#7b5cf7,#f472b6);color:white;font-family:'Montserrat',sans-serif;text-align:left;}
-#about::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.2);z-index:0;}
-#about > *{position:relative;z-index:1;}
-
-/* Footer */
-footer{text-align:center;padding:20px;font-weight:500;color:white;}
+.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; align-items:center; }
+img{ border-radius:12px; max-width:100%; }
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
+<!-- Navigation (same code for all pages) -->
 <nav class="navbar">
   <div class="nav-container">
     <a href="index.html" class="brand">Temitope F. Egbedeyi</a>
-    <button class="nav-toggle"><span class="hamburger"></span></button>
-    <ul class="nav-links">
-      <li><a href="index.html" class="nav-item">Home</a></li>
-      <li><a href="about.html" class="nav-item active">About</a></li>
-      <li><a href="research.html" class="nav-item">Research</a></li>
-      <li><a href="publications.html" class="nav-item">Publications</a></li>
-      <li><a href="blog.html" class="nav-item">Blog & Media</a></li>
-      <li><a href="contact.html" class="nav-item">Contact</a></li>
+    <div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="research.html" class="nav-link">Research</a></li>
+      <li><a href="publications.html" class="nav-link">Publications</a></li>
+      <li><a href="blog.html" class="nav-link">Blog & Media</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
     </ul>
   </div>
 </nav>
 
-<main>
-  <section id="about">
-    <h1>About Me</h1>
-    <p class="lead">I am an early childhood mathematics education researcher whose work investigates students’ multiplicative reasoning, fraction division, sociomathematical norms, and eye-tracking analysis of early mathematical cognition. My scholarship bridges Nigeria and the United States with place-based approaches.</p>
-    <p class="lead"><strong>Affiliations:</strong> Kent State University</p>
-    <p class="lead"><strong>Personal:</strong> Married to Omowumi C. Tope‑Egbedeyi.</p>
+<header>
+  <h1>About Me</h1>
+</header>
 
-    <h3>Awards & Recognition</h3>
-    <ul class="lead">
-      <li>National Science Foundation (NSF) Grant Award, USA</li>
-      <li>Jaffe Foundation Grant, USA</li>
-      <li>Tertiary Education Trust Fund National Research Award (TETFUND NRA), Nigeria</li>
-      <li>Kent State University EHHS Award</li>
-    </ul>
+<section>
+  <div class="grid">
+    <img src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" alt="Portrait">
+    <div>
+      <h2>Early Childhood Math Researcher</h2>
+      <p>I investigate students’ multiplicative reasoning, fraction division, sociomathematical norms, and eye-tracking analysis. My work bridges classrooms in Nigeria and the United States.</p>
+      <p><strong>Affiliation:</strong> Kent State University</p>
+      <p><strong>Personal:</strong> Married to Omowumi C. Tope‑Egbedeyi</p>
 
-    <h3>Professional Memberships</h3>
-    <ul class="lead">
-      <li>Research Council on Mathematics Learning (RCML)</li>
-      <li>North American Chapter of PME-NA</li>
-      <li>American Educational Research Association (AERA)</li>
-      <li>Early Childhood Association of Nigeria (ECAN)</li>
-    </ul>
+      <h3>Awards & Recognition</h3>
+      <ul>
+        <li>NSF Grant, USA</li>
+        <li>Jaffe Foundation Grant, USA</li>
+        <li>TETFUND NRA, Nigeria</li>
+      </ul>
 
-    <a class="btn" href="contact.html">Get in Touch</a>
-    <div style="margin-top:20px;">
-      <img src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" alt="Portrait">
+      <h3>Professional Memberships</h3>
+      <ul>
+        <li>RCML</li>
+        <li>PME-NA</li>
+        <li>AERA</li>
+      </ul>
+
+      <a class="btn" href="contact.html">Get in Touch</a>
     </div>
-  </section>
-</main>
+  </div>
+</section>
 
-<footer>&copy; 2025 Temitope F. Egbedeyi</footer>
+<footer style="text-align:center; padding:28px 10px; color:#555;">&copy; 2025 Temitope F. Egbedeyi</footer>
 
 <script>
-const toggle=document.querySelector('.nav-toggle');
-const navLinks=document.querySelector('.nav-links');
-toggle.addEventListener('click',()=>{navLinks.classList.toggle('show');});
+const mobileMenu = document.getElementById('mobile-menu');
+const navMenu = document.querySelector('.nav-menu');
+mobileMenu.addEventListener('click', () => { navMenu.classList.toggle('active'); });
 </script>
 </body>
 </html>
