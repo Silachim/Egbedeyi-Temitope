@@ -1,123 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog & Media | Temitope F. Egbedeyi</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog & Media | Temitope F. Egbedeyi</title>
 
-  <!-- ✅ SEO META TAGS -->
-  <meta name="description" content="Stay updated on Temitope F. Egbedeyi’s latest blogs, research news, and media coverage. Explore publications, features, and academic highlights." />
-  <meta name="keywords" content="Temitope Egbedeyi, Blog, Media, Mathematics Education, Early Childhood, Research, Nigeria, Kent State University" />
-  <meta name="author" content="Temitope F. Egbedeyi" />
+<!-- SEO Meta -->
+<meta name="description" content="Latest news, blog posts, and media gallery of Temitope F. Egbedeyi's academic and research activities.">
+<meta name="keywords" content="Temitope Egbedeyi, blog, media, research, academic, mathematics education">
+<meta name="author" content="Temitope F. Egbedeyi">
 
-  <!-- ✅ OPEN GRAPH -->
-  <meta property="og:title" content="Blog & Media | Temitope F. Egbedeyi" />
-  <meta property="og:description" content="Latest blogs, news, and media coverage related to Temitope F. Egbedeyi’s research in early childhood mathematics education." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://silachim.github.io/Egbedeyi-Temitope/blog.html" />
-  <meta property="og:image" content="assets/Image%201.jpg" />
+<!-- Open Graph -->
+<meta property="og:title" content="Blog & Media | Temitope F. Egbedeyi">
+<meta property="og:description" content="Explore the latest blog posts and media gallery showcasing Temitope F. Egbedeyi's research and academic highlights.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://silachim.github.io/Egbedeyi-Temitope/blog.html">
 
-  <!-- ✅ TWITTER CARD -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Blog & Media | Temitope F. Egbedeyi" />
-  <meta name="twitter:description" content="Follow Temitope F. Egbedeyi’s latest blogs, publications, and media highlights in early childhood mathematics education." />
-  <meta name="twitter:image" content="assets/Image%201.jpg" />
-  <meta name="twitter:site" content="@topmost89" />
-  <meta name="twitter:creator" content="@topmost89" />
+<!-- Styles -->
+<style>
+:root {
+  --accent-1:#1b4de4;
+  --accent-2:#4f8df5;
+  --muted:#6b7280;
+  --radius:12px;
+  --transition:0.6s;
+}
+*{ box-sizing:border-box; margin:0; padding:0; font-family: Inter, Roboto, Arial, sans-serif; transition: all var(--transition) ease-in-out; }
+body{ color:#0f172a; scroll-behavior:smooth; background:#fff; }
 
-  <!-- ✅ STRUCTURED DATA -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org/",
-    "@type": "Person",
-    "name": "Temitope F. Egbedeyi",
-    "url": "https://silachim.github.io/Egbedeyi-Temitope/blog.html",
-    "image": "assets/Image%201.jpg",
-    "jobTitle": "Doctoral Candidate & Research Assistant",
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name": "Kent State University"
-    },
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "University of Ibadan"
-    },
-    "sameAs": [
-      "https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en",
-      "https://orcid.org/0000-0002-7300-2387",
-      "https://www.researchgate.net/profile/Temitope-Egbedeyi-2/research",
-      "https://www.linkedin.com/in/temitope-egbedeyi",
-      "https://x.com/topmost89"
-    ],
-    "description": "Latest blogs and media coverage related to early childhood mathematics education research by Temitope F. Egbedeyi."
-  }
-  </script>
+nav{ position: sticky; top:0; background:#ffffff; display:flex; justify-content:center; gap:28px; padding:14px 16px; box-shadow:0 2px 8px rgba(11,15,30,0.03); z-index:50; }
+nav a{ color:var(--accent-1); text-decoration:none; font-weight:600; transition: color 0.3s; }
+nav a:hover{ color:var(--accent-2); text-decoration:underline }
+nav a.active{ color:var(--accent-2); border-bottom:2px solid var(--accent-2); padding-bottom:2px; }
 
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="canonical" href="https://silachim.github.io/Egbedeyi-Temitope/blog.html" />
+header{ text-align:center; padding:72px 20px; }
+header h1{ font-size:36px; color:var(--accent-1); margin-bottom:12px; }
+header p{ font-size:18px; max-width:900px; margin:0 auto; line-height:1.6; opacity:0.9; }
 
-  <!-- ✅ STYLES -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --accent-1:#1B4DE4;
-      --accent-2:#4F8DF5;
-      --muted:#6B7280;
-      --radius:12px;
-      --transition:0.3s;
-    }
+main{ max-width:1100px; margin:0 auto; padding:0 20px; display:flex; flex-direction:column; gap:28px; }
+section{ padding:60px 20px; border-radius:var(--radius); position:relative; overflow:hidden; }
+section h2{ font-size:32px; margin-top:0; border-bottom:2px solid var(--accent-2); padding-bottom:6px; margin-bottom:16px; }
+section p{ font-size:16px; line-height:1.6; margin-bottom:16px; }
 
-    * { box-sizing:border-box; margin:0; padding:0; font-family: 'Open Sans', sans-serif; transition: all var(--transition) ease-in-out; }
-    body { color:#0f172a; scroll-behavior:smooth; }
+.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+.card{ background:#f9f9f9; padding:20px; border-radius:var(--radius); box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition: transform 0.3s; }
+.card:hover{ transform: scale(1.05); }
+.card img{ width:100%; border-radius:var(--radius); cursor:pointer; transition: transform 0.3s; }
+.card img:hover{ transform: scale(1.05); }
 
-    nav{ position: sticky; top:0; background:#ffffff; display:flex; justify-content:center; gap:28px; padding:14px 16px; box-shadow:0 2px 8px rgba(11,15,30,0.03); z-index:50; }
-    nav a{ color:var(--accent-1); text-decoration:none; font-weight:600; transition: color 0.3s; }
-    nav a:hover{ color:var(--accent-2); text-decoration:underline }
-    nav a.active{ color:var(--accent-2); border-bottom:2px solid var(--accent-2); padding-bottom:2px; }
+hr{ border:none; height:2px; background:linear-gradient(to right, var(--accent-1), var(--accent-2)); margin:40px 0; border-radius:6px; }
 
-    header{ text-align:center; padding:72px 20px; }
-    header h1{ font-size:36px; color:var(--accent-1); margin-bottom:12px; }
-    header p{ font-size:18px; max-width:900px; margin:0 auto; line-height:1.6; opacity:0.9; }
+.floating-buttons { position: fixed; right: 22px; bottom: 26px; display:flex; flex-direction: column; gap:14px; z-index:20; }
+.floating-buttons a{ display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; color:white; text-decoration:none; font-size:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
+.floating-buttons a:hover{ transform:scale(1.1); }
+.btn-top{ background: var(--accent-1); }
+.btn-contact{ background: var(--accent-2); }
 
-    main{ max-width:1100px; margin:0 auto; padding:0 20px; display:flex; flex-direction:column; gap:28px; }
+/* Modal Lightbox */
+#lightbox-modal{
+  display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000;
+}
+#lightbox-modal img{ max-width:90%; max-height:90%; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.5); }
+#lightbox-close{ position:absolute; top:20px; right:30px; font-size:36px; color:white; cursor:pointer; }
 
-    section{ padding:60px 20px; border-radius:var(--radius); margin-bottom:28px; position:relative; overflow:hidden; }
-
-    section h2{ font-size:32px; margin-top:0; border-bottom:2px solid var(--accent-1); padding-bottom:6px; margin-bottom:24px; }
-
-    .post { margin-bottom:24px; }
-    .post h3 a{ color:#0f172a; text-decoration:none; transition: color 0.3s; }
-    .post h3 a:hover{ color:var(--accent-2); text-decoration:underline; }
-    .meta{ font-size:14px; color:var(--muted); margin-bottom:12px; }
-
-    .divider { border-top:2px solid var(--accent-1); margin:60px 0; }
-
-    /* MEDIA GALLERY */
-    .media-gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
-    .media-card { border-radius: var(--radius); overflow:hidden; box-shadow: rgba(0,0,0,0.1) 0px 4px 12px; transition: transform var(--transition); }
-    .media-card:hover{ transform: scale(1.03); }
-    .media-card img, .media-card video{ width:100%; display:block; }
-
-    /* FLOATING BUTTONS */
-    .floating-buttons { position: fixed; right: 22px; bottom: 26px; display:flex; flex-direction: column; gap:14px; z-index:20; }
-    .floating-buttons a{ display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; color:white; text-decoration:none; font-size:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
-    .floating-buttons a:hover{ transform:scale(1.1); }
-    .btn-top{ background: var(--accent-1); }
-    .btn-contact{ background: var(--accent-2); }
-
-    .bg-animated { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-      background: radial-gradient(circle at 25% 25%, rgba(79, 141, 245, 0.15), transparent 50%),
-                  radial-gradient(circle at 75% 75%, rgba(27, 77, 228, 0.15), transparent 50%);
-      animation: float 16s infinite alternate ease-in-out;
-    }
-    @keyframes float { 0%{ transform: translateY(0px);} 100%{ transform: translateY(20px);} }
-
-    @media(max-width:600px){ header h1{ font-size:28px } }
-  </style>
+@media(max-width:600px){ .grid{ grid-template-columns:1fr } header h1{ font-size:28px } }
+</style>
 </head>
 <body>
-
-<div class="bg-animated"></div>
 
 <nav>
   <a href="index.html">Home</a>
@@ -130,34 +80,45 @@
 
 <header>
   <h1>Blog & Media</h1>
-  <p>Latest news, features, blogs, and media coverage related to my research and academic initiatives.</p>
+  <p>Stay updated with the latest blog posts and a gallery of media content highlighting Temitope F. Egbedeyi's academic and research activities.</p>
 </header>
 
 <main>
-  <!-- BLOG POSTS -->
-  <section id="blog">
-    <div class="post">
-      <h3><a href="https://www.vanguardngr.com/2024/11/nigerian-scholar-redefines-teacher-training-with-global-math-research/" target="_blank">Nigerian scholar redefines teacher training with global math research</a></h3>
-      <p class="meta">15 Nov 2024 — Vanguard</p>
-    </div>
-    <div class="post">
-      <h3><a href="https://guardian.ng/news/nigerian-researcher-egbedeyi-breaks-new-ground-in-childhood-math-learning-with-eye-tracking-tech/" target="_blank">Egbedeyi breaks new ground in childhood math learning with eye‑tracking tech</a></h3>
-      <p class="meta">18 Jun 2025 — The Guardian</p>
-    </div>
-    <div class="post">
-      <h3><a href="https://guardian.ng/news/nigeria/metro/academy-trains-students-champions-digital-research-skills-at-ui-masterclass/" target="_blank">Academy trains students, champions digital research skills at UI masterclass</a></h3>
-      <p class="meta">5 Nov 2025 — The Guardian</p>
-    </div>
-  </section>
 
-  <div class="divider"></div>
+<!-- Intro Section -->
+<section>
+  <p style="text-align:center; max-width:900px; margin:0 auto;">
+    Explore blog posts and media coverage of Temitope F. Egbedeyi. All content is curated to highlight research impact, events, and scholarly contributions.
+  </p>
+</section>
+<hr>
 
-  <!-- MEDIA GALLERY -->
-  <section id="media">
-    <h2>Media Gallery</h2>
-    <div class="media-gallery" id="mediaGallery"></div>
-  </section>
+<!-- Blog Section -->
+<section id="blog">
+  <h2>Blog</h2>
+  <p>Read the latest articles and media coverage from academic and public platforms related to Temitope F. Egbedeyi's work.</p>
+  <div class="grid" id="blog-posts">
+    <!-- Blog posts will be populated dynamically -->
+  </div>
+</section>
+<hr>
+
+<!-- Media Gallery Section -->
+<section id="media">
+  <h2>Media Gallery</h2>
+  <p>Click any image below to view a larger version.</p>
+  <div class="grid" id="media-gallery">
+    <!-- Media images populated dynamically -->
+  </div>
+</section>
+
 </main>
+
+<!-- Modal Lightbox -->
+<div id="lightbox-modal">
+  <span id="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="">
+</div>
 
 <div class="floating-buttons">
   <a href="#top" class="btn-top">↑</a>
@@ -168,36 +129,95 @@
   <p>&copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement</p>
 </footer>
 
-<!-- DYNAMIC MEDIA LOADER -->
 <script>
-  const gallery = document.getElementById('mediaGallery');
+// Sample blog posts
+const blogs = [
+  {
+    title: "Nigerian scholar redefines teacher training with global math research",
+    url: "https://www.vanguardngr.com/2024/11/nigerian-scholar-redefines-teacher-training-with-global-math-research/",
+    meta: "15 Nov 2024 — Vanguard"
+  },
+  {
+    title: "Egbedeyi breaks new ground in childhood math learning with eye‑tracking tech",
+    url: "https://guardian.ng/news/nigerian-researcher-egbedeyi-breaks-new-ground-in-childhood-math-learning-with-eye-tracking-tech/",
+    meta: "18 Jun 2025 — The Guardian"
+  },
+  {
+    title: "Academy trains students, champions digital research skills at UI masterclass",
+    url: "https://guardian.ng/news/nigeria/metro/academy-trains-students-champions-digital-research-skills-at-ui-masterclass/",
+    meta: "5 Nov 2025 — The Guardian"
+  }
+];
 
-  fetch('assets/media/media.json')
-    .then(response => response.json())
-    .then(mediaFiles => {
-      mediaFiles.forEach(item => {
-        const card = document.createElement('div');
-        card.className = 'media-card';
+// Populate blogs
+const blogContainer = document.getElementById('blog-posts');
+blogs.forEach(blog=>{
+  const div = document.createElement('div');
+  div.classList.add('card');
+  div.innerHTML = `<h3><a href="${blog.url}" target="_blank">${blog.title}</a></h3><p class="meta">${blog.meta}</p>`;
+  blogContainer.appendChild(div);
+});
 
-        if(item.type === 'image'){
-          const img = document.createElement('img');
-          img.src = item.src;
-          img.alt = "Media Image";
-          card.appendChild(img);
-        } else if(item.type === 'video'){
-          const video = document.createElement('video');
-          video.controls = true;
-          const source = document.createElement('source');
-          source.src = item.src;
-          source.type = 'video/mp4';
-          video.appendChild(source);
-          card.appendChild(video);
-        }
+// Sample media JSON
+const media = {
+  "images": [
+    {
+      "id": 1,
+      "title": "Research Methodology Webinar",
+      "description": "Screenshot from research methods COVID webinar.",
+      "url": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/research-methods-covid-webinar-header.jpg",
+      "date": "2025-06-10"
+    },
+    {
+      "id": 2,
+      "title": "Portrait of Temitope F. Egbedeyi",
+      "description": "Professional portrait for academic profile.",
+      "url": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg",
+      "date": "2025-11-08"
+    },
+    {
+      "id": 3,
+      "title": "Other Academic Event",
+      "description": "Placeholder image for future media upload.",
+      "url": "https://via.placeholder.com/600x400?text=Future+Image+1",
+      "date": ""
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "title": "Upcoming Research Video",
+      "description": "Placeholder for future video content.",
+      "url": "",
+      "date": ""
+    }
+  ]
+};
 
-        gallery.appendChild(card);
-      });
-    })
-    .catch(err => console.error('Failed to load media JSON:', err));
+// Populate media gallery
+const mediaContainer = document.getElementById('media-gallery');
+media.images.forEach(item=>{
+  const div = document.createElement('div');
+  div.classList.add('card');
+  div.innerHTML = `<img src="${item.url}" alt="${item.title}" class="gallery-img"><h3>${item.title}</h3><p>${item.description}</p>`;
+  mediaContainer.appendChild(div);
+});
+
+// Modal lightbox
+const images = document.querySelectorAll('.gallery-img');
+const modal = document.getElementById('lightbox-modal');
+const modalImg = document.getElementById('lightbox-img');
+const closeBtn = document.getElementById('lightbox-close');
+
+images.forEach(img=>{
+  img.addEventListener('click', ()=>{
+    modal.style.display='flex';
+    modalImg.src=img.src;
+  });
+});
+
+closeBtn.addEventListener('click', ()=> modal.style.display='none');
+modal.addEventListener('click', e=> { if(e.target === modal) modal.style.display='none'; });
 </script>
 
 </body>
