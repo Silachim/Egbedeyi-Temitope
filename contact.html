@@ -8,9 +8,6 @@
 <!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 
-<!-- FONT AWESOME -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
 <style>
 :root {
   --accent-1:#1b4de4;
@@ -22,7 +19,7 @@
   --shadow: rgba(0,0,0,0.1) 0px 4px 12px;
 }
 
-* { box-sizing:border-box; margin:0; padding:0; font-family:'Open Sans', sans-serif; transition:all var(--transition) ease-in-out; }
+* { box-sizing:border-box; margin:0; padding:0; font-family:'Open Sans',sans-serif; transition:all var(--transition) ease-in-out; }
 body { scroll-behavior:smooth; color:#0f172a; background:white; line-height:1.6; }
 
 /* HEADER NAVIGATION */
@@ -38,9 +35,8 @@ header.kent-nav {
   top:0;
   z-index:100;
 }
-
 header.kent-nav .logo { display:flex; align-items:center; gap:15px; }
-header.kent-nav .logo img { height:60px; width:auto; }
+header.kent-nav .logo img { height:150px; width:auto; } /* updated size */
 
 header.kent-nav .nav-links { display:flex; gap:24px; }
 header.kent-nav .nav-links a {
@@ -81,11 +77,12 @@ a.btn:hover { background: var(--accent-2); transform: scale(1.05); }
 .btn-top{ background: var(--accent-3); color:var(--accent-1); }
 .btn-email{ background: var(--accent-2); }
 
+/* FOOTER */
 footer { text-align:center; padding:28px 10px; color:white; background:var(--accent-1); margin-top:60px; }
 
 @media(max-width:600px){
   header.page-header h1{ font-size:28px; }
-  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:70px; right:16px; background:var(--accent-1); padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:160px; right:16px; background:var(--accent-1); padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);}
   header.kent-nav .hamburger { display:block; }
 }
 </style>
