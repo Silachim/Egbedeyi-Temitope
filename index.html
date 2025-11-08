@@ -26,9 +26,9 @@ body.homepage {
   scroll-behavior: smooth;
   color:#0f172a;
   line-height:1.6;
-  background: linear-gradient(to bottom right, #e6f0ff, #ffffff); /* subtle blue */
   font-family: 'Open Sans', sans-serif;
   margin:0;
+  background: #1b4de4; /* solid blue background */
 }
 
 /* NAVIGATION */
@@ -47,17 +47,17 @@ header.kent-nav {
 header.kent-nav .logo {
   display:flex;
   align-items:center;
-  gap:20px;
+  gap:15px;
 }
 
 header.kent-nav .logo img {
-  height:300px;  /* large logo */
+  height:150px;  /* updated height */
   width:auto;
 }
 
 header.kent-nav .logo span {
   font-weight:900;
-  font-size:100px;  /* bold large text */
+  font-size:50px;  /* updated text size */
   color:var(--accent-1);
 }
 
@@ -70,7 +70,7 @@ header.kent-nav .nav-links a {
   text-decoration:none;
   color:var(--accent-1);
   font-weight:600;
-  font-size:20px;
+  font-size:18px;
   transition:0.3s;
 }
 
@@ -115,6 +115,8 @@ main {
   max-width:1100px;
   margin:0 auto;
   padding:40px 20px;
+  background:#fff; /* make content stand out on blue background */
+  border-radius:20px;
 }
 
 .content-section {
@@ -203,7 +205,7 @@ main {
 .btn-contact{ background: var(--accent-2); }
 
 /* FOOTER */
-footer { text-align:center; padding:28px 10px; color:var(--muted); background:#f5f5f5; }
+footer { text-align:center; padding:28px 10px; color:#fff; background:#0f172a; border-top:4px solid var(--accent-2); }
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -212,7 +214,6 @@ footer { text-align:center; padding:28px 10px; color:var(--muted); background:#f
   header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:120px; right:24px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
   header.kent-nav .hamburger { display:block; }
 }
-
 </style>
 </head>
 
@@ -221,7 +222,8 @@ footer { text-align:center; padding:28px 10px; color:var(--muted); background:#f
   <header class="kent-nav">
     <div class="logo">
       <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
-      </div>
+      <span>Temitope F. Egbedeyi</span>
+    </div>
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
@@ -236,7 +238,7 @@ footer { text-align:center; padding:28px 10px; color:var(--muted); background:#f
   <!-- HERO IMAGE -->
   <section class="hero-section">
     <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Home%20page%20picture.jpg?raw=true" alt="Hero Image" class="hero-image">
-    <p style="font-size:22px; max-width:900px; margin:0 auto;">Explore early childhood mathematics education through innovative research, place-based learning, and community-driven initiatives connecting Nigeria and the United States.</p>
+    <p style="font-size:22px; max-width:900px; margin:0 auto; color:#fff;">Explore early childhood mathematics education through innovative research, place-based learning, and community-driven initiatives connecting Nigeria and the United States.</p>
     <a href="research.html" class="btn">Explore Research</a>
   </section>
 
