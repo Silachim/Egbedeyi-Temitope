@@ -14,8 +14,8 @@
 <!-- STYLES -->
 <style>
 :root {
-  --accent-1:#1b4de4; /* Logo blue */
-  --accent-2:#FFC72C; /* Gold text */
+  --accent-1:#1b4de4;
+  --accent-2:#FFC72C;
   --muted:#0f172a;
   --radius:12px;
   --transition:0.3s;
@@ -25,13 +25,13 @@
 * { box-sizing:border-box; margin:0; padding:0; font-family: 'Open Sans', sans-serif; transition: all var(--transition) ease-in-out; }
 body { scroll-behavior: smooth; color:#0f172a; line-height:1.6; background:#fff; }
 
-/* NAVIGATION HEADER */
+/* HEADER / NAVIGATION */
 header.kent-nav {
   display:flex;
   align-items:center;
   justify-content:space-between;
   padding:12px 24px;
-  background:#fff; /* white header */
+  background:#fff;
   box-shadow:0 2px 6px rgba(0,0,0,0.1);
   position:sticky;
   top:0;
@@ -79,30 +79,55 @@ header.kent-nav .hamburger {
   cursor:pointer;
 }
 
-/* MAIN CONTENT */
-main {
-  max-width:1100px;
-  margin:0 auto;
-  padding:40px 20px;
+/* HERO SECTION */
+header.hero {
+  display:flex;
+  align-items:flex-start;
+  padding:60px 20px;
+  gap:40px;
+  flex-wrap: wrap;
 }
 
-/* FLOATING BUTTONS */
-.floating-buttons { position: fixed; right:22px; bottom:26px; display:flex; flex-direction: column; gap:14px; z-index:20; }
-.floating-buttons a { display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; color:white; text-decoration:none; font-size:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
-.floating-buttons a:hover { transform:scale(1.1); }
-.btn-top{ background: var(--accent-1); }
-.btn-contact{ background: var(--accent-2); }
+.hero-left { display:flex; flex-direction: column; align-items: center; gap:16px; }
+.portrait { width:220px; height:220px; border-radius:50%; box-shadow: rgba(0,0,0,0.1) 0px 4px 12px; object-fit:cover; cursor:pointer; transition: transform 0.3s; }
+.portrait:hover { transform: scale(1.05); }
+.intro { max-width:700px; font-size:18px; }
 
-/* FOOTER */
-footer { text-align:center; padding:28px 10px; color:#0f172a; background:#f5f5f5; }
+section { padding:60px 20px; max-width:1100px; margin:0 auto; }
 
-/* RESPONSIVE */
-@media(max-width:900px){
+section h2 { font-family: 'Montserrat', sans-serif; font-size:32px; margin-bottom:24px; border-bottom:2px solid var(--accent-1); padding-bottom:6px; }
+
+.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
+
+.card { background:#f9f9f9; padding:20px; border-radius:var(--radius); box-shadow: rgba(0,0,0,0.1) 0px 4px 12px; text-align:center; transition: transform var(--transition); }
+.card:hover { transform: scale(1.05); }
+.card i { font-size:28px; color: var(--accent-2); margin-bottom:10px; display:block; }
+.card h3 { font-size:20px; margin-bottom:6px; }
+.card p { font-size:14px; color:#555; }
+
+.two-column { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+.personal { background:#f0f4ff; padding:12px 16px; border-radius:var(--radius); text-align:center; font-weight:600; font-size:16px; }
+
+a.btn { display:inline-block; padding:12px 20px; background:var(--accent-1); color:white; border-radius:10px; text-decoration:none; margin-top:20px; transition: background 0.3s, transform 0.3s; font-weight:600; }
+a.btn:hover { background: var(--accent-2); transform: scale(1.05); }
+
+footer { text-align:center; padding:28px 10px; color:#6b7280; background:#f5f5f5; margin-top:60px; }
+
+/* MODAL */
+.modal { display:none; position:fixed; z-index:100; left:0; top:0; width:100%; height:100%; overflow:auto; background: rgba(0,0,0,0.8); }
+.modal-content { margin:10% auto; display:block; max-width:700px; border-radius:12px; }
+.modal-content img { width:100%; border-radius:12px; }
+.close { position:absolute; top:20px; right:40px; color:white; font-size:40px; font-weight:bold; cursor:pointer; }
+
+@media(max-width:600px){ 
+  header.hero { flex-direction: column; text-align:center; align-items:center; }
+  .intro { max-width:100%; }
   header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:170px; right:24px; background:#fff; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
   header.kent-nav .hamburger { display:block; color:#1b4de4; }
 }
 </style>
 </head>
+
 <body>
 
 <!-- HEADER -->
@@ -122,28 +147,73 @@ footer { text-align:center; padding:28px 10px; color:#0f172a; background:#f5f5f5
   <div class="hamburger" onclick="toggleNav()">☰</div>
 </header>
 
-<!-- MAIN CONTENT -->
-<main>
-  <h1>About Temitope F. Egbedeyi</h1>
-  <p>Here goes your existing About page content. All content remains exactly the same.</p>
-</main>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-left">
+    <img id="portrait" src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" alt="Portrait of Temitope F. Egbedeyi" class="portrait">
+    <div class="personal">Married to Omowumi C. Tope‑Egbedeyi</div>
+    <div class="personal">Arsenal FC Supporter</div>
+  </div>
+  <div class="intro">
+    <p>I am an early childhood mathematics education researcher bridging Nigeria and the United States with place-based approaches. I investigate multiplicative reasoning, fraction division, sociomathematical norms, and eye-tracking of early math cognition.</p>
+  </div>
+</header>
 
-<!-- FLOATING BUTTONS -->
-<div class="floating-buttons">
-  <a href="#top" class="btn-top">↑</a>
-  <a href="contact.html" class="btn-contact">✉</a>
-</div>
+<!-- AWARDS -->
+<section>
+  <h2>Awards & Recognition</h2>
+  <div class="grid">
+    <div class="card"><i class="fas fa-trophy"></i><h3>NSF Grant</h3><p>National Science Foundation, USA</p></div>
+    <div class="card"><i class="fas fa-certificate"></i><h3>Jaffe Foundation Grant</h3><p>USA</p></div>
+    <div class="card"><i class="fas fa-medal"></i><h3>TETFUND NRA</h3><p>Nigeria</p></div>
+    <div class="card"><i class="fas fa-award"></i><h3>Kent State EHHS Award</h3><p>Kent State University</p></div>
+  </div>
+</section>
 
-<!-- FOOTER -->
+<!-- PROFESSIONAL MEMBERSHIPS -->
+<section>
+  <h2>Professional Memberships & Leadership</h2>
+  <div class="two-column">
+    <div class="card"><i class="fas fa-users"></i><h3>RCML</h3></div>
+    <div class="card"><i class="fas fa-users"></i><h3>PME-NA (NA Chapter)</h3></div>
+    <div class="card"><i class="fas fa-users"></i><h3>AERA</h3></div>
+    <div class="card"><i class="fas fa-users"></i><h3>ECAN</h3></div>
+    <div class="card"><i class="fas fa-user-tie"></i><h3>GSS Alternate Senator</h3></div>
+    <div class="card"><i class="fas fa-user-graduate"></i><h3>Former GCSAC Member</h3></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="text-align:center;">
+  <a href="research.html" class="btn">Explore My Research & Publications</a>
+</section>
+
 <footer>
   &copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
 </footer>
 
+<!-- MODAL FOR PORTRAIT ENLARGE -->
+<div id="portraitModal" class="modal">
+  <span class="close">&times;</span>
+  <div class="modal-content">
+    <img src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" alt="Portrait of Temitope F. Egbedeyi">
+  </div>
+</div>
+
 <script>
+const modal = document.getElementById("portraitModal");
+const img = document.getElementById("portrait");
+const span = document.getElementsByClassName("close")[0];
+img.onclick = function(){ modal.style.display="block"; }
+span.onclick = function(){ modal.style.display="none"; }
+window.onclick = function(event){ if(event.target==modal){ modal.style.display="none"; } }
+
 function toggleNav(){
   const nav = document.querySelector('.nav-links');
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
 </script>
+
 </body>
 </html>
+
