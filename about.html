@@ -25,7 +25,7 @@
   <meta name="twitter:site" content="@topmost89" />
   <meta name="twitter:creator" content="@topmost89" />
 
-  <!-- ✅ STRUCTURED DATA (PERSON SCHEMA) -->
+  <!-- ✅ STRUCTURED DATA -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
@@ -34,19 +34,9 @@
     "url": "https://silachim.github.io/Egbedeyi-Temitope/about.html",
     "image": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg",
     "jobTitle": "Doctoral Candidate & Research Assistant",
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name": "Kent State University"
-    },
-    "worksFor": {
-      "@type": "CollegeOrUniversity",
-      "name": "Kent State University",
-      "department": "School of Teaching, Learning & Curriculum Studies"
-    },
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "University of Ibadan"
-    },
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "Kent State University" },
+    "worksFor": { "@type": "CollegeOrUniversity", "name": "Kent State University", "department": "School of Teaching, Learning & Curriculum Studies" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Ibadan" },
     "sameAs": [
       "https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en",
       "https://orcid.org/0000-0002-7300-2387",
@@ -60,9 +50,6 @@
 
   <!-- ✅ FAVICON -->
   <link rel="icon" type="image/png" href="assets/favicon.png" />
-
-  <!-- ✅ CANONICAL URL -->
-  <link rel="canonical" href="https://silachim.github.io/Egbedeyi-Temitope/about.html" />
 
   <!-- ✅ STYLES -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
@@ -90,8 +77,15 @@
     /* HERO SECTION */
     header.hero { display:flex; align-items:flex-start; padding:60px 20px; gap:40px; flex-wrap: wrap; }
     .hero-left { display:flex; flex-direction: column; align-items: center; gap:16px; }
-    .portrait { width:200px; height:200px; border-radius:50%; box-shadow: var(--shadow); object-fit:cover; }
+    .portrait { width:250px; height:250px; border-radius:50%; box-shadow: var(--shadow); object-fit:cover; cursor:pointer; transition: transform 0.3s; }
+    .portrait:hover { transform: scale(1.05); }
     .intro { max-width:700px; font-size:18px; }
+
+    /* Modal for portrait */
+    .modal { display:none; position:fixed; z-index:100; padding-top:100px; left:0; top:0; width:100%; height:100%; overflow:auto; background-color: rgba(0,0,0,0.8); }
+    .modal-content { margin:auto; display:block; width:80%; max-width:800px; border-radius:12px; }
+    .modal-content:hover { cursor:zoom-out; }
+    .close { position:absolute; top:30px; right:50px; color:#fff; font-size:40px; font-weight:bold; cursor:pointer; }
 
     section { padding:60px 20px; max-width:1100px; margin:0 auto; }
 
@@ -116,6 +110,7 @@
     @media(max-width:600px){ 
       header.hero { flex-direction: column; text-align:center; align-items:center; }
       .intro { max-width:100%; }
+      .portrait { width:200px; height:200px; }
     }
   </style>
 
@@ -136,7 +131,7 @@
   <!-- HEADER / HERO -->
   <header class="hero">
     <div class="hero-left">
-      <img src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" 
+      <img id="portrait" src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" 
            alt="Portrait of Temitope F. Egbedeyi" class="portrait">
       <div class="personal">Married to Omowumi C. Tope‑Egbedeyi</div>
       <div class="personal">Arsenal FC Supporter</div>
@@ -146,6 +141,12 @@
       <p>I am an early childhood mathematics education researcher bridging Nigeria and the United States with place-based approaches. I investigate multiplicative reasoning, fraction division, sociomathematical norms, and eye-tracking of early math cognition.</p>
     </div>
   </header>
+
+  <!-- Modal for portrait -->
+  <div id="portraitModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
 
   <!-- AWARDS & RECOGNITION -->
   <section>
@@ -180,6 +181,21 @@
   <footer>
     &copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
   </footer>
+
+  <script>
+    // Portrait modal functionality
+    const modal = document.getElementById('portraitModal');
+    const img = document.getElementById('portrait');
+    const modalImg = document.getElementById("modalImage");
+    const closeBtn = document.getElementsByClassName("close")[0];
+
+    img.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+    closeBtn.onclick = function() { modal.style.display = "none"; }
+    modal.onclick = function() { modal.style.display = "none"; }
+  </script>
 
 </body>
 </html>
