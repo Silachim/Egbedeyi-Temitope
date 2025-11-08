@@ -16,6 +16,7 @@
     *{ box-sizing:border-box; margin:0; padding:0; font-family: Inter, Roboto, Arial, sans-serif; transition: all var(--transition) ease-in-out; }
     body{ color:#0f172a; scroll-behavior:smooth; }
 
+    /* NAVIGATION */
     nav{ position: sticky; top:0; background:#ffffff; display:flex; justify-content:center; gap:28px; padding:14px 16px; box-shadow:0 2px 8px rgba(11,15,30,0.03); z-index:50; }
     nav a{ color:var(--accent-1); text-decoration:none; font-weight:600; transition: color 0.3s; }
     nav a:hover{ color:var(--accent-2); text-decoration:underline }
@@ -30,7 +31,7 @@
     section h2{ font-size:32px; margin-top:0; }
     section h3{ color:var(--accent-1); margin-bottom:12px; }
     .lead{ font-size:16px; line-height:1.6; margin-bottom:16px; }
-    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; align-items:center; }
+    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; align-items:start; }
     .link-list{ padding-left:1rem; margin-bottom:16px; }
     .link-list li{ margin:8px 0; transition: transform 0.3s; }
     .link-list li:hover{ transform:translateX(5px); }
@@ -38,6 +39,7 @@
     a.btn:hover{ background:var(--accent-2); transform:scale(1.05); }
     footer{ text-align:center; padding:28px 10px; color:var(--muted); background:#f5f5f5; }
 
+    /* INTERACTIVE BACKGROUND */
     .bg-animated { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
       background: radial-gradient(circle at 20% 20%, rgba(79, 141, 245, 0.15), transparent 50%),
                   radial-gradient(circle at 80% 80%, rgba(27, 77, 228, 0.15), transparent 50%);
@@ -45,6 +47,7 @@
     }
     @keyframes float { 0%{ transform: translateY(0px);} 100%{ transform: translateY(20px);} }
 
+    /* FLOATING BUTTONS */
     .floating-buttons { position: fixed; right: 22px; bottom: 26px; display:flex; flex-direction: column; gap:14px; z-index:20; }
     .floating-buttons a{ display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; color:white; text-decoration:none; font-size:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
     .floating-buttons a:hover{ transform:scale(1.1); }
@@ -58,6 +61,7 @@
 
   <div class="bg-animated"></div>
 
+  <!-- Navigation Bar -->
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html" class="active">About</a>
@@ -74,8 +78,8 @@
 
   <main>
     <section>
-      <div class="grid">
-        <img src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" alt="Portrait">
+      <div class="grid" style="grid-template-columns:40% 60%; gap:30px; align-items:start;">
+        <img src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" alt="Portrait" style="width:100%; height:auto; border-radius:12px;">
         <div>
           <p class="lead"><strong>Affiliations:</strong> Kent State University</p>
           <p class="lead"><strong>Personal:</strong> Married to Omowumi C. Tope‑Egbedeyi.</p>
@@ -88,12 +92,14 @@
             <li>Kent State University EHHS Award</li>
           </ul>
 
-          <h3>Professional Memberships</h3>
+          <h3>Professional Memberships & Leadership Roles</h3>
           <ul class="link-list">
             <li>Research Council on Mathematics Learning (RCML)</li>
             <li>North American Chapter of PME-NA</li>
             <li>American Educational Research Association (AERA)</li>
             <li>Early Childhood Association of Nigeria (ECAN)</li>
+            <li>GSS Alternate Senator</li>
+            <li>Former Member of Graduate College Student Advisory Council (GCSAC)</li>
           </ul>
 
           <p class="lead">I study how young children build mathematical understanding, with a focus on fraction division, multiplicative reasoning, and place-based approaches connecting classroom learning to community life.</p>
