@@ -1,107 +1,107 @@
-<!-- Home Page - Temitope F. Egbedeyi | Modern Interactive Version with Full Enhancements -->
+<!-- Home Page with Modern Navigation - Temitope F. Egbedeyi -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home | Temitope F. Egbedeyi</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Temitope F. Egbedeyi | Official Website</title>
   <style>
-    :root {
-      --accent-1: #1b4de4;
-      --accent-2: #4f8df5;
-      --text-dark: #0f172a;
-      --radius: 14px;
-      --transition: 0.35s;
+    :root{
+      --accent-1:#1b4de4;
+      --accent-2:#4f8df5;
+      --muted:#6b7280;
+      --radius:12px;
+      --transition-time:0.6s;
     }
 
-    * { box-sizing: border-box; margin:0; padding:0; font-family: Inter, Arial, sans-serif; }
-    body { background: #ffffff; color: var(--text-dark); overflow-x: hidden; scroll-behavior: smooth; }
+    *{ box-sizing:border-box; transition: all var(--transition-time) ease-in-out; margin:0; padding:0; font-family: Inter, Roboto, Arial, sans-serif; }
+    body { margin:0; color:#0f172a; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; scroll-behavior: smooth; }
+
+    /* NAVIGATION */
+    nav{
+      background:#ffffff; display:flex; justify-content:center; gap:28px; padding:14px 16px;
+      box-shadow:0 2px 8px rgba(11,15,30,0.03); position:sticky; top:0; z-index:50;
+    }
+    nav a{ color:var(--accent-1); text-decoration:none; font-weight:600; transition: color 0.3s; }
+    nav a:hover{ color:var(--accent-2); text-decoration:underline }
+    nav a.active { color: var(--accent-2); border-bottom: 2px solid var(--accent-2); padding-bottom:2px; }
+
+    header{ background:linear-gradient(135deg,var(--accent-1),var(--accent-2)); color:white; padding:72px 20px; text-align:center; animation: fadeInDown 1s ease-out; }
+    header h1{ font-size:40px; margin:0 0 10px; }
+    header p{ font-size:18px; max-width:980px; margin:0 auto; line-height:1.6; opacity:0.95; }
+
+    main{ max-width:1100px; margin:0 auto; padding:0 18px }
+    section{ padding:60px 20px; border-radius:var(--radius); margin-bottom:28px; color:#0f172a; position:relative; overflow:hidden; }
+    section h2{ margin-top:0; font-size:32px; animation: fadeInUp 0.8s ease-out; }
+    section h3{ margin-bottom:12px; color:var(--accent-1); }
+    .lead{ font-size:16px; line-height:1.6; margin-bottom:16px; animation: fadeInUp 1s ease-out; }
+    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+    a.btn{ display:inline-block; padding:10px 18px; background:var(--accent-1); color:white; border-radius:10px; text-decoration:none; margin-top:12px; transition: background 0.3s, transform 0.3s; }
+    a.btn:hover{ background:var(--accent-2); transform:scale(1.05); }
+    footer{ text-align:center; padding:28px 10px; color:var(--muted); background:#f5f5f5 }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp { from { opacity:0; transform: translateY(20px);} to { opacity:1; transform: translateY(0); } }
+    @keyframes fadeInDown { from { opacity:0; transform: translateY(-20px);} to { opacity:1; transform: translateY(0); } }
+
+    /* RESPONSIVE */
+    @media (max-width:600px){ header h1{ font-size:28px } .grid{ grid-template-columns:1fr } }
 
     /* INTERACTIVE BACKGROUND */
-    .bg-animated {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-      background: radial-gradient(circle at 20% 20%, rgba(79, 141, 245, 0.18), transparent 50%),
-                  radial-gradient(circle at 80% 60%, rgba(27, 77, 228, 0.18), transparent 50%);
-      animation: float 12s infinite alternate ease-in-out;
+    .bg-animated { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+      background: radial-gradient(circle at 25% 25%, rgba(79, 141, 245, 0.15), transparent 50%),
+                  radial-gradient(circle at 75% 75%, rgba(27, 77, 228, 0.15), transparent 50%);
+      animation: float 16s infinite alternate ease-in-out;
     }
-
     @keyframes float { 0% { transform: translateY(0px);} 100% { transform: translateY(20px); } }
 
-    /* HEADER */
-    header { text-align: center; padding: 120px 20px; }
-    header h1 {
-      font-size: 48px; font-weight: 800;
-      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-      -webkit-background-clip: text; color: transparent;
-      display: inline-block;
-      animation: typing 2s steps(40, end), blink .75s step-end infinite;
-      white-space: nowrap; overflow: hidden; border-right: .15em solid var(--accent-2);
-    }
-
-    @keyframes typing { from { width: 0 } to { width: 100% } }
-    @keyframes blink { 50% { border-color: transparent; } }
-
-    header p { margin-top: 14px; font-size: 18px; max-width: 900px; margin-left:auto; margin-right:auto; line-height:1.6; opacity:0.9; animation: fadeIn 2s ease-out; }
-
-    .btn-primary { margin-top: 24px; display: inline-block; background: var(--accent-1); color: white; padding: 12px 22px; border-radius: var(--radius); text-decoration: none; font-size: 16px; transition: var(--transition); animation: fadeIn 2.5s ease-out; }
-    .btn-primary:hover { background: var(--accent-2); transform: translateY(-3px) scale(1.05); }
-
-    @keyframes fadeIn { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
-
-    /* DARK MODE */
-    .dark { background:#0f172a; color:white; }
-
-    /* FLOATING NAV BUTTONS */
+    /* FLOATING BUTTONS */
     .floating-buttons { position: fixed; right: 22px; bottom: 26px; display: flex; flex-direction: column; gap: 14px; z-index: 20; }
     .floating-buttons a { display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; color: white; text-decoration: none; font-size: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: 0.3s; }
     .floating-buttons a:hover { transform: scale(1.1); }
     .btn-top { background: var(--accent-1); }
     .btn-contact { background: var(--accent-2); }
-
-    /* PARALLAX SVG */
-    .svg-bg { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-2; opacity:0.15; pointer-events:none; }
   </style>
 </head>
-<body id="top">
-
-  <!-- SVG Parallax Background -->
-  <svg class="svg-bg" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="200" cy="150" r="120" fill="var(--accent-1)" />
-    <circle cx="600" cy="400" r="180" fill="var(--accent-2)" />
-  </svg>
+<body>
 
   <div class="bg-animated"></div>
 
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="research.html">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="blog.html">Blog & Media</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
   <header>
     <h1>Temitope F. Egbedeyi</h1>
-    <p>Exploring early childhood mathematics education through innovative research, place-based learning, and global community-focused initiatives.</p>
-    <a class="btn-primary" href="about.html">Explore My Work</a>
+    <p>Explore early childhood mathematics education through innovative research, place-based learning, and community-driven initiatives. Connect classroom theory with real-world impact in Nigeria and the United States.</p>
   </header>
+
+  <main>
+    <!-- HOME SECTION -->
+    <section id="home">
+      <div class="grid">
+        <div>
+          <h2>Welcome</h2>
+          <p class="lead">I study how young children build mathematical understanding — with a focus on fraction division, multiplicative reasoning, and place-based approaches connecting classroom learning to community life in Nigeria and the United States.</p>
+          <a class="btn" href="research.html">Explore Research</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <div class="floating-buttons">
     <a href="#top" class="btn-top">↑</a>
     <a href="contact.html" class="btn-contact">✉</a>
   </div>
 
-  <!-- DARK MODE TOGGLE SCRIPT -->
-  <script>
-    let dark = false;
-    function toggleDark(){
-      dark = !dark;
-      document.body.classList.toggle('dark', dark);
-    }
-    // Auto toggle dark mode based on user preference
-    if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){ toggleDark(); }
-  </script>
-
-  <!-- PARALLAX EFFECT -->
-  <script>
-    const svg = document.querySelector('.svg-bg');
-    window.addEventListener('scroll', () => {
-      let offset = window.pageYOffset;
-      svg.style.transform = `translateY(${offset * 0.2}px)`;
-    });
-  </script>
+  <footer>
+    <p>&copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement</p>
+  </footer>
 
 </body>
 </html>
