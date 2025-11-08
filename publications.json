@@ -1,88 +1,32 @@
-{
-  "publications": [
-    {
-      "title": "Fifth Grade Students’ Multiplicative Reasoning When Engaging with Partial Products",
-      "authors": "Sanampreet Gill; Karl W. Kosko; Temitope Funminiyi Egbedeyi",
-      "journal": "Conference Paper — PME‑NA or RCML Proceedings",
-      "year": "2025",
-      "url": "https://www.researchgate.net/publication/389676075_Fifth_Grade_Students%27_Multiplicative_Reasoning_When_Engaging_with_Partial_Products"
-    },
-    {
-      "title": "Preservice Teachers’ Replications of a Common Fraction Error",
-      "authors": "Temitope Funminiyi Egbedeyi; Karl W. Kosko",
-      "journal": "Conference Paper — PME‑NA Proceedings",
-      "year": "2024",
-      "url": "https://www.researchgate.net/publication/387055851_Preservice_Teachers%27_Replications_of_a_Common_Fraction_Error"
-    },
-    {
-      "title": "Teachers’ Awareness and Utilisation of Indigenous Games as Instructional Resources for Holistic Development of Children in Ondo West Local Government, Nigeria",
-      "authors": "Temitope Funminiyi Egbedeyi",
-      "journal": "JEREDA Journal",
-      "year": "2024",
-      "url": "https://jeredajournals.com/index.php/JEREDA/article/view/240"
-    },
-    {
-      "title": "Examining Preservice Teachers’ Embodied Noticing when Viewing Traditional and Holographic Videos of Students’ Fraction Division",
-      "authors": "Karl W. Kosko; Enrico Gandolfi; Temitope Funminiyi Egbedeyi",
-      "journal": "Journal of Technology and Teacher Education, Vol.32 No.1 (2024)",
-      "year": "2024",
-      "url": "https://www.learntechlib.org/author/Temitope%2BEgbedeyi/"  /* URL placeholder: verify exact link */
-    },
-    {
-      "title": "PROSPECT OF “IGBA OJU” IN AFRICAN PHILOSOPHY: PATHWAY TO MORAL DEVELOPMENT OF YOUNG CHILDREN IN SOUTHWESTERN NIGERIA",
-      "authors": "Oladele Michael; Temitope Funminiyi Egbedeyi; Iyanuoluwa Emmanuel Olalowo",
-      "journal": "KWASU International Journal of Education (KIJE)",
-      "year": "2023",
-      "url": "#"  /* placeholder URL */
-    },
-    {
-      "title": "Book review: Elders’ cultural knowledge and the question of Black/African Indigeneity in Education, Critical studies of education",
-      "authors": "Temitope Funminiyi Egbedeyi",
-      "journal": "Critical Studies in Education",
-      "year": "2023",
-      "url": "https://journals.sagepub.com/doi/abs/10.1177/20436106231156468"
-    },
-    {
-      "title": "Availability and Challenges of Inclusive Lower Primary Education Schools",
-      "authors": "Temitope Funminiyi Egbedeyi; Abiodun Babalola",
-      "journal": "Indonesian Journal of Curriculum and Educational Technology Studies",
-      "year": "2023",
-      "url": "https://ejournal.upi.edu/index.php/IJCSNE/article/view/54194"
-    },
-    {
-      "title": "Management of Pre‑Primary Education in Ibadan North East Local Government Area, Oyo State Nigeria during Covid‑19 Pandemic Lockdown: Activities, Challenges and Effects",
-      "authors": "Abiodun Babalola; Temitope Funminiyi Egbedeyi",
-      "journal": "Article",
-      "year": "2022",
-      "url": "#"  /* placeholder URL */
-    },
-    {
-      "title": "Domestication of Child’s Rights Act in Nigeria Using Language of Immediate Environment",
-      "authors": "Temitope Funminiyi Egbedeyi",
-      "journal": "Article",
-      "year": "2021",
-      "url": "#"  /* placeholder URL */
-    },
-    {
-      "title": "Teachers Knowledge of Inclusive Lower Primary Education in Ifako‑Ijaye Local Government Area of Lagos State, Nigeria",
-      "authors": "Temitope Funminiyi Egbedeyi",
-      "journal": "International Journal of Emerging Issues in Early Childhood Education",
-      "year": "2020",
-      "url": "#"  /* placeholder URL */
-    },
-    {
-      "title": "A Qualitative Approach to the Children’s Views Toward Child Labour in Nigeria",
-      "authors": "Enoch Siyanbola Ajayi; Temitope Funminiyi Egbedeyi",
-      "journal": "Ibadan Journal of Child Development and Educational Foundations",
-      "year": "2020",
-      "url": "#"  /* placeholder URL */
-    },
-    {
-      "title": "Inclusive Lower Primary Education: Parents’ Awareness of the Economic and Social Benefits",
-      "authors": "Ishola A. Salami; Temitope Funminiyi Egbedeyi",
-      "journal": "Journal of Positive Psychology and Counselling",
-      "year": "2018",
-      "url": "#"  /* placeholder URL */
-    }
-  ]
-}
+[
+  {
+    "title": "Availability and Challenges of Inclusive Lower Primary Education Schools",
+    "journal": "International Journal of Childhood Studies in Nigeria",
+    "year": 2024,
+    "link": "https://ejournal.upi.edu/index.php/IJCSNE/article/view/54194"
+  },
+  {
+    "title": "Teachers’ Awareness and Utilisation of Indigenous Games",
+    "journal": "Jereda Journal",
+    "year": 2024,
+    "link": "http://www.jeredajournal.com/index.php/home/article/download/240/182/2246"
+  },
+  {
+    "title": "Eye‑tracking multiplicative reasoning in early childhood mathematics",
+    "journal": "Preprint / Forthcoming",
+    "year": 2025,
+    "link": "#"
+  },
+  {
+    "title": "Exploring Preservice Teachers’ Embodied Noticing of Students’ Fraction Division",
+    "journal": "The Sanguine Academy",
+    "year": 2025,
+    "link": "https://www.researchgate.net/publication/375182308_Exploring_Preservice_Teachers'_Embodied_Noticing_of_Students'_Fraction_Division"
+  },
+  {
+    "title": "Student-Perceived Classroom Norms and Development of Multiplicative Reasoning",
+    "journal": "Journal of Early Mathematics Research",
+    "year": 2023,
+    "link": "#"
+  }
+]
