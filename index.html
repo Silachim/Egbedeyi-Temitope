@@ -11,19 +11,18 @@
 <!-- FONT AWESOME -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-<!-- STYLES -->
 <style>
 :root {
   --accent-1:#1b4de4;
   --accent-2:#4f8df5;
-  --accent-3:#FFC72C; /* Kent State Gold */
-  --muted:#f5f5f5;
+  --accent-3:#FFC72C;
+  --muted:#6b7280;
   --radius:12px;
   --transition:0.3s;
 }
 
 /* RESET */
-* { box-sizing:border-box; margin:0; padding:0; font-family: 'Open Sans', sans-serif; transition: all var(--transition) ease-in-out; }
+* { box-sizing:border-box; margin:0; padding:0; font-family:'Open Sans',sans-serif; transition: all var(--transition) ease-in-out; }
 body { scroll-behavior: smooth; color:#0f172a; line-height:1.6; background:white; }
 
 /* HEADER / NAVIGATION */
@@ -32,55 +31,21 @@ header.kent-nav {
   align-items:center;
   justify-content:space-between;
   padding:12px 24px;
-  background:#1b4de4;
+  background:var(--accent-1);
   box-shadow:0 2px 6px rgba(0,0,0,0.1);
   position:sticky;
   top:0;
   z-index:100;
 }
-
-header.kent-nav .logo {
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
-
-header.kent-nav .logo img {
-  height:150px;
-  width:auto;
-}
-
-header.kent-nav .logo span {
-  font-weight:900;
-  font-size:50px;
-  color:#FFC72C;
-}
-
-header.kent-nav .nav-links {
-  display:flex;
-  gap:24px;
-}
-
-header.kent-nav .nav-links a {
-  text-decoration:none;
-  color:white;
-  font-weight:600;
-  font-size:18px;
-  transition:0.3s;
-}
-
+header.kent-nav .logo { display:flex; align-items:center; gap:15px; }
+header.kent-nav .logo img { height:150px; width:auto; }
+header.kent-nav .nav-links { display:flex; gap:24px; }
+header.kent-nav .nav-links a { text-decoration:none; color:white; font-weight:600; font-size:16px; transition:0.3s; }
 header.kent-nav .nav-links a:hover,
-header.kent-nav .nav-links a.active {
-  color:var(--accent-3);
-}
+header.kent-nav .nav-links a.active { color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
+header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
 
-header.kent-nav .hamburger {
-  display:none;
-  font-size:28px;
-  cursor:pointer;
-}
-
-/* HERO */
+/* HERO SECTION */
 .hero-section {
   display:flex;
   flex-direction:column;
@@ -88,178 +53,120 @@ header.kent-nav .hamburger {
   justify-content:center;
   text-align:center;
   padding:120px 20px;
-  position:relative;
 }
-
 .hero-section img.hero-image {
   width:100%;
   max-width:1400px;
   height:auto;
   margin-bottom:30px;
+  border-radius:var(--radius);
   animation: dropIn 1s ease-out;
-  border-radius:12px;
 }
-
-@keyframes dropIn {
-  0% { opacity:0; transform: translateY(-50px); }
-  100% { opacity:1; transform: translateY(0); }
+@keyframes dropIn { 0% { opacity:0; transform: translateY(-50px); } 100% { opacity:1; transform: translateY(0); } }
+.hero-section p { font-size:20px; max-width:900px; margin:0 auto 20px; color:#0f172a; line-height:1.6; }
+.hero-section a.btn {
+  display:inline-block;
+  padding:12px 20px;
+  background:var(--accent-1);
+  color:white;
+  border-radius:var(--radius);
+  text-decoration:none;
+  transition: all var(--transition);
 }
+.hero-section a.btn:hover { background:var(--accent-2); transform:scale(1.05); }
 
 /* MAIN CONTENT */
-main {
-  max-width:1100px;
-  margin:0 auto;
-  padding:40px 20px;
-}
-
-.content-section {
-  display:flex;
-  flex-wrap:wrap;
-  gap:30px;
-  align-items:center;
-  margin-bottom:60px;
-}
-
-.content-section img.side-image {
-  flex:1 1 400px;
-  max-width:400px;
-  border-radius:12px;
-  animation: floatLeft 1s ease-out;
-}
-
-@keyframes floatLeft {
-  0% { opacity:0; transform: translateX(-50px); }
-  100% { opacity:1; transform: translateX(0); }
-}
-
-.content-section .text-content {
-  flex:2 1 500px;
-}
-
-.content-section .text-content h2 {
-  font-size:32px;
-  color:#0f172a;
-  margin-bottom:16px;
-}
-
-.content-section .text-content p {
-  font-size:18px;
-  margin-bottom:16px;
-  color:#0f172a;
-}
-
-.content-section .text-content a.btn {
-  margin-top:12px;
-  background:var(--accent-3);
-  color:#1b4de4;
-}
-
-.content-section .text-content a.btn:hover {
-  background:white;
-  color:#1b4de4;
-  transform:scale(1.05);
-}
+main { max-width:1100px; margin:0 auto; padding:40px 20px; display:flex; flex-direction:column; gap:60px; }
+.content-section { display:flex; flex-wrap:wrap; gap:30px; align-items:center; }
+.content-section img.side-image { flex:1 1 400px; max-width:400px; border-radius:var(--radius); animation: floatLeft 1s ease-out; }
+@keyframes floatLeft { 0%{opacity:0; transform:translateX(-50px);} 100%{opacity:1; transform:translateX(0);} }
+.content-section .text-content { flex:2 1 500px; }
+.content-section .text-content h2 { font-size:32px; color:var(--accent-1); margin-bottom:16px; }
+.content-section .text-content p { font-size:18px; color:#0f172a; margin-bottom:16px; }
+.content-section .text-content a.btn { background:var(--accent-1); color:white; }
+.content-section .text-content a.btn:hover { background:var(--accent-2); transform:scale(1.05); }
 
 /* PROFILE ICONS */
-.profile-icons {
-  display:flex;
-  gap:20px;
-  justify-content:center;
-  margin-top:40px;
-}
-
-.profile-icons a {
-  text-decoration:none;
-  color:#fff;
-  font-weight:600;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  transition:0.3s;
-}
-
+.profile-icons { display:flex; gap:20px; justify-content:center; margin-top:40px; }
+.profile-icons a { text-decoration:none; color:white; font-weight:600; display:flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; transition:0.3s; }
 .profile-icons a.gs { background: linear-gradient(135deg, #4285F4, #34A853);}
 .profile-icons a.rg { background: linear-gradient(135deg, #00CCBB, #009988);}
 .profile-icons a.orcid { background: linear-gradient(135deg, #A6CE39, #7CA50C);}
-
 .profile-icons a:hover { transform:scale(1.2); }
 
 /* FLOATING BUTTONS */
 .floating-buttons { position: fixed; right:22px; bottom:26px; display:flex; flex-direction: column; gap:14px; z-index:20; }
 .floating-buttons a { display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; color:white; text-decoration:none; font-size:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
 .floating-buttons a:hover { transform:scale(1.1); }
-.btn-top{ background: #FFC72C; color:#1b4de4; }
-.btn-contact{ background: var(--accent-3); color:#1b4de4; }
+.btn-top{ background: var(--accent-1); }
+.btn-contact{ background: var(--accent-2); }
 
 /* FOOTER */
-footer { text-align:center; padding:28px 10px; color:white; background:#1b4de4; }
+footer { text-align:center; padding:28px 10px; color:white; background:var(--accent-1); }
 
 /* RESPONSIVE */
 @media(max-width:900px){
   .content-section { flex-direction:column; text-align:center; }
   .content-section img.side-image { margin:0 auto; }
-  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:170px; right:24px; background:#1b4de4; padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:170px; right:24px; background:var(--accent-1); padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
   header.kent-nav .hamburger { display:block; }
 }
 </style>
 </head>
 
 <body>
-  <!-- HEADER -->
-  <header class="kent-nav">
-    <div class="logo">
-      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
-    </div>
-    <nav class="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="research.html">Research</a>
-      <a href="publications.html">Publications</a>
-      <a href="blog.html">Blog & Media</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="hamburger" onclick="toggleNav()">☰</div>
-  </header>
+<!-- HEADER -->
+<header class="kent-nav">
+  <div class="logo">
+    <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
+  </div>
+  <nav class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="research.html">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="blog.html">Blog & Media</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="hamburger" onclick="toggleNav()">☰</div>
+</header>
 
-  <!-- HERO IMAGE -->
-  <section class="hero-section">
-    <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Home%20page%20picture.jpg?raw=true" alt="Hero Image" class="hero-image">
-    <p style="font-size:20px; max-width:900px; margin:0 auto; color:#0f172a;">Explore early childhood mathematics education through innovative research, place-based learning, and community-driven initiatives connecting Nigeria and the United States.</p>
-    <a href="research.html" class="btn">Explore Research</a>
+<!-- HERO SECTION -->
+<section class="hero-section">
+  <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Home%20page%20picture.jpg?raw=true" alt="Hero Image" class="hero-image">
+  <p>Explore early childhood mathematics education through innovative research, place-based learning, and community-driven initiatives connecting Nigeria and the United States.</p>
+  <a href="research.html" class="btn">Explore Research</a>
+</section>
+
+<!-- MAIN CONTENT -->
+<main>
+  <section class="content-section">
+    <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Egbedeyi.jpg?raw=true" alt="Connect Theory" class="side-image">
+    <div class="text-content">
+      <h2>Connect Theory with Practice</h2>
+      <p>I study how young children build mathematical understanding, focusing on sociomathematical norms, fraction division, multiplicative reasoning, common errors, and place-based approaches connecting classroom learning to community life.</p>
+      <a href="about.html" class="btn">Learn About Me</a>
+    </div>
   </section>
 
-  <!-- MAIN CONTENT -->
-  <main>
-    <section class="content-section">
-      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Egbedeyi.jpg?raw=true" alt="Connect Theory" class="side-image">
-      <div class="text-content">
-        <h2>Connect Theory with Practice</h2>
-        <p>I study how young children build mathematical understanding, focusing on sociomathematical norms, fraction division, multiplicative reasoning, common errors, and place-based approaches connecting classroom learning to community life.</p>
-        <a href="about.html" class="btn">Learn About Me</a>
-      </div>
-    </section>
-
-    <!-- PROFILE ICONS -->
-    <div class="profile-icons">
-      <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank" class="gs" title="Google Scholar"><i class="fab fa-google"></i></a>
-      <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2/research" target="_blank" class="rg" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
-      <a href="https://orcid.org/0000-0002-7300-2387" target="_blank" class="orcid" title="ORCID"><i class="fab fa-orcid"></i></a>
-    </div>
-  </main>
-
-  <!-- FLOATING BUTTONS -->
-  <div class="floating-buttons">
-    <a href="#top" class="btn-top">↑</a>
-    <a href="contact.html" class="btn-contact">✉</a>
+  <!-- PROFILE ICONS -->
+  <div class="profile-icons">
+    <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank" class="gs" title="Google Scholar"><i class="fab fa-google"></i></a>
+    <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2/research" target="_blank" class="rg" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+    <a href="https://orcid.org/0000-0002-7300-2387" target="_blank" class="orcid" title="ORCID"><i class="fab fa-orcid"></i></a>
   </div>
+</main>
 
-  <!-- FOOTER -->
-  <footer>
-    &copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
-  </footer>
+<!-- FLOATING BUTTONS -->
+<div class="floating-buttons">
+  <a href="#top" class="btn-top">↑</a>
+  <a href="contact.html" class="btn-contact">✉</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
+</footer>
 
 <script>
 function toggleNav(){
@@ -269,4 +176,3 @@ function toggleNav(){
 </script>
 </body>
 </html>
-
