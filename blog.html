@@ -2,71 +2,99 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Temitope F. Egbedeyi | Blog & Media</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog & Media</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  body{ margin:0; font-family:'Playfair Display', serif; background: linear-gradient(135deg,#f7971e,#ffd200); color:#0f172a; }
-  header{ text-align:center; padding:80px 20px; color:white; text-shadow:1px 1px 3px rgba(0,0,0,0.5);}
-  header h1{ font-size:44px; margin-bottom:15px; }
-  header p{ font-size:18px; max-width:800px; margin:0 auto; line-height:1.6;}
-  nav{ display:flex; justify-content:center; gap:28px; background:white; padding:14px; position:sticky; top:0; z-index:50; }
-  nav a{ text-decoration:none; font-weight:600; color:#f7971e; }
-  nav a:hover{ color:#ffd200; }
-  main{ max-width:1000px; margin:50px auto; padding:0 20px; }
-  section{ background:white; border-radius:12px; padding:30px; box-shadow:0 8px 24px rgba(15,23,42,0.06); margin-bottom:30px; }
-  h2{ color:#f7971e; }
-  h3{ color:#ffd200; margin-bottom:5px; }
-  p.meta{ font-size:14px; color:#6b7280; margin-bottom:8px; }
-  ul{ padding-left:1rem; }
-  a{ color:#f7971e; text-decoration:none; }
-  a:hover{ text-decoration:underline; }
-  a.btn{ display:inline-block; padding:12px 22px; background:#f7971e; color:white; border-radius:12px; text-decoration:none; margin-top:20px; transition:0.3s; }
-  a.btn:hover{ background:#ffd200; transform:scale(1.05); }
-  footer{ text-align:center; padding:30px 10px; background:#ffe5b4; color:#f7971e; }
+:root{
+  --radius:12px;
+  --accent-1:#6366f1;
+  --accent-2:#8b5cf6;
+  --transition:0.5s ease-in-out;
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Montserrat',sans-serif;color:#0f172a;background:#fff;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+main{max-width:1200px;margin:0 auto;padding:20px;}
+section{padding:60px 20px;border-radius:var(--radius);margin-bottom:28px;position:relative;overflow:hidden;}
+h1,h2,h3{margin:0 0 16px;}
+.lead{font-size:16px;line-height:1.6;margin-bottom:20px;}
+.post{margin-bottom:20px;}
+.meta{color:rgba(255,255,255,0.85);font-size:14px;}
+a.btn{display:inline-block;padding:12px 20px;background:var(--accent-1);color:white;border-radius:10px;font-weight:700;transition:all var(--transition);}
+a.btn:hover{background:var(--accent-2);transform:scale(1.05);}
+img{border-radius:12px;max-width:100%;transition:transform 0.5s;}
+img:hover{transform:scale(1.03);}
+
+/* Navigation */
+.navbar{position:sticky;top:0;width:100%;z-index:100;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+.nav-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;}
+.brand{color:white;font-weight:700;font-size:22px;}
+.nav-links{list-style:none;display:flex;gap:20px;}
+.nav-item{color:white;font-weight:600;padding:8px 12px;border-radius:8px;transition:all 0.3s ease;}
+.nav-item:hover,.nav-item.active{background:rgba(255,255,255,0.25);}
+.nav-toggle{display:none;flex-direction:column;justify-content:space-between;width:28px;height:22px;background:none;border:none;cursor:pointer;}
+.hamburger,.hamburger::before,.hamburger::after{content:'';display:block;height:3px;width:100%;background:white;border-radius:3px;transition:all 0.3s ease;}
+.hamburger::before{transform:translateY(-8px);}
+.hamburger::after{transform:translateY(5px);}
+@media(max-width:768px){
+  .nav-toggle{display:flex;}
+  .nav-links{position:absolute;top:60px;right:0;background:rgba(0,0,0,0.9);flex-direction:column;width:200px;transform:translateX(100%);transition:transform 0.3s ease-in-out;padding:20px;border-radius:0 0 0 12px;}
+  .nav-links.show{transform:translateX(0);}
+  .nav-item{padding:12px 0;}
+}
+
+/* Blog Section */
+#blog{background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;font-family:'Montserrat',sans-serif;text-align:left;}
+#blog::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.2);z-index:0;}
+#blog > *{position:relative;z-index:1;}
+
+/* Footer */
+footer{text-align:center;padding:20px;font-weight:500;color:white;}
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="research.html">Research</a>
-  <a href="publications.html">Publications</a>
-  <a href="blog.html">Blog & Media</a>
-  <a href="contact.html">Contact</a>
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="brand">Temitope F. Egbedeyi</a>
+    <button class="nav-toggle"><span class="hamburger"></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-item">Home</a></li>
+      <li><a href="about.html" class="nav-item">About</a></li>
+      <li><a href="research.html" class="nav-item">Research</a></li>
+      <li><a href="publications.html" class="nav-item">Publications</a></li>
+      <li><a href="blog.html" class="nav-item active">Blog & Media</a></li>
+      <li><a href="contact.html" class="nav-item">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
-<header>
-  <h1>Blog & Media</h1>
-  <p>Read about recent media coverage, interviews, and insights into my research and teaching initiatives.</p>
-</header>
-
 <main>
-  <section>
+  <section id="blog">
+    <h1>Blog & Media</h1>
     <div class="post">
       <h3><a href="https://www.vanguardngr.com/2024/11/nigerian-scholar-redefines-teacher-training-with-global-math-research/" target="_blank">Nigerian scholar redefines teacher training with global math research</a></h3>
       <p class="meta">15 Nov 2024 — Vanguard</p>
-      <p>Profile of Temitope's work bridging teacher education in Nigeria and the United States, emphasizing mixed-methods research and teacher learning.</p>
     </div>
-
     <div class="post">
-      <h3><a href="https://guardian.ng/news/nigerian-researcher-egbedeyi-breaks-new-ground-in-childhood-math-learning-with-eye-tracking-tech/" target="_blank">Egbedeyi breaks new ground in childhood math learning with eye-tracking tech</a></h3>
+      <h3><a href="https://guardian.ng/news/nigerian-researcher-egbedeyi-breaks-new-ground-in-childhood-math-learning-with-eye-tracking-tech/" target="_blank">Egbedeyi breaks new ground in childhood math learning with eye‑tracking tech</a></h3>
       <p class="meta">18 Jun 2025 — The Guardian</p>
-      <p>Coverage of an eye-tracking study revealing how Grade-3 students develop multiplicative reasoning, highlighting classroom implications.</p>
     </div>
-
     <div class="post">
       <h3><a href="https://guardian.ng/news/nigeria/metro/academy-trains-students-champions-digital-research-skills-at-ui-masterclass/" target="_blank">Academy trains students, champions digital research skills at UI masterclass</a></h3>
       <p class="meta">5 Nov 2025 — The Guardian</p>
-      <p>Feature noting Temitope's role with The Sanguine Academy leading research-skill masterclasses at the University of Ibadan.</p>
     </div>
   </section>
 </main>
 
-<footer>
-  &copy; 2025 Temitope F. Egbedeyi
-</footer>
-
+<footer>&copy; 2025 Temitope F. Egbedeyi</footer>
+<script>
+const toggle=document.querySelector('.nav-toggle');
+const navLinks=document.querySelector('.nav-links');
+toggle.addEventListener('click',()=>{navLinks.classList.toggle('show');});
+</script>
 </body>
 </html>
