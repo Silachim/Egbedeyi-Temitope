@@ -1,0 +1,5 @@
+[
+  { "src": "assets/media/Image%201.jpg", "type": "image" },
+  { "src": "assets/media/Image%202.jpg", "type": "image" },
+  { "src": "assets/media/video1.mp4", "type": "video" }
+]
