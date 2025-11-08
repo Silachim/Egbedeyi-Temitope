@@ -1,224 +1,183 @@
+<!-- Blog & Media Page - Temitope F. Egbedeyi -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog & Media | Temitope F. Egbedeyi</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog & Media | Temitope F. Egbedeyi</title>
 
-<!-- SEO Meta -->
-<meta name="description" content="Latest news, blog posts, and media gallery of Temitope F. Egbedeyi's academic and research activities.">
-<meta name="keywords" content="Temitope Egbedeyi, blog, media, research, academic, mathematics education">
-<meta name="author" content="Temitope F. Egbedeyi">
+  <!-- SEO META TAGS -->
+  <meta name="description" content="Latest blogs, news, and media coverage related to Temitope F. Egbedeyi’s research in early childhood mathematics education." />
+  <meta name="keywords" content="Temitope Egbedeyi, Blog, Media, Research, Mathematics Education, Articles, Gallery" />
+  <meta name="author" content="Temitope F. Egbedeyi" />
 
-<!-- Open Graph -->
-<meta property="og:title" content="Blog & Media | Temitope F. Egbedeyi">
-<meta property="og:description" content="Explore the latest blog posts and media gallery showcasing Temitope F. Egbedeyi's research and academic highlights.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://silachim.github.io/Egbedeyi-Temitope/blog.html">
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Blog & Media | Temitope F. Egbedeyi" />
+  <meta property="og:description" content="Explore the latest blogs and media coverage of Temitope F. Egbedeyi’s research." />
+  <meta property="og:type" content="website" />
 
-<!-- Styles -->
-<style>
-:root {
-  --accent-1:#1b4de4;
-  --accent-2:#4f8df5;
-  --muted:#6b7280;
-  --radius:12px;
-  --transition:0.6s;
-}
-*{ box-sizing:border-box; margin:0; padding:0; font-family: Inter, Roboto, Arial, sans-serif; transition: all var(--transition) ease-in-out; }
-body{ color:#0f172a; scroll-behavior:smooth; background:#fff; }
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 
-nav{ position: sticky; top:0; background:#ffffff; display:flex; justify-content:center; gap:28px; padding:14px 16px; box-shadow:0 2px 8px rgba(11,15,30,0.03); z-index:50; }
-nav a{ color:var(--accent-1); text-decoration:none; font-weight:600; transition: color 0.3s; }
-nav a:hover{ color:var(--accent-2); text-decoration:underline }
-nav a.active{ color:var(--accent-2); border-bottom:2px solid var(--accent-2); padding-bottom:2px; }
+  <!-- STYLES -->
+  <style>
+    :root {
+      --accent-1:#1b4de4;
+      --accent-2:#4f8df5;
+      --muted:#6b7280;
+      --radius:12px;
+      --transition:0.3s;
+      --shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+    }
+    * { box-sizing: border-box; margin:0; padding:0; font-family:'Open Sans',sans-serif; transition: all var(--transition) ease-in-out; }
+    body { color:#0f172a; scroll-behavior:smooth; background:#fff; line-height:1.6; }
 
-header{ text-align:center; padding:72px 20px; }
-header h1{ font-size:36px; color:var(--accent-1); margin-bottom:12px; }
-header p{ font-size:18px; max-width:900px; margin:0 auto; line-height:1.6; opacity:0.9; }
+    nav {
+      position: sticky; top:0; background:#ffffff; display:flex; justify-content:center; gap:28px; padding:14px 16px; box-shadow:0 2px 8px rgba(11,15,30,0.03); z-index:50;
+    }
+    nav a { color:var(--accent-1); text-decoration:none; font-weight:600; transition: color 0.3s; }
+    nav a:hover { color:var(--accent-2); text-decoration:underline; }
+    nav a.active { color:var(--accent-2); border-bottom:2px solid var(--accent-2); padding-bottom:2px; }
 
-main{ max-width:1100px; margin:0 auto; padding:0 20px; display:flex; flex-direction:column; gap:28px; }
-section{ padding:60px 20px; border-radius:var(--radius); position:relative; overflow:hidden; }
-section h2{ font-size:32px; margin-top:0; border-bottom:2px solid var(--accent-2); padding-bottom:6px; margin-bottom:16px; }
-section p{ font-size:16px; line-height:1.6; margin-bottom:16px; }
+    header { text-align:center; padding:72px 20px; }
+    header h1 { font-size:36px; color:var(--accent-1); margin-bottom:12px; }
+    header p { font-size:18px; max-width:900px; margin:0 auto; line-height:1.6; opacity:0.9; }
 
-.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
-.card{ background:#f9f9f9; padding:20px; border-radius:var(--radius); box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; transition: transform 0.3s; }
-.card:hover{ transform: scale(1.05); }
-.card img{ width:100%; border-radius:var(--radius); cursor:pointer; transition: transform 0.3s; }
-.card img:hover{ transform: scale(1.05); }
+    main { max-width:1100px; margin:0 auto; padding:0 20px; display:flex; flex-direction:column; gap:48px; }
 
-hr{ border:none; height:2px; background:linear-gradient(to right, var(--accent-1), var(--accent-2)); margin:40px 0; border-radius:6px; }
+    section { padding:40px 0; }
+    section h2 { font-size:32px; color:var(--accent-1); margin-bottom:16px; border-bottom:2px solid var(--accent-2); padding-bottom:8px; }
+    section p.lead { font-size:16px; margin-bottom:24px; }
 
-.floating-buttons { position: fixed; right: 22px; bottom: 26px; display:flex; flex-direction: column; gap:14px; z-index:20; }
-.floating-buttons a{ display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; color:white; text-decoration:none; font-size:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
-.floating-buttons a:hover{ transform:scale(1.1); }
-.btn-top{ background: var(--accent-1); }
-.btn-contact{ background: var(--accent-2); }
+    .divider { width:100%; height:2px; background:linear-gradient(to right,var(--accent-1),var(--accent-2)); margin:32px 0; border-radius:12px; }
 
-/* Modal Lightbox */
-#lightbox-modal{
-  display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-  background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000;
-}
-#lightbox-modal img{ max-width:90%; max-height:90%; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.5); }
-#lightbox-close{ position:absolute; top:20px; right:30px; font-size:36px; color:white; cursor:pointer; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+    .card { background:#f9f9f9; padding:20px; border-radius:var(--radius); box-shadow:var(--shadow); transition: transform var(--transition); }
+    .card:hover { transform: scale(1.05); }
+    .card h3 { margin-bottom:8px; font-size:18px; }
+    .card p { color:var(--muted); font-size:14px; }
 
-@media(max-width:600px){ .grid{ grid-template-columns:1fr } header h1{ font-size:28px } }
-</style>
+    .media-gallery img { width:100%; height:200px; object-fit:cover; border-radius:var(--radius); cursor:pointer; transition:0.3s; }
+    .media-gallery img:hover { transform:scale(1.05); }
+
+    /* Lightbox */
+    .lightbox { display:none; position:fixed; z-index:100; padding-top:60px; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.9);}
+    .lightbox-content { margin:auto; display:block; max-width:90%; max-height:80%; border-radius:12px; }
+    .close-lightbox { position:absolute; top:30px; right:30px; color:white; font-size:36px; font-weight:bold; cursor:pointer; }
+
+    .floating-buttons { position: fixed; right: 22px; bottom: 26px; display:flex; flex-direction: column; gap:14px; z-index:20; }
+    .floating-buttons a { display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; color:white; text-decoration:none; font-size:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
+    .floating-buttons a:hover { transform:scale(1.1); }
+    .btn-top{ background: var(--accent-1); }
+    .btn-contact{ background: var(--accent-2); }
+
+    footer { text-align:center; padding:28px 10px; color:var(--muted); background:#f5f5f5; margin-top:60px; }
+
+    @media(max-width:600px){ header h1{ font-size:28px } }
+  </style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="research.html">Research</a>
-  <a href="publications.html">Publications</a>
-  <a href="blog.html" class="active">Blog & Media</a>
-  <a href="contact.html">Contact</a>
-</nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="research.html">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="blog.html" class="active">Blog & Media</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-<header>
-  <h1>Blog & Media</h1>
-  <p>Stay updated with the latest blog posts and a gallery of media content highlighting Temitope F. Egbedeyi's academic and research activities.</p>
-</header>
+  <header>
+  <p>Stay up to date with the latest blogs, news, and media coverage about Temitope F. Egbedeyi’s research.</p>
+  </header>
+  <main>
 
-<main>
+    <!-- BLOGS -->
+    <section id="blogs">
+      <h2>Blogs & News</h2>
+      <p class="lead">Read featured blogs and news articles related to Temitope’s research initiatives and academic contributions.</p>
+      <div class="grid" id="blog-grid">
+        <!-- Blogs populated dynamically -->
+      </div>
+      <div class="divider"></div>
+    </section>
 
-<!-- Intro Section -->
-<section>
-  <p style="text-align:center; max-width:900px; margin:0 auto;">
-    Explore blog posts and media coverage of Temitope F. Egbedeyi. All content is curated to highlight research impact, events, and scholarly contributions.
-  </p>
-</section>
-<hr>
+    <!-- MEDIA GALLERY -->
+    <section id="media">
+      <h2>Media Gallery</h2>
+      <p class="lead">Browse images and videos highlighting conferences, webinars, and academic events.</p>
+      <div class="grid media-gallery" id="media-grid">
+        <!-- Media images populated dynamically -->
+      </div>
+    </section>
 
-<!-- Blog Section -->
-<section id="blog">
-  <h2>Blog</h2>
-  <p>Read the latest articles and media coverage from academic and public platforms related to Temitope F. Egbedeyi's work.</p>
-  <div class="grid" id="blog-posts">
-    <!-- Blog posts will be populated dynamically -->
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
   </div>
-</section>
-<hr>
 
-<!-- Media Gallery Section -->
-<section id="media">
-  <h2>Media Gallery</h2>
-  <p>Click any image below to view a larger version.</p>
-  <div class="grid" id="media-gallery">
-    <!-- Media images populated dynamically -->
+  <div class="floating-buttons">
+    <a href="#top" class="btn-top">↑</a>
+    <a href="contact.html" class="btn-contact">✉</a>
   </div>
-</section>
 
-</main>
+  <footer>
+    &copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
+  </footer>
 
-<!-- Modal Lightbox -->
-<div id="lightbox-modal">
-  <span id="lightbox-close">&times;</span>
-  <img id="lightbox-img" src="">
-</div>
+  <script>
+    // BLOGS
+    const blogs = [
+      { title:"Nigerian scholar redefines teacher training with global math research", url:"https://www.vanguardngr.com/2024/11/nigerian-scholar-redefines-teacher-training-with-global-math-research/", meta:"15 Nov 2024 — Vanguard" },
+      { title:"Egbedeyi breaks new ground in childhood math learning with eye‑tracking tech", url:"https://guardian.ng/news/nigerian-researcher-egbedeyi-breaks-new-ground-in-childhood-math-learning-with-eye-tracking-tech/", meta:"18 Jun 2025 — The Guardian" },
+      { title:"Academy trains students, champions digital research skills at UI masterclass", url:"https://guardian.ng/news/nigeria/metro/academy-trains-students-champions-digital-research-skills-at-ui-masterclass/", meta:"5 Nov 2025 — The Guardian" }
+    ];
 
-<div class="floating-buttons">
-  <a href="#top" class="btn-top">↑</a>
-  <a href="contact.html" class="btn-contact">✉</a>
-</div>
+    const blogGrid = document.getElementById('blog-grid');
+    blogs.forEach(blog => {
+      const div = document.createElement('div');
+      div.className = 'card';
+      div.innerHTML = `<h3><a href="${blog.url}" target="_blank">${blog.title}</a></h3><p>${blog.meta}</p>`;
+      blogGrid.appendChild(div);
+    });
 
-<footer>
-  <p>&copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement</p>
-</footer>
+    // MEDIA
+    const mediaItems = [
+      { title:"Research Methodology Webinar", url:"https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/research-methods-covid-webinar-header.jpg" },
+      { title:"Portrait of Temitope F. Egbedeyi", url:"https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" },
+      { title:"Placeholder Future Media", url:"https://via.placeholder.com/600x400?text=Future+Image+1" }
+    ];
 
-<script>
-// Sample blog posts
-const blogs = [
-  {
-    title: "Nigerian scholar redefines teacher training with global math research",
-    url: "https://www.vanguardngr.com/2024/11/nigerian-scholar-redefines-teacher-training-with-global-math-research/",
-    meta: "15 Nov 2024 — Vanguard"
-  },
-  {
-    title: "Egbedeyi breaks new ground in childhood math learning with eye‑tracking tech",
-    url: "https://guardian.ng/news/nigerian-researcher-egbedeyi-breaks-new-ground-in-childhood-math-learning-with-eye-tracking-tech/",
-    meta: "18 Jun 2025 — The Guardian"
-  },
-  {
-    title: "Academy trains students, champions digital research skills at UI masterclass",
-    url: "https://guardian.ng/news/nigeria/metro/academy-trains-students-champions-digital-research-skills-at-ui-masterclass/",
-    meta: "5 Nov 2025 — The Guardian"
-  }
-];
+    const mediaGrid = document.getElementById('media-grid');
+    mediaItems.forEach(item => {
+      const img = document.createElement('img');
+      img.src = item.url;
+      img.alt = item.title;
+      img.onclick = () => openLightbox(item.url);
+      mediaGrid.appendChild(img);
+    });
 
-// Populate blogs
-const blogContainer = document.getElementById('blog-posts');
-blogs.forEach(blog=>{
-  const div = document.createElement('div');
-  div.classList.add('card');
-  div.innerHTML = `<h3><a href="${blog.url}" target="_blank">${blog.title}</a></h3><p class="meta">${blog.meta}</p>`;
-  blogContainer.appendChild(div);
-});
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
 
-// Sample media JSON
-const media = {
-  "images": [
-    {
-      "id": 1,
-      "title": "Research Methodology Webinar",
-      "description": "Screenshot from research methods COVID webinar.",
-      "url": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/research-methods-covid-webinar-header.jpg",
-      "date": "2025-06-10"
-    },
-    {
-      "id": 2,
-      "title": "Portrait of Temitope F. Egbedeyi",
-      "description": "Professional portrait for academic profile.",
-      "url": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg",
-      "date": "2025-11-08"
-    },
-    {
-      "id": 3,
-      "title": "Other Academic Event",
-      "description": "Placeholder image for future media upload.",
-      "url": "https://via.placeholder.com/600x400?text=Future+Image+1",
-      "date": ""
+    function openLightbox(src){
+      lightbox.style.display = "block";
+      lightboxImg.src = src;
     }
-  ],
-  "videos": [
-    {
-      "id": 1,
-      "title": "Upcoming Research Video",
-      "description": "Placeholder for future video content.",
-      "url": "",
-      "date": ""
+
+    function closeLightbox(){
+      lightbox.style.display = "none";
+      lightboxImg.src = "";
     }
-  ]
-};
 
-// Populate media gallery
-const mediaContainer = document.getElementById('media-gallery');
-media.images.forEach(item=>{
-  const div = document.createElement('div');
-  div.classList.add('card');
-  div.innerHTML = `<img src="${item.url}" alt="${item.title}" class="gallery-img"><h3>${item.title}</h3><p>${item.description}</p>`;
-  mediaContainer.appendChild(div);
-});
-
-// Modal lightbox
-const images = document.querySelectorAll('.gallery-img');
-const modal = document.getElementById('lightbox-modal');
-const modalImg = document.getElementById('lightbox-img');
-const closeBtn = document.getElementById('lightbox-close');
-
-images.forEach(img=>{
-  img.addEventListener('click', ()=>{
-    modal.style.display='flex';
-    modalImg.src=img.src;
-  });
-});
-
-closeBtn.addEventListener('click', ()=> modal.style.display='none');
-modal.addEventListener('click', e=> { if(e.target === modal) modal.style.display='none'; });
-</script>
+    window.onclick = function(event){
+      if(event.target == lightbox){ closeLightbox(); }
+    }
+  </script>
 
 </body>
 </html>
