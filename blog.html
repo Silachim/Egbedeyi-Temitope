@@ -1,80 +1,70 @@
+<!-- Blog & Media Page - Temitope F. Egbedeyi | Modern Interactive Version -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blog & Media</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --radius:12px;
-  --accent-1:#6366f1;
-  --accent-2:#8b5cf6;
-  --transition:0.5s ease-in-out;
-}
-*{box-sizing:border-box;}
-body{margin:0;font-family:'Montserrat',sans-serif;color:#0f172a;background:#fff;}
-a{text-decoration:none;}
-a:hover{text-decoration:underline;}
-main{max-width:1200px;margin:0 auto;padding:20px;}
-section{padding:60px 20px;border-radius:var(--radius);margin-bottom:28px;position:relative;overflow:hidden;}
-h1,h2,h3{margin:0 0 16px;}
-.lead{font-size:16px;line-height:1.6;margin-bottom:20px;}
-.post{margin-bottom:20px;}
-.meta{color:rgba(255,255,255,0.85);font-size:14px;}
-a.btn{display:inline-block;padding:12px 20px;background:var(--accent-1);color:white;border-radius:10px;font-weight:700;transition:all var(--transition);}
-a.btn:hover{background:var(--accent-2);transform:scale(1.05);}
-img{border-radius:12px;max-width:100%;transition:transform 0.5s;}
-img:hover{transform:scale(1.03);}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & Media | Temitope F. Egbedeyi</title>
+  <style>
+    :root {
+      --accent-1: #1b4de4;
+      --accent-2: #4f8df5;
+      --text-dark: #0f172a;
+      --radius: 14px;
+      --transition: 0.35s;
+    }
 
-/* Navigation */
-.navbar{position:sticky;top:0;width:100%;z-index:100;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));box-shadow:0 4px 12px rgba(0,0,0,0.1);}
-.nav-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;}
-.brand{color:white;font-weight:700;font-size:22px;}
-.nav-links{list-style:none;display:flex;gap:20px;}
-.nav-item{color:white;font-weight:600;padding:8px 12px;border-radius:8px;transition:all 0.3s ease;}
-.nav-item:hover,.nav-item.active{background:rgba(255,255,255,0.25);}
-.nav-toggle{display:none;flex-direction:column;justify-content:space-between;width:28px;height:22px;background:none;border:none;cursor:pointer;}
-.hamburger,.hamburger::before,.hamburger::after{content:'';display:block;height:3px;width:100%;background:white;border-radius:3px;transition:all 0.3s ease;}
-.hamburger::before{transform:translateY(-8px);}
-.hamburger::after{transform:translateY(5px);}
-@media(max-width:768px){
-  .nav-toggle{display:flex;}
-  .nav-links{position:absolute;top:60px;right:0;background:rgba(0,0,0,0.9);flex-direction:column;width:200px;transform:translateX(100%);transition:transform 0.3s ease-in-out;padding:20px;border-radius:0 0 0 12px;}
-  .nav-links.show{transform:translateX(0);}
-  .nav-item{padding:12px 0;}
-}
+    * { box-sizing: border-box; margin:0; padding:0; font-family: Inter, Arial, sans-serif; }
+    body { background: #f0fdf4; color: var(--text-dark); overflow-x: hidden; scroll-behavior: smooth; }
 
-/* Blog Section */
-#blog{background:linear-gradient(135deg,#6366f1,#8b5cf6);color:white;font-family:'Montserrat',sans-serif;text-align:left;}
-#blog::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.2);z-index:0;}
-#blog > *{position:relative;z-index:1;}
+    /* INTERACTIVE BACKGROUND */
+    .bg-animated { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+      background: radial-gradient(circle at 25% 25%, rgba(79, 245, 141, 0.15), transparent 50%),
+                  radial-gradient(circle at 75% 75%, rgba(27, 228, 77, 0.15), transparent 50%);
+      animation: float 14s infinite alternate ease-in-out;
+    }
+    @keyframes float { 0% { transform: translateY(0px);} 100% { transform: translateY(20px); } }
 
-/* Footer */
-footer{text-align:center;padding:20px;font-weight:500;color:white;}
-</style>
+    header { text-align: center; padding: 80px 20px; }
+    header h1 { font-size: 40px; background: linear-gradient(135deg, var(--accent-1), var(--accent-2)); -webkit-background-clip: text; color: transparent; display:inline-block; animation: fadeIn 1.5s ease-out; }
+    header p { margin-top: 14px; font-size: 18px; max-width: 900px; margin-left:auto; margin-right:auto; line-height:1.6; opacity:0.9; animation: fadeIn 2s ease-out; }
+
+    main { max-width: 900px; margin: 0 auto; padding: 0 20px; display: flex; flex-direction: column; gap: 28px; }
+
+    .post { padding: 18px; border-radius: var(--radius); background: white; box-shadow: 0 4px 14px rgba(0,0,0,0.06); transition: transform 0.3s; }
+    .post:hover { transform: translateY(-3px); }
+    .post h3 { font-size: 22px; color: var(--accent-1); margin-bottom: 6px; }
+    .post p.meta { font-size: 14px; color: #6b7280; }
+
+    .btn-primary { display: inline-block; padding: 12px 22px; background: var(--accent-1); color: white; border-radius: var(--radius); text-decoration: none; margin-top: 12px; transition: var(--transition); }
+    .btn-primary:hover { background: var(--accent-2); transform: scale(1.05); }
+
+    footer { text-align:center; padding:28px 10px; color:#6b7280; background:#f5f5f5; }
+
+    /* DARK MODE */
+    .dark { background:#0f172a; color:white; }
+    .dark footer { color:#cbd5e1; background:#1e293b; }
+
+    /* FLOATING BUTTONS */
+    .floating-buttons { position: fixed; right: 22px; bottom: 26px; display: flex; flex-direction: column; gap: 14px; z-index: 20; }
+    .floating-buttons a { display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; color: white; text-decoration: none; font-size: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: 0.3s; }
+    .floating-buttons a:hover { transform: scale(1.1); }
+    .btn-top { background: var(--accent-1); }
+    .btn-contact { background: var(--accent-2); }
+
+    @keyframes fadeIn { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
+  </style>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="navbar">
-  <div class="nav-container">
-    <a href="index.html" class="brand">Temitope F. Egbedeyi</a>
-    <button class="nav-toggle"><span class="hamburger"></span></button>
-    <ul class="nav-links">
-      <li><a href="index.html" class="nav-item">Home</a></li>
-      <li><a href="about.html" class="nav-item">About</a></li>
-      <li><a href="research.html" class="nav-item">Research</a></li>
-      <li><a href="publications.html" class="nav-item">Publications</a></li>
-      <li><a href="blog.html" class="nav-item active">Blog & Media</a></li>
-      <li><a href="contact.html" class="nav-item">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+  <div class="bg-animated"></div>
 
-<main>
-  <section id="blog">
+  <header>
     <h1>Blog & Media</h1>
+    <p>Read my latest media coverage and blog posts on early childhood mathematics education and innovative research approaches.</p>
+  </header>
+
+  <main>
     <div class="post">
       <h3><a href="https://www.vanguardngr.com/2024/11/nigerian-scholar-redefines-teacher-training-with-global-math-research/" target="_blank">Nigerian scholar redefines teacher training with global math research</a></h3>
       <p class="meta">15 Nov 2024 — Vanguard</p>
@@ -87,14 +77,22 @@ footer{text-align:center;padding:20px;font-weight:500;color:white;}
       <h3><a href="https://guardian.ng/news/nigeria/metro/academy-trains-students-champions-digital-research-skills-at-ui-masterclass/" target="_blank">Academy trains students, champions digital research skills at UI masterclass</a></h3>
       <p class="meta">5 Nov 2025 — The Guardian</p>
     </div>
-  </section>
-</main>
+  </main>
 
-<footer>&copy; 2025 Temitope F. Egbedeyi</footer>
-<script>
-const toggle=document.querySelector('.nav-toggle');
-const navLinks=document.querySelector('.nav-links');
-toggle.addEventListener('click',()=>{navLinks.classList.toggle('show');});
-</script>
+  <div class="floating-buttons">
+    <a href="#top" class="btn-top">↑</a>
+    <a href="contact.html" class="btn-contact">✉</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement</p>
+  </footer>
+
+  <script>
+    let dark = false;
+    function toggleDark(){ dark = !dark; document.body.classList.toggle('dark', dark); }
+    if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){ toggleDark(); }
+  </script>
+
 </body>
 </html>
