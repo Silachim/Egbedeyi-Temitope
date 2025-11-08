@@ -24,7 +24,7 @@
 
 /* RESET */
 *{ box-sizing:border-box; margin:0; padding:0; font-family: 'Open Sans', sans-serif; transition: all var(--transition) ease-in-out; }
-body{ color:#0f172a; scroll-behavior:smooth; background:#1b4de4; }
+body{ color:#0f172a; scroll-behavior:smooth; background:white; }
 
 /* HEADER / NAVIGATION */
 header.kent-nav {
@@ -80,11 +80,11 @@ header.kent-nav .hamburger {
   cursor:pointer;
 }
 
-/* HERO */
+/* PAGE HEADER */
 header.page-header {
   text-align:center;
   padding:72px 20px;
-  color:white;
+  color:#0f172a;
 }
 
 header.page-header h1{ font-size:36px; margin-bottom:12px; }
@@ -132,14 +132,6 @@ a.btn:hover{ background:white; transform:scale(1.05); }
 /* FOOTER */
 footer{ text-align:center; padding:28px 10px; color:white; background:#1b4de4; }
 
-/* INTERACTIVE BACKGROUND */
-.bg-animated { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-  background: radial-gradient(circle at 25% 25%, rgba(79, 141, 245, 0.15), transparent 50%),
-              radial-gradient(circle at 75% 75%, rgba(27, 77, 228, 0.15), transparent 50%);
-  animation: float 16s infinite alternate ease-in-out;
-}
-@keyframes float { 0%{ transform: translateY(0px);} 100%{ transform: translateY(20px);} }
-
 /* FLOATING BUTTONS */
 .floating-buttons { position: fixed; right: 22px; bottom: 26px; display:flex; flex-direction: column; gap:14px; z-index:20; }
 .floating-buttons a{ display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; color:white; text-decoration:none; font-size:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
@@ -156,7 +148,6 @@ footer{ text-align:center; padding:28px 10px; color:white; background:#1b4de4; }
 </head>
 
 <body>
-<div class="bg-animated"></div>
 
 <!-- HEADER -->
 <header class="kent-nav">
