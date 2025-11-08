@@ -1,21 +1,74 @@
-<!-- Blog & Media Page with Modern Navigation - Temitope F. Egbedeyi -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog & Media | Temitope F. Egbedeyi</title>
+
+  <!-- ✅ SEO META TAGS -->
+  <meta name="description" content="Stay updated on Temitope F. Egbedeyi’s latest blogs, research news, and media coverage. Explore publications, features, and academic highlights." />
+  <meta name="keywords" content="Temitope Egbedeyi, Blog, Media, Mathematics Education, Early Childhood, Research, Nigeria, Kent State University" />
+  <meta name="author" content="Temitope F. Egbedeyi" />
+
+  <!-- ✅ OPEN GRAPH -->
+  <meta property="og:title" content="Blog & Media | Temitope F. Egbedeyi" />
+  <meta property="og:description" content="Latest blogs, news, and media coverage related to Temitope F. Egbedeyi’s research in early childhood mathematics education." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://silachim.github.io/Egbedeyi-Temitope/blog.html" />
+  <meta property="og:image" content="assets/Image%201.jpg" />
+
+  <!-- ✅ TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog & Media | Temitope F. Egbedeyi" />
+  <meta name="twitter:description" content="Follow Temitope F. Egbedeyi’s latest blogs, publications, and media highlights in early childhood mathematics education." />
+  <meta name="twitter:image" content="assets/Image%201.jpg" />
+  <meta name="twitter:site" content="@topmost89" />
+  <meta name="twitter:creator" content="@topmost89" />
+
+  <!-- ✅ STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Person",
+    "name": "Temitope F. Egbedeyi",
+    "url": "https://silachim.github.io/Egbedeyi-Temitope/blog.html",
+    "image": "assets/Image%201.jpg",
+    "jobTitle": "Doctoral Candidate & Research Assistant",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Kent State University"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Ibadan"
+    },
+    "sameAs": [
+      "https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en",
+      "https://orcid.org/0000-0002-7300-2387",
+      "https://www.researchgate.net/profile/Temitope-Egbedeyi-2/research",
+      "https://www.linkedin.com/in/temitope-egbedeyi",
+      "https://x.com/topmost89"
+    ],
+    "description": "Latest blogs and media coverage related to early childhood mathematics education research by Temitope F. Egbedeyi."
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="canonical" href="https://silachim.github.io/Egbedeyi-Temitope/blog.html" />
+
+  <!-- ✅ STYLES -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
     :root {
-      --accent-1:#1b4de4;
-      --accent-2:#4f8df5;
-      --muted:#6b7280;
+      --accent-1:#1B4DE4;
+      --accent-2:#4F8DF5;
+      --muted:#6B7280;
       --radius:12px;
-      --transition:0.6s;
+      --transition:0.3s;
     }
 
-    *{ box-sizing:border-box; margin:0; padding:0; font-family: Inter, Roboto, Arial, sans-serif; transition: all var(--transition) ease-in-out; }
-    body{ color:#0f172a; scroll-behavior:smooth; }
+    * { box-sizing:border-box; margin:0; padding:0; font-family: 'Open Sans', sans-serif; transition: all var(--transition) ease-in-out; }
+    body { color:#0f172a; scroll-behavior:smooth; }
 
     nav{ position: sticky; top:0; background:#ffffff; display:flex; justify-content:center; gap:28px; padding:14px 16px; box-shadow:0 2px 8px rgba(11,15,30,0.03); z-index:50; }
     nav a{ color:var(--accent-1); text-decoration:none; font-weight:600; transition: color 0.3s; }
@@ -27,13 +80,30 @@
     header p{ font-size:18px; max-width:900px; margin:0 auto; line-height:1.6; opacity:0.9; }
 
     main{ max-width:1100px; margin:0 auto; padding:0 20px; display:flex; flex-direction:column; gap:28px; }
+
     section{ padding:60px 20px; border-radius:var(--radius); margin-bottom:28px; position:relative; overflow:hidden; }
-    section h2{ font-size:32px; margin-top:0; }
-    section h3{ color:var(--accent-1); margin-bottom:6px; }
+
+    section h2{ font-size:32px; margin-top:0; border-bottom:2px solid var(--accent-1); padding-bottom:6px; margin-bottom:24px; }
+
+    .post { margin-bottom:24px; }
+    .post h3 a{ color:#0f172a; text-decoration:none; transition: color 0.3s; }
+    .post h3 a:hover{ color:var(--accent-2); text-decoration:underline; }
     .meta{ font-size:14px; color:var(--muted); margin-bottom:12px; }
-    .post{ margin-bottom:24px; }
-    a.btn{ display:inline-block; padding:10px 18px; background:var(--accent-1); color:white; border-radius:10px; text-decoration:none; margin-top:12px; transition: background 0.3s, transform 0.3s; }
-    a.btn:hover{ background:var(--accent-2); transform:scale(1.05); }
+
+    .divider { border-top:2px solid var(--accent-1); margin:60px 0; }
+
+    /* MEDIA GALLERY */
+    .media-gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+    .media-card { border-radius: var(--radius); overflow:hidden; box-shadow: rgba(0,0,0,0.1) 0px 4px 12px; transition: transform var(--transition); }
+    .media-card:hover{ transform: scale(1.03); }
+    .media-card img, .media-card video{ width:100%; display:block; }
+
+    /* FLOATING BUTTONS */
+    .floating-buttons { position: fixed; right: 22px; bottom: 26px; display:flex; flex-direction: column; gap:14px; z-index:20; }
+    .floating-buttons a{ display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; color:white; text-decoration:none; font-size:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
+    .floating-buttons a:hover{ transform:scale(1.1); }
+    .btn-top{ background: var(--accent-1); }
+    .btn-contact{ background: var(--accent-2); }
 
     .bg-animated { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
       background: radial-gradient(circle at 25% 25%, rgba(79, 141, 245, 0.15), transparent 50%),
@@ -42,58 +112,93 @@
     }
     @keyframes float { 0%{ transform: translateY(0px);} 100%{ transform: translateY(20px);} }
 
-    .floating-buttons { position: fixed; right: 22px; bottom: 26px; display:flex; flex-direction: column; gap:14px; z-index:20; }
-    .floating-buttons a{ display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; color:white; text-decoration:none; font-size:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
-    .floating-buttons a:hover{ transform:scale(1.1); }
-    .btn-top{ background: var(--accent-1); }
-    .btn-contact{ background: var(--accent-2); }
-
     @media(max-width:600px){ header h1{ font-size:28px } }
   </style>
 </head>
 <body>
 
-  <div class="bg-animated"></div>
+<div class="bg-animated"></div>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="research.html">Research</a>
-    <a href="publications.html">Publications</a>
-    <a href="blog.html" class="active">Blog & Media</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="research.html">Research</a>
+  <a href="publications.html">Publications</a>
+  <a href="blog.html" class="active">Blog & Media</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
-  <header>
-    <h1>Blog & Media</h1>
-    <p>Latest news, features, and media coverage related to my research and academic initiatives.</p>
-  </header>
+<header>
+  <h1>Blog & Media</h1>
+  <p>Latest news, features, blogs, and media coverage related to my research and academic initiatives.</p>
+</header>
 
-  <main>
-    <section id="blog">
-      <div class="post">
-        <h3><a href="https://www.vanguardngr.com/2024/11/nigerian-scholar-redefines-teacher-training-with-global-math-research/" target="_blank">Nigerian scholar redefines teacher training with global math research</a></h3>
-        <p class="meta">15 Nov 2024 — Vanguard</p>
-      </div>
-      <div class="post">
-        <h3><a href="https://guardian.ng/news/nigerian-researcher-egbedeyi-breaks-new-ground-in-childhood-math-learning-with-eye-tracking-tech/" target="_blank">Egbedeyi breaks new ground in childhood math learning with eye‑tracking tech</a></h3>
-        <p class="meta">18 Jun 2025 — The Guardian</p>
-      </div>
-      <div class="post">
-        <h3><a href="https://guardian.ng/news/nigeria/metro/academy-trains-students-champions-digital-research-skills-at-ui-masterclass/" target="_blank">Academy trains students, champions digital research skills at UI masterclass</a></h3>
-        <p class="meta">5 Nov 2025 — The Guardian</p>
-      </div>
-    </section>
-  </main>
+<main>
+  <!-- BLOG POSTS -->
+  <section id="blog">
+    <div class="post">
+      <h3><a href="https://www.vanguardngr.com/2024/11/nigerian-scholar-redefines-teacher-training-with-global-math-research/" target="_blank">Nigerian scholar redefines teacher training with global math research</a></h3>
+      <p class="meta">15 Nov 2024 — Vanguard</p>
+    </div>
+    <div class="post">
+      <h3><a href="https://guardian.ng/news/nigerian-researcher-egbedeyi-breaks-new-ground-in-childhood-math-learning-with-eye-tracking-tech/" target="_blank">Egbedeyi breaks new ground in childhood math learning with eye‑tracking tech</a></h3>
+      <p class="meta">18 Jun 2025 — The Guardian</p>
+    </div>
+    <div class="post">
+      <h3><a href="https://guardian.ng/news/nigeria/metro/academy-trains-students-champions-digital-research-skills-at-ui-masterclass/" target="_blank">Academy trains students, champions digital research skills at UI masterclass</a></h3>
+      <p class="meta">5 Nov 2025 — The Guardian</p>
+    </div>
+  </section>
 
-  <div class="floating-buttons">
-    <a href="#top" class="btn-top">↑</a>
-    <a href="contact.html" class="btn-contact">✉</a>
-  </div>
+  <div class="divider"></div>
 
-  <footer>
-    <p>&copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement</p>
-  </footer>
+  <!-- MEDIA GALLERY -->
+  <section id="media">
+    <h2>Media Gallery</h2>
+    <div class="media-gallery" id="mediaGallery"></div>
+  </section>
+</main>
+
+<div class="floating-buttons">
+  <a href="#top" class="btn-top">↑</a>
+  <a href="contact.html" class="btn-contact">✉</a>
+</div>
+
+<footer>
+  <p>&copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement</p>
+</footer>
+
+<!-- DYNAMIC MEDIA LOADER -->
+<script>
+  const gallery = document.getElementById('mediaGallery');
+
+  fetch('assets/media/media.json')
+    .then(response => response.json())
+    .then(mediaFiles => {
+      mediaFiles.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'media-card';
+
+        if(item.type === 'image'){
+          const img = document.createElement('img');
+          img.src = item.src;
+          img.alt = "Media Image";
+          card.appendChild(img);
+        } else if(item.type === 'video'){
+          const video = document.createElement('video');
+          video.controls = true;
+          const source = document.createElement('source');
+          source.src = item.src;
+          source.type = 'video/mp4';
+          video.appendChild(source);
+          card.appendChild(video);
+        }
+
+        gallery.appendChild(card);
+      });
+    })
+    .catch(err => console.error('Failed to load media JSON:', err));
+</script>
 
 </body>
 </html>
