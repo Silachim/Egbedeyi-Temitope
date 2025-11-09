@@ -82,6 +82,30 @@ section h3{ color:var(--accent-1); margin-bottom:12px; }
 a.btn{ display:inline-block; padding:12px 20px; background:var(--accent-1); color:white; border-radius:10px; text-decoration:none; margin-top:12px; transition: background 0.3s, transform 0.3s; }
 a.btn:hover{ background: var(--accent-2); transform:scale(1.05); }
 
+/* PROFILE ICONS */
+.profile-icons {
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  margin-top:40px;
+}
+.profile-icons a {
+  text-decoration:none;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  font-size:28px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.profile-icons a.gs { background:#4285F4; } /* Google Scholar Blue */
+.profile-icons a.rg { background:#00CCBB; } /* ResearchGate Teal */
+.profile-icons a.li { background:#0077B5; } /* LinkedIn Blue */
+.profile-icons a:hover { transform:scale(1.2); box-shadow:0 6px 15px rgba(0,0,0,0.2); }
+
 /* FOOTER */
 footer{ text-align:center; padding:28px 10px; color:white; background:var(--accent-1); }
 
@@ -139,6 +163,13 @@ footer{ text-align:center; padding:28px 10px; color:white; background:var(--acce
       </div>
     </div>
   </section>
+
+  <!-- PROFILE ICONS -->
+  <div class="profile-icons">
+    <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank" class="gs" title="Google Scholar"><i class="fab fa-google"></i></a>
+    <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank" class="rg" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+    <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank" class="li" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  </div>
 </main>
 
 <div class="floating-buttons">
