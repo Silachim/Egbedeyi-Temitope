@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Publications | Temitope F. Egbedeyi</title>
+<title>Research | Temitope F. Egbedeyi</title>
 
 <!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
@@ -13,123 +13,98 @@
   --accent-1:#1b4de4;
   --accent-2:#4f8df5;
   --accent-3:#FFC72C;
+  --muted:#0f172a;
   --radius:12px;
   --transition:0.3s;
   --shadow: rgba(0,0,0,0.1) 0px 4px 12px;
-  --muted:#6b7280;
 }
 
 /* RESET */
-* { box-sizing:border-box; margin:0; padding:0; font-family:'Open Sans',sans-serif; transition: all var(--transition) ease-in-out; }
-body { color:#0f172a; background:white; line-height:1.6; scroll-behavior:smooth; }
+*{ box-sizing:border-box; margin:0; padding:0; font-family: 'Open Sans', sans-serif; transition: all var(--transition) ease-in-out; }
+body{ color:#0f172a; scroll-behavior:smooth; background:white; }
 
-/* HEADER NAVIGATION */
+/* HEADER / NAVIGATION */
 header.kent-nav {
   display:flex;
   align-items:center;
   justify-content:space-between;
   padding:12px 24px;
   background:var(--accent-1);
-  color:white;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
   position:sticky;
   top:0;
   z-index:100;
-  box-shadow:0 2px 6px rgba(0,0,0,0.08);
 }
 header.kent-nav .logo { display:flex; align-items:center; gap:15px; }
 header.kent-nav .logo img { height:150px; width:auto; }
 header.kent-nav .nav-links { display:flex; gap:24px; }
-header.kent-nav .nav-links a {
-  text-decoration:none;
-  color:white;
-  font-weight:600;
-  font-size:16px;
-}
-header.kent-nav .nav-links a:hover,
-header.kent-nav .nav-links a.active {
-  color:var(--accent-3);
-  border-bottom:2px solid var(--accent-3);
-  padding-bottom:2px;
-}
+header.kent-nav .nav-links a { text-decoration:none; color:white; font-weight:600; font-size:16px; transition:0.3s; }
+header.kent-nav .nav-links a:hover, header.kent-nav .nav-links a.active { color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
 header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
 
-/* HERO IMAGE */
-.pub-hero { display:flex; justify-content:center; margin-top:20px; }
-.pub-hero-container { width:100%; max-width:1100px; opacity:0; animation:pubDrop 1.3s ease forwards; }
-.pub-hero-image { width:100%; height:auto; border-radius:16px; box-shadow:0 10px 40px rgba(0,0,0,0.25); }
-@keyframes pubDrop { 0% { transform: translateY(-60px); opacity:0; } 100% { transform: translateY(0); opacity:1; } }
+/* PAGE HEADER */
+header.page-header { text-align:center; padding:72px 20px; color:#0f172a; }
+header.page-header h1{ font-size:36px; margin-bottom:12px; }
+header.page-header p{ font-size:18px; max-width:900px; margin:0 auto; line-height:1.6; opacity:0.9; }
 
-main { max-width:1100px; margin:0 auto; padding:0 20px; }
-section { margin-top:40px; }
-section h2 {
-  font-size:32px;
-  color:var(--accent-1);
-  padding-bottom:8px;
-  border-bottom:2px solid var(--accent-2);
-  margin-bottom:16px;
+/* MAIN CONTENT */
+main{ max-width:1100px; margin:0 auto; padding:0 20px; display:flex; flex-direction:column; gap:28px; }
+section{ padding:60px 20px; border-radius:var(--radius); margin-bottom:28px; position:relative; overflow:hidden; }
+section h2{ font-size:32px; color:var(--accent-1); margin-bottom:16px; border-bottom:2px solid var(--accent-2); padding-bottom:6px; }
+section h3{ color:var(--accent-1); margin-bottom:12px; }
+.lead{ font-size:16px; line-height:1.6; margin-bottom:16px; }
+
+/* Grid layout for research section */
+.research-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap:40px;
+  align-items: center;
 }
-
-/* PROFILE ICONS */
-.profile-icons.horizontal ul {
-  list-style:none; display:flex;
-  gap:25px; justify-content:center; padding:0;
+.research-grid img{
+  width:100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+  animation: floatImg 6s ease-in-out infinite alternate;
 }
-.profile-icons.horizontal a {
-  display:flex; align-items:center; gap:10px;
-  font-weight:500; color:#333;
-  text-decoration:none; position:relative;
-}
-.icon-circle {
-  width:44px; height:44px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  color:white; font-size:20px;
-}
-.gs { background:linear-gradient(135deg, #4285F4, #34A853); }
-.rg { background:linear-gradient(135deg, #00CCBB, #009988); }
-.orcid { background:linear-gradient(135deg, #A6CE39, #7CA50C); }
-.icon-circle:hover { transform:scale(1.25) translateY(-5px); }
+@keyframes floatImg { 0%{ transform: translateY(0px); } 100%{ transform: translateY(15px); } }
 
-.divider { height:2px; background:linear-gradient(to right, var(--accent-1), var(--accent-2)); margin:24px 0; }
+@media(max-width:900px){ .research-grid{ grid-template-columns:1fr; } }
 
-/* PUBLICATION CARDS */
-.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px; }
-.card {
-  background:#f9f9f9;
-  padding:20px;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  transition: transform var(--transition);
-}
-.card:hover { transform:scale(1.05); }
-.card h3 { margin-bottom:8px; font-size:18px; }
-.card p { font-size:14px; color:var(--muted); }
+/* Research Interest Tags */
+.interest-tags { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:24px; }
+.interest-tags span { background:var(--accent-2); color:white; padding:6px 12px; border-radius:8px; font-size:14px; cursor:pointer; transition: transform 0.3s; }
+.interest-tags span:hover { transform: translateY(-3px) scale(1.05); }
 
-a.btn {
-  display:inline-block;
-  padding:10px 18px;
-  background:var(--accent-1);
-  color:#fff;
-  border-radius:10px;
-  text-decoration:none;
-  transition:all var(--transition);
-}
-a.btn:hover { background:var(--accent-2); transform:scale(1.05); }
+/* Link List */
+.link-list{ padding-left:1rem; margin-bottom:16px; }
+.link-list li{ margin:8px 0; transition: transform 0.3s; }
+.link-list li:hover{ transform:translateX(5px); }
 
-/* FOOTER */
-footer { text-align:center; padding:28px 10px; background:var(--accent-1); color:#fff; margin-top:60px; }
+/* Buttons */
+a.btn{ display:inline-block; padding:12px 20px; background:var(--accent-1); color:white; border-radius:10px; text-decoration:none; margin-top:12px; transition: background 0.3s, transform 0.3s; }
+a.btn:hover{ background: var(--accent-2); transform:scale(1.05); }
 
-/* RESPONSIVE NAV */
+/* Connect Icons */
+.connect-icons { display:flex; gap:20px; justify-content:center; margin-top:40px; }
+.connect-icons a { display:flex; align-items:center; justify-content:center; width:50px; height:50px; transition: transform 0.3s; }
+.connect-icons a img { width:100%; height:100%; object-fit:contain; }
+.connect-icons a:hover { transform: scale(1.2); }
+
+/* Footer */
+footer{ text-align:center; padding:28px 10px; color:white; background:var(--accent-1); }
+
+@media(max-width:600px){ header.page-header h1{ font-size:28px } }
 @media(max-width:900px){
-  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:160px; right:16px; background:var(--accent-1); padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:170px; right:24px; background:var(--accent-1); padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
   header.kent-nav .hamburger { display:block; }
 }
-@media(max-width:600px){ section h2{ font-size:28px; } }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER WITH LOGO -->
+<!-- HEADER -->
 <header class="kent-nav">
   <div class="logo">
     <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
@@ -137,56 +112,66 @@ footer { text-align:center; padding:28px 10px; background:var(--accent-1); color
   <nav class="nav-links">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="research.html">Research</a>
-    <a href="publications.html" class="active">Publications</a>
+    <a href="research.html" class="active">Research</a>
+    <a href="publications.html">Publications</a>
     <a href="blog.html">Blog & Media</a>
     <a href="contact.html">Contact</a>
   </nav>
   <div class="hamburger" onclick="toggleNav()">☰</div>
 </header>
 
-<!-- HERO IMAGE -->
-<section class="pub-hero">
-  <div class="pub-hero-container">
-    <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Gemini_Generated_Image_axrqe9axrqe9axrq.png?raw=true"
-         alt="Publication Highlight"
-         class="pub-hero-image" />
-  </div>
-</section>
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <p>Exploring multiplicative reasoning, fraction division, and place-based approaches connecting classrooms to communities in Nigeria and the U.S.</p>
+</header>
 
 <main>
-
-  <!-- PROFILE LINKS -->
-  <section id="profiles">
-    <h2>Academic Profiles</h2>
-    <div class="profile-icons horizontal">
-      <ul>
-        <li>
-          <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank">
-            <span class="icon-circle gs"></span> Google Scholar
-          </a>
-        </li>
-        <li>
-          <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2/research" target="_blank">
-            <span class="icon-circle rg"></span> ResearchGate
-          </a>
-        </li>
-        <li>
-          <a href="https://orcid.org/0000-0002-7300-2387" target="_blank">
-            <span class="icon-circle orcid"></span> ORCID
-          </a>
-        </li>
-      </ul>
+  <!-- Research Interests -->
+  <section>
+    <h2>Research Interests</h2>
+    <div class="interest-tags">
+      <span>Sociomathematical Norms</span>
+      <span>Multiplicative Reasoning</span>
+      <span>Eye-tracking</span>
+      <span>Fraction Division</span>
+      <span>Multi-digit Multiplication</span>
+      <span>Common Errors</span>
     </div>
-    <div class="divider"></div>
   </section>
 
-  <!-- PUBLICATION SECTION -->
-  <section id="publications">
-    <h2>Selected Publications</h2>
-    <div class="grid" id="pub-grid"></div>
+  <!-- Current Projects -->
+  <section>
+    <h2>Current Projects</h2>
+    <div class="research-grid">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Research%20image.jpg?raw=true" alt="Research projects by Temitope F. Egbedeyi">
+      <div>
+        <ul class="link-list">
+          <li>Eye‑tracking study of Grade 3 multiplicative reasoning.</li>
+          <li>Preservice teachers' embodied noticing during fraction tasks.</li>
+          <li>Place‑based mathematics curriculum grounded in Nigerian contexts.</li>
+          <li>Sociomathematical norms and classroom algorithm choices.</li>
+          <li>Common errors among fourth, fifth, and sixth grade students.</li>
+        </ul>
+        <a class="btn" href="publications.html">See Publications</a>
+      </div>
+    </div>
   </section>
 
+  <!-- Connect Icons -->
+  <section>
+    <h2>Connect</h2>
+    <div class="connect-icons">
+      <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank">
+        <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/google-scholar-logo-png_seeklogo-484488.png?raw=true" alt="Google Scholar">
+      </a>
+      <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank">
+        <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo-linkedin-icon-1536.png?raw=true" alt="LinkedIn">
+      </a>
+      <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank">
+        <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/researchgate-logo-freelogovectors.net_.png?raw=true" alt="ResearchGate">
+      </a>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -198,27 +183,6 @@ function toggleNav(){
   const nav = document.querySelector('.nav-links');
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
-
-// Updated publications from ResearchGate / Google Scholar links
-const publications = [
-  { title:"Fifth Grade Students' Multiplicative Reasoning When Engaging with Partial Products", url:"https://www.researchgate.net/publication/389676075_Fifth_Grade_Students'_Multiplicative_Reasoning_When_Engaging_with_Partial_Products" },
-  { title:"Preservice Teachers' Replications of a Common Fraction Error", url:"https://www.researchgate.net/publication/387055851_Preservice_Teachers'_Replications_of_a_Common_Fraction_Error" },
-  { title:"Exploring Preservice Teachers' Embodied Noticing of Students' Fraction Division", url:"https://www.researchgate.net/publication/375182308_Exploring_Preservice_Teachers'_Embodied_Noticing_of_Students'_Fraction_Division" },
-  { title:"Availability and Challenges of Inclusive Lower Primary Education Schools", url:"https://www.researchgate.net/publication/368144897_Availability_and_Challenges_of_Inclusive_Lower_Primary_Education_Schools" },
-  { title:"Teacher Awareness and Utilisation of Indigenous Games (2024)", url:"http://www.jeredajournal.com/index.php/home/article/download/240/182/2246" },
-  { title:"Availability and Challenges of Inclusive Lower Primary Education Schools (2024)", url:"https://ejournal.upi.edu/index.php/IJCSNE/article/view/54194" }
-];
-
-const pubGrid = document.getElementById('pub-grid');
-publications.forEach(pub => {
-  const div = document.createElement('div');
-  div.className = 'card';
-  div.innerHTML = `
-    <h3>${pub.title}</h3>
-    <a href="${pub.url}" target="_blank" class="btn">View Article</a>
-  `;
-  pubGrid.appendChild(div);
-});
 </script>
 
 </body>
