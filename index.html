@@ -57,34 +57,15 @@ header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
   width:100%; max-width:1400px; height:auto; border-radius:var(--radius); 
   opacity:0; transform:translateY(-50px); transition: all 0.8s ease-out;
 }
-.hero-section img.hero-image.show { opacity:1; transform:translateY(0); }
-
-.hero-section p.doctorate { 
-  font-style:italic; font-family:'Roboto', sans-serif; color:#1b4de4; 
-  opacity:0; transform:translateY(20px); transition: all 0.8s ease-out 0.3s; 
+.hero-section p.doctorate, .hero-section p.fade-in, .hero-section a.btn {
+  opacity:0; transform:translateY(20px); transition: all 0.8s ease-out;
 }
-.hero-section p.doctorate.show { opacity:1; transform:translateY(0); }
+.hero-section.show img.hero-image { opacity:1; transform:translateY(0); transition-delay:0s; }
+.hero-section.show p.doctorate { opacity:1; transform:translateY(0); transition-delay:0.3s; }
+.hero-section.show p.fade-in { opacity:1; transform:translateY(0); transition-delay:0.6s; }
+.hero-section.show a.btn { opacity:1; transform:translateY(0); transition-delay:0.9s; }
 
-.hero-section p.fade-in { 
-  opacity:0; transform:translateY(20px); transition: all 0.8s ease-out 0.6s; 
-}
-.hero-section p.fade-in.show { opacity:1; transform:translateY(0); }
-
-.hero-section a.btn { 
-  opacity:0; transform:translateY(20px); transition: all 0.8s ease-out 0.9s; 
-}
-.hero-section a.btn.show { opacity:1; transform:translateY(0); }
-
-.hero-section a.btn {
-  display:inline-block;
-  padding:12px 20px;
-  background:var(--accent-1);
-  color:white;
-  border-radius:var(--radius);
-  text-decoration:none;
-  transition: all var(--transition);
-}
-.hero-section a.btn:hover { background:var(--accent-2); transform:scale(1.05); }
+.hero-section p.doctorate { font-style:italic; font-family:'Roboto', sans-serif; color:#1b4de4; }
 
 /* MAIN CONTENT */
 main { max-width:1100px; margin:0 auto; padding:40px 20px; display:flex; flex-direction:column; gap:60px; }
@@ -111,7 +92,8 @@ main { max-width:1100px; margin:0 auto; padding:40px 20px; display:flex; flex-di
   padding:30px;
   border-radius:var(--radius);
   box-shadow:0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.8s ease-out;
+  opacity:0;
 }
 .vision-mission .vm-card:hover {
   transform: translateY(-5px) scale(1.02);
@@ -119,20 +101,19 @@ main { max-width:1100px; margin:0 auto; padding:40px 20px; display:flex; flex-di
 }
 .vision-mission .vm-card h3 { color:var(--accent-1); font-family:'Montserrat', sans-serif; margin-bottom:16px; }
 .vision-mission .vm-card p { font-size:16px; color:#0f172a; line-height:1.6; }
-
-/* Vision & Mission Slide Animations */
-.vm-card-left { transform: translateX(-50px); opacity:0; transition: all 0.8s ease-out; }
-.vm-card-right { transform: translateX(50px); opacity:0; transition: all 0.8s ease-out; }
-.vm-card-left.show, .vm-card-right.show { transform: translateX(0); opacity:1; }
+.vm-card-left.show { transform: translateX(0); opacity:1; }
+.vm-card-right.show { transform: translateX(0); opacity:1; }
 
 /* PROFILE ICONS */
 .profile-icons { display:flex; gap:20px; justify-content:center; margin-top:40px; opacity:0; transform:translateY(30px); transition: all 0.8s ease-out; }
 .profile-icons.show { opacity:1; transform:translateY(0); }
-.profile-icons a { text-decoration:none; display:flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; transition:0.3s; background:#1b4de4; color:white; font-size:24px; }
+.profile-icons a { text-decoration:none; display:flex; align-items:center; justify-content:center; width:60px; height:60px; border-radius:50%; color:white; font-size:26px; font-weight:bold; transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease; }
+/* Gradients per platform */
 .profile-icons a.gs { background: linear-gradient(135deg,#4285F4,#34A853); } /* Google Scholar */
 .profile-icons a.rg { background: linear-gradient(135deg,#00CCBB,#009988); } /* ResearchGate */
 .profile-icons a.li { background: linear-gradient(135deg,#0A66C2,#004182); } /* LinkedIn */
-.profile-icons a:hover { transform:scale(1.3) rotate(-5deg); box-shadow:0 6px 16px rgba(0,0,0,0.2); }
+/* Hover effects */
+.profile-icons a:hover { transform: scale(1.4) rotate(-5deg); box-shadow: 0 10px 24px rgba(0,0,0,0.25); filter: brightness(1.15); }
 
 /* FLOATING BUTTONS */
 .floating-buttons { position: fixed; right:22px; bottom:26px; display:flex; flex-direction: column; gap:14px; z-index:20; width:auto; opacity:0; transform:translateY(30px); transition: all 0.8s ease-out; }
@@ -242,9 +223,15 @@ function toggleNav(){
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
 
-// Scroll animations
+// Automatic hero animations on page load
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('.hero-section').classList.add('show');
+  document.querySelector('.profile-icons').classList.add('show');
+});
+
+// Scroll-triggered animations for content sections
 const animatedElements = document.querySelectorAll(
-  '.content-section img.side-image, .philosophy-section, .vm-card-left, .vm-card-right, .profile-icons, .floating-buttons, footer'
+  '.content-section img.side-image, .philosophy-section, .vm-card-left, .vm-card-right, .floating-buttons, footer'
 );
 const observerAnimated = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
@@ -255,24 +242,6 @@ const observerAnimated = new IntersectionObserver((entries, observer) => {
   });
 }, { threshold: 0.1 });
 animatedElements.forEach(el => observerAnimated.observe(el));
-
-// Hero section cascading animation
-const heroImage = document.querySelector('.hero-section img.hero-image');
-const doctorateText = document.querySelector('.hero-section p.doctorate');
-const heroDescription = document.querySelector('.hero-section p.fade-in');
-const heroBtn = document.querySelector('.hero-section a.btn');
-const observerHero = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      heroImage.classList.add('show');
-      doctorateText.classList.add('show');
-      heroDescription.classList.add('show');
-      heroBtn.classList.add('show');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-observerHero.observe(document.querySelector('.hero-section'));
 </script>
 </body>
 </html>
