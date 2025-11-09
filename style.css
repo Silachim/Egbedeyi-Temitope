@@ -1,0 +1,165 @@
+/* ===== Hero Image for Publication Page ===== */
+.pub-hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.pub-hero-container {
+  width: 100%;
+  max-width: 1100px;
+  opacity: 0;
+  animation: pubDropDown 1.4s ease forwards;
+}
+
+.pub-hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  display: block;
+}
+/* Animate section headers */
+section h2 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+section h2.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animate cards individually */
+.card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Drop-down animation */
+@keyframes pubDropDown {
+  0% {
+    transform: translateY(-60px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive settings */
+@media (max-width: 1024px) {
+  .pub-hero-container {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 600px) {
+  .pub-hero-container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+}
+
+.section-title {
+  padding-top: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: left;
+}
+/* ------------------------------ */
+/* SOFT FADE-IN FOR SECTIONS      */
+/* ------------------------------ */
+.section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ------------------------------ */
+/* IMAGE FLOAT-IN ANIMATION       */
+/* ------------------------------ */
+img.fade-in-img {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+img.fade-in-img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ------------------------------ */
+/* SUBTLE HOVER ZOOM EFFECT       */
+/* ------------------------------ */
+img.hover-zoom {
+  transition: transform 0.4s ease;
+}
+
+img.hover-zoom:hover {
+  transform: scale(1.03);
+}
+.profile-icons a {
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:60px; height:60px; /* slightly larger for better visibility */
+  border-radius:50%;
+  color:white;
+  font-size:26px;
+  font-weight:bold;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+}
+
+/* Gradients per platform */
+.profile-icons a.gs { 
+  background: linear-gradient(135deg,#4285F4,#34A853); /* Google Scholar */
+}
+.profile-icons a.rg { 
+  background: linear-gradient(135deg,#00CCBB,#009988); /* ResearchGate */
+}
+.profile-icons a.li { 
+  background: linear-gradient(135deg,#0A66C2,#004182); /* LinkedIn */
+}
+
+/* Hover effect */
+.profile-icons a:hover {
+  transform: scale(1.4) rotate(-5deg);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+  filter: brightness(1.15);
+}
+/* Hero animations */
+.hero-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft 1s forwards;
+}
+.intro {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInRight 1s forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes slideInLeft {
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  to { opacity: 1; transform: translateX(0); }
+}
