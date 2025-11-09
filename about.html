@@ -58,9 +58,52 @@ header.hero {
 @keyframes fadeIn { 0% {opacity:0; transform: translateY(-20px);} 100% {opacity:1; transform: translateY(0);} }
 
 .hero-left { display:flex; flex-direction: column; align-items: center; gap:16px; }
-.portrait { width:350px; height:350px; border-radius:50%; box-shadow: var(--shadow); object-fit:cover; cursor:pointer; transition: transform 0.3s; }
+.portrait { width:400px; height:400px; border-radius:50%; box-shadow: rgba(0,0,0,0.1) 0px 4px 12px; object-fit:cover; cursor:pointer; transition: transform 0.3s; }
 .portrait:hover { transform: scale(1.05); }
 .intro { max-width:850px; font-size:18px; }
+
+/* SECTIONS */
+section { padding:60px 20px; max-width:1100px; margin:0 auto; }
+
+/* Section headers animation */
+section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size:32px;
+  margin-bottom:16px;
+  border-bottom:2px solid var(--accent-1);
+  padding-bottom:6px;
+  opacity:0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+section h2.show { opacity:1; transform: translateY(0); }
+
+/* Cards */
+.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
+.card {
+  background:#f9f9f9;
+  padding:20px;
+  border-radius:var(--radius);
+  box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+  text-align:center;
+  transition: all 0.4s ease-in-out;
+  cursor:pointer;
+  opacity:0;
+  transform: translateY(30px);
+}
+.card.show { opacity:1; transform: translateY(0);}
+.card i { font-size:28px; color: var(--accent-3); margin-bottom:10px; display:block; }
+.card h3 { font-size:20px; margin-bottom:6px; }
+.card p { font-size:14px; color:#555; }
+
+/* Card hover effect */
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: rgba(0,0,0,0.2) 0px 8px 20px;
+  background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
+  color:white;
+}
+.card:hover i, .card:hover h3, .card:hover p { color:white; }
 
 /* PROFILE ICONS */
 .profile-icons {
@@ -80,36 +123,16 @@ header.hero {
   height:60px;
   border-radius:50%;
   font-size:28px;
-  transition: transform 0.3s;
-}
-.profile-icons a.gs { background: linear-gradient(135deg, #4285F4, #34A853); }
-.profile-icons a.rg { background: linear-gradient(135deg, #00CCBB, #009988); }
-.profile-icons a.li { background: linear-gradient(135deg, #0077B5, #005983); }
-.profile-icons a:hover { transform:scale(1.2); }
-
-/* SECTIONS */
-section { padding:60px 20px; max-width:1100px; margin:0 auto; }
-
-/* Animate section headers */
-section h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size:32px;
-  margin-bottom:16px;
-  border-bottom:2px solid var(--accent-1);
-  padding-bottom:6px;
   opacity:0;
   transform: translateY(20px);
-  transition: all 0.6s ease-out;
+  transition: all 0.5s ease-out;
 }
-section h2.show { opacity:1; transform: translateY(0); }
-
-/* Cards */
-.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
-.card { background:#f9f9f9; padding:20px; border-radius:var(--radius); box-shadow:var(--shadow); text-align:center; transition: all 0.6s ease-out; cursor:pointer; opacity:0; transform: translateY(30px);}
-.card.show { opacity:1; transform: translateY(0);}
-.card i { font-size:28px; color: var(--accent-3); margin-bottom:10px; display:block; }
-.card h3 { font-size:20px; margin-bottom:6px; }
-.card p { font-size:14px; color:#555; }
+.profile-icons a.gs { background:#4285F4; }
+.profile-icons a.rg { background:#00CCBB; }
+.profile-icons a.li { background:#0077B5; }
+.profile-icons a.show { opacity:1; transform: translateY(0); }
+.profile-icons a i { color:white; font-size:24px; }
+.profile-icons a:hover { transform:scale(1.25); transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
 
 /* Footer */
 footer { text-align:center; padding:28px 10px; color:white; background:var(--accent-1); margin-top:60px; }
@@ -148,14 +171,11 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
     <img id="portrait" src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" alt="Portrait of Temitope F. Egbedeyi" class="portrait">
   </div>
   <div class="intro">
-    <p>Temitope Egbedeyi is a doctoral researcher and Research Assistant in Curriculum & Instruction at Kent State University, specializing in Early Childhood Mathematics Education. His research focuses on early childhood mathematics education, sociomathematical norms, multiplicative reasoning, and innovative methodologies such as mixed methods and eye-tracking technology. He has authored more than 20 publications and contributes to impactful scholarship bridging Nigeria and the United States.</p>
+    <p>Temitope Egbedeyi is a doctoral researcher and Research Assistant in Curriculum & Instruction at Kent State University, specializing in Early Childhood Mathematics Education. Married to Omowumi C. Tope-Egbedeyi, I am passionate about improving how young children learn mathematics through innovative research and practice.</p>
     
-    <!-- PROFILE ICONS -->
-    <div class="profile-icons">
-      <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank" class="gs" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-      <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank" class="rg" title="ResearchGate"><i class="fas fa-flask"></i></a>
-      <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank" class="li" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-    </div>
+    <p>My work focuses on sociomathematical norms, multiplicative reasoning, and eye-tracking technology to better understand student learning. I have authored over 20 publications, led multiple grant-funded projects, and contributed to initiatives like Dreams to Legacy Initiative, Foundation for Rural Education and Empowerment, and The Sanguine Academy.</p>
+    
+    <p>Recognized in the media for my research, I combine classroom experience in Nigeria with rigorous scholarship to advance meaningful, equity-driven mathematics education for young learners.</p>
   </div>
 </header>
 
@@ -184,6 +204,16 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
   </div>
 </section>
 
+<!-- PROFILE ICONS -->
+<section>
+  <h2>Profiles</h2>
+  <div class="profile-icons">
+    <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank" class="gs" title="Google Scholar"><i class="fab fa-google"></i></a>
+    <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank" class="rg" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+    <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank" class="li" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   &copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
@@ -197,9 +227,9 @@ function toggleNav(){
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
 
-// Scroll animation for headers and cards
+// Animate cards and headers on scroll
 function handleScrollAnimation() {
-  const elements = document.querySelectorAll('.scroll-animate, section h2, .card');
+  const elements = document.querySelectorAll('section h2, .card');
   const triggerBottom = window.innerHeight * 0.85;
 
   elements.forEach(el => {
@@ -210,8 +240,29 @@ function handleScrollAnimation() {
   });
 }
 
-window.addEventListener('scroll', handleScrollAnimation);
-window.addEventListener('load', handleScrollAnimation);
+// Animate profile icons with stagger
+function handleProfileIcons() {
+  const icons = document.querySelectorAll('.profile-icons a');
+  const triggerBottom = window.innerHeight * 0.9;
+
+  icons.forEach((icon, index) => {
+    const boxTop = icon.getBoundingClientRect().top;
+    if(boxTop < triggerBottom && !icon.classList.contains('show')) {
+      setTimeout(() => {
+        icon.classList.add('show');
+      }, index * 150);
+    }
+  });
+}
+
+// Combine animations
+function handleScrollAnimations() {
+  handleScrollAnimation();
+  handleProfileIcons();
+}
+
+window.addEventListener('scroll', handleScrollAnimations);
+window.addEventListener('load', handleScrollAnimations);
 </script>
 
 </body>
