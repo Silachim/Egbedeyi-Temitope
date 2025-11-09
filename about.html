@@ -8,9 +8,6 @@
 <!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 
-<!-- FONT AWESOME -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
 <style>
 :root {
   --accent-1:#1b4de4;
@@ -39,14 +36,41 @@ header.kent-nav {
   top:0;
   z-index:100;
 }
-header.kent-nav .logo img { height:150px; width:auto; }
-header.kent-nav .nav-links { display:flex; gap:24px; }
-header.kent-nav .nav-links a { text-decoration:none; color:white; font-weight:600; font-size:16px; transition:0.3s; }
+
+header.kent-nav .logo {
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+header.kent-nav .logo img {
+  height:150px; 
+  width:auto;
+}
+
+header.kent-nav .nav-links {
+  display:flex;
+  gap:24px;
+}
+
+header.kent-nav .nav-links a {
+  text-decoration:none;
+  color:white;
+  font-weight:600;
+  font-size:16px;
+  transition:0.3s;
+}
+
 header.kent-nav .nav-links a:hover,
-header.kent-nav .nav-links a.active { color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
+header.kent-nav .nav-links a.active { 
+  color:var(--accent-3); 
+  border-bottom:2px solid var(--accent-3); 
+  padding-bottom:2px; 
+}
+
 header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
 
-/* HERO SECTION */
+/* HERO */
 header.hero {
   display:flex;
   align-items:flex-start;
@@ -55,101 +79,38 @@ header.hero {
   flex-wrap: wrap;
 }
 
-.hero-left {
-  opacity: 0;
-  transform: translateX(-50px);
-  animation: slideInLeft 1s forwards;
-}
-.intro {
-  opacity: 0;
-  transform: translateX(50px);
-  animation: slideInRight 1s forwards;
-  animation-delay: 0.5s;
-}
-
-@keyframes slideInLeft { to { opacity:1; transform: translateX(0); } }
-@keyframes slideInRight { to { opacity:1; transform: translateX(0); } }
-
-.portrait { width:400px; height:400px; border-radius:50%; box-shadow: var(--shadow); object-fit:cover; cursor:pointer; transition: transform 0.3s; }
+.hero-left { display:flex; flex-direction: column; align-items: center; gap:16px; }
+.portrait { width:280px; height:280px; border-radius:50%; box-shadow: var(--shadow); object-fit:cover; cursor:pointer; transition: transform 0.3s; }
 .portrait:hover { transform: scale(1.05); }
+
+.intro { max-width:800px; font-size:18px; }
 
 /* SECTIONS */
 section { padding:60px 20px; max-width:1100px; margin:0 auto; }
+section h2 { font-family: 'Montserrat', sans-serif; font-size:32px; margin-bottom:24px; border-bottom:2px solid var(--accent-1); padding-bottom:6px; }
 
-/* Section headers animation */
-section h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size:32px;
-  margin-bottom:16px;
-  border-bottom:2px solid var(--accent-1);
-  padding-bottom:6px;
-  opacity:0;
-  transform: translateY(20px);
-  transition: all 0.6s ease-out;
-}
-section h2.show { opacity:1; transform: translateY(0); }
-
-/* Cards */
 .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
-.card {
-  background:#f9f9f9;
-  padding:20px;
-  border-radius:var(--radius);
-  box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
-  text-align:center;
-  transition: all 0.4s ease-in-out;
-  cursor:pointer;
-  opacity:0;
-  transform: translateY(30px);
-}
-.card.show { opacity:1; transform: translateY(0);}
+
+.card { background:#f9f9f9; padding:20px; border-radius:var(--radius); box-shadow:var(--shadow); text-align:center; transition: transform var(--transition); }
+.card:hover { transform: scale(1.05); }
 .card i { font-size:28px; color: var(--accent-3); margin-bottom:10px; display:block; }
 .card h3 { font-size:20px; margin-bottom:6px; }
 .card p { font-size:14px; color:#555; }
 
-/* Card hover effect */
-.card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: rgba(0,0,0,0.2) 0px 8px 20px;
-  background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
-  color:white;
-}
-.card:hover i, .card:hover h3, .card:hover p { color:white; }
+/* CONNECT ICONS */
+.connect-icons { display:flex; gap:20px; justify-content:center; margin-top:40px; }
+.connect-icons a { display:flex; align-items:center; justify-content:center; width:50px; height:50px; transition: transform 0.3s; }
+.connect-icons a img { width:100%; height:100%; object-fit:contain; }
+.connect-icons a:hover { transform: scale(1.2); }
 
-/* PROFILE ICONS */
-.profile-icons {
-  display:flex;
-  gap:20px;
-  justify-content:center;
-  margin-top:20px;
-}
-.profile-icons a {
-  text-decoration:none;
-  color:white;
-  font-weight:600;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  font-size:28px;
-  opacity:0;
-  transform: translateY(20px);
-  transition: all 0.5s ease-out;
-}
-.profile-icons a.gs { background:#4285F4; }
-.profile-icons a.rg { background:#00CCBB; }
-.profile-icons a.li { background:#0077B5; }
-.profile-icons a.show { opacity:1; transform: translateY(0); }
-.profile-icons a i { color:white; font-size:24px; }
-.profile-icons a:hover { transform:scale(1.25); transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; box-shadow: 0 6px 15px rgba(0,0,0,0.2); }
+/* CTA BUTTON */
+a.btn { display:inline-block; padding:12px 20px; background:var(--accent-1); color:white; border-radius:10px; text-decoration:none; margin-top:20px; transition: background 0.3s, transform 0.3s; font-weight:600; }
+a.btn:hover { background: var(--accent-2); transform: scale(1.05); }
 
-/* Footer */
+/* FOOTER */
 footer { text-align:center; padding:28px 10px; color:white; background:var(--accent-1); margin-top:60px; }
 
-/* Responsive */
-@media(max-width:900px){
+@media(max-width:600px){ 
   header.hero { flex-direction: column; text-align:center; align-items:center; }
   .intro { max-width:100%; }
   header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:160px; right:24px; background:var(--accent-1); padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
@@ -183,17 +144,16 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
   </div>
   <div class="intro">
     <p>Temitope Egbedeyi is a doctoral researcher and Research Assistant in Curriculum & Instruction at Kent State University, specializing in Early Childhood Mathematics Education. Married to Omowumi C. Tope-Egbedeyi, I am passionate about improving how young children learn mathematics through innovative research and practice.</p>
-    
     <p>My work focuses on sociomathematical norms, multiplicative reasoning, and eye-tracking technology to better understand student learning. I have authored over 20 publications, led multiple grant-funded projects, and contributed to initiatives like Dreams to Legacy Initiative, Foundation for Rural Education and Empowerment, and The Sanguine Academy.</p>
-    
     <p>Recognized in the media for my research, I combine classroom experience in Nigeria with rigorous scholarship to advance meaningful, equity-driven mathematics education for young learners.</p>
+    <p><strong>Research Interests:</strong> My research interests include early childhood mathematics, sociomathematical norms, multiplicative reasoning, and eye-tracking technology.</p>
   </div>
 </header>
 
-<!-- AWARDS & RECOGNITION -->
+<!-- AWARDS -->
 <section>
   <h2>Awards & Recognition</h2>
-  <p style="margin-bottom:20px;">Temitope has been part of National and International grant-funded research.</p>
+  <p>Temitope has been part of National and International grant-funded research.</p>
   <div class="grid">
     <div class="card"><i class="fas fa-trophy"></i><h3>NSF Grant</h3><p>National Science Foundation, USA</p></div>
     <div class="card"><i class="fas fa-certificate"></i><h3>Jaffe Foundation Grant</h3><p>USA</p></div>
@@ -202,78 +162,49 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
   </div>
 </section>
 
-<!-- PROFESSIONAL MEMBERSHIPS & LEADERSHIP -->
+<!-- PROFESSIONAL MEMBERSHIPS -->
 <section>
   <h2>Professional Memberships & Leadership</h2>
   <div class="grid">
-    <a href="https://www.rcml-math.org/" target="_blank" class="card"><i class="fas fa-users"></i><h3>RCML</h3></a>
-    <a href="https://www.pmena.org/" target="_blank" class="card"><i class="fas fa-users"></i><h3>PME-NA (NA Chapter)</h3></a>
-    <a href="https://www.aera.net/" target="_blank" class="card"><i class="fas fa-users"></i><h3>AERA</h3></a>
-    <a href="https://ecan.org.ng/" target="_blank" class="card"><i class="fas fa-users"></i><h3>ECAN</h3></a>
-    <a href="https://www.kent.edu/csi/graduate-student-senate" target="_blank" class="card"><i class="fas fa-user-tie"></i><h3>GSS Alternate Senator</h3></a>
-    <a href="https://www.kent.edu/graduatecollege/graduate-college-student-advisory-council-gcsac" target="_blank" class="card"><i class="fas fa-user-graduate"></i><h3>Former GCSAC Member</h3></a>
+    <div class="card"><a href="https://www.rcml-math.org/" target="_blank">RCML</a></div>
+    <div class="card"><a href="https://www.pmena.org/" target="_blank">PME-NA (NA Chapter)</a></div>
+    <div class="card"><a href="https://www.aera.net/" target="_blank">AERA</a></div>
+    <div class="card"><a href="https://ecan.org.ng/" target="_blank">ECAN</a></div>
+    <div class="card"><a href="https://www.kent.edu/csi/graduate-student-senate" target="_blank">GSS Alternate Senator</a></div>
+    <div class="card"><a href="https://www.kent.edu/graduatecollege/graduate-college-student-advisory-council-gcsac" target="_blank">Former GCSAC Member</a></div>
   </div>
 </section>
 
-<!-- PROFILE ICONS -->
+<!-- CONNECT -->
 <section>
-  <h2>Profiles</h2>
-  <div class="profile-icons">
-    <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank" class="gs" title="Google Scholar"><i class="fab fa-google"></i></a>
-    <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank" class="rg" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
-    <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank" class="li" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  <h2>Connect</h2>
+  <div class="connect-icons">
+    <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/google-scholar-logo-png_seeklogo-484488.png?raw=true" alt="Google Scholar">
+    </a>
+    <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo-linkedin-icon-1536.png?raw=true" alt="LinkedIn">
+    </a>
+    <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/researchgate-logo-freelogovectors.net_.png?raw=true" alt="ResearchGate">
+    </a>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- CTA -->
+<section style="text-align:center;">
+  <a href="research.html" class="btn">Explore Research & Publications</a>
+</section>
+
 <footer>
   &copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
 </footer>
 
 <script>
-const img = document.getElementById("portrait");
-
 function toggleNav(){
   const nav = document.querySelector('.nav-links');
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
-
-// Animate cards and headers on scroll
-function handleScrollAnimation() {
-  const elements = document.querySelectorAll('section h2, .card');
-  const triggerBottom = window.innerHeight * 0.85;
-
-  elements.forEach(el => {
-    const boxTop = el.getBoundingClientRect().top;
-    if (boxTop < triggerBottom) {
-      el.classList.add('show');
-    }
-  });
-}
-
-// Animate profile icons with stagger
-function handleProfileIcons() {
-  const icons = document.querySelectorAll('.profile-icons a');
-  const triggerBottom = window.innerHeight * 0.9;
-
-  icons.forEach((icon, index) => {
-    const boxTop = icon.getBoundingClientRect().top;
-    if(boxTop < triggerBottom && !icon.classList.contains('show')) {
-      setTimeout(() => {
-        icon.classList.add('show');
-      }, index * 150);
-    }
-  });
-}
-
-// Combine animations
-function handleScrollAnimations() {
-  handleScrollAnimation();
-  handleProfileIcons();
-}
-
-window.addEventListener('scroll', handleScrollAnimations);
-window.addEventListener('load', handleScrollAnimations);
 </script>
 
 </body>
