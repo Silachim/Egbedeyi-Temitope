@@ -11,7 +11,6 @@
 <!-- FONT AWESOME -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-<!-- STYLES -->
 <style>
 :root {
   --accent-1:#1b4de4;
@@ -40,34 +39,11 @@ header.kent-nav {
   top:0;
   z-index:100;
 }
-
-header.kent-nav .logo {
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
-
-header.kent-nav .logo img {
-  height:150px; /* updated for consistency */
-  width:auto;
-}
-
-header.kent-nav .nav-links {
-  display:flex;
-  gap:24px;
-}
-
-header.kent-nav .nav-links a {
-  text-decoration:none;
-  color:white;
-  font-weight:600;
-  font-size:16px;
-  transition:0.3s;
-}
-
+header.kent-nav .logo img { height:150px; width:auto; }
+header.kent-nav .nav-links { display:flex; gap:24px; }
+header.kent-nav .nav-links a { text-decoration:none; color:white; font-weight:600; font-size:16px; transition:0.3s; }
 header.kent-nav .nav-links a:hover,
 header.kent-nav .nav-links a.active { color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
-
 header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
 
 /* HERO SECTION */
@@ -77,43 +53,72 @@ header.hero {
   padding:60px 20px;
   gap:40px;
   flex-wrap: wrap;
+  animation: fadeIn 1s ease-out;
 }
+@keyframes fadeIn { 0% {opacity:0; transform: translateY(-20px);} 100% {opacity:1; transform: translateY(0);} }
 
 .hero-left { display:flex; flex-direction: column; align-items: center; gap:16px; }
-.portrait { width:220px; height:220px; border-radius:50%; box-shadow: var(--shadow); object-fit:cover; cursor:pointer; transition: transform 0.3s; }
+.portrait { width:350px; height:350px; border-radius:50%; box-shadow: var(--shadow); object-fit:cover; cursor:pointer; transition: transform 0.3s; }
 .portrait:hover { transform: scale(1.05); }
-.intro { max-width:700px; font-size:18px; }
+.intro { max-width:850px; font-size:18px; }
 
+/* PROFILE ICONS */
+.profile-icons {
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  margin-top:20px;
+}
+.profile-icons a {
+  text-decoration:none;
+  color:white;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  font-size:28px;
+  transition: transform 0.3s;
+}
+.profile-icons a.gs { background: linear-gradient(135deg, #4285F4, #34A853); }
+.profile-icons a.rg { background: linear-gradient(135deg, #00CCBB, #009988); }
+.profile-icons a.li { background: linear-gradient(135deg, #0077B5, #005983); }
+.profile-icons a:hover { transform:scale(1.2); }
+
+/* SECTIONS */
 section { padding:60px 20px; max-width:1100px; margin:0 auto; }
-section h2 { font-family: 'Montserrat', sans-serif; font-size:32px; margin-bottom:24px; border-bottom:2px solid var(--accent-1); padding-bottom:6px; }
 
+/* Animate section headers */
+section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size:32px;
+  margin-bottom:16px;
+  border-bottom:2px solid var(--accent-1);
+  padding-bottom:6px;
+  opacity:0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+section h2.show { opacity:1; transform: translateY(0); }
+
+/* Cards */
 .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
-
-.card { background:#f9f9f9; padding:20px; border-radius:var(--radius); box-shadow:var(--shadow); text-align:center; transition: transform var(--transition); }
-.card:hover { transform: scale(1.05); }
+.card { background:#f9f9f9; padding:20px; border-radius:var(--radius); box-shadow:var(--shadow); text-align:center; transition: all 0.6s ease-out; cursor:pointer; opacity:0; transform: translateY(30px);}
+.card.show { opacity:1; transform: translateY(0);}
 .card i { font-size:28px; color: var(--accent-3); margin-bottom:10px; display:block; }
 .card h3 { font-size:20px; margin-bottom:6px; }
 .card p { font-size:14px; color:#555; }
 
-.two-column { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
-.personal { background:#f0f4ff; padding:12px 16px; border-radius:var(--radius); text-align:center; font-weight:600; font-size:16px; }
-
-a.btn { display:inline-block; padding:12px 20px; background:var(--accent-1); color:white; border-radius:10px; text-decoration:none; margin-top:20px; transition: background 0.3s, transform 0.3s; font-weight:600; }
-a.btn:hover { background: var(--accent-2); transform: scale(1.05); }
-
-/* FOOTER */
+/* Footer */
 footer { text-align:center; padding:28px 10px; color:white; background:var(--accent-1); margin-top:60px; }
 
-/* MODAL */
-.modal { display:none; position:fixed; z-index:100; left:0; top:0; width:100%; height:100%; overflow:auto; background: rgba(0,0,0,0.8); }
-.modal-content { margin:10% auto; display:block; max-width:700px; border-radius:12px; }
-.modal-content img { width:100%; border-radius:12px; }
-.close { position:absolute; top:20px; right:40px; color:white; font-size:40px; font-weight:bold; cursor:pointer; }
-
-@media(max-width:600px){ 
+/* Responsive */
+@media(max-width:900px){
   header.hero { flex-direction: column; text-align:center; align-items:center; }
   .intro { max-width:100%; }
-  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:160px; /* adjusted for larger logo */ right:24px; background:var(--accent-1); padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:160px; right:24px; background:var(--accent-1); padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
   header.kent-nav .hamburger { display:block; }
 }
 </style>
@@ -141,41 +146,42 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
 <header class="hero">
   <div class="hero-left">
     <img id="portrait" src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" alt="Portrait of Temitope F. Egbedeyi" class="portrait">
-    <div class="personal">Married to Omowumi C. Tope‑Egbedeyi</div>
-    <div class="personal">Arsenal FC Supporter</div>
   </div>
   <div class="intro">
-    <p>I am an early childhood mathematics education researcher bridging Nigeria and the United States with place-based approaches. I investigate multiplicative reasoning, fraction division, sociomathematical norms, and eye-tracking of early math cognition.</p>
+    <p>Temitope Egbedeyi is a doctoral researcher and Research Assistant in Curriculum & Instruction at Kent State University, specializing in Early Childhood Mathematics Education. His research focuses on early childhood mathematics education, sociomathematical norms, multiplicative reasoning, and innovative methodologies such as mixed methods and eye-tracking technology. He has authored more than 20 publications and contributes to impactful scholarship bridging Nigeria and the United States.</p>
+    
+    <!-- PROFILE ICONS -->
+    <div class="profile-icons">
+      <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank" class="gs" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+      <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank" class="rg" title="ResearchGate"><i class="fas fa-flask"></i></a>
+      <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank" class="li" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
   </div>
 </header>
 
-<!-- AWARDS -->
+<!-- AWARDS & RECOGNITION -->
 <section>
   <h2>Awards & Recognition</h2>
+  <p style="margin-bottom:20px;">Temitope has been part of National and International grant-funded research.</p>
   <div class="grid">
     <div class="card"><i class="fas fa-trophy"></i><h3>NSF Grant</h3><p>National Science Foundation, USA</p></div>
     <div class="card"><i class="fas fa-certificate"></i><h3>Jaffe Foundation Grant</h3><p>USA</p></div>
-    <div class="card"><i class="fas fa-medal"></i><h3>TETFUND NRA</h3><p>Nigeria</p></div>
+    <div class="card"><i class="fas fa-medal"></i><h3>TETFUND NRF</h3><p>Nigeria</p></div>
     <div class="card"><i class="fas fa-award"></i><h3>Kent State EHHS Award</h3><p>Kent State University</p></div>
   </div>
 </section>
 
-<!-- PROFESSIONAL MEMBERSHIPS -->
+<!-- PROFESSIONAL MEMBERSHIPS & LEADERSHIP -->
 <section>
   <h2>Professional Memberships & Leadership</h2>
-  <div class="two-column">
-    <div class="card"><i class="fas fa-users"></i><h3>RCML</h3></div>
-    <div class="card"><i class="fas fa-users"></i><h3>PME-NA (NA Chapter)</h3></div>
-    <div class="card"><i class="fas fa-users"></i><h3>AERA</h3></div>
-    <div class="card"><i class="fas fa-users"></i><h3>ECAN</h3></div>
-    <div class="card"><i class="fas fa-user-tie"></i><h3>GSS Alternate Senator</h3></div>
-    <div class="card"><i class="fas fa-user-graduate"></i><h3>Former GCSAC Member</h3></div>
+  <div class="grid">
+    <a href="https://www.rcml-math.org/" target="_blank" class="card"><i class="fas fa-users"></i><h3>RCML</h3></a>
+    <a href="https://www.pmena.org/" target="_blank" class="card"><i class="fas fa-users"></i><h3>PME-NA (NA Chapter)</h3></a>
+    <a href="https://www.aera.net/" target="_blank" class="card"><i class="fas fa-users"></i><h3>AERA</h3></a>
+    <a href="https://ecan.org.ng/" target="_blank" class="card"><i class="fas fa-users"></i><h3>ECAN</h3></a>
+    <a href="https://www.kent.edu/csi/graduate-student-senate" target="_blank" class="card"><i class="fas fa-user-tie"></i><h3>GSS Alternate Senator</h3></a>
+    <a href="https://www.kent.edu/graduatecollege/graduate-college-student-advisory-council-gcsac" target="_blank" class="card"><i class="fas fa-user-graduate"></i><h3>Former GCSAC Member</h3></a>
   </div>
-</section>
-
-<!-- CTA -->
-<section style="text-align:center;">
-  <a href="research.html" class="btn">Explore My Research & Publications</a>
 </section>
 
 <!-- FOOTER -->
@@ -183,26 +189,29 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
   &copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
 </footer>
 
-<!-- MODAL -->
-<div id="portraitModal" class="modal">
-  <span class="close">&times;</span>
-  <div class="modal-content">
-    <img src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" alt="Portrait of Temitope F. Egbedeyi">
-  </div>
-</div>
-
 <script>
-const modal = document.getElementById("portraitModal");
 const img = document.getElementById("portrait");
-const span = document.getElementsByClassName("close")[0];
-img.onclick = function(){ modal.style.display="block"; }
-span.onclick = function(){ modal.style.display="none"; }
-window.onclick = function(event){ if(event.target==modal){ modal.style.display="none"; } }
 
 function toggleNav(){
   const nav = document.querySelector('.nav-links');
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
+
+// Scroll animation for headers and cards
+function handleScrollAnimation() {
+  const elements = document.querySelectorAll('.scroll-animate, section h2, .card');
+  const triggerBottom = window.innerHeight * 0.85;
+
+  elements.forEach(el => {
+    const boxTop = el.getBoundingClientRect().top;
+    if (boxTop < triggerBottom) {
+      el.classList.add('show');
+    }
+  });
+}
+
+window.addEventListener('scroll', handleScrollAnimation);
+window.addEventListener('load', handleScrollAnimation);
 </script>
 
 </body>
