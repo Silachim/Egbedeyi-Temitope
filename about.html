@@ -53,14 +53,25 @@ header.hero {
   padding:60px 20px;
   gap:40px;
   flex-wrap: wrap;
-  animation: fadeIn 1s ease-out;
 }
-@keyframes fadeIn { 0% {opacity:0; transform: translateY(-20px);} 100% {opacity:1; transform: translateY(0);} }
 
-.hero-left { display:flex; flex-direction: column; align-items: center; gap:16px; }
-.portrait { width:400px; height:400px; border-radius:50%; box-shadow: rgba(0,0,0,0.1) 0px 4px 12px; object-fit:cover; cursor:pointer; transition: transform 0.3s; }
+.hero-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft 1s forwards;
+}
+.intro {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInRight 1s forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes slideInLeft { to { opacity:1; transform: translateX(0); } }
+@keyframes slideInRight { to { opacity:1; transform: translateX(0); } }
+
+.portrait { width:400px; height:400px; border-radius:50%; box-shadow: var(--shadow); object-fit:cover; cursor:pointer; transition: transform 0.3s; }
 .portrait:hover { transform: scale(1.05); }
-.intro { max-width:850px; font-size:18px; }
 
 /* SECTIONS */
 section { padding:60px 20px; max-width:1100px; margin:0 auto; }
