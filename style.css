@@ -53,3 +53,41 @@
   font-weight: 700;
   text-align: left;
 }
+/* ------------------------------ */
+/* SOFT FADE-IN FOR SECTIONS      */
+/* ------------------------------ */
+.section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ------------------------------ */
+/* IMAGE FLOAT-IN ANIMATION       */
+/* ------------------------------ */
+img.fade-in-img {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+img.fade-in-img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ------------------------------ */
+/* SUBTLE HOVER ZOOM EFFECT       */
+/* ------------------------------ */
+img.hover-zoom {
+  transition: transform 0.4s ease;
+}
+
+img.hover-zoom:hover {
+  transform: scale(1.03);
+}
