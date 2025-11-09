@@ -128,10 +128,10 @@ main { max-width:1100px; margin:0 auto; padding:40px 20px; display:flex; flex-di
 /* PROFILE ICONS */
 .profile-icons { display:flex; gap:20px; justify-content:center; margin-top:40px; opacity:0; transform:translateY(30px); transition: all 0.8s ease-out; }
 .profile-icons.show { opacity:1; transform:translateY(0); }
-.profile-icons a { text-decoration:none; color:white; font-weight:600; display:flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; transition:0.3s; font-size:20px; }
-.profile-icons a.gs { background: linear-gradient(135deg, #4285F4, #34A853);}
-.profile-icons a.rg { background: linear-gradient(135deg, #00CCBB, #009988);}
-.profile-icons a.li { background: linear-gradient(135deg, #0077B5, #005983);}
+.profile-icons a { text-decoration:none; display:flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; transition:0.3s; background:#1b4de4; color:white; font-size:24px; }
+.profile-icons a.gs { background: linear-gradient(135deg,#4285F4,#34A853); } /* Google Scholar */
+.profile-icons a.rg { background: linear-gradient(135deg,#00CCBB,#009988); } /* ResearchGate */
+.profile-icons a.li { background: linear-gradient(135deg,#0A66C2,#004182); } /* LinkedIn */
 .profile-icons a:hover { transform:scale(1.3) rotate(-5deg); box-shadow:0 6px 16px rgba(0,0,0,0.2); }
 
 /* FLOATING BUTTONS */
@@ -213,9 +213,15 @@ footer.show { opacity:1; transform:translateY(0); }
 
   <!-- PROFILE ICONS -->
   <div class="profile-icons">
-    <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank" class="gs" title="Google Scholar"><i class="fab fa-google"></i></a>
-    <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank" class="rg" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
-    <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank" class="li" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank" class="gs" title="Google Scholar">
+      <i class="fas fa-graduation-cap"></i>
+    </a>
+    <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank" class="rg" title="ResearchGate">
+      <i class="fas fa-flask"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank" class="li" title="LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
   </div>
 </main>
 
@@ -270,4 +276,3 @@ observerHero.observe(document.querySelector('.hero-section'));
 </script>
 </body>
 </html>
-
