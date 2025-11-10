@@ -71,15 +71,17 @@ section h2 { font-family:'Montserrat',sans-serif; font-size:32px; margin-bottom:
 .card:hover, .list-item:hover { transform:scale(1.03); }
 .card h3, .list-item h3 { font-size:18px; margin-bottom:6px; }
 .card p, .list-item p { font-size:14px; color:var(--muted); }
-.subsection-title { font-weight:700; font-size:20px; margin-bottom:12px; }
+.subsection-title { font-weight:700; font-size:20px; margin-bottom:12px; cursor:pointer; user-select:none; }
 
-  /* CONNECT ICONS */
+/* COLLAPSIBLE CONTENT */
+.content { display:none; margin-top:10px; }
+
+/* CONNECT ICONS */
 .connect-icons { display:flex; gap:20px; justify-content:center; margin-top:40px; }
 .connect-icons a { display:flex; align-items:center; justify-content:center; width:50px; height:50px; transition: transform 0.3s; }
 .connect-icons a img { width:100%; height:100%; object-fit:contain; }
 .connect-icons a:hover { transform: scale(1.2); }
 
-  
 /* FOOTER */
 footer { text-align:center; padding:28px 10px; background:var(--accent-1); color:#fff; margin-top:60px; }
 
@@ -123,9 +125,10 @@ footer { text-align:center; padding:28px 10px; background:var(--accent-1); color
 <section>
   <h2>Professional Service</h2>
 
+  <!-- Peer Review Contributions -->
   <div class="card">
-    <h3 class="subsection-title">Peer Review Contributions</h3>
-    <ul class="list-item">
+    <h3 class="subsection-title">Peer Review Contributions ▼</h3>
+    <ul class="list-item content">
       <li>American Association of Colleges for Teacher Education (Conference Proceeding) – 2025</li>
       <li>American Educational Research Association (Conference Proceeding) – 2025</li>
       <li>Council for Exceptional Children (Conference Proceeding) – 2025</li>
@@ -140,14 +143,31 @@ footer { text-align:center; padding:28px 10px; background:var(--accent-1); color
     </ul>
   </div>
 
+  <!-- Committee & Leadership Roles -->
   <div class="card">
-    <h3 class="subsection-title">Committee & Leadership Roles</h3>
-    <ul class="list-item">
+    <h3 class="subsection-title">Committee & Leadership Roles ▼</h3>
+    <ul class="list-item content">
       <li>EHHS Vision and Mission Committee</li>
       <li>Conference Scheduling Chairman, 2020 National Conference, Early Childhood Association of Nigeria</li>
       <li>Conference Scheduling Officer, 2024 Conference, Psychology of Mathematics Education, North American Chapter, Kent State, Ohio</li>
       <li>GSS Research Award Reviewer</li>
     </ul>
+  </div>
+</section>
+
+<!-- CONNECT -->
+<section>
+  <h2>Connect</h2>
+  <div class="connect-icons">
+    <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/google-scholar-logo-png_seeklogo-484488.png?raw=true" alt="Google Scholar">
+    </a>
+    <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo-linkedin-icon-1536.png?raw=true" alt="LinkedIn">
+    </a>
+    <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/researchgate-logo-freelogovectors.net_.png?raw=true" alt="ResearchGate">
+    </a>
   </div>
 </section>
 
@@ -160,6 +180,20 @@ function toggleNav(){
   const nav = document.querySelector('.nav-links');
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
+
+// Collapsible sections
+document.querySelectorAll('.subsection-title').forEach(item => {
+  item.addEventListener('click', () => {
+    const content = item.nextElementSibling;
+    if(content.style.display === "block"){
+      content.style.display = "none";
+      item.textContent = item.textContent.replace("▲","▼");
+    } else {
+      content.style.display = "block";
+      item.textContent = item.textContent.replace("▼","▲");
+    }
+  });
+});
 </script>
 
 </body>
