@@ -104,6 +104,12 @@ main { max-width:1100px; margin:0 auto; padding:40px 20px; display:flex; flex-di
 .vm-card-left.show { transform: translateX(0); opacity:1; }
 .vm-card-right.show { transform: translateX(0); opacity:1; }
 
+  /* CONNECT ICONS */
+.connect-icons { display:flex; gap:20px; justify-content:center; margin-top:40px; }
+.connect-icons a { display:flex; align-items:center; justify-content:center; width:50px; height:50px; transition: transform 0.3s; }
+.connect-icons a img { width:100%; height:100%; object-fit:contain; }
+.connect-icons a:hover { transform: scale(1.2); }
+  
 /* FLOATING BUTTONS */
 .floating-buttons { position: fixed; right:22px; bottom:26px; display:flex; flex-direction: column; gap:14px; z-index:20; width:auto; opacity:0; transform:translateY(30px); transition: all 0.8s ease-out; }
 .floating-buttons.show { opacity:1; transform:translateY(0); }
@@ -111,13 +117,6 @@ main { max-width:1100px; margin:0 auto; padding:40px 20px; display:flex; flex-di
 .floating-buttons a:hover { transform:scale(1.1); }
 .btn-top{ background: var(--accent-1); }
 .btn-contact{ background: var(--accent-2); }
-
-  
-/* CONNECT ICONS */
-.connect-icons { display:flex; gap:20px; justify-content:center; margin-top:40px; }
-.connect-icons a { display:flex; align-items:center; justify-content:center; width:50px; height:50px; transition: transform 0.3s; }
-.connect-icons a img { width:100%; height:100%; object-fit:contain; }
-.connect-icons a:hover { transform: scale(1.2); }
 
 /* FOOTER */
 footer { text-align:center; padding:28px 10px; color:white; background:var(--accent-1); opacity:0; transform:translateY(30px); transition: all 0.8s ease-out; }
