@@ -5,90 +5,137 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Temitope F. Egbedeyi | Early Childhood Mathematics Education Researcher</title>
 
-<!-- SEO & Social Sharing -->
-<meta name="description" content="Temitope F. Egbedeyi | Doctoral candidate and Research Assistant specializing in Early Childhood Mathematics Education. Explore research, publications, and initiatives.">
-<meta name="keywords" content="Early Childhood Mathematics, Education Research, Kent State University, Temitope Egbedeyi">
-<meta property="og:title" content="Temitope F. Egbedeyi | Early Childhood Mathematics Education Researcher">
-<meta property="og:description" content="Explore research, publications, and initiatives in early childhood mathematics education led by Temitope F. Egbedeyi.">
-<meta property="og:image" content="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Home%20page%20picture.jpg?raw=true">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-
-<!-- Favicon -->
-<link rel="icon" href="https://example.com/favicon.png" type="image/png">
-
 <!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 <!-- FONT AWESOME -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 <style>
 :root {
-  --accent-1:#1b4de4; --accent-2:#4f8df5; --accent-3:#FFC72C; --radius:12px; --transition:0.3s;
+  --accent-1:#1b4de4;
+  --accent-2:#4f8df5;
+  --accent-3:#FFC72C;
+  --muted:#6b7280;
+  --radius:12px;
+  --transition:0.3s;
 }
-*{box-sizing:border-box;margin:0;padding:0;transition:all var(--transition) ease-in-out;}
-body{scroll-behavior:smooth;color:#0f172a;line-height:1.6;background:white;font-family:'Open Sans',sans-serif;}
-header.kent-nav{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;background:var(--accent-1);box-shadow:0 2px 6px rgba(0,0,0,0.1);position:sticky;top:0;z-index:100;}
-header.kent-nav .logo img{height:150px;width:auto;}
-header.kent-nav .nav-links{display:flex;gap:24px;}
-header.kent-nav .nav-links a{text-decoration:none;color:white;font-weight:600;font-size:16px;}
+
+/* RESET */
+* { box-sizing:border-box; margin:0; padding:0; transition: all var(--transition) ease-in-out; }
+body { scroll-behavior: smooth; color:#0f172a; line-height:1.6; background:white; font-family:'Open Sans',sans-serif; }
+
+/* HEADER / NAVIGATION */
+header.kent-nav {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 24px;
+  background:var(--accent-1);
+  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+header.kent-nav .logo img { height:150px; width:auto; }
+header.kent-nav .nav-links { display:flex; gap:24px; }
+header.kent-nav .nav-links a { text-decoration:none; color:white; font-weight:600; font-size:16px; }
 header.kent-nav .nav-links a:hover,
-header.kent-nav .nav-links a.active{color:var(--accent-3);border-bottom:2px solid var(--accent-3);padding-bottom:2px;}
-header.kent-nav .hamburger{display:none;font-size:28px;cursor:pointer;}
-.hero-section{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0px 20px 80px 20px;}
-.hero-section img.hero-image{width:100%;max-width:1400px;height:auto;border-radius:var(--radius);opacity:0;transform:translateY(-50px);transition:all 0.8s ease-out;}
-.hero-section p.doctorate,.hero-section p.fade-in,.hero-section a.btn{opacity:0;transform:translateY(20px);transition:all 0.8s ease-out;}
-.hero-section.show img.hero-image{opacity:1;transform:translateY(0);transition-delay:0s;}
-.hero-section.show p.doctorate{opacity:1;transform:translateY(0);transition-delay:0.3s;}
-.hero-section.show p.fade-in{opacity:1;transform:translateY(0);transition-delay:0.6s;}
-.hero-section.show a.btn{opacity:1;transform:translateY(0);transition-delay:0.9s;}
-.hero-section p.doctorate{font-style:italic;font-family:'Roboto',sans-serif;color:#1b4de4;}
-main{max-width:1100px;margin:0 auto;padding:40px 20px;display:flex;flex-direction:column;gap:60px;}
-.content-section{display:flex;flex-wrap:wrap;gap:30px;align-items:center;}
-.content-section img.side-image{flex:1 1 400px;max-width:400px;border-radius:var(--radius);opacity:0;transform:translateY(30px);transition:all 0.8s ease-out;}
-.content-section img.side-image.show{opacity:1;transform:translateY(0);}
-.content-section .text-content{flex:2 1 500px;}
-.content-section .text-content h2{font-size:32px;color:var(--accent-1);margin-bottom:16px;font-family:'Montserrat',sans-serif;}
-.content-section .text-content p{font-size:18px;color:#0f172a;margin-bottom:16px;}
-.content-section .text-content a.btn{background:var(--accent-1);color:white;}
-.content-section .text-content a.btn:hover{background:var(--accent-2);transform:scale(1.05);}
-.philosophy-section{background:#f5f5f5;padding:60px 20px;text-align:center;border-radius:var(--radius);font-family:'Roboto',sans-serif;opacity:0;transform:translateY(30px);transition:all 0.8s ease-out;}
-.philosophy-section.show{opacity:1;transform:translateY(0);}
-.vision-mission{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;padding:60px 20px;}
-.vision-mission .vm-card{flex:1 1 400px;background:white;padding:30px;border-radius:var(--radius);box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:transform 0.4s ease,box-shadow 0.4s ease,opacity 0.8s ease-out;opacity:0;}
-.vision-mission .vm-card:hover{transform:translateY(-5px) scale(1.02);box-shadow:0 8px 20px rgba(0,0,0,0.15);}
-.vision-mission .vm-card h3{color:var(--accent-1);font-family:'Montserrat',sans-serif;margin-bottom:16px;}
-.vision-mission .vm-card p{font-size:16px;color:#0f172a;line-height:1.6;}
-.vm-card-left.show{transform:translateX(0);opacity:1;}
-.vm-card-right.show{transform:translateX(0);opacity:1;}
-.profile-icons{display:flex;gap:20px;justify-content:center;margin-top:40px;opacity:0;transform:translateY(30px);transition:all 0.8s ease-out;}
-.profile-icons.show{opacity:1;transform:translateY(0);}
-.profile-icons a{text-decoration:none;display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;transition:transform 0.4s ease,box-shadow 0.4s ease;}
-.profile-icons a:hover{transform:scale(1.4) rotate(-5deg);box-shadow:0 10px 24px rgba(0,0,0,0.25);filter:brightness(1.15);}
-.floating-buttons{position:fixed;right:22px;bottom:26px;display:flex;flex-direction:column;gap:14px;z-index:20;width:auto;opacity:0;transform:translateY(30px);transition:all 0.8s ease-out;}
-.floating-buttons.show{opacity:1;transform:translateY(0);}
-.floating-buttons a{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:50%;color:white;text-decoration:none;font-size:20px;box-shadow:0 4px 12px rgba(0,0,0,0.15);transition:0.3s;}
-.floating-buttons a:hover{transform:scale(1.1);}
-.btn-top{background: var(--accent-1);}
-.btn-contact{background: var(--accent-2);}
-.connect-icons{display:flex;gap:20px;justify-content:center;margin-top:40px;}
-.connect-icons a{display:flex;align-items:center;justify-content:center;width:50px;height:50px;transition:transform 0.3s;}
-.connect-icons a img{width:100%;height:100%;object-fit:contain;}
-.connect-icons a:hover{transform:scale(1.2);}
-footer{text-align:center;padding:28px 10px;color:white;background:var(--accent-1);opacity:0;transform:translateY(30px);transition:all 0.8s ease-out;}
-footer.show{opacity:1;transform:translateY(0);}
+header.kent-nav .nav-links a.active { color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
+header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
+
+/* HERO SECTION */
+.hero-section {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:0px 20px 80px 20px;
+}
+.hero-section img.hero-image { 
+  width:100%; max-width:1400px; height:auto; border-radius:var(--radius); 
+  opacity:0; transform:translateY(-50px); transition: all 0.8s ease-out;
+}
+.hero-section p.doctorate, .hero-section p.fade-in, .hero-section a.btn {
+  opacity:0; transform:translateY(20px); transition: all 0.8s ease-out;
+}
+.hero-section.show img.hero-image { opacity:1; transform:translateY(0); transition-delay:0s; }
+.hero-section.show p.doctorate { opacity:1; transform:translateY(0); transition-delay:0.3s; }
+.hero-section.show p.fade-in { opacity:1; transform:translateY(0); transition-delay:0.6s; }
+.hero-section.show a.btn { opacity:1; transform:translateY(0); transition-delay:0.9s; }
+
+.hero-section p.doctorate { font-style:italic; font-family:'Roboto', sans-serif; color:#1b4de4; }
+
+/* MAIN CONTENT */
+main { max-width:1100px; margin:0 auto; padding:40px 20px; display:flex; flex-direction:column; gap:60px; }
+
+/* CONTENT SECTION */
+.content-section { display:flex; flex-wrap:wrap; gap:30px; align-items:center; }
+.content-section img.side-image { flex:1 1 400px; max-width:400px; border-radius:var(--radius); opacity:0; transform:translateY(30px); transition: all 0.8s ease-out; }
+.content-section img.side-image.show { opacity:1; transform:translateY(0); }
+.content-section .text-content { flex:2 1 500px; }
+.content-section .text-content h2 { font-size:32px; color:var(--accent-1); margin-bottom:16px; font-family:'Montserrat', sans-serif; }
+.content-section .text-content p { font-size:18px; color:#0f172a; margin-bottom:16px; }
+.content-section .text-content a.btn { background:var(--accent-1); color:white; }
+.content-section .text-content a.btn:hover { background:var(--accent-2); transform:scale(1.05); }
+
+/* PHILOSOPHY SECTION */
+.philosophy-section { background:#f5f5f5; padding:60px 20px; text-align:center; border-radius:var(--radius); font-family:'Roboto', sans-serif; opacity:0; transform:translateY(30px); transition: all 0.8s ease-out; }
+.philosophy-section.show { opacity:1; transform:translateY(0); }
+
+/* VISION & MISSION */
+.vision-mission { display:flex; flex-wrap:wrap; gap:40px; justify-content:center; padding:60px 20px; }
+.vision-mission .vm-card {
+  flex:1 1 400px;
+  background:white;
+  padding:30px;
+  border-radius:var(--radius);
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.8s ease-out;
+  opacity:0;
+}
+.vision-mission .vm-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+.vision-mission .vm-card h3 { color:var(--accent-1); font-family:'Montserrat', sans-serif; margin-bottom:16px; }
+.vision-mission .vm-card p { font-size:16px; color:#0f172a; line-height:1.6; }
+.vm-card-left.show { transform: translateX(0); opacity:1; }
+.vm-card-right.show { transform: translateX(0); opacity:1; }
+
+/* FLOATING BUTTONS */
+.floating-buttons { position: fixed; right:22px; bottom:26px; display:flex; flex-direction: column; gap:14px; z-index:20; width:auto; opacity:0; transform:translateY(30px); transition: all 0.8s ease-out; }
+.floating-buttons.show { opacity:1; transform:translateY(0); }
+.floating-buttons a { display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; color:white; text-decoration:none; font-size:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
+.floating-buttons a:hover { transform:scale(1.1); }
+.btn-top{ background: var(--accent-1); }
+.btn-contact{ background: var(--accent-2); }
+
+  
+/* CONNECT ICONS */
+.connect-icons { display:flex; gap:20px; justify-content:center; margin-top:40px; }
+.connect-icons a { display:flex; align-items:center; justify-content:center; width:50px; height:50px; transition: transform 0.3s; }
+.connect-icons a img { width:100%; height:100%; object-fit:contain; }
+.connect-icons a:hover { transform: scale(1.2); }
+
+/* FOOTER */
+footer { text-align:center; padding:28px 10px; color:white; background:var(--accent-1); opacity:0; transform:translateY(30px); transition: all 0.8s ease-out; }
+footer.show { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
 @media(max-width:900px){
-  .content-section{flex-direction:column;text-align:center;}
-  .content-section img.side-image{margin:0 auto;}
-  .vision-mission{flex-direction:column;}
-  header.kent-nav .nav-links{display:none;flex-direction:column;gap:12px;position:absolute;top:170px;right:24px;background:var(--accent-1);padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-  header.kent-nav .hamburger{display:block;}
+  .content-section { flex-direction:column; text-align:center; }
+  .content-section img.side-image { margin:0 auto; }
+  .vision-mission { flex-direction:column; }
+  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:170px; right:24px; background:var(--accent-1); padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+  header.kent-nav .hamburger { display:block; }
 }
 </style>
 </head>
-<body>
 
+<body>
+<!-- HEADER -->
 <header class="kent-nav">
   <div class="logo">
     <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
@@ -105,28 +152,32 @@ footer.show{opacity:1;transform:translateY(0);}
   <div class="hamburger" onclick="toggleNav()">☰</div>
 </header>
 
+<!-- HERO SECTION -->
 <section class="hero-section">
-  <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Home%20page%20picture.jpg?raw=true" alt="Hero Image" class="hero-image" loading="lazy">
+  <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Home%20page%20picture.jpg?raw=true" alt="Hero Image" class="hero-image">
   <p class="doctorate">I am a doctoral candidate and Research Assistant in Curriculum & Instruction at Kent State University, specializing in Early Childhood Mathematics Education.</p>
   <p class="fade-in">Explore early childhood mathematics education through innovative research, place-based learning, and community-driven initiatives connecting Nigeria and the United States.</p>
-  <a href="research.html" class="btn" aria-label="Explore Research">Explore Research</a>
+  <a href="research.html" class="btn">Explore Research</a>
 </section>
 
+<!-- MAIN CONTENT -->
 <main>
   <section class="content-section">
-    <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Egbedeyi.jpg?raw=true" alt="Connect Theory" class="side-image" loading="lazy">
+    <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Egbedeyi.jpg?raw=true" alt="Connect Theory" class="side-image">
     <div class="text-content">
       <h2>Connect Theory with Practice</h2>
       <p>I study how young children build mathematical understanding, focusing on sociomathematical norms, fraction division, multiplicative reasoning, common errors, and place-based approaches connecting classroom learning to community life.</p>
-      <a href="about.html" class="btn" aria-label="Learn About Me">Learn About Me</a>
+      <a href="about.html" class="btn">Learn About Me</a>
     </div>
   </section>
 
+  <!-- PHILOSOPHY -->
   <section class="philosophy-section">
     <h2>Philosophy</h2>
     <p>I believe early childhood mathematics education flourishes when research, practice, and community intersect. This site shares my work connecting classroom learning to real-world contexts, advancing equitable and developmentally appropriate experiences for young learners, and fostering global collaboration to inspire educators and scholars worldwide.</p>
   </section>
 
+  <!-- VISION & MISSION -->
   <section class="vision-mission">
     <div class="vm-card vm-card-left">
       <h3>Vision</h3>
@@ -137,25 +188,31 @@ footer.show{opacity:1;transform:translateY(0);}
       <p>To advance scholarship and improve teaching practices in early childhood mathematics education by conducting rigorous research, mentoring educators, and fostering equitable, developmentally appropriate learning experiences for young children globally.</p>
     </div>
   </section>
+ </main>
 
-  <div class="profile-icons">
-    <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank" title="Google Scholar">
-      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/google-scholar-logo-png_seeklogo-484488.png?raw=true" alt="Google Scholar" loading="lazy">
-    </a>
-    <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank" title="ResearchGate">
-      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/researchgate-logo-freelogovectors.net_.png?raw=true" alt="ResearchGate" loading="lazy">
-    </a>
-    <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank" title="LinkedIn">
-      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo-linkedin-icon-1536.png?raw=true" alt="LinkedIn" loading="lazy">
-    </a>
-  </div>
-</main>
-
+<!-- FLOATING BUTTONS -->
 <div class="floating-buttons">
-  <a href="#top" class="btn-top" aria-label="Back to Top">↑</a>
-  <a href="contact.html" class="btn-contact" aria-label="Contact">✉</a>
+  <a href="#top" class="btn-top">↑</a>
+  <a href="contact.html" class="btn-contact">✉</a>
 </div>
 
+  <!-- Connect Icons -->
+  <section>
+    <h2>Connect</h2>
+    <div class="connect-icons">
+      <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank">
+        <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/google-scholar-logo-png_seeklogo-484488.png?raw=true" alt="Google Scholar">
+      </a>
+      <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank">
+        <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo-linkedin-icon-1536.png?raw=true" alt="LinkedIn">
+      </a>
+      <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank">
+        <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/researchgate-logo-freelogovectors.net_.png?raw=true" alt="ResearchGate">
+      </a>
+    </div>
+  </section>
+</main>
+<!-- FOOTER -->
 <footer>
   &copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
 </footer>
@@ -166,11 +223,13 @@ function toggleNav(){
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
 
+// Automatic hero animations on page load
 window.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.hero-section').classList.add('show');
   document.querySelector('.profile-icons').classList.add('show');
 });
 
+// Scroll-triggered animations for content sections
 const animatedElements = document.querySelectorAll(
   '.content-section img.side-image, .philosophy-section, .vm-card-left, .vm-card-right, .floating-buttons, footer'
 );
