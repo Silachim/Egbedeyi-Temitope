@@ -10,6 +10,8 @@
 <!-- FONT AWESOME -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
+<title>Home | Temitope F. Egbedeyi</title>
+
 <style>
 :root {
   --accent-1:#1b4de4;
@@ -32,20 +34,24 @@ body { scroll-behavior: smooth; color:#0f172a; line-height:1.6; background:white
   border-radius:10px;
 }
 
-/* ✅ TABLET TITLE BAR */
-.tablet-title {
+/* ✅ TABLET PORTRAIT TITLE BAR */
+.tablet-title-bar {
   display:none;
-  background:var(--accent-1);
+  width:100%;
+  background:#ffffff;
+  padding:12px 16px;
   text-align:center;
-  padding:12px;
-  font-size:20px;
-  font-weight:700;
-  color:white;
+  border-bottom:2px solid #eee;
+  position:sticky;
+  top:0;
+  z-index:999;
+  font-size:1.2rem;
+  font-weight:600;
 }
 
-/* Show only on tablet portrait 768–1180px */
-@media (min-width: 768px) and (max-width:1180px) and (orientation:portrait) {
-  .tablet-title { display:block; }
+/* Show only on tablet portrait */
+@media (min-width:600px) and (max-width:900px) and (orientation:portrait){
+  .tablet-title-bar { display:block; }
 }
 
 /* ✅ HEADER */
@@ -178,22 +184,6 @@ main {
   margin-bottom:15px;
 }
 
-/* ✅ Icons */
-.connect-icons {
-  display:flex;
-  justify-content:center;
-  gap:30px;
-  margin-top:20px;
-}
-.connect-icons a {
-  width:55px; height:55px;
-  display:flex; align-items:center; justify-content:center;
-}
-.connect-icons a img {
-  width:100%; height:100%; object-fit:contain;
-}
-.connect-icons a:hover { transform:scale(1.15); }
-
 /* ✅ FOOTER */
 footer {
   text-align:center;
@@ -219,13 +209,15 @@ footer.show { opacity:1; transform:translateY(0); }
 
 <body>
 
+<!-- ✅ TABLET PORTRAIT TITLE BAR -->
+<div id="tablet-title-bar" class="tablet-title-bar">
+  <h1 id="tablet-page-title"></h1>
+</div>
+
 <!-- ✅ HEADER -->
 <header class="kent-nav">
   <div class="logo">
     <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
-  
-    <title>Home</title>
-
   </div>
   <nav class="nav-links">
     <a href="index.html" class="active">Home</a>
@@ -238,9 +230,6 @@ footer.show { opacity:1; transform:translateY(0); }
   </nav>
   <div class="hamburger" onclick="toggleNav()">☰</div>
 </header>
-
-<!-- ✅ TABLET PORTRAIT TITLE -->
-<div class="tablet-title" id="dynamicPageTitle"></div>
 
 <!-- ✅ HERO -->
 <section class="hero-section">
@@ -261,13 +250,13 @@ footer.show { opacity:1; transform:translateY(0); }
     </div>
   </section>
 
-  <!-- ✅ PHILOSOPHY BLOCK -->
+  <!-- ✅ PHILOSOPHY -->
   <section class="collapsible-box">
     <div class="collapsible-header" onclick="toggleCollapse('philosophy')">
       Philosophy <span class="chevron" id="chevron-philosophy">▼</span>
     </div>
     <div class="collapsible-content" id="philosophy">
-      <p>I believe early childhood mathematics education flourishes when research, practice, and community intersect. My philosophy is grounded in the understanding that all children come to school with rich mathematical ideas shaped by culture, environment, and everyday experiences. Through place-based learning, equitable instructional practices, and teacher preparation grounded in noticing children’s mathematical thinking, I am committed to transforming how mathematics is taught and learned in diverse contexts.</p>
+      <p>I believe early childhood mathematics education flourishes when research, practice, and community intersect. My philosophy is grounded in the understanding that all children come to school with rich mathematical ideas shaped by culture, environment, and everyday experiences. Through place-based learning, equitable instructional practices, and teacher preparation grounded in noticing children’s mathematical thinking, I am committed to transforming how mathematics is taught and learned.</p>
     </div>
   </section>
 
@@ -312,34 +301,30 @@ footer.show { opacity:1; transform:translateY(0); }
 </footer>
 
 <script>
+/* ✅ Tablet Dynamic Title */
+document.addEventListener("DOMContentLoaded", () => {
+  const prettyTitle = document.title.replace("| Temitope F. Egbedeyi","").trim();
+  document.getElementById("tablet-page-title").textContent = prettyTitle;
+});
+
+/* ✅ Mobile Navigation */
 function toggleNav() {
   const nav = document.querySelector('.nav-links');
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
-
-/* ✅ Dynamic Page Title for Tablet Portrait */
-document.addEventListener("DOMContentLoaded", () => {
-  const title = document.title.replace(" | Temitope F. Egbedeyi", "");
-  document.getElementById("dynamicPageTitle").textContent = title;
-});
 
 /* ✅ Hero Animation */
 window.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.hero-section').classList.add('show');
 });
 
-/* ✅ Collapsible Blocks */
+/* ✅ Collapsible Sections */
 function toggleCollapse(id) {
   const content = document.getElementById(id);
   const chevron = document.getElementById("chevron-" + id);
-
-  if (content.style.display === "block") {
-    content.style.display = "none";
-    chevron.textContent = "▼";
-  } else {
-    content.style.display = "block";
-    chevron.textContent = "▲";
-  }
+  const state = content.style.display === "block";
+  content.style.display = state ? "none" : "block";
+  chevron.textContent = state ? "▼" : "▲";
 }
 
 /* ✅ Scroll Animations */
@@ -351,8 +336,7 @@ const observer = new IntersectionObserver((entries, obs) => {
       obs.unobserve(entry.target);
     }
   });
-}, { threshold:0.15 });
-
+},{threshold:0.15});
 animatedElements.forEach(el => observer.observe(el));
 </script>
 
