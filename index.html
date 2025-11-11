@@ -26,15 +26,7 @@
 * { box-sizing:border-box; margin:0; padding:0; transition: all var(--transition) ease-in-out; }
 body { scroll-behavior: smooth; color:#0f172a; line-height:1.6; background:white; font-family:'Open Sans',sans-serif; }
 
-/* ✅ GLOBAL GRADIENT DIVIDERS */
-.gradient-divider {
-  width:180px; height:4px;
-  margin:20px auto 40px auto;
-  background:linear-gradient(90deg, var(--accent-1), var(--accent-2));
-  border-radius:10px;
-}
-
-/* ✅ TABLET PORTRAIT TITLE BAR */
+/* ✅ TABLET TITLE BAR */
 .tablet-title-bar {
   display:none;
   width:100%;
@@ -52,6 +44,16 @@ body { scroll-behavior: smooth; color:#0f172a; line-height:1.6; background:white
 /* Show only on tablet portrait */
 @media (min-width:600px) and (max-width:900px) and (orientation:portrait){
   .tablet-title-bar { display:block; }
+}
+
+/* ✅ PAGE BANNER ABOVE HEADER */
+.page-banner {
+  width:100%;
+  height:300px;
+  background-image: url('https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Egbedeyi.jpg?raw=true');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* ✅ HEADER */
@@ -80,10 +82,10 @@ header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
 /* ✅ HERO */
 .hero-section {
   text-align:center;
-  padding:0 20px 80px 20px;
+  padding:20px;
 }
 .hero-section img.hero-image { 
-  width:100%; max-width:1400px; border-radius:var(--radius);
+  width:100%; max-width:800px; border-radius:var(--radius);
   opacity:0; transform:translateY(-50px);
   transition: all 0.8s ease-out;
 }
@@ -209,8 +211,11 @@ footer.show { opacity:1; transform:translateY(0); }
 
 <body>
 
+<!-- ✅ PAGE BANNER ABOVE HEADER -->
+<div class="page-banner"></div>
+
 <!-- ✅ TABLET PORTRAIT TITLE BAR -->
-<div id="tablet-title-bar" class="tablet-title-bar">
+<div class="tablet-title-bar" id="tablet-title-bar">
   <h1 id="tablet-page-title"></h1>
 </div>
 
