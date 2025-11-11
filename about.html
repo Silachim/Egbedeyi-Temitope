@@ -44,6 +44,29 @@ header.kent-nav .nav-links a:hover,
 header.kent-nav .nav-links a.active { color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
 header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
 
+/* TABLET PORTRAIT TITLE BAR */
+.tablet-title {
+  display:none;
+  width:100%;
+  background:white;
+  text-align:center;
+  padding:12px 0;
+  font-size:20px;
+  font-weight:700;
+  color:var(--accent-1);
+  border-bottom:3px solid var(--accent-1);
+  position:sticky;
+  top:150px;
+  z-index:90;
+}
+
+/* SHOW TITLE BAR ON TABLETS (PORTRAIT) */
+@media(min-width:700px) and (max-width:1024px) and (orientation:portrait){
+  .tablet-title {
+    display:block;
+  }
+}
+
 /* HERO */
 header.hero { display:flex; align-items:flex-start; padding:60px 20px; gap:40px; flex-wrap: wrap; }
 .hero-left { display:flex; flex-direction: column; align-items: center; gap:16px; }
@@ -66,18 +89,29 @@ section h2 { font-family: 'Montserrat', sans-serif; font-size:32px; margin-botto
 .btn-gradient { display: inline-block; padding: 14px 26px; font-weight: 600; font-size: 16px; color: white; text-decoration: none; border-radius: 12px; background: linear-gradient(135deg, #1b4de4, #4f8df5); box-shadow: 0 6px 12px rgba(0,0,0,0.15); transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; animation: floatBtn 3s ease-in-out infinite alternate; margin: 10px; }
 .btn-gradient:hover { transform: scale(1.08); background: linear-gradient(135deg, #4f8df5, #1b4de4); box-shadow: 0 8px 18px rgba(0,0,0,0.2); }
 @keyframes floatBtn { 0% { transform: translateY(0px); } 100% { transform: translateY(-6px); } }
- 
-  /* FOOTER */
+
+/* GRADIENT DIVIDER FOR CONNECT SECTIONS (SITE-WIDE SUPPORT) */
+.connect-divider {
+  height:4px;
+  width:100%;
+  border-radius:50px;
+  margin:14px 0 32px 0;
+  background: linear-gradient(to right, var(--accent-1), var(--accent-3));
+}
+
+/* FOOTER */
 footer { text-align:center; padding:28px 10px; color:white; background:var(--accent-1); margin-top:60px; }
 
-@media(max-width:600px){ header.hero { flex-direction: column; text-align:center; align-items:center; } .intro { max-width:100%; } header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:160px; right:24px; background:var(--accent-1); padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);} header.kent-nav .hamburger { display:block; } }
-/* MOBILE */
+/* MOBILE MENU */
 @media(max-width:900px) {
-  .content-section { flex-direction:column; text-align:center; }
   header.kent-nav .nav-links {
     display:none; flex-direction:column; gap:12px;
     position:absolute; top:170px; right:24px;
     background:var(--accent-1); padding:20px; border-radius:12px;
+  }
+  header.kent-nav .hamburger { display:block; }
+}
+
 </style>
 </head>
 
@@ -100,15 +134,18 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
   <div class="hamburger" onclick="toggleNav()">☰</div>
 </header>
 
+<!-- TABLET TITLE BAR -->
+<div class="tablet-title" id="dynamicPageTitle"></div>
+
 <!-- HERO -->
 <header class="hero">
   <div class="hero-left">
     <img id="portrait" src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" alt="Portrait of Temitope F. Egbedeyi" class="portrait">
   </div>
   <div class="intro">
-    <p>Temitope Egbedeyi is a doctoral researcher and Research Assistant in Curriculum & Instruction at Kent State University, specializing in Early Childhood Mathematics Education. Married to Omowumi C. Tope-Egbedeyi, I am passionate about improving how young children learn mathematics through innovative research and practice.</p>
-    <p>My work focuses on sociomathematical norms, multiplicative reasoning, and eye-tracking technology to better understand student learning. I have authored over 20 publications, led multiple grant-funded projects, and contributed to initiatives like Dreams to Legacy Initiative, Foundation for Rural Education and Empowerment, and The Sanguine Academy.</p>
-    <p>Recognized in the media for my research, I combine classroom experience in Nigeria with rigorous scholarship to advance meaningful, equity-driven mathematics education for young learners.</p>
+    <p>Temitope Egbedeyi is...</p>
+    <p>My work focuses...</p>
+    <p>Recognized in the media...</p>
     <p><strong>Research Interests:</strong> My research interests include early childhood mathematics, sociomathematical norms, multiplicative reasoning, and eye-tracking technology.</p>
   </div>
 </header>
@@ -125,27 +162,27 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
   </div>
 </section>
 
-<!-- PROFESSIONAL MEMBERSHIPS -->
+<!-- MEMBERSHIPS -->
 <section>
   <h2>Professional Memberships & Leadership</h2>
   <div class="grid">
-    <div class="card"><a href="https://www.rcml-math.org/" target="_blank">RCML</a></div>
-    <div class="card"><a href="https://www.pmena.org/" target="_blank">PME-NA (NA Chapter)</a></div>
-    <div class="card"><a href="https://www.aera.net/" target="_blank">AERA</a></div>
-    <div class="card"><a href="https://ecan.org.ng/" target="_blank">ECAN</a></div>
-    <div class="card"><a href="https://www.kent.edu/csi/graduate-student-senate" target="_blank">GSS Alternate Senator</a></div>
-    <div class="card"><a href="https://www.kent.edu/graduatecollege/graduate-college-student-advisory-council-gcsac" target="_blank">Former GCSAC Member</a></div>
+    <div class="card"><a href="#">RCML</a></div>
+    <div class="card"><a href="#">PME-NA</a></div>
+    <div class="card"><a href="#">AERA</a></div>
+    <div class="card"><a href="#">ECAN</a></div>
+    <div class="card"><a href="#">GSS Alternate Senator</a></div>
+    <div class="card"><a href="#">Former GCSAC Member</a></div>
   </div>
 </section>
 
-  <!-- CTA -->
+<!-- CTA -->
 <section style="text-align:center; display:flex; justify-content:center; flex-wrap:wrap;">
-  <a href="research.html" class="btn-gradient" style="animation-delay:0s;">Explore Research</a>
-  <a href="publications.html" class="btn-gradient" style="animation-delay:0.5s;">Explore Publications</a>
+  <a href="research.html" class="btn-gradient">Explore Research</a>
+  <a href="publications.html" class="btn-gradient">Explore Publications</a>
 </section>
-  <footer>
-  
-    &copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
+
+<footer>
+  &copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
 </footer>
 
 <script>
@@ -153,6 +190,10 @@ function toggleNav(){
   const nav = document.querySelector('.nav-links');
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
+
+/* Dynamic Tablet Title */
+document.getElementById("dynamicPageTitle").innerText =
+  document.title.replace(" | Temitope F. Egbedeyi", "");
 </script>
 
 </body>
