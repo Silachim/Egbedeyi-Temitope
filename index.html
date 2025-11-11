@@ -24,7 +24,7 @@
 * { box-sizing:border-box; margin:0; padding:0; transition: all var(--transition) ease-in-out; }
 body { scroll-behavior: smooth; color:#0f172a; line-height:1.6; background:white; font-family:'Open Sans',sans-serif; }
 
-/* ✅ HEADER (fixed to match About page) */
+/* ✅ HEADER (matches About page exactly) */
 header.kent-nav {
   display:flex;
   align-items:center;
@@ -100,25 +100,53 @@ main {
   text-decoration:none;
 }
 
-/* PHILOSOPHY */
-.philosophy-section {
-  background:#f5f5f5; padding:60px 20px; text-align:center;
+/* ✅ Collapsible sections (Philosophy, Vision, Mission) */
+.collapsible-box {
+  background:#f5f5f5;
+  padding:25px;
   border-radius:var(--radius);
-  opacity:0; transform:translateY(30px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
-.philosophy-section.show { opacity:1; transform:translateY(0); }
 
-/* VISION & MISSION */
-.vision-mission { display:flex; flex-wrap:wrap; gap:40px; justify-content:center; }
+.collapsible-header {
+  font-size:28px;
+  font-weight:700;
+  color:var(--accent-1);
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.collapsible-content {
+  margin-top:10px;
+  font-size:18px;
+  display:none;
+}
+
+.chevron {
+  font-size:24px;
+  color:var(--accent-1);
+}
+
+/* ✅ Vision/Mission Cards */
+.vision-mission {
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px;
+  justify-content:center;
+}
 .vm-card {
-  flex:1 1 400px; background:white; padding:30px;
+  flex:1 1 400px;
+  background:white;
+  padding:30px;
   border-radius:var(--radius);
   box-shadow:0 4px 12px rgba(0,0,0,0.1);
-  opacity:0; transform:translateY(40px);
 }
-.vm-card.show { opacity:1; transform:translateY(0); }
+.vm-card h3 { color:var(--accent-1); font-size:26px; margin-bottom:10px; }
+.vm-card p { font-size:18px; }
 
-/* ✅ CONNECT SECTION (Improved + consistent) */
+/* ✅ CONNECT SECTION */
 .connect-section {
   background:white;
   padding:60px 20px;
@@ -158,7 +186,7 @@ main {
 }
 .connect-icons a:hover { transform:scale(1.15); }
 
-/* FOOTER (fixed alignment + animation) */
+/* FOOTER */
 footer {
   text-align:center;
   padding:28px 10px;
@@ -168,8 +196,8 @@ footer {
 }
 footer.show { opacity:1; transform:translateY(0); }
 
-/* MOBILE FIXES */
-@media(max-width:900px){
+/* MOBILE */
+@media(max-width:900px) {
   .content-section { flex-direction:column; text-align:center; }
   header.kent-nav .nav-links {
     display:none; flex-direction:column; gap:12px;
@@ -200,7 +228,7 @@ footer.show { opacity:1; transform:translateY(0); }
   <div class="hamburger" onclick="toggleNav()">☰</div>
 </header>
 
-<!-- HERO -->
+<!-- ✅ HERO -->
 <section class="hero-section">
   <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Home%20page%20picture.jpg?raw=true" class="hero-image">
   <p class="doctorate">I am a doctoral candidate and Research Assistant in Curriculum & Instruction at Kent State University, specializing in Early Childhood Mathematics Education.</p>
@@ -208,30 +236,41 @@ footer.show { opacity:1; transform:translateY(0); }
   <a href="research.html" class="btn">Explore Research</a>
 </section>
 
-<!-- MAIN -->
+<!-- ✅ MAIN -->
 <main>
   <section class="content-section">
     <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Egbedeyi.jpg?raw=true" class="side-image">
     <div class="text-content">
       <h2>Connect Theory with Practice</h2>
-      <p>I study how young children build mathematical understanding, focusing on sociomathematical norms, fraction division, multiplicative reasoning, common errors, and place-based approaches connecting classroom learning to community life.</p>
+      <p>I study how young children build mathematical understanding, focusing on sociomathematical norms, fraction division, multiplicative reasoning, common errors in fractions, embodied noticing, and place-based learning approaches that bridge classroom instruction with real-world and community contexts.</p>
       <a href="about.html" class="btn">Learn About Me</a>
     </div>
   </section>
 
-  <section class="philosophy-section">
-    <h2>Philosophy</h2>
-    <p>I believe early childhood mathematics education flourishes when research, practice, and community intersect...</p>
+  <!-- ✅ PHILOSOPHY (Expanded on click) -->
+  <section class="collapsible-box">
+    <div class="collapsible-header" onclick="toggleCollapse('philosophy')">
+      Philosophy <span class="chevron" id="chevron-philosophy">▼</span>
+    </div>
+    <div class="collapsible-content" id="philosophy">
+      <p>I believe early childhood mathematics education flourishes when research, practice, and community intersect. My philosophy is grounded in the understanding that all children come to school with rich mathematical ideas shaped by culture, environment, and everyday experiences. Through place-based learning, equitable instructional practices, and teacher preparation grounded in noticing children’s mathematical thinking, I am committed to transforming how mathematics is taught and learned in diverse contexts.</p>
+    </div>
   </section>
 
+  <!-- ✅ VISION & MISSION -->
   <section class="vision-mission">
     <div class="vm-card">
-      <h3>Vision</h3>
-      <p>To be a leading scholar in Curriculum and Instruction...</p>
+      <h3 onclick="toggleCollapse('vision')">Vision <span class="chevron" id="chevron-vision">▼</span></h3>
+      <div class="collapsible-content" id="vision">
+        <p>To be a leading scholar in Curriculum & Instruction who advances early childhood mathematics education through culturally responsive practices, place-based pedagogy, interdisciplinary collaboration, and impactful research benefiting communities in Nigeria, the United States, and globally.</p>
+      </div>
     </div>
+
     <div class="vm-card">
-      <h3>Mission</h3>
-      <p>To advance scholarship and improve teaching practices...</p>
+      <h3 onclick="toggleCollapse('mission')">Mission <span class="chevron" id="chevron-mission">▼</span></h3>
+      <div class="collapsible-content" id="mission">
+        <p>To conduct high-quality research, support teacher development, produce community-embedded STEM initiatives, and mentor future educators. My work aims to enhance mathematics learning by connecting theory to practice and amplifying local knowledge systems that shape children’s mathematical experiences.</p>
+      </div>
     </div>
   </section>
 </main>
@@ -259,7 +298,7 @@ footer.show { opacity:1; transform:translateY(0); }
 </footer>
 
 <script>
-function toggleNav(){
+function toggleNav() {
   const nav = document.querySelector('.nav-links');
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
@@ -268,8 +307,23 @@ window.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.hero-section').classList.add('show');
 });
 
+/* ✅ Collapsible Logic */
+function toggleCollapse(id) {
+  const content = document.getElementById(id);
+  const chevron = document.getElementById("chevron-" + id);
+
+  if (content.style.display === "block") {
+    content.style.display = "none";
+    chevron.textContent = "▼";
+  } else {
+    content.style.display = "block";
+    chevron.textContent = "▲";
+  }
+}
+
+/* ✅ Scroll Animations */
 const animatedElements = document.querySelectorAll(
-  '.side-image, .philosophy-section, .vm-card, footer'
+  '.side-image, footer'
 );
 const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
