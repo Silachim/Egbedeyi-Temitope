@@ -152,36 +152,8 @@ img.hover-zoom {
 img.hover-zoom:hover {
   transform: scale(1.03);
 }
-.profile-icons a {
-  text-decoration:none;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:60px; height:60px; /* slightly larger for better visibility */
-  border-radius:50%;
-  color:white;
-  font-size:26px;
-  font-weight:bold;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
-}
 
-/* Gradients per platform */
-.profile-icons a.gs { 
-  background: linear-gradient(135deg,#4285F4,#34A853); /* Google Scholar */
-}
-.profile-icons a.rg { 
-  background: linear-gradient(135deg,#00CCBB,#009988); /* ResearchGate */
-}
-.profile-icons a.li { 
-  background: linear-gradient(135deg,#0A66C2,#004182); /* LinkedIn */
-}
 
-/* Hover effect */
-.profile-icons a:hover {
-  transform: scale(1.4) rotate(-5deg);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-  filter: brightness(1.15);
-}
 /* Hero animations */
 .hero-left {
   opacity: 0;
