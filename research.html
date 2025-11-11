@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Research | Temitope F. Egbedeyi</title>
+<title>Research</title>
 
 <!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
@@ -40,6 +40,23 @@ header.kent-nav .nav-links a { text-decoration:none; color:white; font-weight:60
 header.kent-nav .nav-links a:hover,
 header.kent-nav .nav-links a.active { color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
 header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
+
+/* ✅ TABLET PORTRAIT TITLE BAR */
+.tablet-title-bar {
+  display:none;
+  text-align:center;
+  font-size:22px;
+  font-weight:700;
+  padding:14px;
+  background:white;
+  color:var(--accent-1);
+  border-bottom:2px solid var(--accent-1);
+}
+
+/* Show ONLY on tablets in portrait mode */
+@media (min-width:601px) and (max-width:1024px) and (orientation:portrait) {
+  .tablet-title-bar { display:block; }
+}
 
 /* PAGE HEADER */
 header.page-header { text-align:center; padding:72px 20px; color:#0f172a; }
@@ -95,6 +112,9 @@ footer{ text-align:center; padding:28px 10px; color:white; background:var(--acce
 
 <body>
 
+<!-- ✅ TABLET PORTRAIT TITLE BAR -->
+<div class="tablet-title-bar" id="tabletPageTitle"></div>
+
 <!-- HEADER -->
 <header class="kent-nav">
   <div class="logo">
@@ -114,6 +134,7 @@ footer{ text-align:center; padding:28px 10px; color:white; background:var(--acce
 
 <!-- PAGE HEADER -->
 <header class="page-header">
+  <h1>Research</h1>
   <p>Exploring multiplicative reasoning, fraction division, and place-based approaches connecting classrooms to communities in Nigeria and the U.S.</p>
 </header>
 
@@ -138,9 +159,9 @@ footer{ text-align:center; padding:28px 10px; color:white; background:var(--acce
       <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Research%20image.jpg?raw=true" alt="Research projects by Temitope F. Egbedeyi">
       <div>
         <ul class="link-list">
-          <li>Eye‑tracking study of Grade 3 multiplicative reasoning.</li>
+          <li>Eye-tracking study of Grade 3 multiplicative reasoning.</li>
           <li>Preservice teachers' embodied noticing during fraction tasks.</li>
-          <li>Place‑based mathematics curriculum grounded in Nigerian contexts.</li>
+          <li>Place-based mathematics curriculum grounded in Nigerian contexts.</li>
           <li>Sociomathematical norms and classroom algorithm choices.</li>
           <li>Common errors among fourth, fifth, and sixth grade students.</li>
         </ul>
@@ -160,6 +181,13 @@ function toggleNav(){
   const nav = document.querySelector('.nav-links');
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
+
+/* ✅ Dynamic Tablet Title Detection */
+document.addEventListener("DOMContentLoaded", function () {
+  const titleBar = document.getElementById("tabletPageTitle");
+  const pageTitle = document.title.split("|")[0].trim();  
+  titleBar.textContent = pageTitle;
+});
 </script>
 
 </body>
