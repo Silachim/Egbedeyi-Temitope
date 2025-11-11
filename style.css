@@ -6,18 +6,19 @@
 
 .connect-divider {
   height:4px;
-  width:120px; /* or match Home page width */
+  width:120px;
   margin:20px auto 40px auto;
   background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
   border-radius:10px;
 }
 
-/* Connect icons */
 .connect-icons {
   display:flex;
   gap:30px;
   justify-content:center;
+  flex-wrap:wrap;
 }
+
 .connect-icons a {
   width:55px;
   height:55px;
@@ -26,11 +27,13 @@
   justify-content:center;
   transition: transform 0.3s;
 }
+
 .connect-icons a img {
   width:100%;
   height:100%;
   object-fit:contain;
 }
+
 .connect-icons a:hover { transform:scale(1.15); }
 
 /* ===== Hero Image for Publication Page ===== */
