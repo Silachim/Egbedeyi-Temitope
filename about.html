@@ -13,168 +13,81 @@
   --accent-1:#1b4de4;
   --accent-2:#4f8df5;
   --accent-3:#FFC72C;
+  --muted:#0f172a;
   --radius:12px;
   --transition:0.3s;
   --shadow: rgba(0,0,0,0.1) 0px 4px 12px;
 }
 
 /* RESET */
-* { box-sizing:border-box; margin:0; padding:0; font-family: 'Open Sans', sans-serif; transition: all var(--transition); }
-body { scroll-behavior: smooth; color:#0f172a; background:white; }
+* { box-sizing:border-box; margin:0; padding:0; font-family: 'Open Sans', sans-serif; transition: all var(--transition) ease-in-out; }
+body { scroll-behavior: smooth; color:#0f172a; line-height:1.6; background:#fff; }
 
-/* ✅ HEADER (Consistent with Home Page) */
+/* HEADER NAVIGATION */
 header.kent-nav {
   display:flex;
   align-items:center;
   justify-content:space-between;
   padding:12px 24px;
   background:var(--accent-1);
-  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  color:white;
+  box-shadow:0 2px 6px rgba(0,0,0,0.08);
   position:sticky;
   top:0;
   z-index:100;
 }
-header.kent-nav .logo img { height:150px; }
+header.kent-nav .logo { display:flex; align-items:center; gap:15px; }
+header.kent-nav .logo img { height:150px; width:auto; }
 header.kent-nav .nav-links { display:flex; gap:24px; }
-header.kent-nav .nav-links a {
-  text-decoration:none; color:white; font-weight:600; font-size:16px;
-}
+header.kent-nav .nav-links a { text-decoration:none; color:white; font-weight:600; font-size:16px; transition:0.3s; }
 header.kent-nav .nav-links a:hover,
-header.kent-nav .nav-links a.active {
-  color:var(--accent-3);
-  border-bottom:2px solid var(--accent-3);
-  padding-bottom:2px;
-}
+header.kent-nav .nav-links a.active { color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
 header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
 
 /* HERO */
-header.hero {
-  display:flex;
-  gap:40px;
-  padding:60px 20px;
-  align-items:flex-start;
-  flex-wrap:wrap;
-}
-.portrait {
-  width:280px; height:280px;
-  border-radius:50%;
-  object-fit:cover;
-  box-shadow:var(--shadow);
-  transition:0.3s;
-}
-.portrait:hover { transform:scale(1.05); }
-.intro { max-width:800px; font-size:18px; line-height:1.7; }
+header.hero { display:flex; align-items:flex-start; padding:60px 20px; gap:40px; flex-wrap: wrap; }
+.hero-left { display:flex; flex-direction: column; align-items: center; gap:16px; }
+.portrait { width:280px; height:280px; border-radius:50%; box-shadow: var(--shadow); object-fit:cover; cursor:pointer; transition: transform 0.3s; }
+.portrait:hover { transform: scale(1.05); }
+.intro { max-width:800px; font-size:18px; }
 
 /* SECTIONS */
-section {
-  padding:60px 20px;
-  max-width:1100px;
-  margin:auto;
-}
-section h2 {
-  font-family:'Montserrat',sans-serif;
-  font-size:32px;
-  margin-bottom:24px;
-  color:var(--accent-1);
-  border-bottom:2px solid var(--accent-1);
-  padding-bottom:6px;
-}
+section { padding:60px 20px; max-width:1100px; margin:0 auto; }
+section h2 { font-family: 'Montserrat', sans-serif; font-size:32px; margin-bottom:24px; border-bottom:2px solid var(--accent-1); padding-bottom:6px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
+.card { background:#f9f9f9; padding:20px; border-radius:var(--radius); box-shadow:var(--shadow); text-align:center; transition: transform var(--transition); }
+.card:hover { transform: scale(1.05); }
+.card i { font-size:28px; color: var(--accent-3); margin-bottom:10px; display:block; }
+.card h3 { font-size:20px; margin-bottom:6px; }
+.card p { font-size:14px; color:#555; }
+.card a { text-decoration:none; color:var(--accent-1); font-weight:600; }
 
-/* GRID CARDS */
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-.card {
-  background:#f9f9f9;
-  padding:20px;
-  text-align:center;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  transition:0.3s;
-}
-.card:hover { transform:scale(1.05); }
+/* CTA BUTTON */
+.btn-gradient { display: inline-block; padding: 14px 26px; font-weight: 600; font-size: 16px; color: white; text-decoration: none; border-radius: 12px; background: linear-gradient(135deg, #1b4de4, #4f8df5); box-shadow: 0 6px 12px rgba(0,0,0,0.15); transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; animation: floatBtn 3s ease-in-out infinite alternate; margin: 10px; }
+.btn-gradient:hover { transform: scale(1.08); background: linear-gradient(135deg, #4f8df5, #1b4de4); box-shadow: 0 8px 18px rgba(0,0,0,0.2); }
+@keyframes floatBtn { 0% { transform: translateY(0px); } 100% { transform: translateY(-6px); } }
 
 /* CONNECT SECTION */
-.connect-section {
-  text-align:center;
-  padding:60px 20px;
-  background:white;
-}
-.connect-section h2 {
-  font-size:32px;
-  color:var(--accent-1);
-  font-family:'Montserrat',sans-serif;
-}
-.connect-divider {
-  height:4px;
-  width:180px;
-  margin:10px auto 40px auto;
-  background:linear-gradient(90deg, var(--accent-1), var(--accent-2));
-  border-radius:10px;
-}
-.connect-icons {
-  display:flex;
-  gap:30px;
-  justify-content:center;
-}
-.connect-icons a {
-  width:55px; height:55px;
-  display:flex; align-items:center; justify-content:center;
-}
-.connect-icons img {
-  width:100%; height:100%; object-fit:contain;
-}
+.connect-section { text-align:center; padding:60px 20px; }
+.connect-divider { height:4px; width:120px; margin:20px auto 40px auto; background: linear-gradient(90deg, var(--accent-1), var(--accent-2)); border-radius:10px; }
+.connect-icons { display:flex; gap:30px; justify-content:center; flex-wrap:wrap; }
+.connect-icons a { width:55px; height:55px; display:flex; align-items:center; justify-content:center; transition: transform 0.3s; }
+.connect-icons a img { width:100%; height:100%; object-fit:contain; }
 .connect-icons a:hover { transform:scale(1.15); }
 
-/* BUTTONS */
-.btn-gradient {
-  display:inline-block;
-  padding:14px 26px;
-  color:white;
-  background:linear-gradient(135deg,#1b4de4,#4f8df5);
-  border-radius:12px;
-  font-weight:600;
-  text-decoration:none;
-  margin:10px;
-  box-shadow:0 6px 12px rgba(0,0,0,0.15);
-}
-.btn-gradient:hover { transform:scale(1.08); }
+/* FOOTER */
+footer { text-align:center; padding:28px 10px; color:white; background:var(--accent-1); margin-top:60px; }
 
-/* FOOTER (consistent) */
-footer {
-  text-align:center;
-  padding:28px 10px;
-  color:white;
-  background:var(--accent-1);
-  margin-top:60px;
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  header.kent-nav .nav-links {
-    display:none;
-    flex-direction:column;
-    gap:12px;
-    position:absolute;
-    top:170px;
-    right:24px;
-    background:var(--accent-1);
-    padding:20px;
-    border-radius:12px;
-  }
-  header.kent-nav .hamburger { display:block; }
-}
+@media(max-width:600px){ header.hero { flex-direction: column; text-align:center; align-items:center; } .intro { max-width:100%; } header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:160px; right:24px; background:var(--accent-1); padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);} header.kent-nav .hamburger { display:block; } }
 </style>
 </head>
 
 <body>
 
-<!-- ✅ HEADER -->
+<!-- HEADER -->
 <header class="kent-nav">
   <div class="logo">
-    <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true">
+    <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
   </div>
   <nav class="nav-links">
     <a href="index.html">Home</a>
@@ -190,70 +103,67 @@ footer {
 
 <!-- HERO -->
 <header class="hero">
-  <img src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg"
-       class="portrait">
-
+  <div class="hero-left">
+    <img id="portrait" src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" alt="Portrait of Temitope F. Egbedeyi" class="portrait">
+  </div>
   <div class="intro">
-    <p>Temitope Egbedeyi is a doctoral researcher and Research Assistant in Curriculum & Instruction at Kent State University, specializing in Early Childhood Mathematics Education. Married to Omowumi C. Tope-Egbedeyi, he is passionate about improving how young children learn mathematics through innovative research and practice.</p>
-
-    <p>His work focuses on sociomathematical norms, multiplicative reasoning, and eye-tracking technology to better understand student learning. He has authored over 20 publications, led multiple grant-funded projects, and contributed to initiatives like Dreams to Legacy Initiative, Foundation for Rural Education and Empowerment, and The Sanguine Academy.</p>
-
-    <p>Recognized in the media for his research, Temitope combines classroom experience in Nigeria with rigorous scholarship to advance meaningful, equity-driven mathematics education for young learners.</p>
-
-    <p><strong>Research Interests:</strong> Early childhood mathematics, sociomathematical norms, multiplicative reasoning, eye-tracking technology.</p>
+    <p>Temitope Egbedeyi is a doctoral researcher and Research Assistant in Curriculum & Instruction at Kent State University, specializing in Early Childhood Mathematics Education. Married to Omowumi C. Tope-Egbedeyi, I am passionate about improving how young children learn mathematics through innovative research and practice.</p>
+    <p>My work focuses on sociomathematical norms, multiplicative reasoning, and eye-tracking technology to better understand student learning. I have authored over 20 publications, led multiple grant-funded projects, and contributed to initiatives like Dreams to Legacy Initiative, Foundation for Rural Education and Empowerment, and The Sanguine Academy.</p>
+    <p>Recognized in the media for my research, I combine classroom experience in Nigeria with rigorous scholarship to advance meaningful, equity-driven mathematics education for young learners.</p>
+    <p><strong>Research Interests:</strong> My research interests include early childhood mathematics, sociomathematical norms, multiplicative reasoning, and eye-tracking technology.</p>
   </div>
 </header>
 
 <!-- AWARDS -->
 <section>
   <h2>Awards & Recognition</h2>
+  <p>Temitope has been part of National and International grant-funded research.</p>
   <div class="grid">
-    <div class="card"><h3>NSF Grant</h3><p>National Science Foundation, USA</p></div>
-    <div class="card"><h3>Jaffe Foundation Grant</h3><p>USA</p></div>
-    <div class="card"><h3>TETFUND NRF</h3><p>Nigeria</p></div>
-    <div class="card"><h3>Kent State EHHS Award</h3><p>Kent State University</p></div>
+    <div class="card"><i class="fas fa-trophy"></i><h3>NSF Grant</h3><p>National Science Foundation, USA</p></div>
+    <div class="card"><i class="fas fa-certificate"></i><h3>Jaffe Foundation Grant</h3><p>USA</p></div>
+    <div class="card"><i class="fas fa-medal"></i><h3>TETFUND NRF</h3><p>Nigeria</p></div>
+    <div class="card"><i class="fas fa-award"></i><h3>Kent State EHHS Award</h3><p>Kent State University</p></div>
   </div>
 </section>
 
-<!-- MEMBERSHIPS -->
+<!-- PROFESSIONAL MEMBERSHIPS -->
 <section>
   <h2>Professional Memberships & Leadership</h2>
   <div class="grid">
     <div class="card"><a href="https://www.rcml-math.org/" target="_blank">RCML</a></div>
-    <div class="card"><a href="https://www.pmena.org/" target="_blank">PME-NA</a></div>
+    <div class="card"><a href="https://www.pmena.org/" target="_blank">PME-NA (NA Chapter)</a></div>
     <div class="card"><a href="https://www.aera.net/" target="_blank">AERA</a></div>
     <div class="card"><a href="https://ecan.org.ng/" target="_blank">ECAN</a></div>
-    <div class="card"><a href="https://www.kent.edu/csi/graduate-student-senate" target="_blank">GSS Senator</a></div>
+    <div class="card"><a href="https://www.kent.edu/csi/graduate-student-senate" target="_blank">GSS Alternate Senator</a></div>
     <div class="card"><a href="https://www.kent.edu/graduatecollege/graduate-college-student-advisory-council-gcsac" target="_blank">Former GCSAC Member</a></div>
   </div>
 </section>
 
-<!-- ✅ CONNECT (consistent with home page) -->
+<!-- CONNECT -->
 <section class="connect-section">
   <h2>Connect</h2>
   <div class="connect-divider"></div>
   <div class="connect-icons">
-    <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ" target="_blank">
-      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/google-scholar-logo-png_seeklogo-484488.png?raw=true">
+    <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/google-scholar-logo-png_seeklogo-484488.png?raw=true" alt="Google Scholar">
     </a>
     <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank">
-      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo-linkedin-icon-1536.png?raw=true">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo-linkedin-icon-1536.png?raw=true" alt="LinkedIn">
     </a>
     <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank">
-      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/researchgate-logo-freelogovectors.net_.png?raw=true">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/researchgate-logo-freelogovectors.net_.png?raw=true" alt="ResearchGate">
     </a>
   </div>
 </section>
 
-<!-- CTA BUTTONS -->
-<section style="text-align:center;">
-  <a href="research.html" class="btn-gradient">Explore Research</a>
-  <a href="publications.html" class="btn-gradient">Explore Publications</a>
+<!-- CTA -->
+<section style="text-align:center; display:flex; justify-content:center; flex-wrap:wrap;">
+  <a href="research.html" class="btn-gradient" style="animation-delay:0s;">Explore Research</a>
+  <a href="publications.html" class="btn-gradient" style="animation-delay:0.5s;">Explore Publications</a>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  © 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
+  &copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
 </footer>
 
 <script>
