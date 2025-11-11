@@ -193,3 +193,79 @@ img.hover-zoom:hover {
 @keyframes slideInRight {
   to { opacity: 1; transform: translateX(0); }
 }
+/* FIX: Ensure page title shows properly on iPad/tablet portrait */
+@media (min-width: 600px) and (max-width: 900px) {
+  header.page-header {
+    padding: 60px 20px !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  header.page-header h1 {
+    font-size: 34px !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  header.page-header p {
+    display: block !important;
+  }
+
+  /* Fix nav overlapping issue on tablets */
+  header.kent-nav .nav-links {
+    display: flex !important;
+  }
+}
+
+/* TABLET-ONLY TITLE BAR (Portrait Mode) */
+.tablet-title-bar {
+  display: none; /* hidden by default */
+  background: var(--accent-1);
+  color: white;
+  text-align: center;
+  padding: 14px;
+  font-size: 22px;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+
+/* TABLET-ONLY TITLE BAR (Portrait Mode) */
+.tablet-title-bar {
+  display: none; /* hidden by default */
+  background: var(--accent-1);
+  color: white;
+  text-align: center;
+  padding: 14px;
+  font-size: 22px;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Show ONLY on tablets in portrait */
+@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
+  .tablet-title-bar {
+    display: block;
+  }
+
+  /* Hide normal nav menu in portrait */
+  .kent-nav .nav-links {
+    display: none !important;
+  }
+
+  /* Show hamburger menu */
+  .kent-nav .hamburger {
+    display: block !important;
+  }
+}
+
+/* Restore normal menu in landscape */
+@media (min-width: 600px) and (max-width: 1024px) and (orientation: landscape) {
+  .tablet-title-bar {
+    display: none !important;
+  }
+
+  .kent-nav .nav-links {
+    display: flex !important;
+  }
+}
