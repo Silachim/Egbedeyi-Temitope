@@ -115,13 +115,44 @@ section h2 {
   transition:all var(--transition);
 }
 .card a.btn:hover { transform:scale(1.05); }
+/* ✅ CONNECT SECTION */
+.connect-section {
+  background:white;
+  padding:60px 20px;
+  text-align:center;
+  margin-top:-40px;
+}
+.connect-section h2 {
+  font-size:32px;
+  color:var(--accent-1);
+  font-family:'Montserrat',sans-serif;
+  margin-bottom:15px;
+}
 
-/* CONNECT SECTION */
-.connect-section { text-align:center; padding:60px 20px; }
-.connect-divider { height:4px; width:180px; margin:10px auto 40px auto; background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); border-radius:10px; }
-.connect-icons { display:flex; gap:30px; justify-content:center; }
-.connect-icons a { width:55px; height:55px; display:flex; align-items:center; justify-content:center; transition: transform 0.3s; }
-.connect-icons a img { width:100%; height:100%; object-fit:contain; }
+/* ✅ Gradient Divider */
+.connect-divider {
+  height:4px;
+  width:180px;
+  border:none;
+  margin:0 auto 30px auto;
+  background:linear-gradient(90deg, var(--accent-1), var(--accent-2));
+  border-radius:10px;
+}
+
+/* Icons */
+.connect-icons {
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  margin-top:20px;
+}
+.connect-icons a {
+  width:55px; height:55px;
+  display:flex; align-items:center; justify-content:center;
+}
+.connect-icons a img {
+  width:100%; height:100%; object-fit:contain;
+}
 .connect-icons a:hover { transform:scale(1.15); }
 
 /* FOOTER */
@@ -171,22 +202,22 @@ footer { text-align:center; padding:28px 10px; background:var(--accent-1); color
     <div class="grid" id="pub-grid"></div>
   </section>
 
-  <!-- CONNECT -->
-  <section class="connect-section">
-    <h2>Connect</h2>
-    <div class="connect-divider"></div>
-    <div class="connect-icons">
-      <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ" target="_blank">
-        <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/google-scholar-logo-png_seeklogo-484488.png" alt="Google Scholar">
-      </a>
-      <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank">
-        <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo-linkedin-icon-1536.png" alt="LinkedIn">
-      </a>
-      <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank">
-        <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/researchgate-logo-freelogovectors.net_.png" alt="ResearchGate">
-      </a>
-    </div>
-  </section>
+ <!-- ✅ CONNECT -->
+<section class="connect-section">
+  <h2>Connect</h2>
+  <hr class="connect-divider">
+  <div class="connect-icons">
+    <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ" target="_blank">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/google-scholar-logo-png_seeklogo-484488.png?raw=true">
+    </a>
+    <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo-linkedin-icon-1536.png?raw=true">
+    </a>
+    <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/researchgate-logo-freelogovectors.net_.png?raw=true">
+    </a>
+  </div>
+</section>
 </main>
 
 <footer>
