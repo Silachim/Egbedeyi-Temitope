@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home | Temitope F. Egbedeyi</title>
 
 <!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -32,22 +33,6 @@ body { scroll-behavior: smooth; color:#0f172a; line-height:1.6; background:white
   border-radius:10px;
 }
 
-/* ✅ TABLET TITLE BAR */
-.tablet-title {
-  display:none;
-  background:var(--accent-1);
-  text-align:center;
-  padding:12px;
-  font-size:20px;
-  font-weight:700;
-  color:white;
-}
-
-/* Show only on tablet portrait 768–1180px */
-@media (min-width: 768px) and (max-width:1180px) and (orientation:portrait) {
-  .tablet-title { display:block; }
-}
-
 /* ✅ HEADER */
 header.kent-nav {
   display:flex;
@@ -58,8 +43,25 @@ header.kent-nav {
   box-shadow:0 2px 6px rgba(0,0,0,0.1);
   position:sticky; top:0; z-index:100;
 }
+
+/* logo */
 header.kent-nav .logo img { height:150px; width:auto; }
-header.kent-nav .nav-links { display:flex; gap:24px; }
+
+/* centered title inside header for mobile/tablet */
+.nav-center-title {
+  display:none;
+  font-size:20px;
+  font-weight:700;
+  color:white;
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  top:24px;
+  pointer-events:none;
+}
+
+/* nav links */
+header.kent-nav .nav-links { display:flex; gap:24px; z-index:101; }
 header.kent-nav .nav-links a {
   text-decoration:none; color:white; font-weight:600; font-size:16px;
 }
@@ -69,7 +71,25 @@ header.kent-nav .nav-links a.active {
   border-bottom:2px solid var(--accent-3);
   padding-bottom:2px;
 }
-header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
+
+/* hamburger */
+header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; z-index:102; }
+
+/* Show centered title only on mobile/tablet (<=1024px) */
+@media (max-width:1024px) {
+  .nav-center-title { display:block; }
+}
+
+/* MOBILE + TABLET NAV BEHAVIOR */
+@media(max-width:900px) {
+  header.kent-nav .nav-links {
+    display:none; flex-direction:column; gap:12px;
+    position:absolute; top:160px; right:24px;
+    background:var(--accent-1); padding:20px; border-radius:12px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.12);
+  }
+  header.kent-nav .hamburger { display:block; }
+}
 
 /* ✅ HERO */
 .hero-section {
@@ -207,12 +227,6 @@ footer.show { opacity:1; transform:translateY(0); }
 /* MOBILE + TABLET */
 @media(max-width:900px) {
   .content-section { flex-direction:column; text-align:center; }
-  header.kent-nav .nav-links {
-    display:none; flex-direction:column; gap:12px;
-    position:absolute; top:170px; right:24px;
-    background:var(--accent-1); padding:20px; border-radius:12px;
-  }
-  header.kent-nav .hamburger { display:block; }
 }
 </style>
 </head>
@@ -223,8 +237,11 @@ footer.show { opacity:1; transform:translateY(0); }
 <header class="kent-nav">
   <div class="logo">
     <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
-  <title>Home</title>
   </div>
+
+  <!-- Centered title inside header for mobile/tablet -->
+  <div class="nav-center-title" id="dynamicPageTitle"></div>
+
   <nav class="nav-links">
     <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
@@ -234,15 +251,13 @@ footer.show { opacity:1; transform:translateY(0); }
     <a href="blog.html">Blog & Media</a>
     <a href="contact.html">Contact</a>
   </nav>
+
   <div class="hamburger" onclick="toggleNav()">☰</div>
 </header>
 
-<!-- ✅ TABLET PORTRAIT TITLE -->
-<div class="tablet-title" id="dynamicPageTitle"></div>
-
 <!-- ✅ HERO -->
 <section class="hero-section">
-  <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Home%20page%20picture.jpg?raw=true" class="hero-image">
+  <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Home%20page%20picture.jpg?raw=true" class="hero-image" alt="Home hero">
   <p class="doctorate">I am a doctoral candidate and Research Assistant in Curriculum & Instruction at Kent State University, specializing in Early Childhood Mathematics Education.</p>
   <p class="fade-in">Explore early childhood mathematics education through innovative research, place-based learning, and community-driven initiatives connecting Nigeria and the United States.</p>
   <a href="research.html" class="btn">Explore Research</a>
@@ -251,7 +266,7 @@ footer.show { opacity:1; transform:translateY(0); }
 <!-- ✅ MAIN -->
 <main>
   <section class="content-section">
-    <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Egbedeyi.jpg?raw=true" class="side-image">
+    <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Egbedeyi.jpg?raw=true" class="side-image" alt="Egbedeyi portrait">
     <div class="text-content">
       <h2>Connect Theory with Practice</h2>
       <p>I study how young children build mathematical understanding, focusing on sociomathematical norms, fraction division, multiplicative reasoning, common errors in fractions, embodied noticing, and place-based learning approaches that bridge classroom instruction with real-world and community contexts.</p>
@@ -293,13 +308,13 @@ footer.show { opacity:1; transform:translateY(0); }
   <div class="gradient-divider"></div>
   <div class="connect-icons">
     <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ" target="_blank">
-      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/google-scholar-logo-png_seeklogo-484488.png?raw=true">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/google-scholar-logo-png_seeklogo-484488.png?raw=true" alt="Google Scholar">
     </a>
     <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank">
-      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo-linkedin-icon-1536.png?raw=true">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo-linkedin-icon-1536.png?raw=true" alt="LinkedIn">
     </a>
     <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank">
-      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/researchgate-logo-freelogovectors.net_.png?raw=true">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/researchgate-logo-freelogovectors.net_.png?raw=true" alt="ResearchGate">
     </a>
   </div>
 </section>
@@ -315,33 +330,35 @@ function toggleNav() {
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
 
-/* ✅ Dynamic Page Title for Tablet Portrait */
+/* Dynamic Page Title for Centered header on mobile/tablet */
 document.addEventListener("DOMContentLoaded", () => {
-  const title = document.title.replace(" | Temitope F. Egbedeyi", "");
-  document.getElementById("dynamicPageTitle").textContent = title;
+  const titleText = document.title.includes("|") ? document.title.split("|")[0].trim() : document.title;
+  const el = document.getElementById("dynamicPageTitle");
+  if(el) el.textContent = titleText;
 });
 
-/* ✅ Hero Animation */
+/* Hero Animation */
 window.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('.hero-section').classList.add('show');
+  const hero = document.querySelector('.hero-section');
+  if(hero) hero.classList.add('show');
 });
 
-/* ✅ Collapsible Blocks */
+/* Collapsible Blocks */
 function toggleCollapse(id) {
   const content = document.getElementById(id);
   const chevron = document.getElementById("chevron-" + id);
 
   if (content.style.display === "block") {
     content.style.display = "none";
-    chevron.textContent = "▼";
+    if(chevron) chevron.textContent = "▼";
   } else {
     content.style.display = "block";
-    chevron.textContent = "▲";
+    if(chevron) chevron.textContent = "▲";
   }
 }
 
-/* ✅ Scroll Animations */
-const animatedElements = document.querySelectorAll('.side-image, footer');
+/* Scroll Animations for images & footer */
+const animatedElements = document.querySelectorAll('.side-image, footer, .hero-image');
 const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
