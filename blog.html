@@ -22,6 +22,23 @@
 * { box-sizing:border-box; margin:0; padding:0; font-family:'Open Sans',sans-serif; transition:all var(--transition) ease-in-out; }
 body { background:white; color:#0f172a; line-height:1.6; scroll-behavior:smooth; }
 
+/* TABLET PORTRAIT TITLE BAR */
+.tablet-title-bar {
+  display:none;
+  width:100%;
+  background:var(--accent-2);
+  color:white;
+  padding:12px 20px;
+  font-size:22px;
+  font-weight:700;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:101;
+  box-shadow:0 3px 8px rgba(0,0,0,0.1);
+  letter-spacing:0.3px;
+}
+
 /* HEADER NAVIGATION */
 header.kent-nav {
   display:flex;
@@ -48,20 +65,33 @@ header.kent-nav .nav-links a:hover,
 header.kent-nav .nav-links a.active { color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
 header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
 
-/* Mobile + Tablet Titles */
-.page-title-mobile, .tablet-title-bar {
+/* MOBILE TITLE */
+.page-title-mobile {
+  display:none;
   font-weight:bold;
+  font-size:20px;
   color:white;
+  margin-left:10px;
 }
-.page-title-mobile { display:none; font-size:20px; margin-left:10px; }
-.tablet-title-bar { display:none; font-size:22px; text-align:center; padding:12px 20px; background:var(--accent-2); position:sticky; top:0; z-index:99; box-shadow:0 3px 8px rgba(0,0,0,0.1); letter-spacing:0.3px; }
 
-/* Show mobile title on small screens */
+/* MEDIA QUERIES */
 @media(max-width:768px){
   .page-title-mobile { display:block; }
+  header.kent-nav .hamburger { display:block; }
+  header.kent-nav .nav-links {
+    display:none;
+    flex-direction: column;
+    gap:12px;
+    position: absolute;
+    top:60px; /* below mobile title */
+    right:16px;
+    background: var(--accent-1);
+    padding:20px;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
 }
 
-/* Show tablet title on tablet portrait only */
 @media (max-width:1024px) and (orientation: portrait){
   .tablet-title-bar { display:block; }
   header.kent-nav .hamburger { display:block; }
@@ -70,7 +100,7 @@ header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
     flex-direction: column;
     gap:12px;
     position: absolute;
-    top:140px; /* below the tablet title */
+    top:60px; /* below tablet title */
     right:16px;
     background: var(--accent-1);
     padding:20px;
@@ -115,6 +145,9 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
 </head>
 <body>
 
+<!-- TABLET PORTRAIT TITLE -->
+<div class="tablet-title-bar" id="tabletTitle"></div>
+
 <!-- HEADER NAVIGATION -->
 <header class="kent-nav">
   <div class="logo">
@@ -123,9 +156,6 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
 
   <!-- Mobile Title -->
   <div class="page-title-mobile" id="mobileTitle"></div>
-
-  <!-- Tablet Portrait Title -->
-  <div class="tablet-title-bar" id="tabletTitle"></div>
 
   <nav class="nav-links">
     <a href="index.html">Home</a>
