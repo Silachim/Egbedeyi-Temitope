@@ -187,14 +187,6 @@ function toggleNav(){
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
 
-// Dynamic mobile/tablet page titles
-document.addEventListener("DOMContentLoaded", () => {
-  const fullTitle = document.title;
-  const cleanTitle = fullTitle.includes("|") ? fullTitle.split("|")[0].trim() : fullTitle;
-  document.getElementById("mobileTitle").textContent = cleanTitle;
-  document.getElementById("tabletTitle").textContent = cleanTitle;
-});
-
 // BLOGS
 const blogs = [
   { title:"Nigerian scholar redefines teacher training with global math research", url:"https://www.vanguardngr.com/2024/11/nigerian-scholar-redefines-teacher-training-with-global-math-research/", meta:"15 Nov 2024 — Vanguard" },
