@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CV | Temitope F. Egbedeyi</title>
+<title>Professional Service | Temitope F. Egbedeyi</title>
 
 <!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
@@ -52,36 +52,21 @@ header.kent-nav .nav-links a.active {
   padding-bottom:2px;
 }
 header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
-/* ✅ MOBILE PAGE TITLE */
-.page-title-mobile {
-  display:none;
+
+/* MOBILE + TABLET PAGE TITLE */
+.page-title-mobile, .tablet-title-bar {
   font-weight:bold;
-  font-size:20px;
   color:white;
 }
+.page-title-mobile { display:none; font-size:20px; }
+.tablet-title-bar { display:none; font-size:22px; font-weight:700; text-align:center; padding:12px 20px; background:var(--accent-2); position:sticky; top:0; z-index:99; box-shadow:0 3px 8px rgba(0,0,0,0.1); letter-spacing:0.3px; }
 
+/* Show mobile title on small screens */
 @media(max-width:768px){
   .page-title-mobile { display:block; margin-left:15px; }
 }
 
-/* ✅ TABLET LANDSCAPE TITLE BAR */
-.tablet-title-bar {
-  display:none;
-  width:100%;
-  background:var(--accent-2);
-  color:white;
-  padding:12px 20px;
-  font-size:22px;
-  font-weight:700;
-  text-align:center;
-  position:sticky;
-  top:0;
-  z-index:99;
-  box-shadow:0 3px 8px rgba(0,0,0,0.1);
-  letter-spacing:0.3px;
-}
-
-/* Show on tablets in landscape only */
+/* Show tablet title on tablet landscape */
 @media(min-width:769px) and (max-width:1024px) and (orientation: landscape){
   .tablet-title-bar { display:block; }
 }
@@ -112,11 +97,25 @@ section h2 { font-family:'Montserrat',sans-serif; font-size:32px; margin-bottom:
 /* FOOTER */
 footer { text-align:center; padding:28px 10px; background:var(--accent-1); color:#fff; margin-top:60px; }
 
-/* RESPONSIVE NAV */
-@media(max-width:900px){
-  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:160px; right:16px; background:var(--accent-1); padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+/* RESPONSIVE NAV FOR MOBILE + TABLET PORTRAIT */
+@media (max-width:1024px) and (orientation: portrait) {
   header.kent-nav .hamburger { display:block; }
+
+  header.kent-nav .nav-links {
+    display: none;
+    flex-direction: column;
+    gap:12px;
+    position: absolute;
+    top:160px; /* adjust if needed */
+    right:16px;
+    background: var(--accent-1);
+    padding:20px;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
 }
+
+/* SMALL SCREENS */
 @media(max-width:600px){
   section h2{ font-size:28px; }
   section.hero h1 { font-size:28px; }
@@ -130,14 +129,14 @@ footer { text-align:center; padding:28px 10px; background:var(--accent-1); color
 <header class="kent-nav">
   <div class="logo">
     <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
-   
+  </div>
+
   <!-- Mobile Title -->
   <div class="page-title-mobile" id="mobileTitle"></div>
 
   <!-- Tablet Title -->
   <div class="tablet-title-bar" id="tabletTitle"></div>
-  </div>
-  
+
   <nav class="nav-links">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -147,6 +146,7 @@ footer { text-align:center; padding:28px 10px; background:var(--accent-1); color
     <a href="blog.html">Blog & Media</a>
     <a href="contact.html">Contact</a>
   </nav>
+
   <div class="hamburger" onclick="toggleNav()">☰</div>
 </header>
 
@@ -205,6 +205,14 @@ document.querySelectorAll('.subsection-title').forEach(item => {
       item.textContent = item.textContent.replace("▼","▲");
     }
   });
+});
+
+// Dynamic mobile/tablet titles
+document.addEventListener("DOMContentLoaded", () => {
+  const fullTitle = document.title;
+  const cleanTitle = fullTitle.includes("|") ? fullTitle.split("|")[0].trim() : fullTitle;
+  document.getElementById("mobileTitle").textContent = cleanTitle;
+  document.getElementById("tabletTitle").textContent = cleanTitle;
 });
 </script>
 
