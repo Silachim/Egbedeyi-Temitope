@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -57,6 +57,22 @@ header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
   margin-left:10px;
 }
 
+/* TABLET PORTRAIT TITLE */
+.tablet-title-bar {
+  display:none;
+  font-weight:bold;
+  font-size:22px;
+  color:white;
+  text-align:center;
+  padding:12px 20px;
+  background:var(--accent-2);
+  position:sticky;
+  top:0;
+  z-index:99;
+  box-shadow:0 3px 8px rgba(0,0,0,0.1);
+  letter-spacing:0.3px;
+}
+
 /* MEDIA QUERIES */
 @media(max-width:768px){
   .page-title-mobile { display:block; }
@@ -89,6 +105,11 @@ header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
     padding:20px;
     border-radius: var(--radius);
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  /* Hide the active nav link text (faint duplicate) */
+  header.kent-nav .nav-links a.active {
+    display:none;
   }
 }
 
@@ -128,7 +149,6 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
 </head>
 <body>
 
-
 <!-- HEADER NAVIGATION -->
 <header class="kent-nav">
   <div class="logo">
@@ -138,8 +158,8 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
   <!-- Mobile Title -->
   <div class="page-title-mobile" id="mobileTitle"></div>
 
-  <!-- TABLET PORTRAIT TITLE -->
-<div class="tablet-title-bar" id="tabletTitle"></div>
+  <!-- Tablet Portrait Title -->
+  <div class="tablet-title-bar" id="tabletTitle"></div>
 
   <nav class="nav-links">
     <a href="index.html">Home</a>
