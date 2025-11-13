@@ -48,6 +48,16 @@ header.kent-nav .nav-links a:hover,
 header.kent-nav .nav-links a.active { color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
 header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
 
+/* MOBILE / TABLET PAGE TITLES */
+.page-title-mobile, .tablet-title-bar {
+  display:none;
+  font-weight:bold;
+  color:white;
+  text-align:center;
+}
+.page-title-mobile { font-size:20px; margin-left:10px; }
+.tablet-title-bar { font-size:22px; padding:12px 20px; background:var(--accent-2); position:sticky; top:0; z-index:99; box-shadow:0 3px 8px rgba(0,0,0,0.1); letter-spacing:0.3px; }
+
 /* MAIN CONTENT */
 main { max-width:1100px; margin:0 auto; padding:40px 20px; display:flex; flex-direction:column; gap:48px; }
 
@@ -82,18 +92,36 @@ section p.lead { font-size:16px; margin-bottom:24px; }
 footer { text-align:center; padding:28px 10px; color:white; background:var(--accent-1); margin-top:60px; }
 
 /* MOBILE / TABLET MENU */
-@media(max-width:900px){
+@media(max-width:768px){
+  .page-title-mobile { display:block; }
   header.kent-nav .nav-links {
     display:none;
-    flex-direction:column;
+    flex-direction: column;
     gap:12px;
-    position:absolute;
-    top:160px;
+    position: absolute;
+    top:60px; /* below mobile title */
     right:16px;
-    background:var(--accent-1);
+    background: var(--accent-1);
     padding:20px;
-    border-radius:var(--radius);
-    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  header.kent-nav .hamburger { display:block; }
+}
+
+@media (max-width:1024px) and (orientation: portrait){
+  .tablet-title-bar { display:block; }
+  header.kent-nav .nav-links {
+    display:none;
+    flex-direction: column;
+    gap:12px;
+    position: absolute;
+    top:60px; /* below tablet title */
+    right:16px;
+    background: var(--accent-1);
+    padding:20px;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }
   header.kent-nav .hamburger { display:block; }
 }
@@ -106,6 +134,11 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
   <div class="logo">
     <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
   </div>
+
+  <!-- Mobile & Tablet Titles -->
+  <div class="page-title-mobile" id="mobileTitle"></div>
+  <div class="tablet-title-bar" id="tabletTitle"></div>
+
   <nav class="nav-links">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -153,6 +186,14 @@ function toggleNav(){
   const nav = document.querySelector('.nav-links');
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
+
+// Dynamic mobile/tablet page titles
+document.addEventListener("DOMContentLoaded", () => {
+  const fullTitle = document.title;
+  const cleanTitle = fullTitle.includes("|") ? fullTitle.split("|")[0].trim() : fullTitle;
+  document.getElementById("mobileTitle").textContent = cleanTitle;
+  document.getElementById("tabletTitle").textContent = cleanTitle;
+});
 
 // BLOGS
 const blogs = [
