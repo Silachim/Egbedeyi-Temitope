@@ -57,16 +57,15 @@ header.kent-nav .nav-links a.active {
 }
 header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
 
-/* DYNAMIC MOBILE/TABLET TITLE */
-.dynamic-page-title { display:none; font-weight:bold; color:white; text-align:center; padding:12px 20px; background:var(--accent-2); }
-@media (max-width:768px){
-  .dynamic-page-title { display:block; font-size:20px; }
-}
-@media (min-width:769px) and (max-width:1024px) and (orientation: portrait){
-  .dynamic-page-title { display:block; font-size:22px; }
-}
-@media (min-width:1025px){
-  .dynamic-page-title { display:none; }
+/* DYNAMIC PAGE TITLE INSIDE HEADER */
+.dynamic-page-title {
+  display: none;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 20px;
 }
 
 /* HERO IMAGE */
@@ -135,6 +134,7 @@ footer { text-align:center; padding:28px 10px; background:var(--accent-1); color
 @media(max-width:900px){
   header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:160px; right:16px; background:var(--accent-1); padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);}
   header.kent-nav .hamburger { display:block; }
+  .dynamic-page-title { display:block; } /* show title on tablet/mobile */
 }
 @media(max-width:600px){ section h2{ font-size:28px; } }
 </style>
@@ -147,6 +147,10 @@ footer { text-align:center; padding:28px 10px; background:var(--accent-1); color
   <div class="logo">
     <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
   </div>
+
+  <!-- DYNAMIC PAGE TITLE INSIDE HEADER -->
+  <div class="dynamic-page-title" id="dynamicPageTitle"></div>
+
   <nav class="nav-links">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -158,9 +162,6 @@ footer { text-align:center; padding:28px 10px; background:var(--accent-1); color
   </nav>
   <div class="hamburger" onclick="toggleNav()">☰</div>
 </header>
-
-<!-- ✅ SINGLE DYNAMIC MOBILE/TABLET TITLE -->
-<div class="dynamic-page-title" id="dynamicPageTitle"></div>
 
 <!-- HERO IMAGE -->
 <section class="pub-hero">
@@ -184,12 +185,13 @@ footer { text-align:center; padding:28px 10px; background:var(--accent-1); color
 </footer>
 
 <script>
+// Hamburger toggle
 function toggleNav(){
   const nav = document.querySelector('.nav-links');
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
 
-// Set dynamic page title based on <title>
+// Set dynamic page title inside header
 document.addEventListener("DOMContentLoaded", () => {
   const fullTitle = document.title;
   const cleanTitle = fullTitle.includes("|") ? fullTitle.split("|")[0].trim() : fullTitle;
@@ -200,22 +202,28 @@ document.addEventListener("DOMContentLoaded", () => {
 const publications = [
   { title: "Fifth Grade Students' Multiplicative Reasoning When Engaging with Partial Products",
     url: "https://www.researchgate.net/publication/389676075_Fifth_Grade_Students'_Multiplicative_Reasoning_When_Engaging_with_Partial_Products",
-    highlight: "Despite the importance of multiplicative reasoning (MR) in mathematics, this mixed methods study of 16 fifth-grade students revealed that half of participants did not attend to partial products, and those that did tended to operate with the second or third multiplicative concept." },
+    highlight: "Despite the importance of multiplicative reasoning (MR) in mathematics, this mixed methods study of 16 fifth-grade students revealed that half of participants did not attend to partial products, and those that did tended to operate with the second or third multiplicative concept."
+  },
   { title:"Preservice Teachers' Replications of a Common Fraction Error", 
     url:"https://www.researchgate.net/publication/387055851_Preservice_Teachers'_Replications_of_a_Common_Fraction_Error",
-    highlight: "Preservice teachers (PSTs) replicated the common fraction addition error about half the time (50.43%), while only 9.57% used the correct proportional multiplication approach. The findings suggest that PSTs, despite having content knowledge, may lack specialized content knowledge (SCK) for teaching fractions." },
+    highlight: "Preservice teachers (PSTs) replicated the common fraction addition error about half the time (50.43%), while only 9.57% used the correct proportional multiplication approach. The findings suggest that PSTs, despite having content knowledge, may lack specialized content knowledge (SCK) for teaching fractions."
+  },
   { title:"Examining Preservice Teachers' Embodied Noticing when Viewing Traditional and Holographic Videos of Students' Fraction Division",
     url:"https://www.researchgate.net/publication/384970931_Examining_Preservice_Teachers'_Embodied_Noticing_when_Viewing_Traditional_and_Holographic_Videos_of_Students'_Fraction_Division",
-    highlight: "This study used traditional and holographic video, along with eye-tracking technology, to examine how preservice teachers' physical act of looking is associated with how they attend to and assess students' fraction reasoning. Findings revealed little difference in written noticing between conditions." },
+    highlight: "This study used traditional and holographic video, along with eye-tracking technology, to examine how preservice teachers' physical act of looking is associated with how they attend to and assess students' fraction reasoning. Findings revealed little difference in written noticing between conditions."
+  },
   { title:"Exploring Preservice Teachers' Embodied Noticing of Students' Fraction Division",
     url:"https://www.researchgate.net/publication/375182308_Exploring_Preservice_Teachers'_Embodied_Noticing_of_Students'_Fraction_Division",
-    highlight: "Professional noticing is embodied. This study showed that preservice teachers focused on less sophisticated forms of noticing students' reasoning. Eye-tracking data suggested that more attention to conceptual reasoning correlated with focus on students' mathematical hand activity." },
+    highlight: "Professional noticing is embodied. This study showed that preservice teachers focused on less sophisticated forms of noticing students' reasoning. Eye-tracking data suggested that more attention to conceptual reasoning correlated with focus on students' mathematical hand activity."
+  },
   { title:"Availability and Challenges of Inclusive Lower Primary Education Schools",
     url:"https://www.researchgate.net/publication/368144897_Availability_and_Challenges_of_Inclusive_Lower_Primary_Education_Schools",
-    highlight: "Inclusive education is critical but underrepresented in Nigeria. This mixed-methods study revealed that Lagos State has 31 inclusive education units, while other states have none. Challenges include underfunding and lack of resources, emphasizing the need for broader implementation." },
+    highlight: "Inclusive education is critical but underrepresented in Nigeria. This mixed-methods study revealed that Lagos State has 31 inclusive education units, while other states have none. Challenges include underfunding and lack of resources, emphasizing the need for broader implementation."
+  },
   { title:"Teachers’ Awareness and Utilisation of Indigenous Games",
     url:"https://www.researchgate.net/publication/379221457_TEACHERS'_AWARENESS_AND_UTILISATION_OF_INDIGENOUS_GAMES_AS_INSTRUCTIONAL_RESOURCES_FOR_HOLISTIC_DEVELOPMENT_OF_CHILDREN_IN_ONDO_WEST_LOCAL_GOVERNMENT_NIGERIA",
-    highlight: "This study investigated teachers' awareness and use of indigenous games as instructional resources for holistic child development. Teachers were aware but rarely utilized these games, highlighting the need for stakeholders to create avenues for practical implementation." }
+    highlight: "This study investigated teachers' awareness and use of indigenous games as instructional resources for holistic child development. Teachers were aware but rarely utilized these games, highlighting the need for stakeholders to create avenues for practical implementation."
+  }
 ];
 
 // Render publications
@@ -232,11 +240,12 @@ publications.forEach(pub => {
   pubGrid.appendChild(div);
 });
 
-// Toggle abstract functionality
+// Toggle abstract
 pubGrid.querySelectorAll('.card').forEach(card => {
   const btn = card.querySelector('.toggle-btn');
   const abstract = card.querySelector('.abstract');
   abstract.style.maxHeight = "0";
+
   btn.addEventListener('click', () => {
     if(abstract.style.maxHeight === "0px" || abstract.style.maxHeight === "0"){
       abstract.style.maxHeight = abstract.scrollHeight + "px";
