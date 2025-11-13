@@ -52,6 +52,39 @@ header.kent-nav .nav-links a.active {
   padding-bottom:2px;
 }
 header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
+/* ✅ MOBILE PAGE TITLE */
+.page-title-mobile {
+  display:none;
+  font-weight:bold;
+  font-size:20px;
+  color:white;
+}
+
+@media(max-width:768px){
+  .page-title-mobile { display:block; margin-left:15px; }
+}
+
+/* ✅ TABLET LANDSCAPE TITLE BAR */
+.tablet-title-bar {
+  display:none;
+  width:100%;
+  background:var(--accent-2);
+  color:white;
+  padding:12px 20px;
+  font-size:22px;
+  font-weight:700;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:99;
+  box-shadow:0 3px 8px rgba(0,0,0,0.1);
+  letter-spacing:0.3px;
+}
+
+/* Show on tablets in landscape only */
+@media(min-width:769px) and (max-width:1024px) and (orientation: landscape){
+  .tablet-title-bar { display:block; }
+}
 
 /* HERO */
 section.hero { padding:60px 20px; text-align:center; }
