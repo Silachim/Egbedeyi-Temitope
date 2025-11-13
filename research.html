@@ -4,12 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Research | Temitope F. Egbedeyi</title>
-
 <!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
-
 <style>
-:root {
+:root{
   --accent-1:#1b4de4;
   --accent-2:#4f8df5;
   --accent-3:#FFC72C;
@@ -19,83 +17,56 @@
 }
 
 /* RESET */
-* { box-sizing:border-box; margin:0; padding:0; font-family:'Open Sans',sans-serif; transition: all var(--transition) ease-in-out; }
-body { color:#0f172a; scroll-behavior:smooth; background:white; }
+*{ box-sizing:border-box; margin:0; padding:0; font-family:'Open Sans',sans-serif; transition:all var(--transition) ease-in-out; }
+body{ color:#0f172a; background:white; scroll-behavior:smooth; }
 
 /* HEADER */
-header.kent-nav {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:12px 24px;
-  background:var(--accent-1);
+header.kent-nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 24px; background:var(--accent-1);
+  position:sticky; top:0; z-index:100;
   box-shadow:0 2px 6px rgba(0,0,0,0.1);
-  position:sticky;
-  top:0;
-  z-index:100;
 }
-header.kent-nav .logo img { height:150px; }
-header.kent-nav .nav-links { display:flex; gap:24px; }
-header.kent-nav .nav-links a { text-decoration:none; color:white; font-weight:600; font-size:16px; }
+header.kent-nav .logo img{ height:150px; }
+header.kent-nav .nav-links{ display:flex; gap:24px; }
+header.kent-nav .nav-links a{ text-decoration:none; color:white; font-weight:600; font-size:16px; }
 header.kent-nav .nav-links a:hover,
-header.kent-nav .nav-links a.active { color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
-header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
+header.kent-nav .nav-links a.active{ color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
+header.kent-nav .hamburger{ display:none; font-size:28px; cursor:pointer; }
 
-/* MOBILE/TABLET TITLE INSIDE HEADER */
-.page-title-mobile {
-  display:none;
-  font-weight:bold;
-  font-size:20px;
-  color:white;
-  margin-left:10px;
+/* MOBILE/TABLET TITLE BAR */
+.mobile-title-bar{
+  display:none; text-align:center; font-size:22px; font-weight:700;
+  padding:10px 0; color:white; background:var(--accent-1);
+  border-top:1px solid var(--accent-3);
 }
-@media(max-width:768px){
-  .page-title-mobile { display:block; }
-  header.kent-nav .hamburger { display:block; }
-  header.kent-nav .nav-links {
-    display:none;
-    flex-direction: column;
-    gap:12px;
-    position: absolute;
-    top:60px; /* below mobile title */
-    right:16px;
-    background: var(--accent-1);
-    padding:20px;
-    border-radius: var(--radius);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+/* Show only mobile/tablet */
+@media(max-width:1024px){ .mobile-title-bar{ display:block; } }
+@media(max-width:900px){
+  header.kent-nav .nav-links{
+    display:none; flex-direction:column; gap:12px;
+    position:absolute; top:160px; right:16px;
+    background:var(--accent-1); padding:20px; border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
   }
-}
-@media (max-width:1024px) and (orientation: portrait){
-  .page-title-mobile { display:block; }
-  header.kent-nav .hamburger { display:block; }
-  header.kent-nav .nav-links {
-    display:none;
-    flex-direction: column;
-    gap:12px;
-    position: absolute;
-    top:60px; /* below tablet title */
-    right:16px;
-    background: var(--accent-1);
-    padding:20px;
-    border-radius: var(--radius);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  }
+  header.kent-nav .hamburger{ display:block; }
 }
 
 /* MAIN CONTENT */
-main { max-width:1100px; margin:0 auto; padding:40px 20px; display:flex; flex-direction:column; gap:60px; }
-section { padding:40px 20px; border-radius:var(--radius); position:relative; overflow:hidden; }
-section h2 { font-size:32px; color:var(--accent-1); margin-bottom:24px; border-bottom:2px solid var(--accent-1); padding-bottom:6px; }
+main{ max-width:1100px; margin:0 auto; padding:20px; display:flex; flex-direction:column; gap:60px; }
+section{ padding:40px 20px; border-radius:var(--radius); position:relative; overflow:hidden; }
+section h2{ font-size:32px; color:var(--accent-1); margin-bottom:24px; border-bottom:2px solid var(--accent-1); padding-bottom:6px; }
 
 /* RESEARCH GRID */
-.research-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
-.research-grid img { width:100%; border-radius:var(--radius); object-fit:cover; animation: floatImg 6s ease-in-out infinite alternate; }
-@keyframes floatImg { 0%{ transform: translateY(0px); } 100%{ transform: translateY(15px); } }
+.research-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+.research-grid img{ width:100%; border-radius:var(--radius); object-fit:cover; animation: floatImg 6s ease-in-out infinite alternate; }
+@keyframes floatImg{ 0%{ transform:translateY(0px);} 100%{ transform:translateY(15px);} }
 
 /* TAGS */
-.interest-tags { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:24px; }
-.interest-tags span { background:var(--accent-2); color:white; padding:6px 12px; border-radius:8px; font-size:14px; cursor:pointer; transition: transform 0.3s; }
-.interest-tags span:hover { transform: translateY(-3px) scale(1.05); }
+.interest-tags{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom:24px; }
+.interest-tags span{ background:var(--accent-2); color:white; padding:6px 12px; border-radius:8px; font-size:14px; cursor:pointer; transition: transform 0.3s; }
+.interest-tags span:hover{ transform: translateY(-3px) scale(1.05); }
 
 /* LINK LIST */
 .link-list{ padding-left:1rem; margin-bottom:16px; }
@@ -103,30 +74,23 @@ section h2 { font-size:32px; color:var(--accent-1); margin-bottom:24px; border-b
 .link-list li:hover{ transform:translateX(5px); }
 
 /* BUTTONS */
-a.btn{ display:inline-block; padding:14px 24px; background:linear-gradient(135deg,var(--accent-1),var(--accent-2)); color:white; border-radius:12px; text-decoration:none; margin-top:12px; font-weight:600; transition: transform 0.3s, box-shadow 0.3s; }
+a.btn{ display:inline-block; padding:14px 24px; background:linear-gradient(135deg,#1b4de4,#4f8df5); color:white; border-radius:12px; text-decoration:none; margin-top:12px; font-weight:600; transition: transform 0.3s, box-shadow 0.3s; }
 a.btn:hover{ transform:scale(1.05); box-shadow:0 6px 12px rgba(0,0,0,0.2); }
 
 /* FOOTER */
 footer{ text-align:center; padding:28px 10px; color:white; background:var(--accent-1); }
 
 /* RESPONSIVE */
-@media(max-width:900px){ 
-  .research-grid{ grid-template-columns:1fr; }
-}
+@media(max-width:900px){ .research-grid{ grid-template-columns:1fr; } }
+@media(max-width:600px){ section h2{ font-size:28px; } }
+
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header class="kent-nav">
-  <div class="logo">
-    <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
-  </div>
-
-  <!-- MOBILE/TABLET DYNAMIC TITLE -->
-  <div class="page-title-mobile" id="mobileTitle"></div>
-
+  <div class="logo"><img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo"></div>
   <nav class="nav-links">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -137,10 +101,10 @@ footer{ text-align:center; padding:28px 10px; color:white; background:var(--acce
     <a href="contact.html">Contact</a>
   </nav>
   <div class="hamburger" onclick="toggleNav()">☰</div>
+  <div class="mobile-title-bar" id="mobilePageTitle"></div>
 </header>
 
 <main>
-  <!-- Research Interests -->
   <section>
     <h2>Research Interests</h2>
     <div class="interest-tags">
@@ -153,11 +117,10 @@ footer{ text-align:center; padding:28px 10px; color:white; background:var(--acce
     </div>
   </section>
 
-  <!-- Current Projects -->
   <section>
     <h2>Current Projects</h2>
     <div class="research-grid">
-      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Research%20image.jpg?raw=true" alt="Research projects by Temitope F. Egbedeyi">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Research%20image.jpg?raw=true" alt="Research projects">
       <div>
         <ul class="link-list">
           <li>Eye-tracking study of Grade 3 multiplicative reasoning.</li>
@@ -182,11 +145,10 @@ function toggleNav(){
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
 
-/* Dynamic mobile/tablet title inside header */
-document.addEventListener("DOMContentLoaded", function () {
-  const mobileTitle = document.getElementById("mobileTitle");
-  const pageTitle = document.title.split("|")[0].trim();
-  mobileTitle.textContent = pageTitle;
+// Dynamic mobile/tablet page title
+document.addEventListener("DOMContentLoaded", function(){
+  const mobileTitle = document.getElementById("mobilePageTitle");
+  if(mobileTitle){ mobileTitle.textContent = document.title.split("|")[0].trim(); }
 });
 </script>
 
