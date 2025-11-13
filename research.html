@@ -4,7 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Research | Temitope F. Egbedeyi</title>
-<!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 
 <style>
@@ -18,13 +17,13 @@
 }
 
 /* RESET */
-*{ box-sizing:border-box; margin:0; padding:0; font-family: 'Open Sans', sans-serif; transition: all var(--transition) ease-in-out; }
+*{ box-sizing:border-box; margin:0; padding:0; font-family:'Open Sans', sans-serif; transition: all var(--transition) ease-in-out; }
 body{ color:#0f172a; scroll-behavior:smooth; background:white; }
 
 /* HEADER */
 header.kent-nav {
   display:flex;
-  flex-direction:column; /* allow dynamic title below logo */
+  flex-direction:column; /* allow dynamic title inside header */
   align-items:center;
   padding:12px 24px;
   background:var(--accent-1);
@@ -46,7 +45,7 @@ header.kent-nav .nav-links a:hover,
 header.kent-nav .nav-links a.active { color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
 header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
 
-/* ✅ DYNAMIC MOBILE/TABLET TITLE (like Publications page) */
+/* DYNAMIC TITLE INSIDE HEADER (mobile/tablet only) */
 .dynamic-page-title {
   display:none;
   width:100%;
@@ -59,15 +58,10 @@ header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
   border-bottom:2px solid white;
 }
 
-/* Show title only on tablets & mobiles */
+/* Show dynamic title on mobile/tablet only */
 @media(max-width:1024px){
   .dynamic-page-title { display:block; }
 }
-
-/* PAGE HEADER */
-header.page-header { text-align:center; padding:40px 20px; color:#0f172a; }
-header.page-header h1{ font-size:36px; margin-bottom:12px; }
-header.page-header p{ font-size:18px; max-width:900px; margin:0 auto; line-height:1.6; opacity:0.9; }
 
 /* MAIN CONTENT */
 main{ max-width:1100px; margin:0 auto; padding:0 20px; display:flex; flex-direction:column; gap:60px; }
@@ -75,18 +69,8 @@ section{ padding:40px 20px; border-radius:var(--radius); position:relative; over
 section h2{ font-size:32px; color:var(--accent-1); margin-bottom:24px; border-bottom:2px solid var(--accent-1); padding-bottom:6px; }
 
 /* RESEARCH GRID */
-.research-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  align-items:center;
-}
-.research-grid img{
-  width:100%;
-  border-radius: var(--radius);
-  object-fit: cover;
-  animation: floatImg 6s ease-in-out infinite alternate;
-}
+.research-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+.research-grid img{ width:100%; border-radius:var(--radius); object-fit:cover; animation: floatImg 6s ease-in-out infinite alternate; }
 @keyframes floatImg { 0%{ transform: translateY(0px); } 100%{ transform: translateY(15px); } }
 
 /* TAGS */
@@ -112,7 +96,6 @@ footer{ text-align:center; padding:28px 10px; color:white; background:var(--acce
   header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:180px; right:24px; background:var(--accent-1); padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
   header.kent-nav .hamburger { display:block; }
 }
-@media(max-width:600px){ header.page-header h1{ font-size:28px; } }
 </style>
 </head>
 
@@ -127,7 +110,7 @@ footer{ text-align:center; padding:28px 10px; color:white; background:var(--acce
     <div class="hamburger" onclick="toggleNav()">☰</div>
   </div>
 
-  <!-- Dynamic Title (like Publications page) -->
+  <!-- Dynamic Page Title (mobile/tablet) -->
   <div class="dynamic-page-title" id="dynamicPageTitle"></div>
 
   <nav class="nav-links">
@@ -139,12 +122,6 @@ footer{ text-align:center; padding:28px 10px; color:white; background:var(--acce
     <a href="blog.html">Blog & Media</a>
     <a href="contact.html">Contact</a>
   </nav>
-</header>
-
-<!-- PAGE HEADER -->
-<header class="page-header">
-  <h1>Research</h1>
-  <p>Exploring multiplicative reasoning, fraction division, and place-based approaches connecting classrooms to communities in Nigeria and the U.S.</p>
 </header>
 
 <main>
