@@ -4,74 +4,69 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Research | Temitope F. Egbedeyi</title>
-
 <!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
-
-<!-- FONT AWESOME -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
 <style>
-:root {
+:root{
   --accent-1:#1b4de4;
   --accent-2:#4f8df5;
   --accent-3:#FFC72C;
-  --muted:#6b7280;
   --radius:12px;
   --transition:0.3s;
+  --shadow: rgba(0,0,0,0.1) 0px 4px 12px;
 }
 
 /* RESET */
-*{ box-sizing:border-box; margin:0; padding:0; font-family: 'Open Sans', sans-serif; transition: all var(--transition) ease-in-out; }
-body{ color:#0f172a; scroll-behavior:smooth; background:white; }
+*{ box-sizing:border-box; margin:0; padding:0; font-family:'Open Sans',sans-serif; transition:all var(--transition) ease-in-out; }
+body{ color:#0f172a; background:white; scroll-behavior:smooth; }
 
-/* HEADER / NAVIGATION */
-header.kent-nav {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:12px 24px;
-  background:var(--accent-1);
+/* HEADER */
+header.kent-nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 24px; background:var(--accent-1);
+  position:sticky; top:0; z-index:100;
   box-shadow:0 2px 6px rgba(0,0,0,0.1);
-  position:sticky;
-  top:0;
-  z-index:100;
 }
-header.kent-nav .logo { display:flex; align-items:center; gap:15px; }
-header.kent-nav .logo img { height:150px; width:auto; }
-header.kent-nav .nav-links { display:flex; gap:24px; }
-header.kent-nav .nav-links a { text-decoration:none; color:white; font-weight:600; font-size:16px; transition:0.3s; }
-header.kent-nav .nav-links a:hover, header.kent-nav .nav-links a.active { color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
-header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
+header.kent-nav .logo img{ height:150px; }
+header.kent-nav .nav-links{ display:flex; gap:24px; }
+header.kent-nav .nav-links a{ text-decoration:none; color:white; font-weight:600; font-size:16px; }
+header.kent-nav .nav-links a:hover,
+header.kent-nav .nav-links a.active{ color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
+header.kent-nav .hamburger{ display:none; font-size:28px; cursor:pointer; }
 
-/* PAGE HEADER */
-header.page-header { text-align:center; padding:72px 20px; color:#0f172a; }
-header.page-header h1{ font-size:36px; margin-bottom:12px; }
-header.page-header p{ font-size:18px; max-width:900px; margin:0 auto; line-height:1.6; opacity:0.9; }
+/* MOBILE/TABLET TITLE BAR */
+.mobile-title-bar{
+  display:none; text-align:center; font-size:22px; font-weight:700;
+  padding:10px 0; color:white; background:var(--accent-1);
+  border-top:1px solid var(--accent-3);
+}
+
+/* Show only mobile/tablet */
+@media(max-width:1024px){ .mobile-title-bar{ display:block; } }
+@media(max-width:900px){
+  header.kent-nav .nav-links{
+    display:none; flex-direction:column; gap:12px;
+    position:absolute; top:160px; right:16px;
+    background:var(--accent-1); padding:20px; border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  }
+  header.kent-nav .hamburger{ display:block; }
+}
 
 /* MAIN CONTENT */
-main{ max-width:1100px; margin:0 auto; padding:0 20px; display:flex; flex-direction:column; gap:28px; }
-section{ padding:60px 20px; border-radius:var(--radius); margin-bottom:28px; position:relative; overflow:hidden; }
-section h2{ font-size:32px; color:var(--accent-1); margin-bottom:16px; border-bottom:2px solid var(--accent-2); padding-bottom:6px; }
-section h3{ color:var(--accent-1); margin-bottom:12px; }
-.lead{ font-size:16px; line-height:1.6; margin-bottom:16px; }
+main{ max-width:1100px; margin:0 auto; padding:20px; display:flex; flex-direction:column; gap:60px; }
+section{ padding:40px 20px; border-radius:var(--radius); position:relative; overflow:hidden; }
+section h2{ font-size:32px; color:var(--accent-1); margin-bottom:24px; border-bottom:2px solid var(--accent-1); padding-bottom:6px; }
 
-/* Grid layout for research section */
-.research-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap:40px;
-  align-items: center;
-}
-.research-grid img{
-  width:100%;
-  border-radius: var(--radius);
-  object-fit: cover;
-  animation: floatImg 6s ease-in-out infinite alternate;
-}
-@keyframes floatImg { 0%{ transform: translateY(0px); } 100%{ transform: translateY(15px); } }
+/* RESEARCH GRID */
+.research-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+.research-grid img{ width:100%; border-radius:var(--radius); object-fit:cover; animation: floatImg 6s ease-in-out infinite alternate; }
+@keyframes floatImg{ 0%{ transform:translateY(0px);} 100%{ transform:translateY(15px);} }
 
-@media(max-width:900px){ .research-grid{ grid-template-columns:1fr; } }
+/* TAGS */
+.interest-tags{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom:24px; }
+.interest-tags span{ background:var(--accent-2); color:white; padding:6px 12px; border-radius:8px; font-size:14px; cursor:pointer; transition: transform 0.3s; }
+.interest-tags span:hover{ transform: translateY(-3px) scale(1.05); }
 
 /* LINK LIST */
 .link-list{ padding-left:1rem; margin-bottom:16px; }
@@ -79,103 +74,66 @@ section h3{ color:var(--accent-1); margin-bottom:12px; }
 .link-list li:hover{ transform:translateX(5px); }
 
 /* BUTTONS */
-a.btn{ display:inline-block; padding:12px 20px; background:var(--accent-1); color:white; border-radius:10px; text-decoration:none; margin-top:12px; transition: background 0.3s, transform 0.3s; }
-a.btn:hover{ background: var(--accent-2); transform:scale(1.05); }
-
-/* PROFILE ICONS */
-.profile-icons {
-  display:flex;
-  gap:20px;
-  justify-content:center;
-  margin-top:40px;
-}
-.profile-icons a {
-  text-decoration:none;
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  font-size:28px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.profile-icons a.gs { background:#4285F4; } /* Google Scholar Blue */
-.profile-icons a.rg { background:#00CCBB; } /* ResearchGate Teal */
-.profile-icons a.li { background:#0077B5; } /* LinkedIn Blue */
-.profile-icons a:hover { transform:scale(1.2); box-shadow:0 6px 15px rgba(0,0,0,0.2); }
+a.btn{ display:inline-block; padding:14px 24px; background:linear-gradient(135deg,#1b4de4,#4f8df5); color:white; border-radius:12px; text-decoration:none; margin-top:12px; font-weight:600; transition: transform 0.3s, box-shadow 0.3s; }
+a.btn:hover{ transform:scale(1.05); box-shadow:0 6px 12px rgba(0,0,0,0.2); }
 
 /* FOOTER */
 footer{ text-align:center; padding:28px 10px; color:white; background:var(--accent-1); }
 
-/* FLOATING BUTTONS */
-.floating-buttons { position: fixed; right: 22px; bottom: 26px; display:flex; flex-direction: column; gap:14px; z-index:20; }
-.floating-buttons a{ display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; color:white; text-decoration:none; font-size:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
-.floating-buttons a:hover{ transform:scale(1.1); }
-.btn-top{ background: var(--accent-1); }
-.btn-contact{ background: var(--accent-2); }
+/* RESPONSIVE */
+@media(max-width:900px){ .research-grid{ grid-template-columns:1fr; } }
+@media(max-width:600px){ section h2{ font-size:28px; } }
 
-@media(max-width:600px){ header.page-header h1{ font-size:28px } }
-@media(max-width:900px){
-  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:170px; right:24px; background:var(--accent-1); padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-  header.kent-nav .hamburger { display:block; }
-}
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header class="kent-nav">
-  <div class="logo">
-    <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
-  </div>
+  <div class="logo"><img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo"></div>
   <nav class="nav-links">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="research.html" class="active">Research</a>
     <a href="publications.html">Publications</a>
+    <a href="cv.html">Professional Service</a>
     <a href="blog.html">Blog & Media</a>
     <a href="contact.html">Contact</a>
   </nav>
   <div class="hamburger" onclick="toggleNav()">☰</div>
-</header>
-
-<!-- PAGE HEADER -->
-<header class="page-header">
-<p>Exploring multiplicative reasoning, fraction division, and place-based approaches connecting classrooms to communities in Nigeria and the U.S.</p>
+  <div class="mobile-title-bar" id="mobilePageTitle"></div>
 </header>
 
 <main>
-  <section id="research">
+  <section>
+    <h2>Research Interests</h2>
+    <div class="interest-tags">
+      <span>Sociomathematical Norms</span>
+      <span>Multiplicative Reasoning</span>
+      <span>Eye-tracking</span>
+      <span>Fraction Division</span>
+      <span>Multi-digit Multiplication</span>
+      <span>Common Errors</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Current Projects</h2>
     <div class="research-grid">
-      <img src="https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Research%20image.jpg" alt="Research projects by Temitope F. Egbedeyi">
+      <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/Research%20image.jpg?raw=true" alt="Research projects">
       <div>
-        <h3>Current Projects</h3>
         <ul class="link-list">
-          <li>Eye‑tracking study of Grade 3 multiplicative reasoning.</li>
+          <li>Eye-tracking study of Grade 3 multiplicative reasoning.</li>
           <li>Preservice teachers' embodied noticing during fraction tasks.</li>
-          <li>Place‑based mathematics curriculum grounded in Nigerian contexts.</li>
+          <li>Place-based mathematics curriculum grounded in Nigerian contexts.</li>
           <li>Sociomathematical norms and classroom algorithm choices.</li>
+          <li>Common errors among fourth, fifth, and sixth grade students.</li>
         </ul>
         <a class="btn" href="publications.html">See Publications</a>
       </div>
     </div>
   </section>
-
-  <!-- PROFILE ICONS -->
-  <div class="profile-icons">
-    <a href="https://scholar.google.com/citations?user=QzTK68MAAAAJ&hl=en" target="_blank" class="gs" title="Google Scholar"><i class="fab fa-google"></i></a>
-    <a href="https://www.researchgate.net/profile/Temitope-Egbedeyi-2" target="_blank" class="rg" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
-    <a href="https://www.linkedin.com/in/temitope-egbedeyi/" target="_blank" class="li" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-  </div>
 </main>
-
-<div class="floating-buttons">
-  <a href="#top" class="btn-top">↑</a>
-  <a href="contact.html" class="btn-contact">✉</a>
-</div>
 
 <footer>
   &copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
@@ -186,6 +144,12 @@ function toggleNav(){
   const nav = document.querySelector('.nav-links');
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
+
+// Dynamic mobile/tablet page title
+document.addEventListener("DOMContentLoaded", function(){
+  const mobileTitle = document.getElementById("mobilePageTitle");
+  if(mobileTitle){ mobileTitle.textContent = document.title.split("|")[0].trim(); }
+});
 </script>
 
 </body>

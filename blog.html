@@ -36,7 +36,7 @@ header.kent-nav {
   z-index:100;
 }
 header.kent-nav .logo { display:flex; align-items:center; gap:15px; }
-header.kent-nav .logo img { height:150px; width:auto; } /* updated to match Home/Research */
+header.kent-nav .logo img { height:150px; width:auto; }
 header.kent-nav .nav-links { display:flex; gap:24px; }
 header.kent-nav .nav-links a {
   text-decoration:none;
@@ -47,6 +47,55 @@ header.kent-nav .nav-links a {
 header.kent-nav .nav-links a:hover,
 header.kent-nav .nav-links a.active { color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
 header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
+
+/* MOBILE & TABLET TITLES */
+.page-title-mobile,
+.tablet-title-bar {
+  font-weight:bold;
+  color:white;
+}
+
+.page-title-mobile { display:none; font-size:20px; margin-left:10px; }
+.tablet-title-bar { display:none; font-size:22px; text-align:center; padding:12px 20px; background:var(--accent-2); position:sticky; top:0; z-index:99; box-shadow:0 3px 8px rgba(0,0,0,0.1); letter-spacing:0.3px; }
+
+/* MEDIA QUERIES */
+/* Mobile phones */
+@media (max-width:768px){
+  .page-title-mobile { display:block; }
+  .tablet-title-bar { display:none; }
+  header.kent-nav .hamburger { display:block; }
+  header.kent-nav .nav-links {
+    display:none;
+    flex-direction: column;
+    gap:12px;
+    position: absolute;
+    top:60px; /* below mobile title */
+    right:16px;
+    background: var(--accent-1);
+    padding:20px;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+}
+
+/* Tablet portrait only */
+@media (min-width:769px) and (max-width:1024px) and (orientation: portrait){
+  .tablet-title-bar { display:block; }
+  .page-title-mobile { display:none; }
+  header.kent-nav .hamburger { display:block; }
+  header.kent-nav .nav-links {
+    display:none;
+    flex-direction: column;
+    gap:12px;
+    position: absolute;
+    top:60px; /* below tablet title */
+    right:16px;
+    background: var(--accent-1);
+    padding:20px;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+}
 
 /* MAIN CONTENT */
 main { max-width:1100px; margin:0 auto; padding:40px 20px; display:flex; flex-direction:column; gap:48px; }
@@ -80,11 +129,6 @@ section p.lead { font-size:16px; margin-bottom:24px; }
 
 /* FOOTER */
 footer { text-align:center; padding:28px 10px; color:white; background:var(--accent-1); margin-top:60px; }
-
-@media(max-width:900px){
-  header.kent-nav .nav-links { display:none; flex-direction:column; gap:12px; position:absolute; top:160px; right:16px; background:var(--accent-1); padding:20px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.08);}
-  header.kent-nav .hamburger { display:block; }
-}
 </style>
 </head>
 <body>
@@ -94,14 +138,23 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
   <div class="logo">
     <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
   </div>
+
+  <!-- Mobile Title -->
+  <div class="page-title-mobile" id="mobileTitle"></div>
+
+  <!-- Tablet Portrait Title -->
+  <div class="tablet-title-bar" id="tabletTitle"></div>
+
   <nav class="nav-links">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="research.html">Research</a>
     <a href="publications.html">Publications</a>
+    <a href="cv.html">Professional Service</a>    
     <a href="blog.html" class="active">Blog & Media</a>
     <a href="contact.html">Contact</a>
   </nav>
+
   <div class="hamburger" onclick="toggleNav()">☰</div>
 </header>
 
@@ -136,10 +189,19 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
 </footer>
 
 <script>
+// Hamburger toggle
 function toggleNav(){
   const nav = document.querySelector('.nav-links');
   nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
 }
+
+// Dynamic mobile/tablet titles
+document.addEventListener("DOMContentLoaded", () => {
+  const fullTitle = document.title;
+  const cleanTitle = fullTitle.includes("|") ? fullTitle.split("|")[0].trim() : fullTitle;
+  document.getElementById("mobileTitle").textContent = cleanTitle;
+  document.getElementById("tabletTitle").textContent = cleanTitle;
+});
 
 // BLOGS
 const blogs = [
