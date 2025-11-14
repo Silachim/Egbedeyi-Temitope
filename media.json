@@ -22,16 +22,28 @@
   "media": [
     {
       "type": "image",
-      "src": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%201.jpg",
+      "src": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/PXL_20250425_175001774.jpg",
       "alt": "Research presentation image",
-      "title": "Academy trains students, champions digital research skills at UI masterclass"
+      "title": "After presenting at the AERA conference"
     },
     {
       "type": "image",
-      "src": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg",
+      "src": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/PXL_20250425_180810314.PORTRAIT.jpg",
       "alt": "At academic conference",
-      "title": "Academic conference participation"
+      "title": "L.R Isaac B. Bolaji, AbdulMalik Salman, Temitope F. Egbedeyi, and Abiodun E. Babalola"
     },
+    "type": "image",
+      "src": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/PXL_20251028_213221308.jpg",
+      "alt": "At academic conference",
+      "title": "Temitope Egbedeyi and Prof. Karl W. Kosko following their presentation at PME-NA 2025"
+    },
+},
+    "type": "image",
+      "src": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/IMG_0722.jpg",
+      "alt": "At academic conference",
+      "title": "Egbedeyi presenting at the AERA Roundtable Discussion"
+    },
+
     {
       "type": "video",
       "src": "#",
