@@ -23,19 +23,20 @@
     {
       "type": "image",
       "src": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%201.jpg",
-      "alt": "Research presentation image"
+      "alt": "Research presentation image",
       "title": "Academy trains students, champions digital research skills at UI masterclass"
     },
     {
       "type": "image",
       "src": "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg",
-      "alt": "At academic conference"
+      "alt": "At academic conference",
+      "title": "Academic conference participation"
     },
     {
       "type": "video",
       "src": "#",
-      "alt": "Placeholder for future video"
+      "alt": "Placeholder for future video",
+      "title": "Upcoming research video"
     }
   ]
 }
-
