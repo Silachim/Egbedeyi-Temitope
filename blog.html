@@ -50,7 +50,10 @@ header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
 
 /* MOBILE & TABLET TITLES */
 .page-title-mobile,
-.tablet-title-bar { font-weight:bold; color:white; }
+.tablet-title-bar {
+  font-weight:bold;
+  color:white;
+}
 .page-title-mobile { display:none; font-size:20px; margin-left:10px; }
 .tablet-title-bar { display:none; font-size:22px; text-align:center; padding:12px 20px; background:var(--accent-2); position:sticky; top:0; z-index:99; box-shadow:0 3px 8px rgba(0,0,0,0.1); letter-spacing:0.3px; }
 
@@ -72,7 +75,6 @@ header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }
 }
-
 @media (min-width:769px) and (max-width:1024px) and (orientation: portrait){
   .tablet-title-bar { display:block; }
   .page-title-mobile { display:none; }
@@ -96,23 +98,21 @@ main { max-width:1100px; margin:0 auto; padding:40px 20px; display:flex; flex-di
 section { padding:40px 0; }
 section h2 { font-size:32px; color:var(--accent-1); margin-bottom:16px; border-bottom:2px solid var(--accent-2); padding-bottom:8px; }
 section p.lead { font-size:16px; margin-bottom:24px; }
+
 .divider { width:100%; height:2px; background:linear-gradient(to right,var(--accent-1),var(--accent-2)); margin:32px 0; border-radius:12px; }
+
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
 .card { background:#f9f9f9; padding:20px; border-radius:var(--radius); box-shadow:var(--shadow); transition: transform var(--transition); }
 .card:hover { transform: scale(1.05); }
 .card h3 { margin-bottom:8px; font-size:18px; }
 .card p { color:var(--muted); font-size:14px; }
 
-.media-gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
-.media-item { display:flex; flex-direction:column; }
-.media-item img { width:100%; height:200px; object-fit:cover; border-radius:var(--radius); cursor:pointer; transition:0.3s; }
-.media-item img:hover { transform:scale(1.05); }
-.media-caption { margin-top:6px; font-size:14px; color:var(--muted); text-align:center; }
-
-/* Lightbox */
-.lightbox { display:none; position:fixed; z-index:100; padding-top:60px; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.9); }
-.lightbox-content { margin:auto; display:block; max-width:90%; max-height:80%; border-radius:12px; }
-.close-lightbox { position:absolute; top:30px; right:30px; color:white; font-size:36px; font-weight:bold; cursor:pointer; }
+/* MEDIA GALLERY CAROUSEL */
+.media-carousel { position:relative; overflow:hidden; border-radius:var(--radius); box-shadow:var(--shadow); }
+.carousel-track { display:flex; transition:transform 0.5s ease-in-out; }
+.carousel-item { min-width:100%; position:relative; text-align:center; }
+.carousel-item img { width:100%; max-height:500px; object-fit:cover; }
+.carousel-caption { position:absolute; bottom:12px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.6); color:white; padding:8px 16px; border-radius:8px; font-size:16px; }
 
 /* Floating Buttons */
 .floating-buttons { position: fixed; right: 22px; bottom: 26px; display:flex; flex-direction: column; gap:14px; z-index:20; }
@@ -139,7 +139,7 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
     <a href="about.html">About</a>
     <a href="research.html">Research</a>
     <a href="publications.html">Publications</a>
-    <a href="cv.html">Professional Service</a>    
+    <a href="cv.html">Professional Service</a>
     <a href="blog.html" class="active">Blog & Media</a>
     <a href="contact.html">Contact</a>
   </nav>
@@ -157,15 +157,11 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
   <!-- MEDIA GALLERY -->
   <section id="media">
     <h2>Media Gallery</h2>
-    <div class="media-gallery" id="media-grid"></div>
+    <div class="media-carousel" id="media-carousel">
+      <div class="carousel-track" id="carousel-track"></div>
+    </div>
   </section>
 </main>
-
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox">
-  <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
-  <img class="lightbox-content" id="lightbox-img">
-</div>
 
 <div class="floating-buttons">
   <a href="#top" class="btn-top">↑</a>
@@ -189,54 +185,41 @@ document.addEventListener("DOMContentLoaded", () => {
   const cleanTitle = fullTitle.includes("|") ? fullTitle.split("|")[0].trim() : fullTitle;
   document.getElementById("mobileTitle").textContent = cleanTitle;
   document.getElementById("tabletTitle").textContent = cleanTitle;
+
+  // Load JSON
+  fetch('media.json')
+    .then(response => response.json())
+    .then(data => {
+      // Load Blogs
+      const blogGrid = document.getElementById('blog-grid');
+      data.blog.forEach(blog => {
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.innerHTML = `<h3><a href="${blog.url}" target="_blank">${blog.title}</a></h3><p>${blog.date} — ${blog.source}</p>`;
+        blogGrid.appendChild(div);
+      });
+
+      // Load Media Carousel
+      const track = document.getElementById('carousel-track');
+      data.media.forEach(item => {
+        if(item.type === "image"){
+          const div = document.createElement('div');
+          div.className = 'carousel-item';
+          div.innerHTML = `<img src="${item.src}" alt="${item.alt}"><div class="carousel-caption">${item.title}</div>`;
+          track.appendChild(div);
+        }
+      });
+
+      // Start carousel
+      let index = 0;
+      const items = document.querySelectorAll('.carousel-item');
+      setInterval(() => {
+        index = (index + 1) % items.length;
+        const offset = -index * 100;
+        track.style.transform = `translateX(${offset}%)`;
+      }, 3000); // Change every 3 seconds
+    });
 });
-
-// BLOGS
-const blogs = [
-  { title:"Nigerian scholar redefines teacher training with global math research", url:"https://www.vanguardngr.com/2024/11/nigerian-scholar-redefines-teacher-training-with-global-math-research/", meta:"15 Nov 2024 — Vanguard" },
-  { title:"Egbedeyi breaks new ground in childhood math learning with eye‑tracking tech", url:"https://guardian.ng/news/nigerian-researcher-egbedeyi-breaks-new-ground-in-childhood-math-learning-with-eye-tracking-tech/", meta:"18 Jun 2025 — The Guardian" },
-  { title:"Academy trains students, champions digital research skills at UI masterclass", url:"https://guardian.ng/news/nigeria/metro/academy-trains-students-champions-digital-research-skills-at-ui-masterclass/", meta:"5 Nov 2025 — The Guardian" }
-];
-const blogGrid = document.getElementById('blog-grid');
-blogs.forEach(blog => {
-  const div = document.createElement('div');
-  div.className = 'card';
-  div.innerHTML = `<h3><a href="${blog.url}" target="_blank">${blog.title}</a></h3><p>${blog.meta}</p>`;
-  blogGrid.appendChild(div);
-});
-
-// MEDIA GALLERY
-const mediaItems = [
-  { title:"Research Methodology Webinar", url:"https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/research-methods-covid-webinar-header.jpg" },
-  { title:"Portrait of Temitope F. Egbedeyi", url:"https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg" },
-  { title:"Placeholder Future Media", url:"https://via.placeholder.com/600x400?text=Future+Image+1" }
-];
-const mediaGrid = document.getElementById('media-grid');
-mediaItems.forEach(item => {
-  const div = document.createElement('div');
-  div.className = 'media-item';
-  div.innerHTML = `<img src="${item.url}" alt="${item.title}" onclick="openLightbox('${item.url}')">
-                   <div class="media-caption">${item.title}</div>`;
-  mediaGrid.appendChild(div);
-});
-
-function openLightbox(src){
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  lightbox.style.display = "block";
-  lightboxImg.src = src;
-}
-
-function closeLightbox(){
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  lightbox.style.display = "none";
-  lightboxImg.src = "";
-}
-
-window.onclick = function(event){
-  if(event.target == document.getElementById('lightbox')){ closeLightbox(); }
-}
 </script>
 
 </body>
