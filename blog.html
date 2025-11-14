@@ -24,73 +24,32 @@ body { background:white; color:#0f172a; line-height:1.6; scroll-behavior:smooth;
 
 /* HEADER NAVIGATION */
 header.kent-nav {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:12px 24px;
-  background:var(--accent-1);
-  color:white;
-  box-shadow:0 2px 6px rgba(0,0,0,0.08);
-  position:sticky;
-  top:0;
-  z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 24px; background:var(--accent-1); color:white;
+  box-shadow:0 2px 6px rgba(0,0,0,0.08); position:sticky; top:0; z-index:100;
 }
 header.kent-nav .logo { display:flex; align-items:center; gap:15px; }
 header.kent-nav .logo img { height:150px; width:auto; }
 header.kent-nav .nav-links { display:flex; gap:24px; }
-header.kent-nav .nav-links a {
-  text-decoration:none;
-  color:white;
-  font-weight:600;
-  font-size:16px;
-}
-header.kent-nav .nav-links a:hover,
-header.kent-nav .nav-links a.active { color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
+header.kent-nav .nav-links a { text-decoration:none; color:white; font-weight:600; font-size:16px; }
+header.kent-nav .nav-links a:hover, header.kent-nav .nav-links a.active { color:var(--accent-3); border-bottom:2px solid var(--accent-3); padding-bottom:2px; }
 header.kent-nav .hamburger { display:none; font-size:28px; cursor:pointer; }
 
 /* MOBILE & TABLET TITLES */
-.page-title-mobile,
-.tablet-title-bar {
-  font-weight:bold;
-  color:white;
-}
+.page-title-mobile,.tablet-title-bar { font-weight:bold; color:white; }
 .page-title-mobile { display:none; font-size:20px; margin-left:10px; }
 .tablet-title-bar { display:none; font-size:22px; text-align:center; padding:12px 20px; background:var(--accent-2); position:sticky; top:0; z-index:99; box-shadow:0 3px 8px rgba(0,0,0,0.1); letter-spacing:0.3px; }
 
 /* MEDIA QUERIES */
 @media (max-width:768px){
   .page-title-mobile { display:block; }
-  .tablet-title-bar { display:none; }
   header.kent-nav .hamburger { display:block; }
-  header.kent-nav .nav-links {
-    display:none;
-    flex-direction: column;
-    gap:12px;
-    position: absolute;
-    top:60px;
-    right:16px;
-    background: var(--accent-1);
-    padding:20px;
-    border-radius: var(--radius);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  }
+  header.kent-nav .nav-links { display:none; flex-direction: column; gap:12px; position: absolute; top:60px; right:16px; background: var(--accent-1); padding:20px; border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0,0,0,0.08);}
 }
 @media (min-width:769px) and (max-width:1024px) and (orientation: portrait){
   .tablet-title-bar { display:block; }
-  .page-title-mobile { display:none; }
   header.kent-nav .hamburger { display:block; }
-  header.kent-nav .nav-links {
-    display:none;
-    flex-direction: column;
-    gap:12px;
-    position: absolute;
-    top:60px;
-    right:16px;
-    background: var(--accent-1);
-    padding:20px;
-    border-radius: var(--radius);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  }
+  header.kent-nav .nav-links { display:none; flex-direction: column; gap:12px; position: absolute; top:60px; right:16px; background: var(--accent-1); padding:20px; border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0,0,0,0.08);}
 }
 
 /* MAIN CONTENT */
@@ -100,42 +59,26 @@ section h2 { font-size:32px; color:var(--accent-1); margin-bottom:16px; border-b
 section p.lead { font-size:16px; margin-bottom:24px; }
 
 .divider { width:100%; height:2px; background:linear-gradient(to right,var(--accent-1),var(--accent-2)); margin:32px 0; border-radius:12px; }
-
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
 .card { background:#f9f9f9; padding:20px; border-radius:var(--radius); box-shadow:var(--shadow); transition: transform var(--transition); }
 .card:hover { transform: scale(1.05); }
 .card h3 { margin-bottom:8px; font-size:18px; }
 .card p { color:var(--muted); font-size:14px; }
 
-/* MEDIA CAROUSEL */
-.media-carousel { position:relative; overflow:hidden; border-radius:var(--radius); box-shadow:var(--shadow); }
-.carousel-track { display:flex; transition:transform 0.20s ease-in-out; }
-.carousel-item { min-width:100%; position:relative; text-align:center; cursor:pointer; }
-.carousel-item img { width:100%; max-height:500px; object-fit:cover; }
-.carousel-caption { position:absolute; bottom:12px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.6); color:white; padding:8px 16px; border-radius:8px; font-size:16px; }
+.carousel { position: relative; overflow: hidden; width: 100%; }
+.carousel-item { display: none; text-align:center; transition: transform 0.20s ease-in-out; }
+.carousel-item img { width:100%; max-height:500px; object-fit: contain; border-radius:12px; cursor:pointer; transition: transform 0.3s; }
+.carousel-item img:hover { transform: scale(1.05); }
 
-/* ARROWS */
-.carousel-arrow { position:absolute; top:50%; transform:translateY(-50%); font-size:36px; color:white; background:rgba(0,0,0,0.4); border:none; border-radius:50%; width:50px; height:50px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10; transition:0.3s; }
-.carousel-arrow:hover { background:rgba(0,0,0,0.7); }
-.arrow-left { left:10px; }
-.arrow-right { right:10px; }
+.carousel-arrow { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.5); color:white; border:none; font-size:30px; padding:8px 12px; cursor:pointer; border-radius:50%; z-index:10; }
+.carousel-arrow.left { left:10px; }
+.carousel-arrow.right { right:10px; }
 
-/* DOTS */
-.carousel-dots { text-align:center; margin-top:12px; }
-.carousel-dot { display:inline-block; width:12px; height:12px; margin:0 6px; background:#bbb; border-radius:50%; cursor:pointer; transition:0.3s; }
-.carousel-dot.active { background:var(--accent-1); }
+.carousel-dots { text-align:center; margin-top:10px; }
+.carousel-dot { display:inline-block; width:12px; height:12px; margin:5px; background:#ccc; border-radius:50%; cursor:pointer; transition: background 0.3s; }
+.carousel-dot.active { background: var(--accent-1); }
 
-/* Floating Buttons */
-.floating-buttons { position: fixed; right: 22px; bottom: 26px; display:flex; flex-direction: column; gap:14px; z-index:20; }
-.floating-buttons a { display:inline-flex; align-items:center; justify-content:center; width:50px; height:50px; border-radius:50%; color:white; text-decoration:none; font-size:20px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
-.floating-buttons a:hover { transform:scale(1.1); }
-.btn-top{ background: var(--accent-3); color:var(--accent-1); }
-.btn-contact{ background: var(--accent-2); }
-
-/* FOOTER */
-footer { text-align:center; padding:28px 10px; color:white; background:var(--accent-1); margin-top:60px; }
-
-/* LIGHTBOX */
+/* Lightbox */
 .lightbox { display:none; position:fixed; z-index:100; padding-top:60px; left:0; top:0; width:100%; height:100%; overflow:auto; background-color:rgba(0,0,0,0.9); }
 .lightbox-content { margin:auto; display:block; max-width:90%; max-height:80%; border-radius:12px; }
 .close-lightbox { position:absolute; top:30px; right:30px; color:white; font-size:36px; font-weight:bold; cursor:pointer; }
@@ -144,9 +87,7 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
 <body>
 
 <header class="kent-nav">
-  <div class="logo">
-    <img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo">
-  </div>
+  <div class="logo"><img src="https://github.com/Silachim/Egbedeyi-Temitope/blob/main/logo%20one.jpg?raw=true" alt="TFE Logo"></div>
   <div class="page-title-mobile" id="mobileTitle"></div>
   <div class="tablet-title-bar" id="tabletTitle"></div>
   <nav class="nav-links">
@@ -154,7 +95,7 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
     <a href="about.html">About</a>
     <a href="research.html">Research</a>
     <a href="publications.html">Publications</a>
-    <a href="cv.html">Professional Service</a>
+    <a href="cv.html">Professional Service</a>    
     <a href="blog.html" class="active">Blog & Media</a>
     <a href="contact.html">Contact</a>
   </nav>
@@ -162,123 +103,99 @@ footer { text-align:center; padding:28px 10px; color:white; background:var(--acc
 </header>
 
 <main>
+  <!-- BLOGS -->
   <section id="blogs">
     <h2>Blogs & News</h2>
     <div class="grid" id="blog-grid"></div>
     <div class="divider"></div>
   </section>
 
+  <!-- MEDIA GALLERY -->
   <section id="media">
     <h2>Media Gallery</h2>
-    <div class="media-carousel" id="media-carousel">
-      <div class="carousel-track" id="carousel-track"></div>
-      <button class="carousel-arrow arrow-left" id="prev">&#10094;</button>
-      <button class="carousel-arrow arrow-right" id="next">&#10095;</button>
-      <div class="carousel-dots" id="carousel-dots"></div>
+    <div id="media-carousel" class="carousel"></div>
+    <div class="carousel-dots" id="carousel-dots"></div>
+    <button class="carousel-arrow left" onclick="prevSlide()">&#10094;</button>
+    <button class="carousel-arrow right" onclick="nextSlide()">&#10095;</button>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+      <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+      <img class="lightbox-content" id="lightbox-img">
     </div>
   </section>
 </main>
 
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox">
-  <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
-  <img class="lightbox-content" id="lightbox-img">
-</div>
-
-<div class="floating-buttons">
-  <a href="#top" class="btn-top">↑</a>
-  <a href="contact.html" class="btn-contact">✉</a>
-</div>
-
-<footer>
-  &copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement
-</footer>
+<footer>&copy; 2025 Temitope F. Egbedeyi • Designed for academic and public engagement</footer>
 
 <script>
 // Hamburger toggle
-function toggleNav(){
-  const nav = document.querySelector('.nav-links');
-  nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-}
+function toggleNav(){ const nav = document.querySelector('.nav-links'); nav.style.display = nav.style.display==='flex'?'none':'flex'; }
 
-// Mobile/tablet titles
+// Dynamic titles
 document.addEventListener("DOMContentLoaded", () => {
   const fullTitle = document.title;
-  const cleanTitle = fullTitle.includes("|") ? fullTitle.split("|")[0].trim() : fullTitle;
+  const cleanTitle = fullTitle.includes("|")? fullTitle.split("|")[0].trim() : fullTitle;
   document.getElementById("mobileTitle").textContent = cleanTitle;
   document.getElementById("tabletTitle").textContent = cleanTitle;
-
-  fetch('media.json')
-    .then(response => response.json())
-    .then(data => {
-      // Blogs
-      const blogGrid = document.getElementById('blog-grid');
-      data.blog.forEach(blog => {
-        const div = document.createElement('div');
-        div.className = 'card';
-        div.innerHTML = `<h3><a href="${blog.url}" target="_blank">${blog.title}</a></h3><p>${blog.date} — ${blog.source}</p>`;
-        blogGrid.appendChild(div);
-      });
-
-      // Media Carousel
-      const track = document.getElementById('carousel-track');
-      const dotsContainer = document.getElementById('carousel-dots');
-      data.media.forEach((item, i) => {
-        if(item.type === "image"){
-          const div = document.createElement('div');
-          div.className = 'carousel-item';
-          div.innerHTML = `<img src="${item.src}" alt="${item.alt}" onclick="openLightbox('${item.src}')"><div class="carousel-caption">${item.title}</div>`;
-          track.appendChild(div);
-
-          const dot = document.createElement('span');
-          dot.className = 'carousel-dot';
-          if(i===0) dot.classList.add('active');
-          dot.addEventListener('click', () => { currentSlide(i); });
-          dotsContainer.appendChild(dot);
-        }
-      });
-
-      let index = 0;
-      const items = document.querySelectorAll('.carousel-item');
-      const dots = document.querySelectorAll('.carousel-dot');
-
-      function showSlide(i){
-        index = i;
-        if(index >= items.length) index = 0;
-        if(index < 0) index = items.length - 1;
-        track.style.transform = `translateX(${-index*100}%)`;
-        dots.forEach(d=>d.classList.remove('active'));
-        dots[index].classList.add('active');
-      }
-
-      function nextSlide(){ showSlide(index+1); }
-      function prevSlide(){ showSlide(index-1); }
-      function currentSlide(i){ showSlide(i); }
-
-      document.getElementById('next').addEventListener('click', nextSlide);
-      document.getElementById('prev').addEventListener('click', prevSlide);
-
-      setInterval(nextSlide, 4000); // auto slide every 4s
-    });
 });
 
-// Lightbox
-function openLightbox(src){
-  const lightbox = document.getElementById('lightbox');
-  const img = document.getElementById('lightbox-img');
-  lightbox.style.display = 'block';
-  img.src = src;
-}
-function closeLightbox(){
-  const lightbox = document.getElementById('lightbox');
-  const img = document.getElementById('lightbox-img');
-  lightbox.style.display = 'none';
-  img.src = '';
-}
-window.onclick = function(event){
-  if(event.target == document.getElementById('lightbox')) closeLightbox();
-}
-</script>
+// Fetch media.json dynamically
+fetch('media.json')
+.then(res => res.json())
+.then(data => {
+  // Load blogs
+  const blogGrid = document.getElementById('blog-grid');
+  data.blog.forEach(blog => {
+    const div = document.createElement('div');
+    div.className = 'card';
+    div.innerHTML = `<h3><a href="${blog.url}" target="_blank">${blog.title}</a></h3><p>${blog.date} — ${blog.source}</p>`;
+    blogGrid.appendChild(div);
+  });
 
+  // Load media carousel
+  const carousel = document.getElementById('media-carousel');
+  const dotsContainer = document.getElementById('carousel-dots');
+  data.media.forEach((item, index) => {
+    if(item.type==='image'){
+      const div = document.createElement('div');
+      div.className='carousel-item';
+      div.innerHTML=`<img src="${item.src}" alt="${item.alt}" title="${item.title}" onclick="openLightbox('${item.src}')">`;
+      carousel.appendChild(div);
+
+      const dot = document.createElement('span');
+      dot.className='carousel-dot';
+      dot.onclick=()=>showSlide(index);
+      dotsContainer.appendChild(dot);
+    }
+  });
+
+  // Initialize carousel
+  slides = document.querySelectorAll('.carousel-item');
+  dots = document.querySelectorAll('.carousel-dot');
+  currentSlide = 0;
+  showSlide(currentSlide);
+
+  function showSlide(index){
+    if(index>=slides.length) currentSlide=0;
+    else if(index<0) currentSlide=slides.length-1;
+    else currentSlide=index;
+    slides.forEach((s,i)=>s.style.display=(i===currentSlide)?'block':'none');
+    dots.forEach((d,i)=>d.classList.toggle('active',i===currentSlide));
+  }
+  window.showSlide=showSlide;
+  window.nextSlide=()=>showSlide(currentSlide+1);
+  window.prevSlide=()=>showSlide(currentSlide-1);
+
+  // Auto-advance every 5s
+  setInterval(()=>{ showSlide(currentSlide+1); },5000);
+})
+.catch(err=>console.error('Error loading media.json:',err));
+
+// Lightbox
+function openLightbox(src){ document.getElementById('lightbox').style.display='block'; document.getElementById('lightbox-img').src=src; }
+function closeLightbox(){ document.getElementById('lightbox').style.display='none'; document.getElementById('lightbox-img').src=''; }
+window.onclick=function(e){ if(e.target==document.getElementById('lightbox')) closeLightbox(); }
+</script>
 </body>
 </html>
