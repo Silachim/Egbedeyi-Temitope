@@ -269,3 +269,46 @@ img.hover-zoom:hover {
     display: flex !important;
   }
 }
+    /* Carousel Track */
+.carousel-track { 
+  display: flex; 
+  animation: scroll 40s linear infinite; /* slower than 20s for smoother effect */
+}
+.carousel-track.paused { 
+  animation-play-state: paused; 
+}
+
+/* Keyframes for infinite scrolling */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Carousel container */
+#media-carousel {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 20px;
+}
+.carousel-item {
+  flex: 0 0 auto;
+  margin-right: 20px;
+  text-align: center;
+}
+.carousel-item img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.carousel-item img:hover {
+  transform: scale(1.05);
+}
+.carousel-caption {
+  font-size: 14px;
+  color: #0f172a;
+  margin-top: 6px;
+}
+
