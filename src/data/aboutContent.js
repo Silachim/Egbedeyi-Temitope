@@ -1,6 +1,6 @@
 export const aboutContent = {
   portrait:
-    'https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg',
+    '/assets/images/about-portrait.jpg',
 
   biography: [
     'Temitope F. Egbedeyi is a doctoral candidate and Research Assistant in Curriculum & Instruction at Kent State University, specializing in early childhood and elementary mathematics education. His scholarship is grounded in a central concern: understanding how children make mathematical meaning and how educational environments can better support that reasoning.',

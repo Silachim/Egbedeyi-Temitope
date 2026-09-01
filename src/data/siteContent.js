@@ -9,11 +9,11 @@ export const siteContent = {
   home: {
     hero: {
       bannerUrl:
-        'https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Home%20page%20picture.jpg',
+        '/assets/images/home-banner.jpg',
       bannerAlt:
         'Early childhood mathematics learning and research in an educational setting',
       headshotUrl:
-        'https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Homepage%202.jpg',
+        '/assets/images/professional-headshot.jpg',
       headshotAlt: 'Professional headshot of Temitope F. Egbedeyi',
     },
   },

@@ -171,7 +171,7 @@ export const researchContent = {
       title: "Multiply Master",
       category: "Mathematics · Research-based",
       image:
-        "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Multiplymasters.jpg",
+        "/assets/images/multiply-masters.jpg",
       description:
         "An interactive multiplication learning application informed by research on multiplicative reasoning and partial products.",
       tags: ["Multiplicative reasoning", "Elementary", "EdTech"],
@@ -180,7 +180,7 @@ export const researchContent = {
       title: "Naija Trivia",
       category: "Culture · Place-based learning",
       image:
-        "https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Naija-trivial.jpg",
+        "/assets/images/naija-trivia.jpg",
       description:
         "A culture-focused learning application reflecting a commitment to place, community knowledge, and culturally grounded educational experiences.",
       tags: ["Nigeria", "Cultural knowledge", "Place-based"],

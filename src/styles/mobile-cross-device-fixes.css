@@ -1,0 +1,496 @@
+/* =========================================================
+   Phase 3D · Cross-Device Mobile Correction
+   Loaded after global.css.
+   Purpose:
+   - eliminate narrow-device horizontal drift/overflow
+   - normalize homepage hero/profile stacking
+   - harden media, cards, filters, forms and long headings
+   - preserve the editorial desktop design
+   ========================================================= */
+
+/* ---- Global viewport resilience ---- */
+html,
+body,
+#root,
+.app-shell,
+main {
+  width: 100%;
+  max-width: 100%;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+main,
+main > *,
+section,
+article,
+aside,
+figure,
+nav,
+div {
+  min-width: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+a,
+button,
+label,
+span {
+  overflow-wrap: anywhere;
+}
+
+input,
+select,
+textarea,
+button {
+  max-width: 100%;
+}
+
+/* Avoid iOS/mobile-browser zoom caused by small form text. */
+@media (max-width: 700px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* ---- Header ---- */
+@media (max-width: 960px) {
+  .site-header {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .site-nav {
+    left: 16px !important;
+    right: 16px !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-height: calc(100dvh - 96px);
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 430px) {
+  .site-header {
+    height: 72px;
+    padding-left: 16px;
+    padding-right: 12px;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .menu-toggle {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ---- Homepage: definitive narrow-device stacking ---- */
+@media (max-width: 900px) {
+  .visual-home-hero {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+  }
+
+  .hero-banner-stage,
+  .hero-profile-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .hero-banner-stage {
+    min-height: 600px !important;
+  }
+
+  .hero-banner-copy {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 600px !important;
+  }
+
+  .hero-profile-panel {
+    display: grid !important;
+    grid-template-columns: minmax(180px, 0.55fr) minmax(0, 1fr) !important;
+    gap: 34px !important;
+  }
+
+  .hero-headshot-wrap {
+    max-width: 270px !important;
+  }
+
+  .hero-focus-content {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .visual-home-hero {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .hero-banner-stage {
+    min-height: 560px !important;
+  }
+
+  .hero-banner-copy {
+    min-height: 560px !important;
+    padding: 82px 22px 54px !important;
+  }
+
+  .hero-banner-copy h1 {
+    font-size: clamp(42px, 13vw, 58px) !important;
+    line-height: 0.98 !important;
+    max-width: 100% !important;
+  }
+
+  .hero-summary {
+    font-size: 16px !important;
+  }
+
+  .hero-profile-panel {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    padding: 48px 22px 54px !important;
+    gap: 0 !important;
+  }
+
+  .hero-headshot-wrap {
+    width: min(220px, 72vw) !important;
+    max-width: 220px !important;
+    margin: 0 auto 36px !important;
+  }
+
+  .hero-focus-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .hero-focus-content h2 {
+    font-size: clamp(31px, 9vw, 42px) !important;
+    line-height: 1.08 !important;
+  }
+
+  .hero-buttons {
+    width: 100%;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+}
+
+/* Screenshot-specific safeguard for 320–430px Android browsers. */
+@media (max-width: 430px) {
+  .visual-home-hero,
+  .hero-banner-stage,
+  .hero-profile-panel {
+    transform: none !important;
+    inset: auto !important;
+    left: auto !important;
+    right: auto !important;
+  }
+
+  .hero-banner-stage {
+    min-height: 520px !important;
+  }
+
+  .hero-banner-copy {
+    min-height: 520px !important;
+    padding: 72px 18px 48px !important;
+  }
+
+  .hero-profile-panel {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .hero-headshot-wrap {
+    width: min(210px, 68vw) !important;
+  }
+}
+
+/* ---- Homepage content grids ---- */
+@media (max-width: 700px) {
+  .question-section,
+  .visual-practice-section,
+  .featured-publications,
+  .visual-media-section,
+  .visual-featured-research,
+  .visual-home-closing,
+  .audience-section,
+  .insight-numbers-band {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .question-section,
+  .visual-practice-section {
+    display: block !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .question-intro,
+  .practice-heading {
+    max-width: 100% !important;
+    margin-bottom: 34px;
+  }
+
+  .question-card-grid,
+  .visual-practice-grid,
+  .visual-project-grid,
+  .compact-number-grid,
+  .media-card-grid,
+  .visual-media-grid,
+  .number-grid,
+  .practice-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .question-card,
+  .visual-practice-grid article,
+  .visual-project-card,
+  .media-card-grid article {
+    min-width: 0 !important;
+  }
+
+  .insight-numbers-band {
+    display: block !important;
+  }
+
+  .audience-section {
+    display: block !important;
+  }
+
+  .home-publication-list > article {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* ---- Generic editorial sections ---- */
+@media (max-width: 700px) {
+  .section-pad {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .page-hero {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(40px, 12vw, 58px) !important;
+  }
+
+  .section-heading-row {
+    width: 100%;
+  }
+
+  .theme-grid,
+  .question-grid,
+  .project-grid,
+  .impact-grid,
+  .impact-media-list,
+  .cv-overview,
+  .cards-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* ---- About ---- */
+@media (max-width: 850px) {
+  .about-hero {
+    display: block !important;
+    min-height: 0 !important;
+  }
+
+  .about-hero-copy,
+  .about-portrait-stage {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .about-portrait-stage {
+    min-height: 0 !important;
+    aspect-ratio: 4 / 5;
+  }
+
+  .about-biography-section,
+  .about-human-section,
+  .about-membership-leadership,
+  .about-philosophy-section,
+  .about-context-section {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .about-hero-copy {
+    padding: 58px 20px !important;
+  }
+
+  .about-hero-copy h1 {
+    font-size: clamp(47px, 14vw, 64px) !important;
+  }
+
+  .about-portrait-stage figcaption {
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 16px !important;
+    min-width: 0 !important;
+    width: auto !important;
+  }
+}
+
+/* ---- Research / Publications / Impact / CV / Blog / Contact ---- */
+@media (max-width: 700px) {
+  .research-page,
+  .publications-page,
+  .impact-page,
+  .cv-service-page,
+  .blog-media-page,
+  .blog-post-page,
+  .contact-page {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: clip;
+  }
+
+  .publication-row,
+  .publication-item,
+  .publication-record,
+  .featured-publication-card {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .publication-title,
+  .publication-row h2,
+  .publication-row h3,
+  .publication-item h2,
+  .publication-item h3 {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .filter-bar,
+  .publication-filters,
+  .theme-filter-list,
+  .type-filter-list {
+    max-width: 100%;
+  }
+
+  .filter-button {
+    min-height: 44px;
+  }
+
+  .contact-shell {
+    width: calc(100% - 32px) !important;
+    max-width: 100% !important;
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(42px, 12vw, 58px) !important;
+  }
+
+  .contact-main__grid,
+  .contact-section-heading--wide,
+  .contact-closing__grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .contact-field-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .contact-form__footer {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .contact-form__footer button {
+    width: 100% !important;
+  }
+}
+
+/* ---- Blog/media image resilience ---- */
+@media (max-width: 700px) {
+  .media-gallery img,
+  .gallery-grid img,
+  .blog-media-page img,
+  .blog-post-page img {
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  .media-grid,
+  .gallery-grid,
+  .media-card-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* ---- Very narrow devices ---- */
+@media (max-width: 360px) {
+  .section-pad,
+  .question-section,
+  .visual-practice-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .hero-banner-copy,
+  .hero-profile-panel {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  h2 {
+    line-height: 1.08;
+  }
+
+  .button-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button-row .btn {
+    text-align: center;
+  }
+}

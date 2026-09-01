@@ -1,23 +1,16 @@
-# Final Contact Page — Mailto Version
+# Phase 4D.4 Verification Syntax Fix
 
 Replace:
-- src/pages/Contact.jsx
 
-Keep:
-- src/styles/contact-page-improved.css
+- `scripts/verify-production-readiness.mjs`
 
-This version removes all Formspree and environment-variable code.
+The earlier script used an inline regular-expression literal for the Open Graph
+image check. This replacement uses `new RegExp(...)` instead, avoiding the syntax
+parsing error reported by Node.
 
-The Send Message button:
-- validates the required fields in the browser;
-- opens the visitor's default email application;
-- pre-fills the recipient, subject, and message body;
-- allows the visitor to review the email before sending.
+Run:
 
-Primary recipient:
-tegbedey@kent.edu
-
-Secondary direct-contact address:
-egbedeyitemitope@gmail.com
-
-No .env file or form service is required.
+```powershell
+npm run build
+node scripts/verify-production-readiness.mjs
+```

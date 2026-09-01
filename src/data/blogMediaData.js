@@ -75,25 +75,25 @@ export const publicEngagement = [
 export const mediaGallery = [
   {
     id: 'gallery-0722',
-    src: 'https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/IMG_0722.JPG',
+    src: '/assets/images/gallery-academic.jpg',
     alt: 'Photograph from Temitope F. Egbedeyi’s academic and professional gallery',
     caption: 'Academic & professional engagement',
   },
   {
     id: 'gallery-0728',
-    src: 'https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/IMG_0728.JPG',
+    src: '/assets/images/gallery-scholarship.jpg',
     alt: 'Photograph from Temitope F. Egbedeyi’s academic and professional gallery',
     caption: 'Scholarship in practice',
   },
   {
     id: 'gallery-about',
-    src: 'https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Image%202.jpg',
+    src: '/assets/images/about-portrait.jpg',
     alt: 'Temitope F. Egbedeyi',
     caption: 'Researcher portrait',
   },
   {
     id: 'gallery-headshot',
-    src: 'https://raw.githubusercontent.com/Silachim/Egbedeyi-Temitope/main/Homepage%202.jpg',
+    src: '/assets/images/professional-headshot.jpg',
     alt: 'Professional portrait of Temitope F. Egbedeyi',
     caption: 'Professional portrait',
   },

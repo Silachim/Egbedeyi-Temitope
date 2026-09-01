@@ -1,0 +1,65 @@
+.blog-reference-style-note {
+  margin: 0 0 0.8rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.blog-reference-entry {
+  margin: 0 0 1rem;
+  line-height: 1.7;
+}
+
+/* APA: hanging indent */
+.blog-reference-entry--apa {
+  padding-left: 0.5in;
+  text-indent: -0.5in;
+}
+
+/* Harvard: hanging indent, common web implementation */
+.blog-reference-entry--harvard {
+  padding-left: 0.5in;
+  text-indent: -0.5in;
+}
+
+/* Chicago Author-Date: hanging indent */
+.blog-reference-entry--chicago-author-date {
+  padding-left: 0.5in;
+  text-indent: -0.5in;
+}
+
+/* MLA: hanging indent */
+.blog-reference-entry--mla {
+  padding-left: 0.5in;
+  text-indent: -0.5in;
+}
+
+/* Vancouver: compact numbered-reference style; content may already include numbers */
+.blog-reference-entry--vancouver {
+  padding-left: 1.4rem;
+  text-indent: -1.4rem;
+  margin-bottom: 0.7rem;
+}
+
+/* Standard/custom: clean web bibliography without forcing a citation convention */
+.blog-reference-entry--standard,
+.blog-reference-entry--custom {
+  padding-left: 0;
+  text-indent: 0;
+}
+
+.blog-reference-entry:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .blog-reference-entry--apa,
+  .blog-reference-entry--harvard,
+  .blog-reference-entry--chicago-author-date,
+  .blog-reference-entry--mla {
+    padding-left: 1.5rem;
+    text-indent: -1.5rem;
+  }
+}

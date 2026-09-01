@@ -1,0 +1,10 @@
+
+
+.blog-reference-entry {
+  margin: 0 0 1rem;
+  line-height: 1.75;
+}
+
+.blog-reference-entry:last-child {
+  margin-bottom: 0;
+}

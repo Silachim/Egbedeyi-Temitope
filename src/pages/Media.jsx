@@ -1,25 +1,61 @@
 import React, { useMemo, useState } from 'react'
+import { mediaCoverage, publicEngagement, mediaGallery } from '../data/blogMediaData.js'
 import {
-  blogCategories,
-  mediaCoverage,
-  publicEngagement,
-  mediaGallery,
-} from '../data/blogMediaData.js'
-import { getPublishedBlogPosts } from '../data/blogPosts.js'
+  getBlogFormats,
+  getBlogHref,
+  getBlogSubjects,
+  getFeaturedBlogPost,
+  getPublishedPostsSorted,
+} from '../data/blogArchitecture.js'
 import '../styles/blog-media-page.css'
 import '../styles/blog-media-navigation-fix.css'
 import '../styles/blog-media-polish.css'
+import '../styles/blog-publishing-architecture.css'
+import '../styles/blog-editorial-system.css'
 
 function BlogCard({ post }) {
   return (
-    <article className="bm-blog-card">
+    <article className="bm-blog-card bm-blog-card--archive">
       <div className="bm-blog-card__meta">
-        <span>{post.category}</span>
-        <span>{post.date}</span>
+        <span>{post.subject}</span>
+        <span>{post.format}</span>
+        <time dateTime={post.isoDate || undefined}>{post.date}</time>
       </div>
       <h3>{post.title}</h3>
       <p>{post.excerpt}</p>
-      <a href={`#blog/${post.slug}`}>Read essay →</a>
+      <div className="bm-blog-card__footer">
+        <span>{post.readingTime}</span>
+        <a href={getBlogHref(post)}>Read article →</a>
+      </div>
+    </article>
+  )
+}
+
+function FeaturedBlogPost({ post }) {
+  if (!post) return null
+
+  return (
+    <article className="bm-featured-post">
+      <div className="bm-featured-post__copy">
+        <div className="bm-blog-card__meta">
+          <span>{post.subject}</span>
+          <span>{post.format}</span>
+          <time dateTime={post.isoDate || undefined}>{post.date}</time>
+          <span>{post.readingTime}</span>
+        </div>
+        <p className="bm-kicker">FEATURED ARTICLE</p>
+        <h3>{post.title}</h3>
+        <p>{post.excerpt}</p>
+        <a className="bm-featured-post__link" href={getBlogHref(post)}>
+          Read the full article →
+        </a>
+      </div>
+
+      <div className="bm-featured-post__topics" aria-label="Article topics">
+        {(post.tags || []).slice(0, 6).map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
+      </div>
     </article>
   )
 }
@@ -41,24 +77,30 @@ function MediaCard({ item }) {
 }
 
 function getGalleryGroup(image) {
-  return (
-    image.group ||
-    image.category ||
-    image.context ||
-    'Academic & Professional Engagement'
-  )
+  return image.group || image.category || image.context || 'Academic & Professional Engagement'
 }
 
 export default function Media() {
   const [activeYear, setActiveYear] = useState('All')
-  const publishedPosts = getPublishedBlogPosts()
+  const [activeSubject, setActiveSubject] = useState('All')
+  const [activeFormat, setActiveFormat] = useState('All')
+
+  const publishedPosts = getPublishedPostsSorted()
+  const featuredPost = getFeaturedBlogPost()
+  const subjects = getBlogSubjects()
+  const formats = getBlogFormats()
+
+  const archivePosts = useMemo(() => {
+    return publishedPosts
+      .filter((post) => post.slug !== featuredPost?.slug)
+      .filter((post) => activeSubject === 'All' || post.subject === activeSubject)
+      .filter((post) => activeFormat === 'All' || post.format === activeFormat)
+  }, [publishedPosts, featuredPost, activeSubject, activeFormat])
 
   const years = useMemo(
     () => [
       'All',
-      ...Array.from(new Set(mediaCoverage.map((item) => item.year))).sort(
-        (a, b) => b - a
-      ),
+      ...Array.from(new Set(mediaCoverage.map((item) => item.year))).sort((a, b) => b - a),
     ],
     []
   )
@@ -71,87 +113,114 @@ export default function Media() {
     [activeYear]
   )
 
-  const galleryGroups = useMemo(() => {
-    return mediaGallery.reduce((groups, image) => {
-      const group = getGalleryGroup(image)
-
-      if (!groups[group]) {
-        groups[group] = []
-      }
-
-      groups[group].push(image)
-      return groups
-    }, {})
-  }, [])
-
-  const scrollToBlog = () => {
-    document.getElementById('blog-posts')?.scrollIntoView({
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-      block: 'start',
-    })
-  }
+  const galleryGroups = useMemo(
+    () =>
+      mediaGallery.reduce((groups, image) => {
+        const group = getGalleryGroup(image)
+        if (!groups[group]) groups[group] = []
+        groups[group].push(image)
+        return groups
+      }, {}),
+    []
+  )
 
   return (
     <div className="bm-page">
       <section className="bm-hero bm-hero--refined">
         <div className="bm-shell bm-hero__grid">
           <div className="bm-hero__title-wrap">
-            <p className="bm-kicker">IDEAS · SCHOLARSHIP · PUBLIC ENGAGEMENT</p>
+            <p className="bm-kicker">IDEAS · SCHOLARSHIP · PUBLIC LIFE</p>
             <h1>Ideas, scholarship & public engagement</h1>
           </div>
-
           <div className="bm-hero__copy">
             <p>
-              A space for reflections on mathematics education, childhood, teaching and
-              learning, research practice, and the public conversations surrounding my work.
+              Writing on education, research, politics, society, world affairs,
+              professional life, and the questions shaping our shared world.
             </p>
-
-            <button
-              type="button"
-              className="bm-inline-nav"
-              onClick={scrollToBlog}
-            >
-              Explore the blog ↓
-            </button>
           </div>
         </div>
       </section>
 
-      <section className="bm-blog" id="blog-posts">
+      <section className="bm-blog bm-blog--publishing" id="blog-posts">
         <div className="bm-shell">
           <div className="bm-section-heading">
             <div>
               <p className="bm-kicker">FROM THE BLOG</p>
-              <h2>Writing from the research journey</h2>
+              <h2>Writing that begins with a question worth exploring</h2>
             </div>
             <p>
-              Essays and reflections bring together research, classroom questions,
-              educational ideas, methods, and perspectives across African and international contexts.
+              Subject, format, and topic tags work independently so the archive can
+              grow globally without being limited by geography or a single professional field.
             </p>
           </div>
 
           {publishedPosts.length > 0 ? (
-            <div className="bm-blog-grid">
-              {publishedPosts.map((post) => (
-                <BlogCard key={post.slug} post={post} />
-              ))}
-            </div>
+            <>
+              <FeaturedBlogPost post={featuredPost} />
+
+              {publishedPosts.length > 1 && (
+                <div className="bm-blog-archive">
+                  <div className="bm-blog-archive__heading bm-blog-archive__heading--stacked">
+                    <div>
+                      <p className="bm-kicker">ARTICLE ARCHIVE</p>
+                      <h3>Browse recent writing</h3>
+                    </div>
+
+                    <div className="bm-editorial-filters">
+                      <div>
+                        <span>Subject</span>
+                        <div className="bm-blog-category-filter">
+                          {['All', ...subjects].map((subject) => (
+                            <button
+                              key={subject}
+                              type="button"
+                              className={activeSubject === subject ? 'is-active' : ''}
+                              aria-pressed={activeSubject === subject}
+                              onClick={() => setActiveSubject(subject)}
+                            >
+                              {subject}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <span>Format</span>
+                        <div className="bm-blog-category-filter">
+                          {['All', ...formats].map((format) => (
+                            <button
+                              key={format}
+                              type="button"
+                              className={activeFormat === format ? 'is-active' : ''}
+                              aria-pressed={activeFormat === format}
+                              onClick={() => setActiveFormat(format)}
+                            >
+                              {format}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {archivePosts.length > 0 ? (
+                    <div className="bm-blog-grid">
+                      {archivePosts.map((post) => (
+                        <BlogCard key={post.slug} post={post} />
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="bm-blog-filter-empty">
+                      No published articles match this subject and format combination yet.
+                    </p>
+                  )}
+                </div>
+              )}
+            </>
           ) : (
             <div className="bm-blog-empty">
-              <div>
-                <p className="bm-kicker">COMING SOON</p>
-                <h3>New writing will begin here</h3>
-                <p>
-                  The blog engine is ready. Posts marked as published in the blog data file
-                  will appear here automatically.
-                </p>
-              </div>
-
-              <div className="bm-topic-list">
-                {blogCategories.map((category) => (
-                  <span key={category}>{category}</span>
-                ))}
-              </div>
+              <p className="bm-kicker">COMING SOON</p>
+              <h3>New writing will begin here</h3>
             </div>
           )}
         </div>
@@ -162,11 +231,11 @@ export default function Media() {
           <div className="bm-section-heading">
             <div>
               <p className="bm-kicker">IN THE MEDIA</p>
-              <h2>Research in the public conversation</h2>
+              <h2>Research and ideas in the public conversation</h2>
             </div>
             <p>
-              External news coverage and reporting on research, educational initiatives,
-              scholarly activity, and public engagement.
+              External coverage of research, educational initiatives, scholarly work,
+              and public-facing professional engagement.
             </p>
           </div>
 
@@ -197,11 +266,11 @@ export default function Media() {
           <div className="bm-section-heading">
             <div>
               <p className="bm-kicker">PUBLIC SCHOLARSHIP & ENGAGEMENT</p>
-              <h2>Taking scholarship into wider educational spaces</h2>
+              <h2>Taking scholarship into wider spaces</h2>
             </div>
             <p>
-              Academic work also travels through professional conversation, research
-              capacity building, conference engagement, and educational collaboration.
+              Ideas also travel through professional conversation, public commentary,
+              research capacity building, conference engagement, and collaboration.
             </p>
           </div>
 
@@ -226,8 +295,7 @@ export default function Media() {
               <h2>Scholarship in practice</h2>
             </div>
             <p>
-              Selected photographs from academic, professional, research, and community-facing
-              activities, presented as visual documentation of the scholarly journey.
+              Selected photographs from academic, professional, research, and community-facing activities.
             </p>
           </div>
 
@@ -266,18 +334,18 @@ export default function Media() {
         <div className="bm-shell bm-closing__grid">
           <div>
             <p className="bm-kicker">STAY IN THE CONVERSATION</p>
-            <h2>Follow the ideas behind the research</h2>
+            <h2>Follow the ideas behind the work</h2>
             <p>
-              Read new reflections, explore the scholarship, or connect around research,
-              speaking, educational engagement, and collaboration.
+              Read new writing, explore the scholarship, or connect around research,
+              commentary, speaking, educational engagement, and collaboration.
             </p>
           </div>
 
           <nav className="bm-closing__links" aria-label="Blog and media related pages">
-            <a href="#research">Research <span>→</span></a>
-            <a href="#publications">Publications <span>→</span></a>
-            <a href="#impact">Research impact <span>→</span></a>
-            <a href="#contact">Contact <span>→</span></a>
+            <a href="/#research">Research <span>→</span></a>
+            <a href="/#publications">Publications <span>→</span></a>
+            <a href="/#impact">Research impact <span>→</span></a>
+            <a href="/#contact">Contact <span>→</span></a>
           </nav>
         </div>
       </section>

@@ -1,0 +1,22 @@
+.impact-reach{padding:105px 0;border-bottom:1px solid var(--impact-line)}
+.impact-reach__heading{margin-bottom:54px}
+.impact-reach__primary,.impact-reach__secondary{border-top:1px solid var(--impact-line)}
+.impact-reach__primary{padding:36px 0 48px}
+.impact-reach__secondary{padding:42px 0 48px}
+.impact-reach__source{display:flex;justify-content:space-between;align-items:end;gap:28px;margin-bottom:28px}
+.impact-reach__source h3{margin-top:10px;font-size:clamp(1.8rem,2.6vw,2.7rem)}
+.impact-reach__source a,.impact-bibliometric a{flex:0 0 auto;color:var(--impact-ink);text-decoration:none;font-weight:600;border-bottom:1px solid currentColor;padding-bottom:3px}
+.impact-metric-grid{display:grid;border-top:1px solid var(--impact-line);border-left:1px solid var(--impact-line)}
+.impact-metric-grid--primary{grid-template-columns:repeat(3,minmax(0,1fr))}
+.impact-metric-grid--secondary{grid-template-columns:repeat(4,minmax(0,1fr))}
+.impact-metric-grid article{min-height:190px;padding:28px;border-right:1px solid var(--impact-line);border-bottom:1px solid var(--impact-line);display:flex;flex-direction:column;justify-content:flex-end}
+.impact-metric-grid strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:clamp(3.7rem,6vw,6rem);font-weight:400;line-height:.88;letter-spacing:-.055em}
+.impact-metric-grid span{display:block;margin-top:18px;color:var(--impact-muted);font-size:.84rem;line-height:1.45}
+.impact-metric-grid--secondary strong{font-size:clamp(2.8rem,4.3vw,4.6rem)}
+.impact-metric-note{max-width:920px;margin:22px 0 0;color:var(--impact-muted);font-size:.84rem}
+.impact-bibliometric{display:grid;grid-template-columns:1fr auto;gap:50px;align-items:end;padding:38px 0;border-top:1px solid var(--impact-line);border-bottom:1px solid var(--impact-line)}
+.impact-bibliometric h3{margin:10px 0 13px;font-size:clamp(1.8rem,2.6vw,2.6rem)}
+.impact-bibliometric p:not(.impact-kicker){max-width:780px;margin-bottom:0;color:var(--impact-muted)}
+.impact-reach__updated{margin:18px 0 0;color:var(--impact-muted);font-size:.78rem}
+@media(max-width:900px){.impact-metric-grid--secondary{grid-template-columns:repeat(2,minmax(0,1fr))}.impact-bibliometric{grid-template-columns:1fr;gap:22px;align-items:start}.impact-bibliometric a{width:fit-content}}
+@media(max-width:700px){.impact-reach{padding:62px 0}.impact-reach__source{display:block}.impact-reach__source a{display:inline-block;margin-top:16px}.impact-metric-grid--primary,.impact-metric-grid--secondary{grid-template-columns:1fr}.impact-metric-grid article{min-height:150px}}
