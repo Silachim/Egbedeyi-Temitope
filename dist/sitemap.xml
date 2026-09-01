@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- The app currently uses hash routes. Hash fragments are not separate crawlable URLs,
+       so only the canonical root belongs in the sitemap until clean routes are introduced. -->
+  <url>
+    <loc>https://egbedeyitemitope.com/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

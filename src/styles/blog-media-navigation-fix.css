@@ -1,0 +1,25 @@
+/* In-page controls must not change the hash because the app uses hash routing. */
+.bm-inline-nav {
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  color: var(--bm-ink, #1a110c);
+  padding: 0 0 3px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.bm-inline-nav:hover {
+  color: var(--bm-accent, #985326);
+}
+
+.bm-inline-nav:focus-visible {
+  outline: 2px solid var(--bm-accent, #985326);
+  outline-offset: 4px;
+}
+
+#blog-posts {
+  scroll-margin-top: 96px;
+}

@@ -1,0 +1,33 @@
+PHASE 2 HEADER NAVIGATION PATCH
+
+The visible navigation label should be:
+
+  BLOG & MEDIA
+
+If your current Header.jsx contains:
+
+  MEDIA
+
+change only the visible label.
+
+Preferred hash destination:
+
+  #blog
+
+Examples:
+
+Before:
+  <a href="#media">MEDIA</a>
+
+After:
+  <a href="#blog">BLOG & MEDIA</a>
+
+Or, for a nav-data array:
+
+Before:
+  { label: 'Media', route: 'media' }
+
+After:
+  { label: 'Blog & Media', route: 'blog' }
+
+Do not recreate or replace the rest of Header.jsx if your responsive menu is already working.

@@ -1,0 +1,9 @@
+Delete these from the previous project when applying Phase 3A as a patch:
+
+.env.example
+src/data/media.js
+src/pages/Impact.jsx
+src/pages/publicationsData.js
+src/styles/contact-page.css
+public/assets/index-ED4MVXiz.js
+public/assets/newlogo-UmGItTq2.jpg
