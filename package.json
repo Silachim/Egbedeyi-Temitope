@@ -6,9 +6,8 @@
   "scripts": {
     "blog:new": "node scripts/create-blog-post.mjs",
     "blog:validate": "node scripts/validate-blog-content.mjs",
-    "blog:disseminate": "node scripts/generate-dissemination.mjs",
     "dev": "npm run blog:validate && vite",
-    "build": "npm run blog:validate && vite build && node scripts/generate-discovery-pages.mjs && node scripts/generate-dissemination.mjs",
+    "build": "npm run blog:validate && vite build && node scripts/generate-discovery-pages.mjs",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"

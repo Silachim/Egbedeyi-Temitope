@@ -1,57 +1,90 @@
-# Blog Navigation Route Fix
+# Phase 4D Final Cleanup
 
-Replace:
+This permanently retires the abandoned Phase 4D.3 dissemination-pack system.
 
-- `src/components/Header.jsx`
-- `src/App.jsx`
+## Replace
 
-## What was wrong
+- `package.json`
 
-The header used links such as:
+The replacement removes:
+- the `blog:disseminate` npm script
+- `node scripts/generate-dissemination.mjs` from the production build pipeline
 
-`href="#cv"`
+The production build now ends with:
 
-When clicked from a clean article URL such as:
+`node scripts/generate-discovery-pages.mjs`
 
-`/blog/article-slug/`
+and no longer generates `dist/dissemination/`.
 
-the browser produced:
+## Delete
 
-`/blog/article-slug/#cv`
+Delete these obsolete items from the project:
 
-Your router checked the pathname first, saw `/blog/...`, and kept rendering the
-blog article instead of the CV page.
+- `scripts/generate-dissemination.mjs`
+- `src/data/disseminationEngine.js`
+- `dist/dissemination/`
 
-## What this fix does
+Use PowerShell from the project root:
 
-1. Header links now point back to the site root:
+```powershell
+Remove-Item .\scripts\generate-dissemination.mjs -Force -ErrorAction SilentlyContinue
+Remove-Item .\src\data\disseminationEngine.js -Force -ErrorAction SilentlyContinue
+Remove-Item .\dist\dissemination -Recurse -Force -ErrorAction SilentlyContinue
+```
 
-`/#cv`, `/#research`, `/#about`, etc.
-
-2. App routing also gives a valid navigation hash priority over a nested blog path.
-
-This makes navigation robust even if an old relative hash link remains somewhere.
-
-## Test locally
+## Rebuild
 
 Run:
 
-`npm run build`
-`npm run dev`
+```powershell
+npm run build
+```
 
-Open a clean blog article and click:
-- About
-- Research
-- Publications
-- Impact
-- CV & Service
-- Blog & Media
-- Contact
+Then verify the retired directory does not return:
 
-Each should leave the article and load the selected page.
+```powershell
+Test-Path .\dist\dissemination
+```
 
-## About the 404
+Expected:
 
-The article files are present on `gh-pages`. A previously-opened GitHub Pages 404
-tab can remain stale. After redeploying this fix, open a fresh tab or hard refresh.
+```text
+False
+```
 
+Run the Phase 4D.4 verifier again:
+
+```powershell
+node scripts/verify-production-readiness.mjs
+```
+
+The earlier warning about `dist/dissemination` should disappear.
+
+## Commit the cleanup
+
+Because the obsolete dissemination files were already committed, commit their deletion:
+
+```powershell
+git add -A
+git commit -m "Remove abandoned dissemination generator"
+git push origin main
+```
+
+Then deploy:
+
+```powershell
+npm run deploy
+```
+
+## Result
+
+Phase 4D keeps the lightweight article-sharing system:
+
+- LinkedIn
+- X
+- Facebook
+- WhatsApp
+- Email
+- Copy link
+
+but permanently removes the unused generated dissemination packs.
