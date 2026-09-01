@@ -26,6 +26,26 @@ const routes = {
   contact: Contact,
 }
 
+function getHashState() {
+  const rawHash = window.location.hash.replace(/^#\/?/, '')
+
+  if (!rawHash) return null
+
+  const [route, ...rest] = rawHash.split('/')
+  const normalizedRoute =
+    route.toLowerCase() === 'media'
+      ? 'blog'
+      : route.toLowerCase()
+
+  if (!routes[normalizedRoute]) return null
+
+  return {
+    route: normalizedRoute,
+    slug: rest.join('/'),
+    previewDraft: false,
+  }
+}
+
 function getPathState() {
   const parts = window.location.pathname
     .replace(/^\/+|\/+$/g, '')
@@ -52,17 +72,17 @@ function getPathState() {
 }
 
 function getRouteState() {
+  // A valid navigation hash should win over an existing nested blog pathname.
+  // This prevents /blog/article/#cv from remaining on the article.
+  const hashState = getHashState()
+  if (hashState) return hashState
+
   const pathState = getPathState()
   if (pathState) return pathState
 
-  const hash = window.location.hash.replace(/^#\/?/, '') || 'home'
-  const [route, ...rest] = hash.split('/')
-  const normalizedRoute =
-    route.toLowerCase() === 'media' ? 'blog' : route.toLowerCase()
-
   return {
-    route: normalizedRoute,
-    slug: rest.join('/'),
+    route: 'home',
+    slug: '',
     previewDraft: false,
   }
 }
@@ -84,7 +104,10 @@ export default function App() {
   }, [])
 
   const Page = useMemo(() => {
-    if (routeState.route === 'blog' && routeState.slug) return BlogPost
+    if (routeState.route === 'blog' && routeState.slug) {
+      return BlogPost
+    }
+
     return routes[routeState.route] || Home
   }, [routeState])
 
@@ -97,7 +120,9 @@ export default function App() {
     if (!routeState.previewDraft) {
       applyRouteMeta(routeState.route, {
         post,
-        isBlogPost: routeState.route === 'blog' && Boolean(routeState.slug),
+        isBlogPost:
+          routeState.route === 'blog' &&
+          Boolean(routeState.slug),
       })
     }
 
@@ -128,7 +153,11 @@ export default function App() {
       <main id="main-content" tabIndex="-1">
         <Suspense
           fallback={
-            <div className="route-loading" role="status" aria-live="polite">
+            <div
+              className="route-loading"
+              role="status"
+              aria-live="polite"
+            >
               Loading page…
             </div>
           }

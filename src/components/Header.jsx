@@ -31,13 +31,17 @@ export default function Header({ currentRoute }) {
     }
 
     const onPointerDown = (event) => {
-      if (!navRef.current?.contains(event.target) && !buttonRef.current?.contains(event.target)) {
+      if (
+        !navRef.current?.contains(event.target) &&
+        !buttonRef.current?.contains(event.target)
+      ) {
         setOpen(false)
       }
     }
 
     document.addEventListener('keydown', onKeyDown)
     document.addEventListener('pointerdown', onPointerDown)
+
     return () => {
       document.removeEventListener('keydown', onKeyDown)
       document.removeEventListener('pointerdown', onPointerDown)
@@ -46,14 +50,46 @@ export default function Header({ currentRoute }) {
 
   return (
     <header className="site-header">
-      <a className="brand" href="#home" aria-label="Temitope F. Egbedeyi home"><span className="brand-mark" aria-hidden="true">TFE</span></a>
-      <nav ref={navRef} id="site-nav" className={`site-nav ${open ? 'is-open' : ''}`} aria-label="Primary navigation">
+      <a
+        className="brand"
+        href="/#home"
+        aria-label="Temitope F. Egbedeyi home"
+      >
+        <span className="brand-mark" aria-hidden="true">
+          TFE
+        </span>
+      </a>
+
+      <nav
+        ref={navRef}
+        id="site-nav"
+        className={`site-nav ${open ? 'is-open' : ''}`}
+        aria-label="Primary navigation"
+      >
         {links.map(([href, label]) => (
-          <a key={href} href={`#${href}`} className={currentRoute === href ? 'active' : ''} aria-current={currentRoute === href ? 'page' : undefined}>{label}</a>
+          <a
+            key={href}
+            href={`/#${href}`}
+            className={currentRoute === href ? 'active' : ''}
+            aria-current={currentRoute === href ? 'page' : undefined}
+          >
+            {label}
+          </a>
         ))}
       </nav>
-      <button ref={buttonRef} className="menu-toggle" type="button" aria-label={open ? 'Close navigation' : 'Open navigation'} aria-expanded={open} aria-controls="site-nav" onClick={() => setOpen((value) => !value)}>
-        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+
+      <button
+        ref={buttonRef}
+        className="menu-toggle"
+        type="button"
+        aria-label={open ? 'Close navigation' : 'Open navigation'}
+        aria-expanded={open}
+        aria-controls="site-nav"
+        onClick={() => setOpen((value) => !value)}
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </button>
     </header>
   )
