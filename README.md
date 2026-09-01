@@ -1,90 +1,47 @@
-# Phase 4D Final Cleanup
+# Phase 4G — Article Media & Visual Publishing System
 
-This permanently retires the abandoned Phase 4D.3 dissemination-pack system.
+## Add
+
+- `src/components/ArticleFigure.jsx`
+- `src/styles/article-media.css`
+- `ARTICLE-MEDIA-GUIDE.md`
+- `public/assets/images/blog/README.txt`
 
 ## Replace
 
-- `package.json`
+- `src/data/markdownBlog.js`
+- `src/pages/BlogPost.jsx`
+- `scripts/validate-blog-content.mjs`
 
-The replacement removes:
-- the `blog:disseminate` npm script
-- `node scripts/generate-dissemination.mjs` from the production build pipeline
+## Capabilities
 
-The production build now ends with:
+Phase 4G adds:
 
-`node scripts/generate-discovery-pages.mjs`
+- featured images rendered inside article pages
+- standard Markdown inline images
+- structured scholarly figure blocks
+- automatic figure numbering
+- captions
+- image credits
+- compact / standard / wide / full layouts
+- built-in click-to-enlarge figure viewer
+- optional source-link behavior
+- responsive mobile figures
+- build-time validation for missing image files and alt text
 
-and no longer generates `dist/dissemination/`.
+## Important
 
-## Delete
+This BlogPost.jsx includes the Phase 4F.1 taxonomy links and the existing share controls.
 
-Delete these obsolete items from the project:
+No App.jsx change is required for Phase 4G.
 
-- `scripts/generate-dissemination.mjs`
-- `src/data/disseminationEngine.js`
-- `dist/dissemination/`
+After copying the files, read `ARTICLE-MEDIA-GUIDE.md`.
 
-Use PowerShell from the project root:
-
-```powershell
-Remove-Item .\scripts\generate-dissemination.mjs -Force -ErrorAction SilentlyContinue
-Remove-Item .\src\data\disseminationEngine.js -Force -ErrorAction SilentlyContinue
-Remove-Item .\dist\dissemination -Recurse -Force -ErrorAction SilentlyContinue
-```
-
-## Rebuild
-
-Run:
+Then run:
 
 ```powershell
 npm run build
+npm run dev -- --host
 ```
 
-Then verify the retired directory does not return:
-
-```powershell
-Test-Path .\dist\dissemination
-```
-
-Expected:
-
-```text
-False
-```
-
-Run the Phase 4D.4 verifier again:
-
-```powershell
-node scripts/verify-production-readiness.mjs
-```
-
-The earlier warning about `dist/dissemination` should disappear.
-
-## Commit the cleanup
-
-Because the obsolete dissemination files were already committed, commit their deletion:
-
-```powershell
-git add -A
-git commit -m "Remove abandoned dissemination generator"
-git push origin main
-```
-
-Then deploy:
-
-```powershell
-npm run deploy
-```
-
-## Result
-
-Phase 4D keeps the lightweight article-sharing system:
-
-- LinkedIn
-- X
-- Facebook
-- WhatsApp
-- Email
-- Copy link
-
-but permanently removes the unused generated dissemination packs.
+Test a draft article with one simple Markdown image and one structured figure before publishing.

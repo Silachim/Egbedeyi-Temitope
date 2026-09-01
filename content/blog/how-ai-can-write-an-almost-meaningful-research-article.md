@@ -80,6 +80,14 @@ A calculator did not need to become a mathematician to transform mathematical wo
 
 AI can be extraordinarily useful without becoming a competitor of knowledge.
 
+[[figure]]
+src: /assets/images/blog/how-ai-can-write-an-almost-meaningful-research-article/ai-research-writing-illustration.png
+alt: Editorial illustration showing an article about artificial intelligence and research writing, including a visual sequence from ideation and literature exploration through drafting, refinement, and human expertise
+caption: An illustrative view of how AI can support different stages of research writing while human expertise remains responsible for meaning, judgment, and scholarly decisions.
+credit: AI-generated illustration created for this article and approved for publication by Temitope F. Egbedeyi.
+layout: wide
+[[/figure]]
+
 A researcher might use it to test whether an explanation is understandable to a non-specialist. It can suggest alternative ways of organizing an argument. It can help identify questions that a draft leaves unanswered. It can compare possible interpretations that the researcher then investigates. It can help with coding, brainstorming, editing, summarizing researcher-provided material, or translating highly technical language for different audiences.
 
 > AI can participate in the work around knowledge without becoming the source of that knowledge.

@@ -1,0 +1,274 @@
+/*
+ * Phase 4F.3 stabilization layer
+ *
+ * This file intentionally avoids aggressive global layout overrides.
+ * It adds only safe containment, wrapping, and mobile safeguards.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.app-shell,
+main {
+  max-width: 100%;
+  min-width: 0;
+}
+
+body {
+  margin: 0;
+}
+
+img,
+video,
+canvas,
+svg,
+iframe {
+  max-width: 100%;
+}
+
+img,
+video,
+canvas {
+  height: auto;
+}
+
+p,
+li,
+blockquote,
+figcaption,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+a,
+code,
+pre {
+  overflow-wrap: anywhere;
+}
+
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Allow grid/flex children to shrink instead of forcing page overflow. */
+:where(
+  .research-hero-grid,
+  .research-strands-grid,
+  .research-projects-grid,
+  .research-methods-grid,
+  .research-funded-grid,
+  .research-applications-grid,
+  .research-collaborators-grid,
+  .research-insights-grid,
+  .research-closing-grid,
+  .blog-post-content__grid,
+  .blog-post-pagination__grid,
+  .blog-related-posts__grid,
+  .bm-hero__grid,
+  .bm-blog-grid,
+  .bm-media-grid,
+  .bm-engagement-grid,
+  .bm-closing__grid,
+  .pub-hero__grid,
+  .pub-featured__grid,
+  .pub-profiles__grid,
+  .pub-closing__grid,
+  .cv-hero__grid,
+  .cv-journey__grid,
+  .cv-awards-grid,
+  .cv-review-grid,
+  .cv-mentoring__grid,
+  .cv-networks__grid,
+  .cv-download__grid,
+  .impact-supported__grid,
+  .impact-mentoring__grid,
+  .impact-contribution-grid,
+  .impact-media-grid,
+  .question-card-grid,
+  .visual-project-grid,
+  .visual-practice-grid,
+  .media-card-grid,
+  .audience-section
+) > * {
+  min-width: 0;
+}
+
+/* Reusable wrapping safeguards. */
+:where(
+  .button-row,
+  .research-tags,
+  .bm-blog-card__meta,
+  .bm-featured-post__topics,
+  .bm-blog-category-filter,
+  .bm-year-filter,
+  .pub-filter-buttons,
+  .pub-record__themes,
+  .blog-post-meta,
+  .blog-post-byline,
+  .blog-post-tags,
+  .impact-flow
+) {
+  flex-wrap: wrap;
+}
+
+:where(
+  .research-tag-button,
+  .research-focus-topic-button,
+  .bm-blog-category-filter button,
+  .bm-year-filter button,
+  .taxonomy-chip-link,
+  .article-share__actions a,
+  .article-share__actions button,
+  .cv-primary-action,
+  .cv-download__action a
+) {
+  max-width: 100%;
+  white-space: normal;
+}
+
+/* Mobile navigation must remain reachable even on short screens. */
+@media (max-width: 960px) {
+  .site-nav {
+    max-height: calc(100dvh - 72px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+/* Coarse-pointer devices get practical control height without forcing width. */
+@media (pointer: coarse) {
+  :where(
+    .site-nav a,
+    .btn,
+    .research-scroll-button,
+    .research-focus-topic-button,
+    .research-tag-button,
+    .bm-blog-category-filter button,
+    .bm-year-filter button,
+    .taxonomy-chip-link,
+    .article-share__actions a,
+    .article-share__actions button,
+    .pub-filter-buttons button,
+    .pub-link-button,
+    .cv-primary-action,
+    .impact-connect__button
+  ) {
+    min-height: 44px;
+  }
+}
+
+/* Phones */
+@media (max-width: 760px) {
+  .hero-banner-copy h1,
+  .blog-post-hero h1 {
+    font-size: clamp(2.25rem, 11vw, 4rem);
+    line-height: 1;
+  }
+
+  .research-focus-panel,
+  .blog-post-aside,
+  .pub-filter-panel,
+  .cv-page,
+  .impact-page {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .research-focus-row {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .blog-post-aside {
+    position: static;
+  }
+
+  .pub-search input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .impact-flow b {
+    flex: 0 0 auto;
+  }
+}
+
+/*
+ * Only collapse layouts that are known to be two-column shells.
+ * We do NOT globally force every card grid to one column.
+ */
+@media (max-width: 680px) {
+  :where(
+    .research-hero-grid,
+    .research-funded-grid,
+    .research-insights-grid,
+    .research-closing-grid,
+    .blog-post-content__grid,
+    .blog-post-pagination__grid,
+    .bm-hero__grid,
+    .bm-closing__grid,
+    .pub-hero__grid,
+    .pub-profiles__grid,
+    .pub-closing__grid,
+    .cv-hero__grid,
+    .cv-journey__grid,
+    .cv-review-grid,
+    .cv-mentoring__grid,
+    .cv-networks__grid,
+    .cv-download__grid,
+    .impact-supported__grid,
+    .impact-mentoring__grid,
+    .about-hero,
+    .about-philosophy-section,
+    .about-context-section,
+    .about-membership-leadership,
+    .about-human-section,
+    .about-closing-pathways
+  ) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 430px) {
+  .article-share__actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  :where(
+    .research-shell,
+    .blog-post-shell,
+    .bm-shell,
+    .pub-shell,
+    .cv-shell,
+    .impact-shell,
+    .section-pad
+  ) {
+    max-width: 100%;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .site-nav {
+    max-height: calc(100dvh - 56px);
+  }
+}
+
+/* Respect reduced motion everywhere introduced by interaction phases. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}

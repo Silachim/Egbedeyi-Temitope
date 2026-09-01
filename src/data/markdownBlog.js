@@ -43,7 +43,9 @@ export function parseFrontMatter(raw) {
   const closing = normalized.indexOf('\n---\n', 4)
 
   if (closing === -1) {
-    throw new Error('Front matter opens with --- but has no closing --- line.')
+    throw new Error(
+      'Front matter opens with --- but has no closing --- line.'
+    )
   }
 
   const frontMatter = normalized.slice(4, closing)
@@ -63,7 +65,9 @@ export function parseFrontMatter(raw) {
       continue
     }
 
-    const keyMatch = line.match(/^([A-Za-z][A-Za-z0-9_-]*):\s*(.*)$/)
+    const keyMatch = line.match(
+      /^([A-Za-z][A-Za-z0-9_-]*):\s*(.*)$/
+    )
 
     if (!keyMatch) continue
 
@@ -89,9 +93,16 @@ export function countWords(text) {
     .filter(Boolean).length
 }
 
-export function calculateReadingTime(text, wordsPerMinute = 220) {
+export function calculateReadingTime(
+  text,
+  wordsPerMinute = 220
+) {
   const words = countWords(text)
-  return `${Math.max(1, Math.ceil(words / wordsPerMinute))} min read`
+
+  return `${Math.max(
+    1,
+    Math.ceil(words / wordsPerMinute)
+  )} min read`
 }
 
 export function formatDisplayDate(isoDate) {
@@ -99,7 +110,9 @@ export function formatDisplayDate(isoDate) {
 
   const date = new Date(`${isoDate}T12:00:00Z`)
 
-  if (Number.isNaN(date.getTime())) return isoDate
+  if (Number.isNaN(date.getTime())) {
+    return isoDate
+  }
 
   return new Intl.DateTimeFormat('en-GB', {
     day: 'numeric',
@@ -129,7 +142,9 @@ function plainMarkdownLabel(value = '') {
 }
 
 function isReferenceHeading(value = '') {
-  return /^(references?|bibliography)$/i.test(plainMarkdownLabel(value))
+  return /^(references?|bibliography)$/i.test(
+    plainMarkdownLabel(value)
+  )
 }
 
 function splitReferenceSection(markdown) {
@@ -155,8 +170,12 @@ function splitReferenceSection(markdown) {
   }
 
   return {
-    mainMarkdown: lines.slice(0, referenceIndex).join('\n'),
-    referenceText: lines.slice(referenceIndex + 1).join('\n'),
+    mainMarkdown: lines
+      .slice(0, referenceIndex)
+      .join('\n'),
+    referenceText: lines
+      .slice(referenceIndex + 1)
+      .join('\n'),
   }
 }
 
@@ -170,24 +189,27 @@ function splitReferenceEntries(referenceText) {
 
   if (!text) return []
 
-  // Detect the start of a new scholarly reference anywhere in the text.
-  // Examples:
-  // Darling-Hammond, L. (2007).
-  // Lareau, A. (2002).
-  // Morgan, H. (2020).
   const authorYearPattern =
     /(?=(?:^|\s)([A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÖØ-öø-ÿ'’.\-‐–—]+(?:\s+[A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÖØ-öø-ÿ'’.\-‐–—]+)*,\s*(?:[A-Z]\.)+(?:\s*[A-Z]\.)?\s*\((?:(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+)?\d{4}[a-z]?\)\.))/gi
 
   const starts = []
   let match
 
-  while ((match = authorYearPattern.exec(text)) !== null) {
+  while (
+    (match = authorYearPattern.exec(text)) !== null
+  ) {
     const rawIndex = match.index
-    const index = rawIndex > 0 && /\s/.test(text[rawIndex]) ? rawIndex + 1 : rawIndex
+    const index =
+      rawIndex > 0 && /\s/.test(text[rawIndex])
+        ? rawIndex + 1
+        : rawIndex
+
     starts.push(index)
 
-    // Protect against zero-width lookahead looping forever.
-    authorYearPattern.lastIndex = Math.max(authorYearPattern.lastIndex, match.index + 1)
+    authorYearPattern.lastIndex = Math.max(
+      authorYearPattern.lastIndex,
+      match.index + 1
+    )
   }
 
   if (starts.length <= 1) {
@@ -198,13 +220,78 @@ function splitReferenceEntries(referenceText) {
 
   for (let i = 0; i < starts.length; i += 1) {
     const start = starts[i]
-    const end = i + 1 < starts.length ? starts[i + 1] : text.length
+    const end =
+      i + 1 < starts.length
+        ? starts[i + 1]
+        : text.length
+
     const entry = text.slice(start, end).trim()
 
     if (entry) entries.push(entry)
   }
 
   return entries
+}
+
+function parseFigureDirective(lines, startIndex) {
+  const data = {
+    src: '',
+    alt: '',
+    caption: '',
+    credit: '',
+    layout: 'standard',
+    link: '',
+  }
+
+  let index = startIndex + 1
+
+  while (index < lines.length) {
+    const raw = lines[index]
+    const trimmed = normalizeLine(raw)
+
+    if (/^\[\[\/figure\]\]$/i.test(trimmed)) {
+      return {
+        block: {
+          type: 'figure',
+          ...data,
+        },
+        endIndex: index,
+      }
+    }
+
+    const match = raw.match(
+      /^\s*(src|alt|caption|credit|layout|link)\s*:\s*(.*)$/i
+    )
+
+    if (match) {
+      const key = match[1].toLowerCase()
+      data[key] = stripQuotes(match[2])
+    }
+
+    index += 1
+  }
+
+  throw new Error(
+    'Figure block opens with [[figure]] but has no closing [[/figure]].'
+  )
+}
+
+function parseMarkdownImage(line) {
+  const match = normalizeLine(line).match(
+    /^!\[([^\]]*)\]\((\S+?)(?:\s+"([^"]*)")?\)$/
+  )
+
+  if (!match) return null
+
+  return {
+    type: 'figure',
+    alt: match[1].trim(),
+    src: match[2].trim(),
+    caption: (match[3] || '').trim(),
+    credit: '',
+    layout: 'standard',
+    link: '',
+  }
 }
 
 function parseMainMarkdown(markdown) {
@@ -229,13 +316,19 @@ function parseMainMarkdown(markdown) {
 
   const flushList = () => {
     if (!listItems.length) return
-    blocks.push({ type: 'list', items: listItems })
+    blocks.push({
+      type: 'list',
+      items: listItems,
+    })
     listItems = []
   }
 
   const flushOrderedList = () => {
     if (!orderedItems.length) return
-    blocks.push({ type: 'ordered-list', items: orderedItems })
+    blocks.push({
+      type: 'ordered-list',
+      items: orderedItems,
+    })
     orderedItems = []
   }
 
@@ -257,7 +350,11 @@ function parseMainMarkdown(markdown) {
     flushQuote()
   }
 
-  for (let index = 0; index < lines.length; index += 1) {
+  for (
+    let index = 0;
+    index < lines.length;
+    index += 1
+  ) {
     const trimmed = normalizeLine(lines[index])
 
     if (!trimmed) {
@@ -265,15 +362,42 @@ function parseMainMarkdown(markdown) {
       continue
     }
 
-    const heading = trimmed.match(/^(#{1,4})\s+(.+)$/)
+    if (/^\[\[figure\]\]$/i.test(trimmed)) {
+      flushAll()
+
+      const figure = parseFigureDirective(
+        lines,
+        index
+      )
+
+      blocks.push(figure.block)
+      index = figure.endIndex
+      continue
+    }
+
+    const markdownImage = parseMarkdownImage(
+      lines[index]
+    )
+
+    if (markdownImage) {
+      flushAll()
+      blocks.push(markdownImage)
+      continue
+    }
+
+    const heading = trimmed.match(
+      /^(#{1,4})\s+(.+)$/
+    )
 
     if (heading) {
       flushAll()
+
       blocks.push({
         type: 'heading',
         level: Math.max(2, heading[1].length),
         text: heading[2].trim(),
       })
+
       continue
     }
 
@@ -287,7 +411,9 @@ function parseMainMarkdown(markdown) {
       continue
     }
 
-    const unordered = trimmed.match(/^[-*]\s+(.+)$/)
+    const unordered = trimmed.match(
+      /^[-*]\s+(.+)$/
+    )
 
     if (unordered) {
       flushParagraph()
@@ -297,7 +423,9 @@ function parseMainMarkdown(markdown) {
       continue
     }
 
-    const ordered = trimmed.match(/^\d+\.\s+(.+)$/)
+    const ordered = trimmed.match(
+      /^\d+\.\s+(.+)$/
+    )
 
     if (ordered) {
       flushParagraph()
@@ -318,7 +446,11 @@ function parseMainMarkdown(markdown) {
 }
 
 export function markdownToBlocks(markdown) {
-  const { mainMarkdown, referenceText } = splitReferenceSection(markdown)
+  const {
+    mainMarkdown,
+    referenceText,
+  } = splitReferenceSection(markdown)
+
   const blocks = parseMainMarkdown(mainMarkdown)
 
   if (referenceText.trim()) {
@@ -328,7 +460,11 @@ export function markdownToBlocks(markdown) {
       text: 'References',
     })
 
-    for (const entry of splitReferenceEntries(referenceText)) {
+    for (
+      const entry of splitReferenceEntries(
+        referenceText
+      )
+    ) {
       blocks.push({
         type: 'reference',
         text: entry,
@@ -339,25 +475,46 @@ export function markdownToBlocks(markdown) {
   return blocks
 }
 
-export function validatePostMetadata(data, sourceName = 'post') {
+export function getPostFigures(post) {
+  return Array.isArray(post?.content)
+    ? post.content.filter(
+        (block) => block.type === 'figure'
+      )
+    : []
+}
+
+export function validatePostMetadata(
+  data,
+  sourceName = 'post'
+) {
   const errors = []
 
   for (const field of REQUIRED_FIELDS) {
     if (!data[field]) {
-      errors.push(`${sourceName}: missing required field "${field}"`)
+      errors.push(
+        `${sourceName}: missing required field "${field}"`
+      )
     }
   }
 
   if (
     data.status &&
-    !['draft', 'published', 'archived'].includes(data.status)
+    ![
+      'draft',
+      'published',
+      'archived',
+    ].includes(data.status)
   ) {
-    errors.push(`${sourceName}: status must be draft, published, or archived`)
+    errors.push(
+      `${sourceName}: status must be draft, published, or archived`
+    )
   }
 
   if (
     data.slug &&
-    !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(data.slug)
+    !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(
+      data.slug
+    )
   ) {
     errors.push(
       `${sourceName}: slug must contain lowercase letters, numbers, and hyphens only`
@@ -367,22 +524,35 @@ export function validatePostMetadata(data, sourceName = 'post') {
   return errors
 }
 
-export function parseMarkdownPost(raw, sourceName = 'post.md') {
+export function parseMarkdownPost(
+  raw,
+  sourceName = 'post.md'
+) {
   const { data, body } = parseFrontMatter(raw)
-  const errors = validatePostMetadata(data, sourceName)
+  const errors = validatePostMetadata(
+    data,
+    sourceName
+  )
 
   if (errors.length) {
     throw new Error(errors.join('\n'))
   }
+
+  const content = markdownToBlocks(body)
 
   return {
     ...data,
     isoDate: data.date,
     date: formatDisplayDate(data.date),
     readingTime: calculateReadingTime(body),
-    tags: Array.isArray(data.tags) ? data.tags.filter(Boolean) : [],
+    tags: Array.isArray(data.tags)
+      ? data.tags.filter(Boolean)
+      : [],
     featured: data.featured === true,
-    content: markdownToBlocks(body),
+    content,
+    figures: content.filter(
+      (block) => block.type === 'figure'
+    ),
     rawBody: body.trim(),
     sourceName,
   }

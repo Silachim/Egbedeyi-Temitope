@@ -1,19 +1,38 @@
-import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react'
+import {
+  lazy,
+  Suspense,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
+import FunctionalSurfaceEnhancer from './components/FunctionalSurfaceEnhancer.jsx'
+import ResponsiveQA from './components/ResponsiveQA.jsx'
 import Home from './pages/Home.jsx'
+
 import { applyRouteMeta } from './seo/routeMeta.js'
 import { getBlogPostBySlug } from './data/blogContent.js'
+
+import './styles/functional-surfaces.css'
+import './styles/cross-device-qa.css'
 
 const About = lazy(() => import('./pages/About.jsx'))
 const Research = lazy(() => import('./pages/Research.jsx'))
 const Publications = lazy(() => import('./pages/Publications.jsx'))
 const CV = lazy(() => import('./pages/CV.jsx'))
 const Media = lazy(() => import('./pages/Media.jsx'))
-const ResearchImpact = lazy(() => import('./pages/ResearchImpact.jsx'))
-const BlogPost = lazy(() => import('./pages/BlogPost.jsx'))
-const Contact = lazy(() => import('./pages/Contact.jsx'))
+const ResearchImpact = lazy(() =>
+  import('./pages/ResearchImpact.jsx')
+)
+const BlogPost = lazy(() =>
+  import('./pages/BlogPost.jsx')
+)
+const Contact = lazy(() =>
+  import('./pages/Contact.jsx')
+)
 
 const routes = {
   home: Home,
@@ -27,17 +46,21 @@ const routes = {
 }
 
 function getHashState() {
-  const rawHash = window.location.hash.replace(/^#\/?/, '')
+  const rawHash =
+    window.location.hash.replace(/^#\/?/, '')
 
   if (!rawHash) return null
 
   const [route, ...rest] = rawHash.split('/')
+
   const normalizedRoute =
     route.toLowerCase() === 'media'
       ? 'blog'
       : route.toLowerCase()
 
-  if (!routes[normalizedRoute]) return null
+  if (!routes[normalizedRoute]) {
+    return null
+  }
 
   return {
     route: normalizedRoute,
@@ -52,18 +75,27 @@ function getPathState() {
     .split('/')
     .filter(Boolean)
 
-  if (parts[0]?.toLowerCase() === 'blog-preview') {
+  if (
+    parts[0]?.toLowerCase() ===
+    'blog-preview'
+  ) {
     return {
       route: 'blog',
-      slug: decodeURIComponent(parts.slice(1).join('/')),
+      slug: decodeURIComponent(
+        parts.slice(1).join('/')
+      ),
       previewDraft: true,
     }
   }
 
-  if (parts[0]?.toLowerCase() === 'blog') {
+  if (
+    parts[0]?.toLowerCase() === 'blog'
+  ) {
     return {
       route: 'blog',
-      slug: decodeURIComponent(parts.slice(1).join('/')),
+      slug: decodeURIComponent(
+        parts.slice(1).join('/')
+      ),
       previewDraft: false,
     }
   }
@@ -72,13 +104,29 @@ function getPathState() {
 }
 
 function getRouteState() {
-  // A valid navigation hash should win over an existing nested blog pathname.
-  // This prevents /blog/article/#cv from remaining on the article.
+  /*
+   * Navigation hashes must take priority over
+   * an existing nested blog pathname.
+   *
+   * Example:
+   *
+   * /blog/article-slug/#cv
+   *
+   * should navigate to CV rather than remain
+   * on the article page.
+   */
+
   const hashState = getHashState()
-  if (hashState) return hashState
+
+  if (hashState) {
+    return hashState
+  }
 
   const pathState = getPathState()
-  if (pathState) return pathState
+
+  if (pathState) {
+    return pathState
+  }
 
   return {
     route: 'home',
@@ -88,69 +136,124 @@ function getRouteState() {
 }
 
 export default function App() {
-  const [routeState, setRouteState] = useState(getRouteState())
+  const [routeState, setRouteState] =
+    useState(getRouteState())
+
   const firstRender = useRef(true)
 
   useEffect(() => {
-    const update = () => setRouteState(getRouteState())
+    const updateRoute = () => {
+      setRouteState(getRouteState())
+    }
 
-    window.addEventListener('hashchange', update)
-    window.addEventListener('popstate', update)
+    window.addEventListener(
+      'hashchange',
+      updateRoute
+    )
+
+    window.addEventListener(
+      'popstate',
+      updateRoute
+    )
 
     return () => {
-      window.removeEventListener('hashchange', update)
-      window.removeEventListener('popstate', update)
+      window.removeEventListener(
+        'hashchange',
+        updateRoute
+      )
+
+      window.removeEventListener(
+        'popstate',
+        updateRoute
+      )
     }
   }, [])
 
   const Page = useMemo(() => {
-    if (routeState.route === 'blog' && routeState.slug) {
+    if (
+      routeState.route === 'blog' &&
+      routeState.slug
+    ) {
       return BlogPost
     }
 
-    return routes[routeState.route] || Home
+    return (
+      routes[routeState.route] || Home
+    )
   }, [routeState])
 
   useEffect(() => {
     const post =
-      routeState.route === 'blog' && routeState.slug
-        ? getBlogPostBySlug(routeState.slug)
+      routeState.route === 'blog' &&
+      routeState.slug
+        ? getBlogPostBySlug(
+            routeState.slug
+          )
         : null
 
     if (!routeState.previewDraft) {
-      applyRouteMeta(routeState.route, {
-        post,
-        isBlogPost:
-          routeState.route === 'blog' &&
-          Boolean(routeState.slug),
-      })
+      applyRouteMeta(
+        routeState.route,
+        {
+          post,
+          isBlogPost:
+            routeState.route ===
+              'blog' &&
+            Boolean(
+              routeState.slug
+            ),
+        }
+      )
     }
 
-    window.scrollTo({ top: 0, behavior: 'auto' })
+    window.scrollTo({
+      top: 0,
+      behavior: 'auto',
+    })
 
     if (firstRender.current) {
       firstRender.current = false
     } else {
-      document.getElementById('main-content')?.focus()
+      document
+        .getElementById(
+          'main-content'
+        )
+        ?.focus()
     }
   }, [routeState])
 
   return (
     <div className="app-shell">
+      <ResponsiveQA />
+
+      <FunctionalSurfaceEnhancer />
+
       <a
         className="skip-link"
         href="#main-content"
         onClick={(event) => {
           event.preventDefault()
-          document.getElementById('main-content')?.focus()
+
+          document
+            .getElementById(
+              'main-content'
+            )
+            ?.focus()
         }}
       >
         Skip to main content
       </a>
 
-      <Header currentRoute={routeState.route} />
+      <Header
+        currentRoute={
+          routeState.route
+        }
+      />
 
-      <main id="main-content" tabIndex="-1">
+      <main
+        id="main-content"
+        tabIndex="-1"
+      >
         <Suspense
           fallback={
             <div
@@ -163,8 +266,12 @@ export default function App() {
           }
         >
           <Page
-            slug={routeState.slug}
-            previewDraft={routeState.previewDraft}
+            slug={
+              routeState.slug
+            }
+            previewDraft={
+              routeState.previewDraft
+            }
           />
         </Suspense>
       </main>

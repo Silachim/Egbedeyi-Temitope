@@ -1,0 +1,51 @@
+[data-functional-surface='true'] {
+  position: relative;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+[data-functional-surface='true']:hover {
+  transform: translateY(-2px);
+}
+
+[data-functional-surface='true']:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+[data-functional-surface='true'] a,
+[data-functional-surface='true'] button,
+[data-functional-surface='true'] input,
+[data-functional-surface='true'] select,
+[data-functional-surface='true'] textarea {
+  position: relative;
+  z-index: 2;
+}
+
+.bm-gallery-item[data-functional-surface='true'] {
+  overflow: hidden;
+}
+
+.bm-gallery-item[data-functional-surface='true'] img {
+  transition: transform 220ms ease;
+}
+
+.bm-gallery-item[data-functional-surface='true']:hover img,
+.bm-gallery-item[data-functional-surface='true']:focus-visible img {
+  transform: scale(1.015);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-functional-surface='true'],
+  .bm-gallery-item[data-functional-surface='true'] img {
+    transition: none;
+  }
+
+  [data-functional-surface='true']:hover,
+  .bm-gallery-item[data-functional-surface='true']:hover img {
+    transform: none;
+  }
+}
