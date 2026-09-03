@@ -1,47 +1,26 @@
-# Phase 4G — Article Media & Visual Publishing System
+# Blog Archive Taxonomy Layout Fix
 
-## Add
+Replace:
 
-- `src/components/ArticleFigure.jsx`
-- `src/styles/article-media.css`
-- `ARTICLE-MEDIA-GUIDE.md`
-- `public/assets/images/blog/README.txt`
+`src/styles/taxonomy-interactions.css`
 
-## Replace
+No JSX changes are required.
 
-- `src/data/markdownBlog.js`
-- `src/pages/BlogPost.jsx`
-- `scripts/validate-blog-content.mjs`
+This correction:
 
-## Capabilities
+- protects "Browse recent writing" from collapsing into a narrow column
+- removes the Topic tag internal scrollbar
+- lets topic tags wrap naturally
+- aligns Subject, Format, and Topic tag labels consistently
+- moves the heading above filters at narrower tablet widths
+- preserves all Phase 4F.1 filtering functionality
+- preserves mobile wrapping and touch behavior
 
-Phase 4G adds:
-
-- featured images rendered inside article pages
-- standard Markdown inline images
-- structured scholarly figure blocks
-- automatic figure numbering
-- captions
-- image credits
-- compact / standard / wide / full layouts
-- built-in click-to-enlarge figure viewer
-- optional source-link behavior
-- responsive mobile figures
-- build-time validation for missing image files and alt text
-
-## Important
-
-This BlogPost.jsx includes the Phase 4F.1 taxonomy links and the existing share controls.
-
-No App.jsx change is required for Phase 4G.
-
-After copying the files, read `ARTICLE-MEDIA-GUIDE.md`.
-
-Then run:
+After replacing the file:
 
 ```powershell
 npm run build
 npm run dev -- --host
 ```
 
-Test a draft article with one simple Markdown image and one structured figure before publishing.
+Check the Blog & Media archive at desktop, tablet, and phone widths.
