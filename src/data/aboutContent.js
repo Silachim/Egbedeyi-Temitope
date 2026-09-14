@@ -2,11 +2,17 @@ export const aboutContent = {
   portrait:
     '/assets/images/about-portrait.jpg',
 
-  biography: [
-    'Temitope F. Egbedeyi is a doctoral candidate and Research Assistant in Curriculum & Instruction at Kent State University, specializing in early childhood and elementary mathematics education. His scholarship is grounded in a central concern: understanding how children make mathematical meaning and how educational environments can better support that reasoning.',
-    'His research examines children’s multiplicative reasoning, mathematical strategies and errors, sociomathematical norms, classroom interaction, fraction reasoning, and teacher noticing. He also uses technology, including eye-tracking, to investigate aspects of mathematical attention and problem solving that are difficult to observe through answers alone.',
-    'His scholarly perspective is shaped by educational experiences across Nigeria and the United States. This cross-context orientation informs his interest in place-based mathematics, culturally grounded learning, community knowledge, teacher development, and research that connects theory with classroom practice.',
-  ],
+ biography: [
+  'Temitope F. Egbedeyi is a mathematics education researcher and doctoral candidate in Curriculum & Instruction at Kent State University, with a research concentration in early childhood and elementary (K–6) mathematics education. His scholarship is grounded in a central concern: understanding how children develop mathematical reasoning and how educational environments can better support their mathematical thinking and learning.',
+
+  'His research examines children’s multiplicative reasoning, multi-digit multiplication and division, fractions and decimals, mathematical strategies and errors, sociomathematical norms, classroom interactions, and teacher noticing. As a Research Assistant at Kent State University, he contributes to externally funded research examining children’s mathematical thinking and strategies. His methodological experience includes qualitative and quantitative research, instrument development, data analysis, and eye-tracking methodology to investigate aspects of mathematical attention and problem solving that are difficult to observe through children’s answers alone.',
+
+  'A central goal of his scholarship is to strengthen the connection between what research reveals about children’s mathematical thinking and how mathematics is taught and learned. He is particularly interested in translating research findings into practical knowledge that can inform mathematics instruction, teacher preparation and professional learning, curriculum and instructional resource development, and the evaluation of educational practices.',
+
+  'His scholarly perspective is also shaped by his educational and professional experiences across Nigeria and the United States. This cross-context orientation informs his interest in place-based mathematics learning, culturally grounded learning, community knowledge, teacher development, and research that connects theory with classroom practice. He contributes to the wider scholarly community through peer review, conference participation, and service within educational and scientific organizations.',
+
+  'Egbedeyi holds a Master of Education in Teacher Education (Early Childhood Education) and a Bachelor of Education in Teacher Education/Early Childhood Education/Economics from the University of Ibadan, Nigeria. His broader professional interests include mathematics education research, educational research, curriculum and instructional research, program evaluation, research-to-practice initiatives, and translating rigorous research into meaningful educational practice.',
+],
 
   questions: [
     {
@@ -37,22 +43,25 @@ export const aboutContent = {
   ],
 
   journey: [
-    {
-      marker: 'B.Ed.',
-      institution: 'University of Ibadan, Nigeria',
-      credential: 'Bachelor’s Degree in Early Childhood Education/Economics Education',
-    },
-    {
-      marker: 'M.Ed.',
-      institution: 'University of Ibadan, Nigeria',
-      credential: 'Master’s Degree in Early Childhood Education',
-    },
-    {
-      marker: 'Ph.D.',
-      institution: 'Kent State University, United States',
-      credential: 'Curriculum & Instruction, in progress · Specialization in Early Childhood and Elementary Mathematics Education',
-    },
-  ],
+  {
+    marker: 'B.Ed.',
+    institution: 'University of Ibadan, Nigeria',
+    credential:
+      'Bachelor of Education in Teacher Education/Early Childhood Education/Economics',
+  },
+  {
+    marker: 'M.Ed.',
+    institution: 'University of Ibadan, Nigeria',
+    credential:
+      'Master of Education in Teacher Education (Early Childhood Education)',
+  },
+  {
+    marker: 'Ph.D.',
+    institution: 'Kent State University, United States',
+    credential:
+      'Curriculum & Instruction, in progress · Research concentration in Early Childhood and Elementary (K–6) Mathematics Education',
+  },
+],
 
   fundedResearch: [
     {
