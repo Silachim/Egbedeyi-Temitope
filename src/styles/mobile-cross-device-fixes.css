@@ -46,16 +46,29 @@ div {
   min-width: 0;
 }
 
+
+/* Preserve natural word boundaries across the website. */
 h1,
 h2,
 h3,
+h4,
+h5,
+h6,
 p,
-a,
 button,
 label,
 span {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Permit wrapping only for content that can genuinely be long. */
+a,
+code,
+pre {
   overflow-wrap: anywhere;
 }
+
 
 input,
 select,

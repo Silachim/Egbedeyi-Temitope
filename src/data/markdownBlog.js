@@ -1,3 +1,4 @@
+
 const REQUIRED_FIELDS = [
   'title',
   'slug',
@@ -9,7 +10,7 @@ const REQUIRED_FIELDS = [
 ]
 
 function stripQuotes(value) {
-  const text = String(value || '').trim()
+  const text = String(value ?? '').trim()
 
   if (
     (text.startsWith('"') && text.endsWith('"')) ||
@@ -32,9 +33,8 @@ function parseScalar(value) {
 }
 
 export function parseFrontMatter(raw) {
-  const normalized = String(raw || '')
-    .replace(/\r\n/g, '\n')
-    .replace(/\r/g, '\n')
+  const normalized = String(raw ?? '')
+    .replace(/\r\n?/g, '\n')
 
   if (!normalized.startsWith('---\n')) {
     return { data: {}, body: normalized }
@@ -50,18 +50,21 @@ export function parseFrontMatter(raw) {
 
   const frontMatter = normalized.slice(4, closing)
   const body = normalized.slice(closing + 5)
-  const lines = frontMatter.split('\n')
   const data = {}
   let currentArrayKey = null
 
-  for (const line of lines) {
+  for (const line of frontMatter.split('\n')) {
     if (!line.trim()) continue
 
     const listMatch = line.match(/^\s*-\s*(.*)$/)
 
     if (listMatch && currentArrayKey) {
       const item = parseScalar(listMatch[1])
-      if (item) data[currentArrayKey].push(item)
+
+      if (item) {
+        data[currentArrayKey].push(item)
+      }
+
       continue
     }
 
@@ -75,6 +78,7 @@ export function parseFrontMatter(raw) {
 
     if (rawValue.trim() === '') {
       data[key] = []
+      currentArrayKey = null
       currentArrayKey = key
     } else {
       data[key] = parseScalar(rawValue)
@@ -86,11 +90,12 @@ export function parseFrontMatter(raw) {
 }
 
 export function countWords(text) {
-  return String(text || '')
-    .replace(/[#>*_`[\]()!-]/g, ' ')
+  return String(text ?? '')
+    .replace(/[#>*_`\[\]()!-]/g, ' ')
     .trim()
     .split(/\s+/)
-    .filter(Boolean).length
+    .filter(Boolean)
+    .length
 }
 
 export function calculateReadingTime(
@@ -99,10 +104,9 @@ export function calculateReadingTime(
 ) {
   const words = countWords(text)
 
-  return `${Math.max(
-    1,
-    Math.ceil(words / wordsPerMinute)
-  )} min read`
+  return `${
+    Math.max(1, Math.ceil(words / wordsPerMinute))
+  } min read`
 }
 
 export function formatDisplayDate(isoDate) {
@@ -124,9 +128,7 @@ export function formatDisplayDate(isoDate) {
 
 function normalizeLine(value = '') {
   return String(value)
-    .replace(/\u00A0/g, ' ')
-    .replace(/\u2007/g, ' ')
-    .replace(/\u202F/g, ' ')
+    .replace(/[\u00A0\u2007\u202F]/g, ' ')
     .replace(/[ \t]+/g, ' ')
     .trim()
 }
@@ -134,10 +136,8 @@ function normalizeLine(value = '') {
 function plainMarkdownLabel(value = '') {
   return normalizeLine(value)
     .replace(/^#{1,6}\s*/, '')
-    .replace(/^\*{1,3}/, '')
-    .replace(/\*{1,3}$/, '')
-    .replace(/^_{1,3}/, '')
-    .replace(/_{1,3}$/, '')
+    .replace(/^\*{1,3}|\*{1,3}$/g, '')
+    .replace(/^_{1,3}|_{1,3}$/g, '')
     .trim()
 }
 
@@ -148,19 +148,13 @@ function isReferenceHeading(value = '') {
 }
 
 function splitReferenceSection(markdown) {
-  const normalized = String(markdown || '')
-    .replace(/\r\n/g, '\n')
-    .replace(/\r/g, '\n')
+  const normalized = String(markdown ?? '')
+    .replace(/\r\n?/g, '\n')
 
   const lines = normalized.split('\n')
-  let referenceIndex = -1
-
-  for (let i = 0; i < lines.length; i += 1) {
-    if (isReferenceHeading(lines[i])) {
-      referenceIndex = i
-      break
-    }
-  }
+  const referenceIndex = lines.findIndex(
+    isReferenceHeading
+  )
 
   if (referenceIndex === -1) {
     return {
@@ -173,64 +167,43 @@ function splitReferenceSection(markdown) {
     mainMarkdown: lines
       .slice(0, referenceIndex)
       .join('\n'),
+
     referenceText: lines
       .slice(referenceIndex + 1)
       .join('\n'),
   }
 }
 
+/**
+ * Splits manually written references into separate entries.
+ *
+ * Each reference must be separated by a blank line.
+ * Wrapped lines within one reference are combined.
+ *
+ * This avoids unreliable author/year detection,
+ * including problems with institutional authors
+ * and publications listed as "in press".
+ */
 function splitReferenceEntries(referenceText) {
-  const text = String(referenceText || '')
-    .replace(/\r\n/g, '\n')
-    .replace(/\r/g, '\n')
-    .replace(/\n+/g, ' ')
-    .replace(/\s+/g, ' ')
+  const normalized = String(referenceText ?? '')
+    .replace(/\r\n?/g, '\n')
+    .replace(/\u00A0/g, ' ')
     .trim()
 
-  if (!text) return []
+  if (!normalized) return []
 
-  const authorYearPattern =
-    /(?=(?:^|\s)([A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÖØ-öø-ÿ'’.\-‐–—]+(?:\s+[A-ZÀ-ÖØ-Þ][A-Za-zÀ-ÖØ-öø-ÿ'’.\-‐–—]+)*,\s*(?:[A-Z]\.)+(?:\s*[A-Z]\.)?\s*\((?:(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+)?\d{4}[a-z]?\)\.))/gi
-
-  const starts = []
-  let match
-
-  while (
-    (match = authorYearPattern.exec(text)) !== null
-  ) {
-    const rawIndex = match.index
-    const index =
-      rawIndex > 0 && /\s/.test(text[rawIndex])
-        ? rawIndex + 1
-        : rawIndex
-
-    starts.push(index)
-
-    authorYearPattern.lastIndex = Math.max(
-      authorYearPattern.lastIndex,
-      match.index + 1
+  return normalized
+    .split(/\n[ \t]*\n+/)
+    .map((entry) =>
+      entry
+        .split('\n')
+        .map((line) => line.trim())
+        .filter(Boolean)
+        .join(' ')
+        .replace(/[ \t]+/g, ' ')
+        .trim()
     )
-  }
-
-  if (starts.length <= 1) {
-    return [text]
-  }
-
-  const entries = []
-
-  for (let i = 0; i < starts.length; i += 1) {
-    const start = starts[i]
-    const end =
-      i + 1 < starts.length
-        ? starts[i + 1]
-        : text.length
-
-    const entry = text.slice(start, end).trim()
-
-    if (entry) entries.push(entry)
-  }
-
-  return entries
+    .filter(Boolean)
 }
 
 function parseFigureDirective(lines, startIndex) {
@@ -295,7 +268,7 @@ function parseMarkdownImage(line) {
 }
 
 function parseMainMarkdown(markdown) {
-  const lines = String(markdown || '').split('\n')
+  const lines = String(markdown ?? '').split('\n')
   const blocks = []
 
   let paragraph = []
@@ -304,41 +277,45 @@ function parseMainMarkdown(markdown) {
   let quoteLines = []
 
   const flushParagraph = () => {
-    if (!paragraph.length) return
-
-    blocks.push({
-      type: 'paragraph',
-      text: paragraph.join(' ').trim(),
-    })
+    if (paragraph.length) {
+      blocks.push({
+        type: 'paragraph',
+        text: paragraph.join(' ').trim(),
+      })
+    }
 
     paragraph = []
   }
 
   const flushList = () => {
-    if (!listItems.length) return
-    blocks.push({
-      type: 'list',
-      items: listItems,
-    })
+    if (listItems.length) {
+      blocks.push({
+        type: 'list',
+        items: listItems,
+      })
+    }
+
     listItems = []
   }
 
   const flushOrderedList = () => {
-    if (!orderedItems.length) return
-    blocks.push({
-      type: 'ordered-list',
-      items: orderedItems,
-    })
+    if (orderedItems.length) {
+      blocks.push({
+        type: 'ordered-list',
+        items: orderedItems,
+      })
+    }
+
     orderedItems = []
   }
 
   const flushQuote = () => {
-    if (!quoteLines.length) return
-
-    blocks.push({
-      type: 'quote',
-      text: quoteLines.join(' ').trim(),
-    })
+    if (quoteLines.length) {
+      blocks.push({
+        type: 'quote',
+        text: quoteLines.join(' ').trim(),
+      })
+    }
 
     quoteLines = []
   }
@@ -372,6 +349,7 @@ function parseMainMarkdown(markdown) {
 
       blocks.push(figure.block)
       index = figure.endIndex
+
       continue
     }
 
@@ -394,7 +372,10 @@ function parseMainMarkdown(markdown) {
 
       blocks.push({
         type: 'heading',
-        level: Math.max(2, heading[1].length),
+        level: Math.max(
+          2,
+          heading[1].length
+        ),
         text: heading[2].trim(),
       })
 
@@ -438,10 +419,12 @@ function parseMainMarkdown(markdown) {
     flushList()
     flushOrderedList()
     flushQuote()
+
     paragraph.push(trimmed)
   }
 
   flushAll()
+
   return blocks
 }
 
@@ -451,7 +434,9 @@ export function markdownToBlocks(markdown) {
     referenceText,
   } = splitReferenceSection(markdown)
 
-  const blocks = parseMainMarkdown(mainMarkdown)
+  const blocks = parseMainMarkdown(
+    mainMarkdown
+  )
 
   if (referenceText.trim()) {
     blocks.push({
@@ -529,31 +514,47 @@ export function parseMarkdownPost(
   sourceName = 'post.md'
 ) {
   const { data, body } = parseFrontMatter(raw)
+
   const errors = validatePostMetadata(
     data,
     sourceName
   )
 
   if (errors.length) {
-    throw new Error(errors.join('\n'))
+    throw new Error(
+      errors.join('\n')
+    )
   }
 
   const content = markdownToBlocks(body)
 
   return {
     ...data,
+
     isoDate: data.date,
-    date: formatDisplayDate(data.date),
-    readingTime: calculateReadingTime(body),
+
+    date: formatDisplayDate(
+      data.date
+    ),
+
+    readingTime: calculateReadingTime(
+      body
+    ),
+
     tags: Array.isArray(data.tags)
       ? data.tags.filter(Boolean)
       : [],
+
     featured: data.featured === true,
+
     content,
+
     figures: content.filter(
       (block) => block.type === 'figure'
     ),
+
     rawBody: body.trim(),
+
     sourceName,
   }
 }

@@ -19,7 +19,7 @@ export default function About() {
       <section className="about-hero">
         <div className="about-hero-copy">
           <h1>Temitope F. Egbedeyi</h1>
-          <p className="about-role">Early Childhood Mathematics Education Researcher</p>
+          <p className="about-role">Early Childhood/Elementary Mathematics Education Researcher</p>
           <p className="about-hero-summary">
             I study how children develop mathematical reasoning and how classroom interaction,
             culture, place, and technology shape opportunities to learn mathematics.

@@ -720,52 +720,52 @@ export default function BlogPost({
         </div>
       </section>
 
-      {(newer || older) &&
-        rawPost.status ===
-          'published' && (
-          <nav
-            className="blog-post-pagination"
-            aria-label="Article navigation"
-          >
-            <div className="blog-post-shell blog-post-pagination__grid">
-              <div>
-                {older && (
-                  <>
-                    <span>
-                      OLDER ARTICLE
-                    </span>
+      
+{(newer || older) &&
+  rawPost.status === 'published' && (
+    <nav
+      className="blog-post-pagination"
+      aria-label="Article navigation"
+    >
+      <div className="blog-post-shell blog-post-pagination__grid">
+        <div>
+          {older ? (
+            <>
+              <span>OLDER ARTICLE</span>
+              <a href={getBlogHref(older)}>
+                {older.title}
+              </a>
+            </>
+          ) : (
+            <>
+              <span>EXPLORE MORE</span>
+              <a href="/#blog">
+                Browse all articles →
+              </a>
+            </>
+          )}
+        </div>
 
-                    <a
-                      href={getBlogHref(
-                        older
-                      )}
-                    >
-                      {older.title}
-                    </a>
-                  </>
-                )}
-              </div>
-
-              <div>
-                {newer && (
-                  <>
-                    <span>
-                      NEWER ARTICLE
-                    </span>
-
-                    <a
-                      href={getBlogHref(
-                        newer
-                      )}
-                    >
-                      {newer.title}
-                    </a>
-                  </>
-                )}
-              </div>
-            </div>
-          </nav>
-        )}
+        <div>
+          {newer ? (
+            <>
+              <span>NEWER ARTICLE</span>
+              <a href={getBlogHref(newer)}>
+                {newer.title}
+              </a>
+            </>
+          ) : (
+            <>
+              <span>EXPLORE MORE</span>
+              <a href="/#blog">
+                Browse all articles →
+              </a>
+            </>
+          )}
+        </div>
+      </div>
+    </nav>
+  )}
 
       {relatedPosts.length > 0 &&
         rawPost.status ===

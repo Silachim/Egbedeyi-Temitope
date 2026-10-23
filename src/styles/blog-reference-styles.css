@@ -43,16 +43,29 @@
   margin-bottom: 0.7rem;
 }
 
-/* Standard/custom: clean web bibliography without forcing a citation convention */
-.blog-reference-entry--standard,
+
+/* Standard: supports APA-formatted references supplied manually */
+.blog-reference-entry--standard {
+  padding-left: 0.5in;
+  text-indent: -0.5in;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+/* Custom: retain independent formatting */
 .blog-reference-entry--custom {
   padding-left: 0;
   text-indent: 0;
 }
 
-.blog-reference-entry:last-child {
-  margin-bottom: 0;
+@media (max-width: 700px) {
+  .blog-reference-entry--standard {
+    padding-left: 1.5rem;
+    text-indent: -1.5rem;
+  }
 }
+
 
 @media (max-width: 700px) {
   .blog-reference-entry--apa,
