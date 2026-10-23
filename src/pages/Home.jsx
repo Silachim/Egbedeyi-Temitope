@@ -63,10 +63,11 @@ export default function Home() {
           <div className="hero-banner-copy">
             <p className="eyebrow hero-eyebrow">DOCTORAL CANDIDATE · KENT STATE UNIVERSITY</p>
             <h1 id="home-title">
-              Early Childhood<br />
-              Mathematics<br />
-              Education<br />
-              <em>Researcher</em>
+              <span className="hero-title-line">Early Childhood/</span>
+              <span className="hero-title-line">Elementary </span>
+              <span className="hero-title-line">Mathematics </span>
+              <span className="hero-title-line">Education </span>
+              <em className="hero-title-line">Researcher</em>
             </h1>
             <p className="hero-summary">
               I study how young children develop mathematical reasoning and how classroom

@@ -49,6 +49,9 @@
 .hero-eyebrow{color:#e3ae70}
 .hero-banner-copy h1{color:#fff;font-family:'Playfair Display',serif;font-size:clamp(52px,6vw,86px);line-height:.98;font-weight:400;letter-spacing:-.035em;margin:.32em 0 .32em}
 .hero-banner-copy h1 em{font-weight:400;color:#e0a55d}
+.hero-banner-copy h1 .hero-title-line{display:block;white-space:nowrap}
+.hero-banner-copy h1{font-size:clamp(38px,4.6vw,72px);line-height:1.02}
+
 .hero-summary{max-width:660px;font-size:clamp(16px,1.45vw,20px);line-height:1.65;color:#f3ece5}
 .hero-buttons{margin-top:28px}
 .hero-outline{border:1px solid rgba(255,255,255,.78);color:#fff;padding:12px 22px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none}

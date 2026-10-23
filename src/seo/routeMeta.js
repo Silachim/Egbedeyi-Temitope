@@ -3,12 +3,12 @@ const DEFAULT_IMAGE = `${SITE_URL}/assets/images/home-banner.jpg`
 
 export const routeMeta = {
   home: {
-    title: 'Temitope F. Egbedeyi | Early Childhood Mathematics Education Researcher',
+    title: 'Temitope F. Egbedeyi | Early Childhood/Elementary Mathematics Education Researcher',
     description:
-      'Academic website of Temitope F. Egbedeyi, an Early Childhood Mathematics Education Researcher studying children’s mathematical reasoning, classroom interaction, culture, place, and technology.',
+      'Academic website of Temitope F. Egbedeyi, an Early Childhood/Elementary Mathematics Education Researcher studying children’s mathematical reasoning, classroom interaction, culture, place, and technology.',
   },
   about: {
-    title: 'About Temitope F. Egbedeyi | Early Childhood Mathematics Education Researcher',
+    title: 'About Temitope F. Egbedeyi | Early Childhood/Elementary Mathematics Education Researcher',
     description:
       'Learn about Temitope F. Egbedeyi, his academic journey, research interests, leadership, awards, and work in early childhood and elementary mathematics education.',
   },

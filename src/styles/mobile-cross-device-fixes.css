@@ -179,7 +179,7 @@ button {
   }
 
   .hero-banner-copy h1 {
-    font-size: clamp(42px, 13vw, 58px) !important;
+    font-size: clamp(30px, 8.8vw, 48px) !important;
     line-height: 0.98 !important;
     max-width: 100% !important;
   }

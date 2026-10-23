@@ -538,8 +538,19 @@
     padding: 64px 0;
   }
 
+  /* Keep the long Research title readable on narrow phones. */
+  .research-hero-copy,
+  .research-focus-panel {
+    min-width: 0;
+  }
+
   .research-hero h1 {
-    font-size: clamp(3rem, 16vw, 4.8rem);
+    font-size: clamp(2.125rem, 8.5vw, 2.75rem);
+    line-height: 1.06;
+    letter-spacing: -.035em;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   .research-hero-actions {

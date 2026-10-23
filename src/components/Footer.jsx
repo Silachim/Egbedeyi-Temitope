@@ -31,7 +31,7 @@ export default function Footer() {
               Temitope F. Egbedeyi
             </a>
             <p className="site-footer__role">
-              Early Childhood Mathematics Education Researcher
+              Early Childhood/Elementary Mathematics Education Researcher
             </p>
             <p className="site-footer__descriptor">
               Research <span aria-hidden="true">·</span> Teaching{' '}
