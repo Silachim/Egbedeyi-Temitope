@@ -1,6 +1,6 @@
 export const researchContent = {
   hero: {
-    eyebrow: "EARLY CHILDHOOD MATHEMATICS EDUCATION RESEARCH",
+    eyebrow: "EARLY CHILDHOOD/ELEMENTARY MATHEMATICS EDUCATION RESEARCHER",
     title: "Understanding how children develop mathematical reasoning",
     intro:
       "My research examines how children make sense of mathematics and how classroom interaction, culture, place, and technology shape opportunities for reasoning, explanation, and learning.",
